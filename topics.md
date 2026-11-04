@@ -2,6 +2,7 @@
 
 Règle : la session planifiée prend le **premier sujet non coché**, le produit, puis le coche avec la date et le numéro d'épisode.
 Thèmes intemporels (pas d'actualité), vérifiables, adaptés aux illustrations vectorielles simples.
+Les vidéos sont en anglais : traduire le sujet en titre anglais accrocheur au moment de produire l épisode.
 
 - [x] 001 — Et si la Lune disparaissait ? (épisode test, 2026-11-04)
 - [ ] Et si la Terre arrêtait de tourner ?

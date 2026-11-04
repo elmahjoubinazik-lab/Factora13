@@ -35,7 +35,7 @@ Premier sujet non coché de `topics.md`. **S'il reste moins de 10 sujets non coc
   - textes dessinés à l'écran : écrire directement en anglais dans `scenes.py` (ou clé française + dictionnaire `TR["en"]` comme l'épisode 001) ;
   - **uniquement des faits établis** (NASA, ESA, CNRS, INSERM, OMS, Banque de France, encyclopédies…). Pas de chiffre douteux ;
     en cas de doute, formuler prudemment (« selon plusieurs études ») ou retirer. Lister les sources dans `meta.json` ;
-  - fin : question au public + « Abonnez-vous à Factora, pour ne manquer aucun fait fascinant. » (ne jamais citer de fréquence de publication : elle peut changer)
+  - fin : question au public + « And subscribe to Factora, so you never miss a fascinating fact. » (ne jamais citer de fréquence de publication : elle peut changer)
 - `scenes.py` : une fonction de dessin par scène `sc_xxx(ctx, t, d)` (t = temps local, d = durée), le dict `SCENES`,
   la liste `SHORT_SCENES` (segments gardés pour le Short, **≤ 60 s au total** — vérifier avec build/timeline.json, la voix est lente, commencer par l'accroche, finir par l'outro),
   et `thumbnail(c)` (1280×720, utiliser `thumb_text(c, ligne1, ligne2, bandeau)`).
