@@ -1,0 +1,12 @@
+[
+ {"scene":"hook","text":["Every clear day, the sky above you turns blue.","Yet sunlight itself is not blue at all.","So where does that color come from? And why do sunsets glow orange?"]},
+ {"scene":"white","text":["Sunlight looks white, but it is really a mix of every color of the rainbow.","Send it through a prism, and it spreads out: red, orange, yellow, green, blue and violet."]},
+ {"scene":"waves","text":["Each color is a wave of light with its own length.","Red light has long, lazy waves.","Blue light has short, tight waves."]},
+ {"scene":"scatter","text":["On its way down, sunlight runs into the air: tiny molecules of nitrogen and oxygen.","These molecules bounce short waves in every direction, much more than long ones.","Blue light gets scattered about five times more than red.","So blue reaches your eyes from every part of the sky.","Physicists call this Rayleigh scattering, after the British scientist Lord Rayleigh."]},
+ {"scene":"violet","text":["But wait. Violet waves are even shorter. So why isn't the sky purple?","The Sun sends out less violet than blue, and some of it is absorbed high in the atmosphere.","Above all, our eyes are much more sensitive to blue than to violet."]},
+ {"scene":"sunset","text":["Now, the sunset.","When the Sun is low, its light crosses much more air before it reaches you.","Along the way, most of the blue is scattered off to the sides.","What is left is the warm light: yellow, orange and red.","Dust and smoke in the air can make sunsets even more intense."]},
+ {"scene":"clouds","text":["And clouds? Their water droplets are much bigger than air molecules.","They scatter all colors about equally, so clouds look white… or gray when they are thick."]},
+ {"scene":"mars","text":["On other planets, the rules change.","On Mars, fine dust gives the daytime sky a pale, butterscotch color.","And Martian sunsets? They glow blue. NASA rovers have photographed them."]},
+ {"scene":"space","text":["Above our atmosphere, there is almost no air to scatter light.","That is why astronauts see a black sky, even with the Sun shining."]},
+ {"scene":"outro","text":["So every blue sky is really sunlight, bouncing off countless tiny molecules.","Did you already know why the sky is blue? Tell us in the comments.","And subscribe to Factora, so you never miss a fascinating fact."]}
+]
