@@ -1,1 +1,14 @@
-{"episodes": []}
+{
+  "episodes": [
+    {
+      "episode": "001",
+      "topic": "Et si la Lune disparaissait ?",
+      "dir": "episodes/001-lune",
+      "date": "2026-11-04",
+      "long_id": "UzzrHLYfzX8",
+      "short_id": "skaTU6ClKVs",
+      "status": "unlisted",
+      "thumbnail_set": false
+    }
+  ]
+}

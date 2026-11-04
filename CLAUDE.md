@@ -62,17 +62,20 @@ Construire la description : `python3 engine/description.py episodes/NNN-x` (→ 
 
 ### 5. Héberger les fichiers (lien public pour Zapier)
 ```bash
-gh release create epNNN episodes/NNN-x/build/video_long.mp4 episodes/NNN-x/build/video_short.mp4 \
-   episodes/NNN-x/build/miniature.png --repo "$(jq -r .video_host_repo config.json)" --title "Épisode NNN" --notes "Factora"
+bash engine/host.sh episodes/NNN-x NNN   # pousse sur la branche « media » et affiche les 3 URL publiques
 ```
-URL d'un fichier : `https://github.com/<video_host_repo>/releases/download/epNNN/<fichier>`.
+(Les « releases » GitHub sont interdites depuis les sessions : ne pas les utiliser.)
 
 ### 6. Publier via Zapier (action YouTube « Upload Video »)
-Vidéo longue : `title`, `description`, `tags`, `video` = URL, `thumbnail` = URL miniature, `privacy_status` = `config.privacy_first`,
-`made_for_kids` = false, `category_id` = « Education » (résoudre la valeur via inspect_zapier_actions), `default_language` = fr,
-`default_audio_language` = fr, `notify_subscribers` = true.
-Short : idem avec `short_title`, description courte + « Vidéo complète sur la chaîne », sans miniature.
-Ajouter les deux dans `published.json` (`episode`, `topic`, `long_id`, `short_id`, `date`, `status`).
+Vidéo longue : `title`, `description` (= build/description.txt), `tags`, `video` = URL, `privacy_status` = `config.privacy_first`,
+`made_for_kids` = false, `category_id` = "27" (Éducation), `default_language` = fr, `default_audio_language` = fr, `notify_subscribers` = true.
+**Ne pas passer `thumbnail` dans l'upload** (s'il échoue, la vidéo est quand même créée → risque de doublon).
+Après chaque upload, vérifier avec GET `search?part=snippet&forMine=true&type=video` que la vidéo existe une seule fois.
+Puis action « Update Video Thumbnail » (`video_id`, `thumbnail` = URL miniature). Si refus « permissions… thumbnails »
+(téléphone du compte non vérifié) : continuer sans, noter `"thumbnail_set": false`, le signaler dans l'e-mail.
+Lors de l'étape 1, réessayer la miniature des épisodes avec `"thumbnail_set": false` (fichier : régénérer avec `render.py thumb` puis `host.sh`, ou ignorer si impossible).
+Short : `short_title`, description courte avec le lien `https://youtu.be/<long_id>` + hashtags, sans miniature, `notify_subscribers` = false.
+Ajouter l'épisode dans `published.json` (`episode`, `topic`, `dir`, `date`, `long_id`, `short_id`, `status`, `thumbnail_set`).
 Cocher le sujet dans `topics.md` (date + numéro). `git add -A && git commit && git push origin main`.
 
 ### 7. Prévenir Nazik
