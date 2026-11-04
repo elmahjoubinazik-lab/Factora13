@@ -2,7 +2,10 @@
 Usage: python3 engine/description.py EPISODE_DIR  -> écrit build/description.txt"""
 import sys, json
 EP = sys.argv[1].rstrip("/")
-meta = json.load(open(EP + "/meta.json", encoding="utf-8"))
+import os
+LANG = json.load(open(os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/config.json", encoding="utf-8")).get("langue", "fr")
+MP = EP + f"/meta_{LANG}.json" if os.path.exists(EP + f"/meta_{LANG}.json") else EP + "/meta.json"
+meta = json.load(open(MP, encoding="utf-8"))
 tl = json.load(open(EP + "/build/timeline.json", encoding="utf-8"))
 lines = []
 for i, s in enumerate(tl):

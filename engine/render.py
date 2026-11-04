@@ -127,6 +127,14 @@ def thumb_text(c, line1, line2, badge=None):
         c.select_font_face("Inter", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); c.set_font_size(48); w = c.text_extents(badge).width
         c.set_source_rgb(.85, .12, .12); c.rectangle(50, 415, w + 50, 80); c.fill(); t(badge, 75, 472, 48, (1, 1, 1))
 
+# ---------- langue (config.json → langue) ----------
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LANG = json.load(open(ROOT + "/config.json", encoding="utf-8")).get("langue", "fr")
+TR = {}
+def T(txt):
+    """Texte à l'écran : la clé est la version française ; traduction dans TR[LANG] (défini dans scenes.py)."""
+    return TR.get(LANG, {}).get(txt, txt)
+
 # ---------- scènes de l'épisode ----------
 exec(open(EP + '/scenes.py', encoding='utf-8').read())
 

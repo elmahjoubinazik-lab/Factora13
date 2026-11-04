@@ -1,3 +1,32 @@
+TR = {"en": {
+ "ET SI LA LUNE": "WHAT IF THE MOON",
+ "DISPARAISSAIT ?": "DISAPPEARED?",
+ "ET SI LA LUNE DISPARAISSAIT ?": "WHAT IF THE MOON DISAPPEARED?",
+ "AVEC LA LUNE": "WITH THE MOON",
+ "SANS LA LUNE": "WITHOUT THE MOON",
+ "CONSÉQUENCE 1 · DES NUITS NOIRES": "CONSEQUENCE 1 · PITCH-BLACK NIGHTS",
+ "DES MILLIERS D'ESPÈCES RÉGLÉES SUR LA LUNE": "THOUSANDS OF SPECIES TIMED BY THE MOON",
+ "MARÉES ≈ 3× PLUS FAIBLES": "TIDES ≈ 3× WEAKER",
+ "CONSÉQUENCE 2 · LES MARÉES": "CONSEQUENCE 2 · THE TIDES",
+ "marée haute": "high tide",
+ "marée basse": "low tide",
+ "ZONE DE MARÉE : RÉDUITE": "TIDAL ZONE: SHRINKING",
+ "ZONE DE MARÉE": "TIDAL ZONE",
+ "SANS LA LUNE : INSTABLE": "WITHOUT THE MOON: UNSTABLE",
+ "LA LUNE STABILISE L'AXE": "THE MOON STEADIES THE AXIS",
+ "CONSÉQUENCE 3 · L'INCLINAISON": "CONSEQUENCE 3 · EARTH'S TILT",
+ "AVEC LA LUNE : STABLE": "WITH THE MOON: STABLE",
+ "SANS LA LUNE : ILLUSTRATION SIMPLIFIÉE": "WITHOUT THE MOON: SIMPLIFIED ILLUSTRATION",
+ "inclinaison de l'axe → sur des millions d'années": "axial tilt → over millions of years",
+ "PLUS D'ÉCLIPSE TOTALE": "NO MORE TOTAL ECLIPSES",
+ "+3,8 cm / an": "+3.8 cm / year",
+ "dans ~{} millions d'années": "in ~{} million years",
+ "un fait fascinant chaque semaine": "fascinating facts, explained",
+ "S'ABONNER": "SUBSCRIBE",
+ "Laquelle vous a le plus surpris ?": "Which one surprised you most?",
+ "3 CONSÉQUENCES": "3 CONSEQUENCES"
+}}
+
 # Scènes de l'épisode « Et si la Lune disparaissait ? »
 # Ce fichier est exécuté dans l'espace de noms de engine/render.py : tous les helpers
 # (W, H, U, CX, CY, VERT, couleurs, vgrad, circle, glow, text, rrect, stars, moon, earth, sun, chip, houses, prog, ease, mix...) sont disponibles.
@@ -24,10 +53,10 @@ def sc_title(ctx, t, d):
     rgba(ctx, MOON, 0.6); ctx.set_line_width(4 * U); ctx.stroke(); ctx.set_dash([])
     a = prog(t, 0, 0.5)
     if VERT:
-        text(ctx, "ET SI LA LUNE", CX, CY + yo, 96 * U, WHITE, a)
-        text(ctx, "DISPARAISSAIT ?", CX, CY + yo + 115 * U, 96 * U, GOLD, a)
+        text(ctx, T("ET SI LA LUNE"), CX, CY + yo, 96 * U, WHITE, a)
+        text(ctx, T("DISPARAISSAIT ?"), CX, CY + yo + 115 * U, 96 * U, GOLD, a)
     else:
-        text(ctx, "ET SI LA LUNE DISPARAISSAIT ?", CX, CY + yo, 104 * U, WHITE, a)
+        text(ctx, T("ET SI LA LUNE DISPARAISSAIT ?"), CX, CY + yo, 104 * U, WHITE, a)
     ctx.restore()
 
 def landscape(ctx, x0, x1, lit, t, y0=0, y1=None):
@@ -62,16 +91,16 @@ def landscape(ctx, x0, x1, lit, t, y0=0, y1=None):
 def sc_night(ctx, t, d):
     if VERT:
         landscape(ctx, 0, W, 1, t, 0, H * 0.46); landscape(ctx, 0, W, 0, t, H * 0.46, H)
-        text(ctx, "AVEC LA LUNE", CX, H * 0.14, 44 * U, WHITE)
-        text(ctx, "SANS LA LUNE", CX, H * 0.52, 44 * U, GOLD)
+        text(ctx, T("AVEC LA LUNE"), CX, H * 0.14, 44 * U, WHITE)
+        text(ctx, T("SANS LA LUNE"), CX, H * 0.52, 44 * U, GOLD)
         rgba(ctx, GOLD); ctx.rectangle(0, H * 0.46 - 2 * U, W, 4 * U); ctx.fill()
     else:
         sp = W / 2
         landscape(ctx, 0, sp, 1, t); landscape(ctx, sp, W, 0, t)
         rgba(ctx, GOLD); ctx.rectangle(sp - 2 * U, 0, 4 * U, H); ctx.fill()
-        text(ctx, "AVEC LA LUNE", sp / 2, H * 0.2, 48 * U, WHITE)
-        text(ctx, "SANS LA LUNE", sp * 1.5, H * 0.2, 48 * U, GOLD)
-    chip(ctx, "CONSÉQUENCE 1 · DES NUITS NOIRES", t)
+        text(ctx, T("AVEC LA LUNE"), sp / 2, H * 0.2, 48 * U, WHITE)
+        text(ctx, T("SANS LA LUNE"), sp * 1.5, H * 0.2, 48 * U, GOLD)
+    chip(ctx, T("CONSÉQUENCE 1 · DES NUITS NOIRES"), t)
 
 def coral_branch(ctx, x, y, ang, ln, depth, w):
     if depth == 0 or ln < 6 * U: return
@@ -108,7 +137,7 @@ def sc_coral(ctx, t, d):
         y = H * 0.8 - tt * sp_speed
         if y < 0 or tt <= 0: continue
         circle(ctx, x0 + math.sin(tt + ph) * 20 * U, y, random.uniform(3, 7) * U, (1, 0.75, 0.8), 0.85 * sp)
-    chip(ctx, "DES MILLIERS D'ESPÈCES RÉGLÉES SUR LA LUNE", t)
+    chip(ctx, T("DES MILLIERS D'ESPÈCES RÉGLÉES SUR LA LUNE"), t)
 
 def sc_tides(ctx, t, d):
     vgrad(ctx, NAVY2, NAVY); stars(ctx, t, 0.5)
@@ -135,8 +164,8 @@ def sc_tides(ctx, t, d):
     if gone > 0:
         ly = ey + R + 150 * U if not VERT else ey + R + 150 * U
         lx = ex if not VERT else CX
-        text(ctx, "MARÉES ≈ 3× PLUS FAIBLES", lx if not VERT else CX, ey - R - 110 * U if not VERT else CY - 330 * U, 52 * U, GOLD, gone)
-    chip(ctx, "CONSÉQUENCE 2 · LES MARÉES", t)
+        text(ctx, T("MARÉES ≈ 3× PLUS FAIBLES"), lx if not VERT else CX, ey - R - 110 * U if not VERT else CY - 330 * U, 52 * U, GOLD, gone)
+    chip(ctx, T("CONSÉQUENCE 2 · LES MARÉES"), t)
 
 def sc_shore(ctx, t, d):
     vgrad(ctx, (0.45, 0.65, 0.85), (0.85, 0.9, 0.95), 0, H)
@@ -163,12 +192,12 @@ def sc_shore(ctx, t, d):
             x = beach_x(y) + 30 * U
             circle(ctx, x, y - 6 * U, 9 * U, CORAL); circle(ctx, x + 25 * U, y - 4 * U, 6 * U, (0.2, 0.2, 0.35))
     ctx.set_dash([12 * U, 10 * U]); ctx.set_line_width(3 * U); rgba(ctx, NAVY, 0.6)
-    for yy, nm in [(H * 0.58 - amp, "marée haute"), (H * 0.58 + amp, "marée basse")]:
+    for yy, nm in [(H * 0.58 - amp, T("marée haute")), (H * 0.58 + amp, T("marée basse"))]:
         ctx.move_to(0, yy); ctx.line_to(W, yy); ctx.stroke()
     ctx.set_dash([])
-    for yy, nm in [(H * 0.58 - amp, "marée haute"), (H * 0.58 + amp, "marée basse")]:
+    for yy, nm in [(H * 0.58 - amp, T("marée haute")), (H * 0.58 + amp, T("marée basse"))]:
         text(ctx, nm, 40 * U, yy - 24 * U, 28 * U, NAVY if yy < lvl else WHITE, 0.9, False, "l")
-    lab = "ZONE DE MARÉE : RÉDUITE" if weak > 0.5 else "ZONE DE MARÉE"
+    lab = T("ZONE DE MARÉE : RÉDUITE") if weak > 0.5 else T("ZONE DE MARÉE")
     text(ctx, lab, CX if VERT else W * 0.7, H * 0.2 if not VERT else H * 0.25, 46 * U, NAVY, 1)
 
 def sc_tilt(ctx, t, d):
@@ -184,15 +213,15 @@ def sc_tilt(ctx, t, d):
     ctx.move_to(CX, CY - R * 1.5); ctx.line_to(CX, CY + R * 1.5); ctx.stroke(); ctx.set_dash([])
     deg = math.degrees(ang)
     ctx.arc(CX, CY, R * 1.25, -math.pi / 2, -math.pi / 2 + ang); rgba(ctx, GOLD); ctx.set_line_width(5 * U); ctx.stroke()
-    text(ctx, f"{deg:.1f}°".replace(".", ","), CX + R * 1.5, CY - R * 1.0, 64 * U, GOLD)
-    if wob > 0.1: text(ctx, "SANS LA LUNE : INSTABLE", CX, CY - R * 1.75, 50 * U, CORAL, wob)
-    else: text(ctx, "LA LUNE STABILISE L'AXE", CX, CY - R * 1.75, 50 * U, WHITE, prog(t, d * 0.4, d * 0.5))
-    chip(ctx, "CONSÉQUENCE 3 · L'INCLINAISON", t)
+    text(ctx, (f"{deg:.1f}°".replace(".", ",") if LANG == "fr" else f"{deg:.1f}°"), CX + R * 1.5, CY - R * 1.0, 64 * U, GOLD)
+    if wob > 0.1: text(ctx, T("SANS LA LUNE : INSTABLE"), CX, CY - R * 1.75, 50 * U, CORAL, wob)
+    else: text(ctx, T("LA LUNE STABILISE L'AXE"), CX, CY - R * 1.75, 50 * U, WHITE, prog(t, d * 0.4, d * 0.5))
+    chip(ctx, T("CONSÉQUENCE 3 · L'INCLINAISON"), t)
 
 def sc_climate(ctx, t, d):
     vgrad(ctx, NAVY2, NAVY)
     x0, x1 = W * 0.1, W * 0.9
-    rows = [("AVEC LA LUNE : STABLE", H * 0.25, 0.12, WHITE), ("SANS LA LUNE : ILLUSTRATION SIMPLIFIÉE", H * 0.58, 1.0, CORAL)]
+    rows = [(T("AVEC LA LUNE : STABLE"), H * 0.25, 0.12, WHITE), (T("SANS LA LUNE : ILLUSTRATION SIMPLIFIÉE"), H * 0.58, 1.0, CORAL)]
     p = prog(t, 0.3, d * 0.8)
     random.seed(2)
     noise = [random.uniform(-1, 1) for _ in range(400)]
@@ -207,7 +236,7 @@ def sc_climate(ctx, t, d):
             y = yc - v * 90 * U * amp - math.sin(i * 0.12) * 18 * U
             (ctx.line_to if i else ctx.move_to)(x, y)
         ctx.stroke()
-    text(ctx, "inclinaison de l'axe → sur des millions d'années", CX, H * 0.74, 30 * U, WHITE, 0.7, False)
+    text(ctx, T("inclinaison de l'axe → sur des millions d'années"), CX, H * 0.74, 30 * U, WHITE, 0.7, False)
 
 def sc_eclipse(ctx, t, d):
     vgrad(ctx, (0.02, 0.02, 0.05), NAVY); stars(ctx, t, 0.4)
@@ -220,7 +249,7 @@ def sc_eclipse(ctx, t, d):
         glow(ctx, sx, sy, r * 1.7, WHITE, 0.6 * (1 - gone))
     circle(ctx, mx, sy, r * 1.01, (0.02, 0.02, 0.04), 1 - gone)
     if gone > 0:
-        text(ctx, "PLUS D'ÉCLIPSE TOTALE", CX, sy + r + 120 * U, 60 * U, GOLD, gone)
+        text(ctx, T("PLUS D'ÉCLIPSE TOTALE"), CX, sy + r + 120 * U, 60 * U, GOLD, gone)
 
 def sc_distance(ctx, t, d):
     vgrad(ctx, NAVY2, NAVY); stars(ctx, t, 0.5)
@@ -234,26 +263,26 @@ def sc_distance(ctx, t, d):
         mx = W * 0.68 + 160 * U * prog(t, 3, d); moon(ctx, mx, ey, 60 * U)
         ctx.set_dash([10 * U, 10 * U]); rgba(ctx, WHITE, 0.5); ctx.set_line_width(3 * U); ctx.move_to(ex + 190 * U, ey); ctx.line_to(mx - 75 * U, ey); ctx.stroke(); ctx.set_dash([])
         tx, ty = (ex + mx) / 2, ey - 90 * U
-    text(ctx, "+3,8 cm / an", tx, ty, 72 * U, GOLD, prog(t, 3.5, 4.3))
+    text(ctx, T("+3,8 cm / an"), tx, ty, 72 * U, GOLD, prog(t, 3.5, 4.3))
     yrs = int(600 * prog(t, 7.5, d - 1))
-    if yrs: text(ctx, f"dans ~{yrs} millions d'années", tx, ty + (180 if not VERT else 90) * U, 40 * U, WHITE, 0.9, False)
+    if yrs: text(ctx, T("dans ~{} millions d'années").format(yrs), tx, ty + (180 if not VERT else 90) * U, 40 * U, WHITE, 0.9, False)
 
 def sc_outro(ctx, t, d):
     vgrad(ctx, NAVY2, NAVY); stars(ctx, t, 0.6)
     yo = -80 * U if not VERT else -200 * U
     moon(ctx, CX, CY + yo - 190 * U, 70 * U)
     text(ctx, "FACTORA", CX, CY + yo, 140 * U, WHITE, prog(t, 0, 0.6))
-    text(ctx, "un fait fascinant chaque semaine", CX, CY + yo + 100 * U, 38 * U, GOLD, prog(t, 0.4, 1.0), False)
+    text(ctx, T("un fait fascinant chaque semaine"), CX, CY + yo + 100 * U, 38 * U, GOLD, prog(t, 0.4, 1.0), False)
     k = prog(t, d * 0.55, d * 0.65)
     if k:
         bw, bh = 520 * U, 110 * U
         pop = 1 + 0.05 * math.sin(t * 6)
         ctx.save(); ctx.translate(CX, CY + yo + 260 * U); ctx.scale(pop * k, pop * k)
         rrect(ctx, -bw / 2, -bh / 2, bw, bh, 22 * U); rgba(ctx, (0.85, 0.12, 0.12)); ctx.fill()
-        text(ctx, "S'ABONNER", 0, 0, 52 * U, WHITE)
+        text(ctx, T("S'ABONNER"), 0, 0, 52 * U, WHITE)
         ctx.restore()
     q = prog(t, d * 0.3, d * 0.4)
-    if q and k < 1: text(ctx, "💬  Quelle conséquence vous a le plus surpris ?" if False else "Laquelle vous a le plus surpris ?", CX, CY + yo + 260 * U, 44 * U, WHITE, q * (1 - k))
+    if q and k < 1: text(ctx, T("Laquelle vous a le plus surpris ?"), CX, CY + yo + 260 * U, 44 * U, WHITE, q * (1 - k))
 
 SHORT_SCENES = ["hook", "night", "tides", "outro"]
 
@@ -275,4 +304,4 @@ def thumbnail(c):
         c.arc(mx + dx * r, my + dy * r, rr * r, 0, 6.3); c.set_source_rgb(.82, .8, .72); c.fill()
     c.restore()
     c.set_dash([18, 14]); c.arc(mx, my, r, -math.pi / 2, math.pi / 2); c.set_source_rgba(1, 1, 1, .7); c.set_line_width(5); c.stroke(); c.set_dash([])
-    thumb_text(c, "ET SI LA LUNE", "DISPARAISSAIT ?", "3 CONSÉQUENCES")
+    thumb_text(c, T("ET SI LA LUNE"), T("DISPARAISSAIT ?"), T("3 CONSÉQUENCES"))

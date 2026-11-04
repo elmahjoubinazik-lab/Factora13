@@ -1,7 +1,7 @@
 # Factora — production et publication automatiques
 
 Chaîne YouTube **Factora (@factoraofficiel, id UCzFd6_4jKV184oZtqr06ueA)** — ne pas publier sur @factora13 (UCYxSS4wKZUa3kmLnTYiGmuw), autre chaîne : vidéos éducatives sans visage, en français, sur des thèmes variés
-(« Et si… ? », « Comment ça marche ? », « Pourquoi… ? »). Une vidéo longue (2–4 min, 16:9) + un Short (≤ 60 s, 9:16) par épisode.
+(« What if…? », « How does … work? », « Why…? »). **Toutes les vidéos sont en ANGLAIS** (décision de Nazik, 2026-11-04) ; `config.json → langue` = "en". Une vidéo longue (2–4 min, 16:9) + un Short (≤ 60 s, 9:16) par épisode.
 Propriétaire : Nazik EL MAHJOUBI. Toute la communication avec elle se fait **en français**.
 
 Paramètres : `config.json` (chaîne cible, dépôt d'hébergement des fichiers, rythme). Le dépôt est **public** : n'y écrire aucune donnée personnelle ni identifiant.
@@ -29,9 +29,10 @@ Faire de même pour le Short associé.
 Premier sujet non coché de `topics.md`. **S'il reste moins de 10 sujets non cochés**, en ajouter 20 nouveaux à la fin (mêmes règles : intemporels, vérifiables, variés — science, corps humain, histoire, économie, nature, technologie ; jamais un sujet déjà traité). Créer `episodes/NNN-mot-cle/` (NNN = numéro suivant sur 3 chiffres).
 
 ### 3. Écrire l'épisode
-- `script.json` : liste de segments `{"scene": "id", "text": ["phrase", …]}`. Modèle : `episodes/001-lune/script.json`.
+- `script_en.json` (langue de la chaîne ; `script.json` = ancien français, ne plus l'utiliser) : liste de segments `{"scene": "id", "text": ["phrase", …]}`. Modèle : `episodes/001-lune/script_en.json`. Rédiger directement en anglais naturel (américain), pas une traduction.
   - 300–450 mots, 9–12 segments ; accroche forte en 2 phrases ; promesse tenue dans les 10 premières secondes ;
   - nombres écrits en toutes lettres (la voix les lit mieux) ; phrases courtes ;
+  - textes dessinés à l'écran : écrire directement en anglais dans `scenes.py` (ou clé française + dictionnaire `TR["en"]` comme l'épisode 001) ;
   - **uniquement des faits établis** (NASA, ESA, CNRS, INSERM, OMS, Banque de France, encyclopédies…). Pas de chiffre douteux ;
     en cas de doute, formuler prudemment (« selon plusieurs études ») ou retirer. Lister les sources dans `meta.json` ;
   - fin : question au public + « Abonnez-vous à Factora, pour ne manquer aucun fait fascinant. » (ne jamais citer de fréquence de publication : elle peut changer)
@@ -41,8 +42,8 @@ Premier sujet non coché de `topics.md`. **S'il reste moins de 10 sujets non coc
   Modèle complet : `episodes/001-lune/scenes.py`. Style maison : fond bleu nuit, accents or, aplats vectoriels, pas d'images externes.
   Les dessins doivent être **originaux et propres au sujet** (exigence YouTube « contenu authentique »).
   Éviter le bas de l'écran (sous-titres : ~0,80–0,92 H en 16:9, ~0,70–0,78 H en 9:16).
-- `meta.json` : `title` (≤ 70 car., curiosité + mot-clé), `short_title` (finir par `#shorts`), `description` (avec `{CHAPITRES}`),
-  `chapters` (id de scène → libellé ; chaque chapitre ≥ 10 s, le premier à 00:00), `tags`. Modèle : `episodes/001-lune/meta.json`.
+- `meta_en.json` : `title` (≤ 70 car., curiosité + mot-clé), `short_title` (finir par `#shorts`), `description` (avec `{CHAPITRES}`),
+  `chapters` (id de scène → libellé ; chaque chapitre ≥ 10 s, le premier à 00:00), `tags`. Modèle : `episodes/001-lune/meta_en.json`.
 
 ### 4. Générer et contrôler
 ```bash
@@ -68,13 +69,13 @@ bash engine/host.sh episodes/NNN-x NNN   # pousse sur la branche « media » et 
 
 ### 6. Publier via Zapier (action YouTube « Upload Video »)
 Vidéo longue : `title`, `description` (= build/description.txt), `tags`, `video` = URL, `privacy_status` = `config.privacy_first`,
-`made_for_kids` = false, `category_id` = "27" (Éducation), `default_language` = fr, `default_audio_language` = fr, `notify_subscribers` = true.
+`made_for_kids` = false, `category_id` = "27" (Éducation), `default_language` = en, `default_audio_language` = en, `notify_subscribers` = true.
 **Ne pas passer `thumbnail` dans l'upload** (s'il échoue, la vidéo est quand même créée → risque de doublon).
 Après chaque upload, vérifier avec GET `search?part=snippet&forMine=true&type=video` que la vidéo existe une seule fois.
 Puis action « Update Video Thumbnail » (`video_id`, `thumbnail` = URL miniature). Si refus « permissions… thumbnails »
 (normalement résolu : téléphone vérifié le 2026-11-04) : continuer sans, noter `"thumbnail_set": false`, le signaler dans l'e-mail.
 Lors de l'étape 1, réessayer la miniature des épisodes avec `"thumbnail_set": false` (fichier : régénérer avec `render.py thumb` puis `host.sh`, ou ignorer si impossible).
-Short : `short_title`, description courte avec le lien `https://youtu.be/<long_id>` + hashtags, sans miniature, `notify_subscribers` = false.
+Short : `short_title`, description courte (anglais) avec le lien `https://youtu.be/<long_id>` + hashtags, sans miniature, `notify_subscribers` = false.
 Ajouter l'épisode dans `published.json` (`episode`, `topic`, `dir`, `date`, `long_id`, `short_id`, `status`, `thumbnail_set`).
 Cocher le sujet dans `topics.md` (date + numéro). `git add -A && git commit && git push origin main`.
 
@@ -82,8 +83,8 @@ Cocher le sujet dans `topics.md` (date + numéro). `git add -A && git commit && 
 Action Zapier Buffer « Add to Queue » (selected_api BufferCLIAPI, action « update », tool_name « buffer_add_to_queue »),
 avec le `connection_id`, l'`organizationId` et le `channelId` TikTok donnés dans le message de la tâche planifiée.
 Paramètres : `method` = "share_now", `attachment` = "video", `video` = URL du Short (celle de host.sh), `scheduling_type` = "direct",
-`text` = accroche (1–2 phrases) + « Version complète sur YouTube : @factoraofficiel » + « Voix de synthèse, illustrations originales. »
-+ 5–6 hashtags (#science #etsi #apprendresurtiktok #factora + sujet). ≤ 2 200 caractères.
+`text` (en anglais) = accroche (1–2 phrases) + « Full video on YouTube: @factoraofficiel » + « Synthetic voice, original illustrations. »
++ 5–6 hashtags (#science #whatif #learnontiktok #factora + sujet). ≤ 2 200 caractères.
 Le Short est publié sur TikTok **dès cette exécution** (pas d'étape « non répertorié » sur TikTok).
 Noter dans `published.json` : `"tiktok_buffer_id"` (champ `id` de la réponse) et `"tiktok": "envoye"`.
 Si Buffer échoue : ne pas bloquer YouTube ; noter `"tiktok": "echec"` et le signaler dans l'e-mail.

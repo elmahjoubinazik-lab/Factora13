@@ -6,11 +6,13 @@
   "rythme": "1 épisode tous les 2 jours (jours impairs du mois, 19h23 heure suisse)",
   "voix": {
     "melange": {
-      "ff_siwis": 1.0
+      "af_heart": 1.0
     },
-    "vitesse": 0.88,
+    "vitesse": 0.92,
     "traitement_doux": true,
-    "_choix": "E3 (posée, sans accent) — variantes : E1 = ff_siwis 0.85 + bf_emma 0.15, E2 = 0.92/0.08, vitesse 0.9"
+    "code_langue": "en-us",
+    "_choix": "voix anglaise n°1 (af_heart) par défaut, en attente du choix de Nazik ; ancienne voix FR : ff_siwis, vitesse 0.88"
   },
-  "_note_chaine": "Chaîne de publication choisie par Nazik le 2026-11-04 : @factoraofficiel. Ne pas publier sur @factora13 (UCYxSS4wKZUa3kmLnTYiGmuw), autre chaîne."
+  "_note_chaine": "Chaîne de publication choisie par Nazik le 2026-11-04 : @factoraofficiel. Ne pas publier sur @factora13 (UCYxSS4wKZUa3kmLnTYiGmuw), autre chaîne.",
+  "langue": "en"
 }
