@@ -8,8 +8,8 @@
     "melange": {
       "ff_siwis": 1.0
     },
-    "vitesse": 1.0,
-    "traitement_doux": false,
-    "_choix": "A (voix actuelle)"
+    "vitesse": 0.88,
+    "traitement_doux": true,
+    "_choix": "E3 (posée, sans accent) — variantes : E1 = ff_siwis 0.85 + bf_emma 0.15, E2 = 0.92/0.08, vitesse 0.9"
   }
 }
