@@ -24,6 +24,7 @@ Pour chaque entrée de `published.json` avec `"status": "unlisted"` : lire son s
 - s'il est **encore « unlisted »** → PUT `videos?part=status` avec `{"id": …, "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": false}}` ; noter `"status": "public"` ;
 - s'il est « private » ou supprimé → Nazik l'a retiré : noter `"status": "retire"`, ne rien toucher.
 Faire de même pour le Short associé.
+Si l'entrée a un champ `remplace_ids` et vient d'être passée en public : supprimer ces anciennes vidéos (DELETE `videos?id=…`), puis retirer le champ.
 
 ### 2. Choisir le sujet
 Premier sujet non coché de `topics.md`. **S'il reste moins de 10 sujets non cochés**, en ajouter 20 nouveaux à la fin (mêmes règles : intemporels, vérifiables, variés — science, corps humain, histoire, économie, nature, technologie ; jamais un sujet déjà traité). Créer `episodes/NNN-mot-cle/` (NNN = numéro suivant sur 3 chiffres).

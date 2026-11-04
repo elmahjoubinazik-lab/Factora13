@@ -56,7 +56,7 @@ def sc_title(ctx, t, d):
         text(ctx, T("ET SI LA LUNE"), CX, CY + yo, 96 * U, WHITE, a)
         text(ctx, T("DISPARAISSAIT ?"), CX, CY + yo + 115 * U, 96 * U, GOLD, a)
     else:
-        text(ctx, T("ET SI LA LUNE DISPARAISSAIT ?"), CX, CY + yo, 104 * U, WHITE, a)
+        text(ctx, T("ET SI LA LUNE DISPARAISSAIT ?"), CX, CY + yo, (104 if LANG == "fr" else 86) * U, WHITE, a)
     ctx.restore()
 
 def landscape(ctx, x0, x1, lit, t, y0=0, y1=None):

@@ -122,7 +122,10 @@ def thumb_text(c, line1, line2, badge=None):
         c.select_font_face("Inter", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); c.set_font_size(sz)
         c.move_to(x + 4, y + 4); c.set_source_rgba(0, 0, 0, .7); c.show_text(txt)
         c.move_to(x, y); c.set_source_rgb(*col); c.show_text(txt)
-    t(line1, 50, 250, 88, (1, 1, 1)); t(line2, 50, 355, 88, (1, .8, .33))
+    c.select_font_face("Inter", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); c.set_font_size(88)
+    wmax = max(c.text_extents(line1).width, c.text_extents(line2).width)
+    sz = 88 * min(1.0, 720 / wmax)          # le texte ne dépasse jamais 720 px (moitié gauche de la miniature)
+    t(line1, 50, 250, sz, (1, 1, 1)); t(line2, 50, 250 + sz * 1.2, sz, (1, .8, .33))
     if badge:
         c.select_font_face("Inter", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); c.set_font_size(48); w = c.text_extents(badge).width
         c.set_source_rgb(.85, .12, .12); c.rectangle(50, 415, w + 50, 80); c.fill(); t(badge, 75, 472, 48, (1, 1, 1))
@@ -224,24 +227,24 @@ ff = _P() if STILLS else subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error",
 surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
 nf = int(TOTAL * FPS)
 for f in (STILLS or range(nf)):
-    T = f if STILLS else f / FPS
-    seg = next((p for p in plan if p["start"] <= T < p["end"]), plan[-1])
+    TNOW = f if STILLS else f / FPS
+    seg = next((p for p in plan if p["start"] <= TNOW < p["end"]), plan[-1])
     ctx = cairo.Context(surf)
     ctx.set_source_rgb(0, 0, 0); ctx.paint()   # repartir d'une image vide (évite les restes de la scène précédente)
-    lt, d = T - seg["start"], seg["end"] - seg["start"]
+    lt, d = TNOW - seg["start"], seg["end"] - seg["start"]
     # léger mouvement de caméra
     z = 1 + 0.03 * lt / d
     ctx.save(); ctx.translate(CX, CY); ctx.scale(z, z); ctx.translate(-CX, -CY)
     SCENES[seg["scene"]](ctx, lt, d)
     ctx.restore()
     for (a, b, s) in seg["caps"]:
-        if a <= T < b: draw_caption(ctx, s); break
+        if a <= TNOW < b: draw_caption(ctx, s); break
     # fondu entre scènes
     fade = min(clamp(lt / 0.3), clamp((d - lt) / 0.3)) if seg is not plan[0] or lt > 0.3 else clamp(lt / 0.3)
     if fade < 1: ctx.set_source_rgba(0, 0, 0, 1 - fade); ctx.paint()
     surf.flush()
     ff.stdin.write(surf.get_data())
-    if STILLS: surf.write_to_png(WD + f"/still_{MODE}_{T:05.1f}.png")
+    if STILLS: surf.write_to_png(WD + f"/still_{MODE}_{TNOW:05.1f}.png")
     if not STILLS and f % 300 == 0: print(MODE, f, "/", nf, flush=True)
 ff.stdin.close(); ff.wait()
 print("OK", out, TOTAL)
