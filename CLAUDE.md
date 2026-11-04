@@ -1,6 +1,6 @@
 # Factora — production et publication automatiques
 
-Chaîne YouTube **Factora (@factoraofficiel, id UCzFd6_4jKV184oZtqr06ueA)** : vidéos éducatives sans visage, en français, sur des thèmes variés
+Chaîne YouTube **Factora (@factora13, id UCYxSS4wKZUa3kmLnTYiGmuw)** — ne jamais publier sur @factoraofficiel (UCzFd6_4jKV184oZtqr06ueA) : vidéos éducatives sans visage, en français, sur des thèmes variés
 (« Et si… ? », « Comment ça marche ? », « Pourquoi… ? »). Une vidéo longue (2–4 min, 16:9) + un Short (≤ 60 s, 9:16) par épisode.
 Propriétaire : Nazik EL MAHJOUBI. Toute la communication avec elle se fait **en français**.
 

@@ -1,6 +1,6 @@
 {
-  "channel": "@factoraofficiel (Factora)",
-  "youtube_channel_id": "UCzFd6_4jKV184oZtqr06ueA",
+  "channel": "@factora13 (Factora)",
+  "youtube_channel_id": "UCYxSS4wKZUa3kmLnTYiGmuw",
   "video_host_repo": "elmahjoubinazik-lab/Factora13",
   "privacy_first": "unlisted",
   "rythme": "1 épisode tous les 2 jours (jours impairs du mois, 19h23 heure suisse)",
@@ -11,5 +11,6 @@
     "vitesse": 0.88,
     "traitement_doux": true,
     "_choix": "E3 (posée, sans accent) — variantes : E1 = ff_siwis 0.85 + bf_emma 0.15, E2 = 0.92/0.08, vitesse 0.9"
-  }
+  },
+  "_note_chaine": "Chaîne cible = @factora13. L'ancienne chaîne @factoraofficiel (UCzFd6_4jKV184oZtqr06ueA) n'est PAS la bonne : ne jamais y publier."
 }
