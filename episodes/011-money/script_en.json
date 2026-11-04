@@ -1,0 +1,13 @@
+[
+ {"scene":"hook","text":["Most people think money is simply printed by the government.","The truth is stranger: most of the money in your bank account was created by a bank, with a few keystrokes.","So how does it really work?"]},
+ {"scene":"cash","text":["Let's start with cash.","Coins and banknotes feel like the real thing, but they are only a small part of all money.","In the United Kingdom, according to the Bank of England, they make up only about three percent.","The rest is digital: numbers in bank accounts."]},
+ {"scene":"loan","text":["So who creates those numbers? Mostly, ordinary commercial banks.","When a bank gives you a loan, it does not hand you someone else's savings.","It simply adds a new deposit to your account. That deposit is brand new money."]},
+ {"scene":"books","text":["On the bank's books, two things appear at the same moment.","Your new deposit, which the bank owes you. And your loan, which you owe the bank.","They balance each other perfectly."]},
+ {"scene":"spend","text":["When you spend that money, it moves into other people's accounts, at other banks.","And it keeps circulating through the economy."]},
+ {"scene":"repay","text":["Now here is the surprising part.","When you repay the loan, that money disappears.","Lending creates money. Repaying destroys it."]},
+ {"scene":"central","text":["So where do central banks fit in? Think of the Federal Reserve, the European Central Bank, or the Bank of England.","They issue banknotes, while coins are usually made by a government mint.","Central banks also create a special kind of digital money, called reserves, that banks use to pay each other."]},
+ {"scene":"rate","text":["Their most powerful tool is the interest rate.","When rates are low, borrowing is cheaper, so people and companies tend to borrow more, and more money is created.","When rates rise, borrowing slows down."]},
+ {"scene":"limits","text":["So can banks create unlimited money? No.","They need borrowers who can pay them back.","They must follow strict rules, and bad loans can cause them heavy losses."]},
+ {"scene":"trust","text":["And what is all this money backed by? Not gold.","The United States ended the link between the dollar and gold in nineteen seventy-one.","Today, money works because people trust it, and because governments accept it for taxes."]},
+ {"scene":"outro","text":["So money is not just printed. Most of it is created every time someone borrows.","Did you already know this, or did it surprise you? Tell us in the comments.","And subscribe to Factora, so you never miss a fascinating fact."]}
+]

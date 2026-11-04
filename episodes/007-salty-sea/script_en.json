@@ -1,0 +1,13 @@
+[
+ {"scene":"hook","text":["Rain is fresh, and rivers are fresh.","So why is every glass of seawater loaded with salt?","The answer begins with the rocks beneath your feet."]},
+ {"scene":"title","text":["Let's follow a grain of salt on its long journey."]},
+ {"scene":"rain","text":["It all starts with rain.","As raindrops fall, they absorb a little carbon dioxide from the air. That makes rainwater very slightly acidic.","Over time, this weak acid wears down rocks, and frees tiny bits of minerals, called ions."]},
+ {"scene":"rivers","text":["Streams and rivers collect these minerals and carry them to the sea.","River water does contain some salt, but so little that it tastes fresh.","Every year, rivers pour huge amounts of dissolved minerals into the oceans."]},
+ {"scene":"evaporate","text":["Then the Sun does its part.","It heats the ocean, and water evaporates to form clouds. But the salt cannot evaporate. It stays behind.","The water falls again as rain, and the cycle repeats. Over hundreds of millions of years, salt has built up in the sea."]},
+ {"scene":"vents","text":["There is a second source, hidden deep below.","On the ocean floor, hot springs called hydrothermal vents, and underwater volcanoes, release minerals straight into the water."]},
+ {"scene":"recipe","text":["So what is in this salt?","Mostly sodium and chloride, the same ingredients as table salt. Together, they make up about eighty-five percent of the dissolved ions.","On average, one liter of seawater holds about thirty-five grams of salt."]},
+ {"scene":"amount","text":["And there is a lot of it.","According to NOAA, if all the salt in the ocean were spread evenly over the land, it would form a layer more than one hundred and fifty meters thick.","That's about the height of a forty-story building."]},
+ {"scene":"balance","text":["So is the sea getting saltier every year? Not really.","Salt also leaves the water. It settles into sediments on the seafloor.","Scientists think the gains and losses roughly balance out, keeping the ocean's saltiness fairly stable for a very long time."]},
+ {"scene":"lakes","text":["This also explains why most lakes are fresh: rivers flow in, and rivers flow out, carrying the salt away.","But when a lake has no outlet, like the Dead Sea, the salt piles up.","The Dead Sea is almost ten times saltier than the ocean. People float on it without any effort."]},
+ {"scene":"outro","text":["So every wave carries a story that began on land, inside the rocks.","Did you expect rain to be the secret? Tell us in the comments.","And subscribe to Factora, so you never miss a fascinating fact."]}
+]

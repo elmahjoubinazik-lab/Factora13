@@ -1,0 +1,13 @@
+[
+ {"scene":"hook","text":["A fully loaded jumbo jet can weigh around four hundred tons, as much as two hundred cars.","And yet, every day, thousands of planes like it lift off the ground.","So how can something that heavy fly?"]},
+ {"scene":"forces","text":["Every airplane is caught in a tug of war between four forces.","Weight pulls it down. Lift pushes it up.","Thrust drives it forward, and drag holds it back.","To stay in the air, lift has to match the weight."]},
+ {"scene":"wing","text":["Lift comes from the wings.","A wing is curved, and tilted slightly upward. Pilots call that tilt the angle of attack.","As air rushes past, the wing bends the flow downward."]},
+ {"scene":"newton","text":["And here is the key.","When the wing pushes air down, the air pushes the wing up.","That is Newton's third law, at work on a huge amount of air every second."]},
+ {"scene":"pressure","text":["At the same time, the air flowing over the top speeds up, and its pressure drops.","Higher pressure below, lower pressure above: the wing is pushed upward.","You may have heard that the air on top must catch up with the air below. NASA calls that a myth."]},
+ {"scene":"speed","text":["Then comes speed.","Lift grows with the square of speed. Fly twice as fast, and you get about four times the lift.","That is why a jumbo jet needs a long runway, and roughly one hundred and eighty miles per hour, before it lifts off."]},
+ {"scene":"engines","text":["That speed comes from the engines.","Giant fans swallow air and blast it backward, and the plane is pushed forward.","Each engine of a jumbo jet produces tens of thousands of pounds of thrust."]},
+ {"scene":"flaps","text":["Wings can even change shape.","For takeoff and landing, flaps and slats slide out, making the wing larger and more curved.","That gives extra lift at low speed."]},
+ {"scene":"cruise","text":["Higher up, at around thirty-five thousand feet, the air is thin.","Thin air means less drag, so the plane can cruise at more than five hundred miles per hour, while burning less fuel."]},
+ {"scene":"glide","text":["And if every engine stopped? The plane would not drop like a stone.","An airliner is a glider too. For every mile it descends, it can travel roughly fifteen miles forward."]},
+ {"scene":"outro","text":["So a four-hundred-ton airplane doesn't defy physics. It uses it, by pushing enough air, fast enough.","Which fact surprised you the most? Tell us in the comments.","And subscribe to Factora, so you never miss a fascinating fact."]}
+]

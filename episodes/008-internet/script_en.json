@@ -1,0 +1,13 @@
+[
+ {"scene":"hook","text":["Tap a video, and your phone starts talking to a computer that may be thousands of kilometers away.","The answer comes back in a fraction of a second.","So how does that actually work?"]},
+ {"scene":"title","text":["Let's follow one tiny piece of data, step by step."]},
+ {"scene":"packets","text":["First surprise: your video does not travel in one piece.","It is cut into thousands of small packets.","Each packet carries a label with where it comes from, where it is going, and its number in the line."]},
+ {"scene":"address","text":["Every device online has an address, called an IP address.","It is a string of numbers, like a postal address for your phone, your laptop, or a server.","Without it, no packet would know where to go."]},
+ {"scene":"dns","text":["But you never type numbers. You type a name.","So a system called DNS acts like a giant phone book.","It turns a name into the right address, usually in a few milliseconds."]},
+ {"scene":"routers","text":["Then the packets jump from router to router.","A router is a traffic director. It reads the label and sends each packet one step closer.","Packets from the same video can even take different roads, and still arrive."]},
+ {"scene":"cables","text":["And here is the part most people never imagine.","To cross oceans, almost all of that data does not go through space.","It runs through cables lying on the sea floor, some of them thousands of kilometers long."]},
+ {"scene":"light","text":["Inside those cables, your data is light.","Thin glass fibers carry flashes of laser light, billions of times per second.","In glass, light travels at about two hundred thousand kilometers per second."]},
+ {"scene":"servers","text":["At the end of the road, a server in a data center receives the request and sends back the video, packet by packet.","On your phone, the packets are put back in order.","If one is missing, your device simply asks for it again."]},
+ {"scene":"history","text":["This idea is older than you might think.","The first network, ARPANET, sent its first message in nineteen sixty-nine.","And the World Wide Web was invented at CERN, in nineteen eighty-nine."]},
+ {"scene":"outro","text":["So every click is a journey of light, across cities and under oceans, in less than a blink.","Did you know your data travels under the sea? Tell us in the comments.","And subscribe to Factora, so you never miss a fascinating fact."]}
+]

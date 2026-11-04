@@ -1,0 +1,13 @@
+[
+ {"scene":"hook","text":["Imagine digging a hole straight down, all the way through the Earth.","Then you jump in.","What would really happen to you?"]},
+ {"scene":"title","text":["Here is what physics says, step by step."]},
+ {"scene":"deepest","text":["First, the bad news: we have barely scratched the surface.","The deepest hole ever drilled, in Russia, reaches about twelve kilometers.","The Earth is nearly thirteen thousand kilometers across. That hole is a pinprick."]},
+ {"scene":"layers","text":["Below the thin crust lies the mantle, almost three thousand kilometers of hot rock.","Then the outer core, a sea of liquid iron and nickel.","And at the very center, a solid ball of metal."]},
+ {"scene":"heat","text":["The heat is extreme. The core is roughly as hot as the surface of the Sun.","And the pressure at the center is more than three million times the air pressure you feel right now.","No machine, and no human, could survive it."]},
+ {"scene":"fall","text":["But let's pretend. A perfect tube, no air, no heat.","You jump. Gravity pulls you down, faster and faster.","In the classic calculation, you reach the other side in about forty-two minutes.","With a more realistic Earth, it's closer to thirty-eight."]},
+ {"scene":"speed","text":["At the center, you are going incredibly fast.","In the simple model, around eight kilometers per second.","That's like crossing a whole city in about two seconds."]},
+ {"scene":"center","text":["And right there, at the center, you would feel weightless.","The mass of the Earth pulls on you equally from every side."]},
+ {"scene":"rotation","text":["Then you slow down, and pop out on the other side… and fall back again, like a pendulum.","In real air, friction would stop you, and you'd end up floating in the middle.","And because the Earth spins, you'd also hit the walls, unless you dug from pole to pole."]},
+ {"scene":"antipode","text":["One last surprise: where would you come out?","Most of the Earth's land sits opposite an ocean.","Dig from Spain, and you'd pop out near New Zealand. Dig from most of the United States, and you'd land in the Indian Ocean."]},
+ {"scene":"outro","text":["A trip through the planet: forty minutes, zero gravity, and a splash at the end.","Where would your hole come out? Tell us in the comments.","And subscribe to Factora, so you never miss a fascinating fact."]}
+]
