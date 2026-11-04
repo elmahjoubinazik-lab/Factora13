@@ -6,7 +6,7 @@ Propriétaire : Nazik EL MAHJOUBI. Toute la communication avec elle se fait **en
 
 Paramètres : `config.json` (chaîne cible, dépôt d'hébergement des fichiers, rythme). Le dépôt est **public** : n'y écrire aucune donnée personnelle ni identifiant.
 
-## Procédure hebdomadaire (session planifiée, sans intervention humaine)
+## Procédure quotidienne (session planifiée chaque jour à 19h23, heure suisse, sans intervention humaine)
 
 ### 0. Préparation
 ```bash
@@ -19,14 +19,14 @@ Charger les outils Zapier (ToolSearch « select:mcp__Zapier__inspect_zapier_acti
 sur `https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true`. Si l'`id` renvoyé n'est pas
 `config.json → youtube_channel_id`, **NE RIEN PUBLIER** : envoyer l'e-mail d'alerte (étape 7) et s'arrêter.
 
-### 1. Passer en public l'épisode de la semaine précédente
+### 1. Passer en public l'épisode de la veille
 Pour chaque entrée de `published.json` avec `"status": "unlisted"` : lire son statut réel (GET `videos?part=status&id=…`).
 - s'il est **encore « unlisted »** → PUT `videos?part=status` avec `{"id": …, "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": false}}` ; noter `"status": "public"` ;
 - s'il est « private » ou supprimé → Nazik l'a retiré : noter `"status": "retire"`, ne rien toucher.
 Faire de même pour le Short associé.
 
 ### 2. Choisir le sujet
-Premier sujet non coché de `topics.md`. Créer `episodes/NNN-mot-cle/` (NNN = numéro suivant sur 3 chiffres).
+Premier sujet non coché de `topics.md`. **S'il reste moins de 10 sujets non cochés**, en ajouter 20 nouveaux à la fin (mêmes règles : intemporels, vérifiables, variés — science, corps humain, histoire, économie, nature, technologie ; jamais un sujet déjà traité). Créer `episodes/NNN-mot-cle/` (NNN = numéro suivant sur 3 chiffres).
 
 ### 3. Écrire l'épisode
 - `script.json` : liste de segments `{"scene": "id", "text": ["phrase", …]}`. Modèle : `episodes/001-lune/script.json`.
@@ -34,7 +34,7 @@ Premier sujet non coché de `topics.md`. Créer `episodes/NNN-mot-cle/` (NNN = n
   - nombres écrits en toutes lettres (la voix les lit mieux) ; phrases courtes ;
   - **uniquement des faits établis** (NASA, ESA, CNRS, INSERM, OMS, Banque de France, encyclopédies…). Pas de chiffre douteux ;
     en cas de doute, formuler prudemment (« selon plusieurs études ») ou retirer. Lister les sources dans `meta.json` ;
-  - fin : question au public + « Abonnez-vous à Factora, pour un nouveau fait fascinant chaque semaine. »
+  - fin : question au public + « Abonnez-vous à Factora, pour un nouveau fait fascinant chaque jour. »
 - `scenes.py` : une fonction de dessin par scène `sc_xxx(ctx, t, d)` (t = temps local, d = durée), le dict `SCENES`,
   la liste `SHORT_SCENES` (segments gardés pour le Short, **≤ 60 s au total**, commencer par l'accroche, finir par l'outro),
   et `thumbnail(c)` (1280×720, utiliser `thumb_text(c, ligne1, ligne2, bandeau)`).
@@ -72,7 +72,7 @@ Vidéo longue : `title`, `description` (= build/description.txt), `tags`, `video
 **Ne pas passer `thumbnail` dans l'upload** (s'il échoue, la vidéo est quand même créée → risque de doublon).
 Après chaque upload, vérifier avec GET `search?part=snippet&forMine=true&type=video` que la vidéo existe une seule fois.
 Puis action « Update Video Thumbnail » (`video_id`, `thumbnail` = URL miniature). Si refus « permissions… thumbnails »
-(téléphone du compte non vérifié) : continuer sans, noter `"thumbnail_set": false`, le signaler dans l'e-mail.
+(normalement résolu : téléphone vérifié le 2026-11-04) : continuer sans, noter `"thumbnail_set": false`, le signaler dans l'e-mail.
 Lors de l'étape 1, réessayer la miniature des épisodes avec `"thumbnail_set": false` (fichier : régénérer avec `render.py thumb` puis `host.sh`, ou ignorer si impossible).
 Short : `short_title`, description courte avec le lien `https://youtu.be/<long_id>` + hashtags, sans miniature, `notify_subscribers` = false.
 Ajouter l'épisode dans `published.json` (`episode`, `topic`, `dir`, `date`, `long_id`, `short_id`, `status`, `thumbnail_set`).

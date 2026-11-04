@@ -1,6 +1,6 @@
 # Sujets Factora — file d'attente
 
-Règle : la session hebdomadaire prend le **premier sujet non coché**, le produit, puis le coche avec la date et le numéro d'épisode.
+Règle : la session quotidienne prend le **premier sujet non coché**, le produit, puis le coche avec la date et le numéro d'épisode.
 Thèmes intemporels (pas d'actualité), vérifiables, adaptés aux illustrations vectorielles simples.
 
 - [x] 001 — Et si la Lune disparaissait ? (épisode test, 2026-11-04)
