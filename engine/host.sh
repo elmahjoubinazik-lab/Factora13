@@ -8,6 +8,7 @@ cp "$EP/build/video_long.mp4" "$EP/build/video_short.mp4" "$EP/build/miniature.p
 cd "$TMP" && git init -q -b media && git add -A
 git -c user.name="Factora" -c user.email="noreply@anthropic.com" commit -qm "Fichiers épisode $N"
 git push -q -f "$(git -C "$OLDPWD" remote get-url origin)" media:media
+SHA=$(git rev-parse HEAD)   # URL figée sur le commit : évite le cache de raw.githubusercontent (5 min)
 for f in video_long.mp4 video_short.mp4 miniature.png; do
-  echo "https://raw.githubusercontent.com/$REPO/media/ep$N/$f"
+  echo "https://raw.githubusercontent.com/$REPO/$SHA/ep$N/$f"
 done
