@@ -1,6 +1,6 @@
 # Factora — production et publication automatiques
 
-Chaîne YouTube **Factora (@factora13)** : vidéos éducatives sans visage, en français, sur des thèmes variés
+Chaîne YouTube **Factora (@factoraofficiel, id UCzFd6_4jKV184oZtqr06ueA)** : vidéos éducatives sans visage, en français, sur des thèmes variés
 (« Et si… ? », « Comment ça marche ? », « Pourquoi… ? »). Une vidéo longue (2–4 min, 16:9) + un Short (≤ 60 s, 9:16) par épisode.
 Propriétaire : Nazik EL MAHJOUBI. Toute la communication avec elle se fait **en français**.
 
@@ -12,6 +12,7 @@ Paramètres : `config.json` (chaîne cible, adresse de notification, dépôt d'h
 ```bash
 bash engine/setup.sh            # dépendances + voix Kokoro (≈1 min)
 ```
+Toutes les actions YouTube Zapier se font avec `connection_id` = `config.json → zapier_youtube_connection_id`.
 Charger les outils Zapier (ToolSearch « select:mcp__Zapier__inspect_zapier_actions,mcp__Zapier__execute_zapier_read_action,mcp__Zapier__execute_zapier_write_action »).
 
 **Garde-fou chaîne — obligatoire avant toute écriture YouTube :** appeler l'action YouTube « Make API GET Request »
