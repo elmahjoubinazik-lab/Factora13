@@ -1,9 +1,7 @@
 {
   "channel": "@factoraofficiel (Factora)",
   "youtube_channel_id": "UCzFd6_4jKV184oZtqr06ueA",
-  "notify_email": "elmahjoubinazik@gmail.com",
-  "video_host_repo": "A_DEFINIR",
+  "video_host_repo": "elmahjoubinazik-lab/Factora13",
   "privacy_first": "unlisted",
-  "rythme": "1 épisode par semaine",
-  "zapier_youtube_connection_id": "02791ec9-4b5a-845b-81f3-b022df7da1f7"
+  "rythme": "1 épisode par semaine"
 }
