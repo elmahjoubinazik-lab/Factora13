@@ -82,7 +82,7 @@ Cocher le sujet dans `topics.md` (date + numéro). `git add -A && git commit && 
 Action Zapier Buffer « Add to Queue » (selected_api BufferCLIAPI, action « update », tool_name « buffer_add_to_queue »),
 avec le `connection_id`, l'`organizationId` et le `channelId` TikTok donnés dans le message de la tâche planifiée.
 Paramètres : `method` = "share_now", `attachment` = "video", `video` = URL du Short (celle de host.sh), `scheduling_type` = "direct",
-`text` = accroche (1–2 phrases) + « Version complète sur YouTube : Factora. » + « Voix de synthèse, illustrations originales. »
+`text` = accroche (1–2 phrases) + « Version complète sur YouTube : @factora13 » + « Voix de synthèse, illustrations originales. »
 + 5–6 hashtags (#science #etsi #apprendresurtiktok #factora + sujet). ≤ 2 200 caractères.
 Le Short est publié sur TikTok **dès cette exécution** (pas d'étape « non répertorié » sur TikTok).
 Noter dans `published.json` : `"tiktok_buffer_id"` (champ `id` de la réponse) et `"tiktok": "envoye"`.
