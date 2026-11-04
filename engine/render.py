@@ -219,6 +219,7 @@ for f in (STILLS or range(nf)):
     T = f if STILLS else f / FPS
     seg = next((p for p in plan if p["start"] <= T < p["end"]), plan[-1])
     ctx = cairo.Context(surf)
+    ctx.set_source_rgb(0, 0, 0); ctx.paint()   # repartir d'une image vide (évite les restes de la scène précédente)
     lt, d = T - seg["start"], seg["end"] - seg["start"]
     # léger mouvement de caméra
     z = 1 + 0.03 * lt / d

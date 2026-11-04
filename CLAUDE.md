@@ -36,7 +36,7 @@ Premier sujet non coché de `topics.md`. **S'il reste moins de 10 sujets non coc
     en cas de doute, formuler prudemment (« selon plusieurs études ») ou retirer. Lister les sources dans `meta.json` ;
   - fin : question au public + « Abonnez-vous à Factora, pour un nouveau fait fascinant tous les deux jours. »
 - `scenes.py` : une fonction de dessin par scène `sc_xxx(ctx, t, d)` (t = temps local, d = durée), le dict `SCENES`,
-  la liste `SHORT_SCENES` (segments gardés pour le Short, **≤ 60 s au total**, commencer par l'accroche, finir par l'outro),
+  la liste `SHORT_SCENES` (segments gardés pour le Short, **≤ 60 s au total** — vérifier avec build/timeline.json, la voix est lente, commencer par l'accroche, finir par l'outro),
   et `thumbnail(c)` (1280×720, utiliser `thumb_text(c, ligne1, ligne2, bandeau)`).
   Modèle complet : `episodes/001-lune/scenes.py`. Style maison : fond bleu nuit, accents or, aplats vectoriels, pas d'images externes.
   Les dessins doivent être **originaux et propres au sujet** (exigence YouTube « contenu authentique »).

@@ -139,7 +139,7 @@ def sc_tides(ctx, t, d):
     chip(ctx, "CONSÉQUENCE 2 · LES MARÉES", t)
 
 def sc_shore(ctx, t, d):
-    vgrad(ctx, (0.45, 0.65, 0.85), (0.85, 0.9, 0.95), 0, H * 0.6)
+    vgrad(ctx, (0.45, 0.65, 0.85), (0.85, 0.9, 0.95), 0, H)
     weak = prog(t, d * 0.35, d * 0.55)
     amp = (1 - weak) * 110 * U + weak * 35 * U
     lvl = H * 0.58 + amp * math.sin(t * 1.4)
@@ -255,7 +255,7 @@ def sc_outro(ctx, t, d):
     q = prog(t, d * 0.3, d * 0.4)
     if q and k < 1: text(ctx, "💬  Quelle conséquence vous a le plus surpris ?" if False else "Laquelle vous a le plus surpris ?", CX, CY + yo + 260 * U, 44 * U, WHITE, q * (1 - k))
 
-SHORT_SCENES = ["hook", "night", "tides", "eclipse", "outro"]
+SHORT_SCENES = ["hook", "night", "tides", "outro"]
 
 SCENES = dict(hook=sc_hook, title=sc_title, night=sc_night, coral=sc_coral, tides=sc_tides, shore=sc_shore,
               tilt=sc_tilt, climate=sc_climate, eclipse=sc_eclipse, distance=sc_distance, outro=sc_outro)
