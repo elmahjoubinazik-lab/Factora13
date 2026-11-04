@@ -1,0 +1,238 @@
+"""Factora - moteur de rendu vidéo (illustrations vectorielles + sous-titres).
+Usage: python3 engine/render.py long|short EPISODE_DIR [t1,t2,...]   (t = captures d'écran de contrôle)
+L'épisode fournit scenes.py (fonctions de dessin + dict SCENES + SHORT_SCENES) et build/voice.wav + build/timeline.json (via tts.py).
+"""
+import sys, json, math, random, subprocess
+import cairo
+import numpy as np
+import soundfile as sf
+
+import os
+MODE, EP = sys.argv[1], sys.argv[2].rstrip('/')
+WD = EP + '/build'
+os.makedirs(WD, exist_ok=True)
+FPS = 30
+W, H = {"long": (1920, 1080), "short": (1080, 1920), "thumb": (1280, 720)}[MODE]
+U = min(W, H) / 1080.0          # unité d'échelle
+CX, CY = W / 2, H / 2
+VERT = H > W
+
+# ---------- palette ----------
+NAVY = (0.035, 0.05, 0.12)
+NAVY2 = (0.08, 0.11, 0.24)
+GOLD = (1.0, 0.80, 0.33)
+MOON = (0.95, 0.93, 0.85)
+SEA = (0.13, 0.45, 0.78)
+SEA_D = (0.05, 0.22, 0.45)
+EARTH_G = (0.25, 0.62, 0.38)
+WHITE = (1, 1, 1)
+CORAL = (1.0, 0.45, 0.45)
+
+random.seed(7)
+STARS = [(random.random(), random.random(), random.uniform(0.6, 2.4), random.random() * 6.28) for _ in range(260)]
+
+# ---------- helpers ----------
+def clamp(x, a=0.0, b=1.0): return max(a, min(b, x))
+def ease(x): x = clamp(x); return x * x * (3 - 2 * x)
+def prog(t, a, b): return ease((t - a) / (b - a)) if b > a else 1.0
+def mix(c1, c2, k): return tuple(c1[i] + (c2[i] - c1[i]) * k for i in range(3))
+
+def rgba(ctx, c, a=1.0): ctx.set_source_rgba(c[0], c[1], c[2], a)
+
+def vgrad(ctx, top, bot, y0=0, y1=None):
+    g = cairo.LinearGradient(0, y0, 0, y1 if y1 is not None else H)
+    g.add_color_stop_rgb(0, *top); g.add_color_stop_rgb(1, *bot)
+    ctx.set_source(g); ctx.rectangle(0, y0, W, (y1 or H) - y0); ctx.fill()
+
+def circle(ctx, x, y, r, c, a=1.0):
+    ctx.arc(x, y, r, 0, 2 * math.pi); rgba(ctx, c, a); ctx.fill()
+
+def glow(ctx, x, y, r, c, a=0.5):
+    g = cairo.RadialGradient(x, y, 0, x, y, r)
+    g.add_color_stop_rgba(0, c[0], c[1], c[2], a); g.add_color_stop_rgba(1, c[0], c[1], c[2], 0)
+    ctx.set_source(g); ctx.arc(x, y, r, 0, 2 * math.pi); ctx.fill()
+
+def font(ctx, size, bold=True):
+    ctx.select_font_face("Inter", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD if bold else cairo.FONT_WEIGHT_NORMAL)
+    ctx.set_font_size(size)
+
+def text(ctx, s, x, y, size, c=WHITE, a=1.0, bold=True, align="c"):
+    font(ctx, size, bold)
+    e = ctx.text_extents(s)
+    dx = {"c": -e.width / 2 - e.x_bearing, "l": -e.x_bearing, "r": -e.width - e.x_bearing}[align]
+    ctx.move_to(x + dx, y + size * 0.35); rgba(ctx, c, a); ctx.show_text(s)
+    return e.width
+
+def rrect(ctx, x, y, w, h, r):
+    ctx.new_sub_path()
+    ctx.arc(x + w - r, y + r, r, -math.pi / 2, 0); ctx.arc(x + w - r, y + h - r, r, 0, math.pi / 2)
+    ctx.arc(x + r, y + h - r, r, math.pi / 2, math.pi); ctx.arc(x + r, y + r, r, math.pi, 1.5 * math.pi)
+    ctx.close_path()
+
+def stars(ctx, t, a=1.0):
+    for sx, sy, sr, ph in STARS:
+        tw = 0.55 + 0.45 * math.sin(t * 1.7 + ph)
+        circle(ctx, sx * W, sy * H, sr * U, WHITE, a * tw)
+
+def moon(ctx, x, y, r, a=1.0):
+    glow(ctx, x, y, r * 3.2, MOON, 0.28 * a)
+    circle(ctx, x, y, r, MOON, a)
+    for (dx, dy, rr) in [(-0.3, -0.2, 0.18), (0.25, 0.1, 0.12), (-0.05, 0.35, 0.1), (0.35, -0.3, 0.07)]:
+        circle(ctx, x + dx * r, y + dy * r, rr * r, (0.82, 0.80, 0.72), a)
+
+def earth(ctx, x, y, r, a=1.0):
+    glow(ctx, x, y, r * 1.35, (0.4, 0.7, 1.0), 0.35 * a)
+    circle(ctx, x, y, r, SEA, a)
+    ctx.save(); ctx.arc(x, y, r, 0, 2 * math.pi); ctx.clip()
+    for (dx, dy, rx, ry) in [(-0.35, -0.3, 0.38, 0.25), (0.3, 0.25, 0.3, 0.4), (-0.2, 0.5, 0.22, 0.15), (0.45, -0.45, 0.2, 0.15)]:
+        ctx.save(); ctx.translate(x + dx * r, y + dy * r); ctx.scale(rx * r, ry * r)
+        ctx.arc(0, 0, 1, 0, 2 * math.pi); ctx.restore(); rgba(ctx, EARTH_G, a); ctx.fill()
+    ctx.restore()
+
+def sun(ctx, x, y, r, t, a=1.0):
+    glow(ctx, x, y, r * 3, GOLD, 0.45 * a)
+    for i in range(16):
+        ang = i / 16 * 2 * math.pi + t * 0.2
+        ctx.move_to(x + math.cos(ang) * r * 1.15, y + math.sin(ang) * r * 1.15)
+        ctx.line_to(x + math.cos(ang) * r * 1.45, y + math.sin(ang) * r * 1.45)
+    rgba(ctx, GOLD, a); ctx.set_line_width(6 * U); ctx.set_line_cap(cairo.LINE_CAP_ROUND); ctx.stroke()
+    circle(ctx, x, y, r, (1.0, 0.86, 0.45), a)
+
+def chip(ctx, label, t, a=1.0):
+    k = prog(t, 0.2, 0.8) * a
+    font(ctx, 30 * U); w = ctx.text_extents(label).width + 50 * U
+    x, y = (60 * U, 60 * U) if not VERT else (CX - w / 2, 150 * U)
+    rrect(ctx, x, y, w, 60 * U, 30 * U); rgba(ctx, GOLD, 0.95 * k); ctx.fill()
+    text(ctx, label, x + w / 2, y + 30 * U, 30 * U, NAVY, k)
+
+def houses(ctx, ybase, c, a=1.0):
+    rgba(ctx, c, a)
+    x = -20
+    random.seed(3)
+    while x < W + 40:
+        w = random.uniform(90, 170) * U; h = random.uniform(80, 170) * U
+        ctx.rectangle(x, ybase - h, w, h + H)
+        ctx.move_to(x - 8 * U, ybase - h); ctx.line_to(x + w / 2, ybase - h - 55 * U); ctx.line_to(x + w + 8 * U, ybase - h)
+        ctx.close_path(); ctx.fill()
+        x += w + random.uniform(10, 40) * U
+
+def thumb_text(c, line1, line2, badge=None):
+    """Texte standard des miniatures Factora (à gauche, 2 lignes + bandeau rouge)."""
+    def t(txt, x, y, sz, col):
+        c.select_font_face("Inter", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); c.set_font_size(sz)
+        c.move_to(x + 4, y + 4); c.set_source_rgba(0, 0, 0, .7); c.show_text(txt)
+        c.move_to(x, y); c.set_source_rgb(*col); c.show_text(txt)
+    t(line1, 50, 250, 88, (1, 1, 1)); t(line2, 50, 355, 88, (1, .8, .33))
+    if badge:
+        c.select_font_face("Inter", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); c.set_font_size(48); w = c.text_extents(badge).width
+        c.set_source_rgb(.85, .12, .12); c.rectangle(50, 415, w + 50, 80); c.fill(); t(badge, 75, 472, 48, (1, 1, 1))
+
+# ---------- scènes de l'épisode ----------
+exec(open(EP + '/scenes.py', encoding='utf-8').read())
+
+if MODE == "thumb":   # miniature 1280x720 dessinée par thumbnail(ctx) de l'épisode
+    surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
+    thumbnail(cairo.Context(surf))
+    surf.write_to_png(WD + "/miniature.png"); print("OK", WD + "/miniature.png"); sys.exit(0)
+
+# ---------- sous-titres ----------
+def chunks(sent):
+    words = sent["text"].split()
+    n = 5 if VERT else 7
+    groups = [words[i:i + n] for i in range(0, len(words), n)]
+    if len(groups) > 1 and len(groups[-1]) <= 2: last = groups.pop(); groups[-1] += last
+    total = sum(len(" ".join(g)) for g in groups); t = sent["start"]; out = []
+    for g in groups:
+        s = " ".join(g); dur = (sent["end"] - sent["start"]) * len(s) / total
+        out.append((t, t + dur, s)); t += dur
+    return out
+
+def draw_caption(ctx, s):
+    size = (64 if VERT else 50) * U
+    font(ctx, size)
+    maxw = W * 0.86
+    lines, cur = [], ""
+    for w in s.split():
+        test = (cur + " " + w).strip()
+        if ctx.text_extents(test).width > maxw and cur: lines.append(cur); cur = w
+        else: cur = test
+    lines.append(cur)
+    lh = size * 1.25
+    y0 = (H * 0.86 if not VERT else H * 0.74) - lh * (len(lines) - 1) / 2
+    bw = max(ctx.text_extents(l).width for l in lines) + 60 * U
+    rrect(ctx, CX - bw / 2, y0 - lh * 0.65, bw, lh * len(lines) + lh * 0.3, 20 * U); rgba(ctx, (0, 0, 0), 0.55); ctx.fill()
+    for i, l in enumerate(lines): text(ctx, l, CX, y0 + i * lh, size, WHITE)
+
+# ---------- montage ----------
+timeline = json.load(open(WD + "/timeline.json"))
+if MODE == "short":
+    segs = [s for s in timeline if s["scene"] in SHORT_SCENES]
+else:
+    segs = timeline
+voice, SR = sf.read(WD + "/voice.wav", dtype="float32")
+pieces, plan, t0 = [], [], 0.0
+for i, s in enumerate(segs):
+    a, b = (0.0 if i == 0 else s["start"]), s["end"]
+    pieces.append(voice[int(a * SR):int(b * SR)])
+    off = t0 - a
+    caps = [(x + off, y + off, txt) for sent in s["sents"] for (x, y, txt) in chunks(sent)]
+    plan.append(dict(scene=s["scene"], start=t0, end=t0 + (b - a), caps=caps))
+    t0 += b - a
+TOTAL = t0 + 0.6
+vo = np.concatenate(pieces + [np.zeros(int(0.6 * SR), np.float32)])
+
+# musique d'ambiance générée (libre de droits) : nappe douce Am - F - C - G
+def music(total, sr=SR):
+    n = int(total * sr); tt = np.arange(n) / sr; out = np.zeros(n, np.float32)
+    chords = [[220.0, 261.63, 329.63], [174.61, 220.0, 261.63], [196.0, 261.63, 329.63], [196.0, 246.94, 293.66]]
+    L = 4.0
+    for ci in range(int(total / L) + 2):
+        c = chords[ci % 4]; st = ci * L
+        idx = (tt >= st - 0.5) & (tt < st + L + 1.5)
+        loc = tt[idx] - st
+        env = np.clip((loc + 0.5) / 1.5, 0, 1) * np.clip((L + 1.5 - loc) / 2.0, 0, 1)
+        sig = sum(np.sin(2 * np.pi * f * tt[idx]) + 0.5 * np.sin(2 * np.pi * f * 1.003 * tt[idx]) + 0.15 * np.sin(2 * np.pi * f * 2 * tt[idx]) for f in c)
+        sig += 0.8 * np.sin(2 * np.pi * c[0] / 2 * tt[idx])
+        out[idx] += (sig * env).astype(np.float32)
+    out /= np.max(np.abs(out)) + 1e-9
+    fade = np.clip(tt / 2, 0, 1) * np.clip((total - tt) / 2.5, 0, 1)
+    return out * fade * 0.08
+mus = music(len(vo) / SR)
+mixd = vo * 0.95 + mus[:len(vo)]
+mixd /= max(1.0, np.max(np.abs(mixd)) / 0.97)
+sf.write(WD + f"/audio_{MODE}.wav", mixd, SR)
+
+out = WD + f"/video_{MODE}.mp4"
+STILLS = [float(x) for x in sys.argv[3].split(",")] if len(sys.argv) > 3 else None
+class _N:
+    def write(self, b): pass
+    def close(self): pass
+class _P:
+    stdin=_N()
+    def wait(self): pass
+ff = _P() if STILLS else subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgra", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
+                       "-i", WD + f"/audio_{MODE}.wav", "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
+                       "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
+surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
+nf = int(TOTAL * FPS)
+for f in (STILLS or range(nf)):
+    T = f if STILLS else f / FPS
+    seg = next((p for p in plan if p["start"] <= T < p["end"]), plan[-1])
+    ctx = cairo.Context(surf)
+    lt, d = T - seg["start"], seg["end"] - seg["start"]
+    # léger mouvement de caméra
+    z = 1 + 0.03 * lt / d
+    ctx.save(); ctx.translate(CX, CY); ctx.scale(z, z); ctx.translate(-CX, -CY)
+    SCENES[seg["scene"]](ctx, lt, d)
+    ctx.restore()
+    for (a, b, s) in seg["caps"]:
+        if a <= T < b: draw_caption(ctx, s); break
+    # fondu entre scènes
+    fade = min(clamp(lt / 0.3), clamp((d - lt) / 0.3)) if seg is not plan[0] or lt > 0.3 else clamp(lt / 0.3)
+    if fade < 1: ctx.set_source_rgba(0, 0, 0, 1 - fade); ctx.paint()
+    surf.flush()
+    ff.stdin.write(surf.get_data())
+    if STILLS: surf.write_to_png(WD + f"/still_{MODE}_{T:05.1f}.png")
+    if not STILLS and f % 300 == 0: print(MODE, f, "/", nf, flush=True)
+ff.stdin.close(); ff.wait()
+print("OK", out, TOTAL)

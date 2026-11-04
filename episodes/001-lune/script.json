@@ -1,0 +1,13 @@
+[
+ {"scene":"hook","text":["Imaginez.","Ce soir, vous levez les yeux vers le ciel… et la Lune a disparu.","Plus de croissant, plus de pleine lune. Juste le noir.","Que se passerait-il vraiment sur Terre ?"]},
+ {"scene":"title","text":["Voici ce que dit la science, étape par étape."]},
+ {"scene":"night","text":["Première conséquence : les nuits deviendraient beaucoup plus sombres.","Une pleine lune éclaire assez pour marcher dehors sans lampe.","Sans elle, chaque nuit serait une nuit noire… pour toujours."]},
+ {"scene":"coral","text":["Et ce n'est pas un détail. Des milliers d'espèces se règlent sur la Lune.","Sur la Grande Barrière de corail, les coraux libèrent leurs œufs en même temps, quelques nuits après une pleine lune de fin d'année.","Certains prédateurs chassent au clair de lune, et certaines proies se cachent. Tout cet équilibre serait bouleversé."]},
+ {"scene":"tides","text":["Deuxième conséquence : les marées.","La Lune attire les océans et crée un bourrelet d'eau qui fait le tour de la planète.","Le Soleil produit aussi des marées, donc elles ne disparaîtraient pas… mais elles seraient environ trois fois plus faibles."]},
+ {"scene":"shore","text":["Les rivages découverts à marée basse, où vivent crabes, moules et oiseaux, rétréciraient.","Et des courants marins, qui transportent chaleur et nutriments, seraient perturbés."]},
+ {"scene":"tilt","text":["Troisième conséquence, la plus profonde : l'inclinaison de la Terre.","Notre planète penche d'environ vingt-trois degrés, et c'est ce qui crée les saisons.","La Lune agit comme un stabilisateur. Sans elle, selon plusieurs études, cette inclinaison pourrait varier beaucoup plus, sur des millions d'années."]},
+ {"scene":"climate","text":["Résultat possible : des saisons bouleversées, des climats plus extrêmes.","Pas du jour au lendemain, mais à l'échelle de l'histoire de la Terre."]},
+ {"scene":"eclipse","text":["Et puis, il y a ce que nous perdrions en beauté.","Plus jamais d'éclipse totale de Soleil. Plus de croissant au-dessus des toits."]},
+ {"scene":"distance","text":["Rassurez-vous : la Lune ne va pas disparaître.","En revanche, elle s'éloigne de nous d'environ trois virgule huit centimètres par an.","Dans six cents millions d'années environ, elle paraîtra trop petite pour cacher entièrement le Soleil."]},
+ {"scene":"outro","text":["La Lune n'est pas une simple décoration : c'est l'une des raisons pour lesquelles la Terre est la planète que nous connaissons.","Et vous, quelle conséquence vous a le plus surpris ? Dites-le en commentaire.","Et abonnez-vous à Factora, pour un nouveau fait fascinant chaque semaine."]}
+]
