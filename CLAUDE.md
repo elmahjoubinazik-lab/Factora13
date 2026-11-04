@@ -6,7 +6,7 @@ Propriétaire : Nazik EL MAHJOUBI. Toute la communication avec elle se fait **en
 
 Paramètres : `config.json` (chaîne cible, dépôt d'hébergement des fichiers, rythme). Le dépôt est **public** : n'y écrire aucune donnée personnelle ni identifiant.
 
-## Procédure quotidienne (session planifiée chaque jour à 19h23, heure suisse, sans intervention humaine)
+## Procédure de publication (session planifiée tous les 2 jours à 19h23, heure suisse, sans intervention humaine)
 
 ### 0. Préparation
 ```bash
@@ -19,7 +19,7 @@ Charger les outils Zapier (ToolSearch « select:mcp__Zapier__inspect_zapier_acti
 sur `https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true`. Si l'`id` renvoyé n'est pas
 `config.json → youtube_channel_id`, **NE RIEN PUBLIER** : envoyer l'e-mail d'alerte (étape 7) et s'arrêter.
 
-### 1. Passer en public l'épisode de la veille
+### 1. Passer en public l'épisode précédent
 Pour chaque entrée de `published.json` avec `"status": "unlisted"` : lire son statut réel (GET `videos?part=status&id=…`).
 - s'il est **encore « unlisted »** → PUT `videos?part=status` avec `{"id": …, "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": false}}` ; noter `"status": "public"` ;
 - s'il est « private » ou supprimé → Nazik l'a retiré : noter `"status": "retire"`, ne rien toucher.
@@ -34,7 +34,7 @@ Premier sujet non coché de `topics.md`. **S'il reste moins de 10 sujets non coc
   - nombres écrits en toutes lettres (la voix les lit mieux) ; phrases courtes ;
   - **uniquement des faits établis** (NASA, ESA, CNRS, INSERM, OMS, Banque de France, encyclopédies…). Pas de chiffre douteux ;
     en cas de doute, formuler prudemment (« selon plusieurs études ») ou retirer. Lister les sources dans `meta.json` ;
-  - fin : question au public + « Abonnez-vous à Factora, pour un nouveau fait fascinant chaque jour. »
+  - fin : question au public + « Abonnez-vous à Factora, pour un nouveau fait fascinant tous les deux jours. »
 - `scenes.py` : une fonction de dessin par scène `sc_xxx(ctx, t, d)` (t = temps local, d = durée), le dict `SCENES`,
   la liste `SHORT_SCENES` (segments gardés pour le Short, **≤ 60 s au total**, commencer par l'accroche, finir par l'outro),
   et `thumbnail(c)` (1280×720, utiliser `thumb_text(c, ligne1, ligne2, bandeau)`).
