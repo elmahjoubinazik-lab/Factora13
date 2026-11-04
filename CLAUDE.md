@@ -78,9 +78,19 @@ Short : `short_title`, description courte avec le lien `https://youtu.be/<long_i
 Ajouter l'épisode dans `published.json` (`episode`, `topic`, `dir`, `date`, `long_id`, `short_id`, `status`, `thumbnail_set`).
 Cocher le sujet dans `topics.md` (date + numéro). `git add -A && git commit && git push origin main`.
 
+### 6 bis. Publier le Short sur TikTok (via Buffer, Zapier)
+Action Zapier Buffer « Add to Queue » (selected_api BufferCLIAPI, action « update », tool_name « buffer_add_to_queue »),
+avec le `connection_id`, l'`organizationId` et le `channelId` TikTok donnés dans le message de la tâche planifiée.
+Paramètres : `method` = "share_now", `attachment` = "video", `video` = URL du Short (celle de host.sh), `scheduling_type` = "direct",
+`text` = accroche (1–2 phrases) + « Version complète sur YouTube : Factora. » + « Voix de synthèse, illustrations originales. »
++ 5–6 hashtags (#science #etsi #apprendresurtiktok #factora + sujet). ≤ 2 200 caractères.
+Le Short est publié sur TikTok **dès cette exécution** (pas d'étape « non répertorié » sur TikTok).
+Noter dans `published.json` : `"tiktok_buffer_id"` (champ `id` de la réponse) et `"tiktok": "envoye"`.
+Si Buffer échoue : ne pas bloquer YouTube ; noter `"tiktok": "echec"` et le signaler dans l'e-mail.
+
 ### 7. Prévenir Nazik
 E-mail via Zapier Gmail à l'adresse donnée dans le message de la tâche planifiée, objet « Factora — épisode NNN en ligne (non répertorié) » :
-titre, liens des 2 vidéos, rappel : « Elle passera en public automatiquement à la prochaine exécution.
+titre, liens des 2 vidéos YouTube, statut TikTok, rappel : « Elle passera en public automatiquement à la prochaine exécution.
 Pour l'empêcher : mettez-la en Privé dans YouTube Studio. » En cas d'échec à une étape : e-mail « Factora — échec épisode NNN » avec l'erreur.
 
 ## Règles
