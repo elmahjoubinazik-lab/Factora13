@@ -14,5 +14,23 @@
     "_choix": "voix anglaise n°1 (af_heart) par défaut, en attente du choix de Nazik ; ancienne voix FR : ff_siwis, vitesse 0.88"
   },
   "_note_chaine": "Chaîne de publication choisie par Nazik le 2026-11-04 : @factoraofficiel. Ne pas publier sur @factora13 (UCYxSS4wKZUa3kmLnTYiGmuw), autre chaîne.",
-  "langue": "en"
+  "langue": "en",
+  "playlists": {
+    "what_if": {
+      "id": "PLYZhlxD9pzG8",
+      "titre": "What If…? 🌍",
+      "pour": "scénarios « What if… »"
+    },
+    "how": {
+      "id": "PLKY_up1k1FCo",
+      "titre": "How Does It Work? ⚙️",
+      "pour": "« How does… work / How is… »"
+    },
+    "why": {
+      "id": "PLDfwVoPj5Ibs",
+      "titre": "Why Does It Happen? 🔬",
+      "pour": "« Why… / What happens… », corps humain, mystères"
+    }
+  },
+  "tiktok_heure": "19:30 America/New_York (heure de pointe US)"
 }

@@ -189,8 +189,39 @@ for i, s in enumerate(segs):
     caps = [(x + off, y + off, txt) for sent in s["sents"] for (x, y, txt) in chunks(sent)]
     plan.append(dict(scene=s["scene"], start=t0, end=t0 + (b - a), caps=caps))
     t0 += b - a
+# vidéo longue : la conclusion dure au moins 20 s (durée minimale de l'écran de fin YouTube)
+if MODE == "long" and plan[-1]["end"] - plan[-1]["start"] < 20:
+    extra = 20 - (plan[-1]["end"] - plan[-1]["start"])
+    pieces.append(np.zeros(int(extra * SR), np.float32)); plan[-1]["end"] += extra; t0 += extra
 TOTAL = t0 + 0.6
 vo = np.concatenate(pieces + [np.zeros(int(0.6 * SR), np.float32)])
+
+# Short : accroche écrite en grand dès la première image (meta « hook_text », sinon short_title sans emoji ni #shorts)
+HOOK = ""
+if MODE == "short":
+    _mp = EP + f"/meta_{LANG}.json"
+    _mp = _mp if os.path.exists(_mp) else EP + "/meta.json"
+    try:
+        _m = json.load(open(_mp, encoding="utf-8"))
+        HOOK = _m.get("hook_text") or _m.get("short_title", "")
+    except Exception:
+        HOOK = ""
+    HOOK = "".join(ch for ch in HOOK.replace("#shorts", "") if ord(ch) < 0x2190).strip().upper()
+
+def draw_hook(ctx, a):
+    if not HOOK or a <= 0: return
+    size = 78 * U; font(ctx, size)
+    words, lines, cur = HOOK.split(), [], ""
+    for w in words:
+        test = (cur + " " + w).strip()
+        if ctx.text_extents(test).width > W * 0.84 and cur: lines.append(cur); cur = w
+        else: cur = test
+    lines.append(cur)
+    lh = size * 1.18; y0 = H * 0.16
+    bw = max(ctx.text_extents(l).width for l in lines) + 70 * U
+    rrect(ctx, CX - bw / 2, y0 - lh * 0.75, bw, lh * len(lines) + lh * 0.5, 28 * U); rgba(ctx, (0.02, 0.03, 0.10), 0.82 * a); ctx.fill()
+    rrect(ctx, CX - bw / 2, y0 - lh * 0.75, bw, lh * len(lines) + lh * 0.5, 28 * U); rgba(ctx, GOLD, 0.95 * a); ctx.set_line_width(5 * U); ctx.stroke()
+    for i, l in enumerate(lines): text(ctx, l, CX, y0 + i * lh, size, GOLD if i == len(lines) - 1 else WHITE, a)
 
 # musique d'ambiance générée (libre de droits) : nappe douce Am - F - C - G
 def music(total, sr=SR):
@@ -241,6 +272,8 @@ for f in (STILLS or range(nf)):
         if a <= TNOW < b: draw_caption(ctx, s); break
     # fondu entre scènes
     fade = min(clamp(lt / 0.3), clamp((d - lt) / 0.3)) if seg is not plan[0] or lt > 0.3 else clamp(lt / 0.3)
+    if MODE == "short" and seg is plan[0]: fade = clamp((d - lt) / 0.3)   # Short : pas d'écran noir au départ
+    if MODE == "short": draw_hook(ctx, 1 - prog(TNOW, 2.6, 3.2))
     if fade < 1: ctx.set_source_rgba(0, 0, 0, 1 - fade); ctx.paint()
     surf.flush()
     ff.stdin.write(surf.get_data())

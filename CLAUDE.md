@@ -48,12 +48,12 @@ Premier sujet non coché de `topics.md`. **S'il reste moins de 10 sujets non coc
     en cas de doute, formuler prudemment (« selon plusieurs études ») ou retirer. Lister les sources dans `meta.json` ;
   - fin : question au public + « And subscribe to Factora, so you never miss a fascinating fact. » (ne jamais citer de fréquence de publication : elle peut changer)
 - `scenes.py` : une fonction de dessin par scène `sc_xxx(ctx, t, d)` (t = temps local, d = durée), le dict `SCENES`,
-  la liste `SHORT_SCENES` (segments gardés pour le Short, **≤ 60 s au total** — vérifier avec build/timeline.json, la voix est lente, commencer par l'accroche, finir par l'outro),
+  la liste `SHORT_SCENES` (segments gardés pour le Short : **viser 30 à 40 s, jamais plus de 59 s** — vérifier avec build/timeline.json ; les Shorts de 25–45 s font le plus de vues ; commencer par l'accroche, finir par l'outro),
   et `thumbnail(c)` (1280×720, utiliser `thumb_text(c, ligne1, ligne2, bandeau)`).
   Modèle complet : `episodes/001-lune/scenes.py`. Style maison : fond bleu nuit, accents or, aplats vectoriels, pas d'images externes.
   Les dessins doivent être **originaux et propres au sujet** (exigence YouTube « contenu authentique »).
   Éviter le bas de l'écran (sous-titres : ~0,80–0,92 H en 16:9, ~0,70–0,78 H en 9:16).
-- `meta_en.json` : `title` (≤ 70 car., curiosité + mot-clé), `short_title` (finir par `#shorts`), `description` (avec `{CHAPITRES}`),
+- `meta_en.json` : `hook_text` (question courte, ≤ 8 mots, affichée en grand dès la 1re image du Short ; ex. « WHAT IF THE SUN WENT OUT? »), `playlist` (`what_if`, `how` ou `why`), `comment` (question au public, 1 phrase + emoji, publiée sous la vidéo), `title` (≤ 70 car., curiosité + mot-clé), `short_title` (question courte + 1 emoji, finir par `#shorts`), `description` (avec `{CHAPITRES}`),
   `chapters` (id de scène → libellé ; chaque chapitre ≥ 10 s, le premier à 00:00), `tags`. Modèle : `episodes/001-lune/meta_en.json`.
 
 ### 4. Générer et contrôler
@@ -87,6 +87,10 @@ Puis action « Update Video Thumbnail » (`video_id`, `thumbnail` = URL miniatur
 (normalement résolu : téléphone vérifié le 2026-11-04) : continuer sans, noter `"thumbnail_set": false`, le signaler dans l'e-mail.
 Lors de l'étape 1, réessayer la miniature des épisodes avec `"thumbnail_set": false` (fichier : régénérer avec `render.py thumb` puis `host.sh`, ou ignorer si impossible).
 Short : `short_title`, description courte (anglais) avec le lien `https://youtu.be/<long_id>` + hashtags, sans miniature, `notify_subscribers` = false.
+Ensuite, pour la vidéo longue : (a) l'ajouter à la playlist `config.json → playlists[meta.playlist].id`
+(POST `playlistItems?part=snippet` avec `{"snippet":{"playlistId":…,"resourceId":{"kind":"youtube#video","videoId":…}}}`) ;
+(b) publier le commentaire `meta.comment` (POST `commentThreads?part=snippet` avec `{"snippet":{"channelId":…,"videoId":…,"topLevelComment":{"snippet":{"textOriginal":…}}}}`).
+Le commentaire ne peut pas être épinglé par l'API : le rappeler à Nazik dans l'e-mail. Un 429 de Zapier : attendre 60 s et réessayer une fois.
 Si l'upload échoue pour limite de mises en ligne : ne pas réessayer ; ajouter l'épisode avec `"status": "attente_youtube"` et `urls` (celles de host.sh), continuer avec TikTok.
 Ajouter l'épisode dans `published.json` (`episode`, `topic`, `dir`, `date`, `long_id`, `short_id`, `status`, `thumbnail_set`).
 Cocher le sujet dans `topics.md` (date + numéro). `git add -A && git commit && git push origin main`.
@@ -94,10 +98,12 @@ Cocher le sujet dans `topics.md` (date + numéro). `git add -A && git commit && 
 ### 6 bis. Publier le Short sur TikTok (via Buffer, Zapier)
 Action Zapier Buffer « Add to Queue » (selected_api BufferCLIAPI, action « update », tool_name « buffer_add_to_queue »),
 avec le `connection_id`, l'`organizationId` et le `channelId` TikTok donnés dans le message de la tâche planifiée.
-Paramètres : `method` = "share_now", `attachment` = "video", `video` = URL du Short (celle de host.sh), `scheduling_type` = "direct",
+Paramètres : `method` = "schedule", `scheduled_at` = aujourd'hui 19:30 heure de New York (heure de pointe US) — calculer avec
+`python3 -c "from datetime import datetime;from zoneinfo import ZoneInfo as Z;n=datetime.now(Z('America/New_York'));t=n.replace(hour=19,minute=30,second=0,microsecond=0);print((t if t>n else n.replace(second=0,microsecond=0)).isoformat())"`
+(si 19:30 est déjà passé à New York : `method` = "share_now"), `attachment` = "video", `video` = URL du Short (celle de host.sh), `scheduling_type` = "direct",
 `text` (en anglais) = accroche (1–2 phrases) + « Full video on YouTube: @factoraofficiel » + « Synthetic voice, original illustrations. »
-+ 5–6 hashtags (#science #whatif #learnontiktok #factora + sujet). ≤ 2 200 caractères.
-Le Short est publié sur TikTok **dès cette exécution** (pas d'étape « non répertorié » sur TikTok).
++ 5–6 hashtags (#sciencetok #didyouknow #learnontiktok #factora + 1–2 du sujet). Mettre dans la 1re phrase les mots-clés que les gens taperaient dans la recherche TikTok. ≤ 2 200 caractères.
+Le Short est programmé sur TikTok dès cette exécution (pas d'étape « non répertorié » sur TikTok).
 Noter dans `published.json` : `"tiktok_buffer_id"` (champ `id` de la réponse) et `"tiktok": "envoye"`.
 Si Buffer échoue : ne pas bloquer YouTube ; noter `"tiktok": "echec"` et le signaler dans l'e-mail.
 

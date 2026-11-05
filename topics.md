@@ -2,6 +2,9 @@
 
 Règle : la session planifiée prend le **premier sujet non coché**, le produit, puis le coche avec la date et le numéro d'épisode.
 Thèmes intemporels (pas d'actualité), vérifiables, adaptés aux illustrations vectorielles simples.
+Familles qui font le plus de vues (analyse YouTube du 2026-11-05) : « What if… » sur VOTRE CORPS, physique extrême
+(zéro absolu, temps arrêté, objet lâché de l'espace), mondes alternatifs (sans la roue, téléportation), mystères inexpliqués.
+Quand on ajoute des sujets, privilégier ces familles.
 Les vidéos sont en anglais : traduire le sujet en titre anglais accrocheur au moment de produire l épisode.
 
 - [x] 001 — Et si la Lune disparaissait ? (épisode test, 2026-11-04)
@@ -16,6 +19,13 @@ Les vidéos sont en anglais : traduire le sujet en titre anglais accrocheur au m
 - [x] Pourquoi les dinosaures ont-ils disparu ? (épisode 010, 2026-11-05)
 - [x] Comment l'argent est-il créé ? (épisode 011, 2026-11-05)
 - [ ] Que se passerait-il si le Soleil s'éteignait ?
+- [ ] What if gravity doubled for 10 seconds? (priorité tendance)
+- [ ] What if you fell to the deepest point of the ocean? (priorité tendance)
+- [ ] What if a teaspoon of a neutron star landed on Earth? (priorité tendance)
+- [ ] Why can't you tickle yourself? (priorité tendance)
+- [ ] What happens to your body in space without a suit? (priorité tendance)
+- [ ] What if the Internet shut down for a whole day? (priorité tendance)
+- [ ] The ocean's biggest unsolved mysteries (priorité tendance)
 - [ ] Pourquoi avons-nous le hoquet ?
 - [ ] Comment les GPS savent-ils où vous êtes ?
 - [ ] Et si les humains disparaissaient demain ?
