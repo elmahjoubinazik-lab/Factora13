@@ -1,0 +1,7 @@
+{
+  "title": "How Does the Internet Actually Work? (It Runs Under the Ocean)",
+  "short_title": "Your videos travel under the ocean 🌊 #shorts",
+  "description": "Tap a video and, in a fraction of a second, it crosses cities and oceans to reach you. Packets, IP addresses, DNS, routers, undersea cables and pulses of light: here is how the Internet really works, step by step.\n\n{CHAPITRES}\n\nSubscribe to Factora so you never miss a fascinating fact.\n\nSources: Internet Society (brief history of the Internet, ARPANET 1969); CERN (the birth of the World Wide Web, 1989); IETF RFC 791 (Internet Protocol) and RFC 1034 (Domain Name System); TeleGeography (submarine cable map); Encyclopaedia Britannica (optical fiber, Internet).\n\nSynthetic voice, original illustrations.\n\n#internet #technology #science #howitworks #facts",
+  "chapters": {"hook": "Your video's journey", "packets": "Packets and IP addresses", "dns": "DNS, the Internet's phone book", "routers": "Routers", "cables": "Undersea cables and light", "servers": "Data centers", "history": "A short history"},
+  "tags": ["how does the internet work", "internet", "undersea cables", "fiber optics", "dns", "ip address", "routers", "technology", "science", "facts", "factora"]
+}

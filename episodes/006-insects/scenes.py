@@ -101,7 +101,7 @@ def meadow(ctx, t, yb, dim=0.0):
     ctx.line_to(W, H); ctx.close_path(); ctx.fill()
 
 def dashed_ring(ctx, x, y, r, a):
-    ctx.set_dash([10 * U, 10 * U]); ctx.arc(x, y, r, 0, 2 * math.pi)
+    ctx.new_path(); ctx.set_dash([10 * U, 10 * U]); ctx.arc(x, y, r, 0, 2 * math.pi)
     rgba(ctx, WHITE, a); ctx.set_line_width(3 * U); ctx.stroke(); ctx.set_dash([])
 
 # ---------- scenes ----------
@@ -116,16 +116,19 @@ def sc_hook(ctx, t, d):
     heads = []
     for i in range(n):
         x = W * (i + 0.5) / n
-        heads.append(flower(ctx, x, yb + 30 * U, 1.0 * U / U, cols[i % 5], 150 + 50 * (i % 3), gone, 1, t))
+        heads.append(flower(ctx, x, yb + 30 * U, 1.0 * U, cols[i % 5], 150 + 50 * (i % 3), gone, 1, t))
     random.seed(4)
     m = 14 if not VERT else 10
     for j in range(m):
         ph = random.random() * 6.28
-        bx = W * (0.08 + 0.84 * random.random()) + math.sin(t * 0.8 + ph) * 60 * U
-        by = H * (0.18 + 0.38 * random.random()) * (1 if not VERT else 1.1) + math.cos(t * 1.1 + ph) * 30 * U
+        cols_n = 5 if not VERT else 3
+        gx, gy_ = j % cols_n, j // cols_n
+        rows_n = (m + cols_n - 1) // cols_n
+        bx = W * (0.1 + 0.8 * (gx + 0.5 * (gy_ % 2) * 0.6) / (cols_n - 0.4)) + math.sin(t * 0.8 + ph) * 40 * U
+        by = H * (0.12 + (0.42 if not VERT else 0.38) * (gy_ + 0.3 * random.random()) / rows_n) + math.cos(t * 1.1 + ph) * 25 * U
         own = clamp((gone * 1.4) - j / m * 0.4)
         a = 1 - own
-        kind = j % 3
+        kind = (gx + gy_) % 3
         if kind == 0: bee(ctx, bx, by, 1.1 * U, t + ph, a, 0.15 * math.sin(t + ph))
         elif kind == 1: butterfly(ctx, bx, by, 1.0 * U, t + ph, cols[j % 5], a)
         else: firefly(ctx, bx, by, 1.4 * U, t, ph, a)
@@ -150,7 +153,7 @@ def sc_title(ctx, t, d):
 def sc_count(ctx, t, d):
     vgrad(ctx, NAVY2, NAVY); stars(ctx, t, 0.4)
     if VERT: px, py, R = CX, H * 0.48, 230 * U
-    else: px, py, R = W * 0.68, CY - 20 * U, 250 * U
+    else: px, py, R = W * 0.60, CY - 40 * U, 250 * U
     p = prog(t, 4.0, 7.0)
     frac = 0.58 * p
     # pie: all known animal species
@@ -163,21 +166,24 @@ def sc_count(ctx, t, d):
     text(ctx, "ALL KNOWN ANIMALS", px, py - R - 50 * U, 38 * U, WHITE, prog(t, 3.5, 4.2))
     k = prog(t, 6.5, 7.5)
     if k:
-        ang = -math.pi / 2 + frac * math.pi
-        lx = px + math.cos(ang) * R * 1.25; ly = py + math.sin(ang) * R * 1.25
-        text(ctx, "INSECTS: MORE", lx + (40 if not VERT else 0) * U, ly - 26 * U if not VERT else py + R + 50 * U, 36 * U, GOLD, k, True, "l" if not VERT else "c")
-        text(ctx, "THAN HALF", lx + (40 if not VERT else 0) * U, ly + 20 * U if not VERT else py + R + 95 * U, 36 * U, GOLD, k, True, "l" if not VERT else "c")
+        if VERT:
+            text(ctx, "INSECTS: MORE THAN HALF", CX, py + R + 55 * U, 40 * U, GOLD, k)
+        else:
+            text(ctx, "INSECTS:", px + R + 40 * U, py - 28 * U, 42 * U, GOLD, k, True, "l")
+            text(ctx, "MORE THAN HALF", px + R + 40 * U, py + 26 * U, 42 * U, GOLD, k, True, "l")
     # counter
     n = int(1000000 * prog(t, 0.8, 4.0))
-    cx_, cy_ = (W * 0.27, CY - 60 * U) if not VERT else (CX, H * 0.20)
+    cx_, cy_ = (W * 0.24, CY - 120 * U) if not VERT else (CX, H * 0.20)
     text(ctx, f"{n:,}", cx_, cy_, 120 * U, GOLD, prog(t, 0.5, 1.0))
     text(ctx, "DESCRIBED SPECIES", cx_, cy_ + 95 * U, 40 * U, WHITE, prog(t, 0.5, 1.0))
     if not VERT:
         m = prog(t, d - 4.5, d - 3.0)
         if m:
             text(ctx, "+ MANY STILL UNKNOWN", cx_, cy_ + 175 * U, 36 * U, WHITE, 0.8 * m, False)
-            for i in range(5):
-                beetle(ctx, cx_ - 220 * U + i * 110 * U, cy_ + 270 * U, 0.8 * U, -math.pi / 2, (0.3, 0.3, 0.45), m * 0.9, t)
+            for i in range(4):
+                xx = cx_ - 195 * U + i * 130 * U
+                dashed_ring(ctx, xx, cy_ + 280 * U, 48 * U, 0.6 * m)
+                text(ctx, "?", xx, cy_ + 280 * U, 56 * U, GOLD, m)
     else:
         m = prog(t, d - 4.5, d - 3.0)
         if m: text(ctx, "+ MANY STILL UNKNOWN", CX, H * 0.20 + 150 * U, 36 * U, WHITE, 0.8 * m, False)
@@ -288,7 +294,7 @@ def sc_plate(ctx, t, d):
         fn(ctx, x, y, 1.4 * U, ap * (1 - 0.8 * loss))
         if loss: dashed_ring(ctx, x, y, 62 * U, 0.6 * loss)
     w = prog(t, d * 0.42, d * 0.52)
-    for fn, (x, y) in zip(wnd, wpos): fn(ctx, x, y, 1.5 * U, w)
+    for fn, (x, y) in zip(wnd, wpos): fn(ctx, x, y, (2.0 if fn is rice else 1.5) * U, w)
     if VERT:
         text(ctx, "≈ 3/4 OF LEADING CROPS", CX, lab1[1], 44 * U, GOLD, prog(t, 1, 2))
         text(ctx, "RELY PARTLY ON POLLINATORS", CX, lab1[1] + 55 * U, 36 * U, WHITE, prog(t, 1.5, 2.5), False)
@@ -353,20 +359,21 @@ def sc_foodweb(ctx, t, d):
     vgrad(ctx, NAVY2, NAVY); stars(ctx, t, 0.35)
     kill1 = prog(t, d * 0.55, d * 0.65); kill2 = prog(t, d * 0.70, d * 0.80); kill3 = prog(t, d * 0.84, d * 0.92)
     if VERT:
-        ly = [H * 0.60, H * 0.43, H * 0.25]; xs = [W * 0.2, W * 0.4, W * 0.6, W * 0.8]
+        ly = [H * 0.56, H * 0.39, H * 0.22]; xs = [W * 0.2, W * 0.4, W * 0.6, W * 0.8]
     else:
-        ly = [H * 0.66, H * 0.43, H * 0.18]; xs = [W * 0.26, W * 0.42, W * 0.58, W * 0.74]
+        ly = [H * 0.63, H * 0.37, H * 0.14]; xs = [W * 0.26, W * 0.42, W * 0.58, W * 0.74]
     R = 70 * U
     # links
     for xx in xs:
-        line(ctx, [(CX + (xx - CX) * 0.4, ly[0] - R), (xx, ly[1] + R)], WHITE, 3 * U, 0.3 * (1 - kill2 * 0.7))
+        line(ctx, [(CX + (xx - CX) * 0.4, ly[0] - R * 1.3), (xx, ly[1] + R)], WHITE, 3 * U, 0.3 * (1 - kill2 * 0.7))
         line(ctx, [(xx, ly[1] - R), (CX, ly[2] + R)], WHITE, 3 * U, 0.3 * (1 - kill3 * 0.7))
     # level 0: insects
     circle(ctx, CX, ly[0], R * 1.6, (0.2, 0.25, 0.45), 1 - 0.6 * kill1)
     bee(ctx, CX - 60 * U, ly[0] - 10 * U, 1.0 * U, t, 1 - kill1)
     beetle(ctx, CX + 60 * U, ly[0] + 20 * U, 0.8 * U, 0.3, (0.25, 0.75, 0.6), 1 - kill1, t)
     butterfly(ctx, CX + 10 * U, ly[0] - 50 * U, 0.7 * U, t, PINK, 1 - kill1)
-    text(ctx, "INSECTS", CX, ly[0] + R * 1.6 + 40 * U, 36 * U, GOLD, 1 - kill1 * 0.5)
+    if VERT: text(ctx, "INSECTS", CX, ly[0] + R * 1.6 + 40 * U, 36 * U, GOLD, 1 - kill1 * 0.5)
+    else: text(ctx, "INSECTS", CX + R * 1.6 + 30 * U, ly[0], 40 * U, GOLD, 1 - kill1 * 0.5, True, "l")
     if kill1: cross(ctx, CX, ly[0], 70 * U, kill1)
     # level 1
     fns = [lambda x, y, a: bird(ctx, x, y, 1.0 * U, (0.55, 0.75, 0.95), a, t), lambda x, y, a: bat(ctx, x, y, 1.0 * U, a, t),
@@ -374,8 +381,10 @@ def sc_foodweb(ctx, t, d):
     for xx, fn in zip(xs, fns):
         circle(ctx, xx, ly[1], R, (0.2, 0.25, 0.45), 1 - 0.5 * kill2)
         fn(xx, ly[1], 1 - 0.7 * kill2)
-    if VERT: text(ctx, "BIRDS · BATS · FROGS · FISH", CX, ly[1] + R + 45 * U, 34 * U, WHITE, 0.9 * (1 - kill2 * 0.5))
-    else: text(ctx, "BIRDS · BATS · FROGS · FISH", CX, ly[1] + R + 42 * U, 32 * U, WHITE, 0.9 * (1 - kill2 * 0.5))
+    lab = "BIRDS · BATS · FROGS · FISH"; ly_l = ly[1] + R + 45 * U
+    font(ctx, 32 * U); lw_ = ctx.text_extents(lab).width + 40 * U
+    rrect(ctx, CX - lw_ / 2, ly_l - 26 * U, lw_, 52 * U, 26 * U); rgba(ctx, NAVY, 0.9); ctx.fill()
+    text(ctx, lab, CX, ly_l, 32 * U, WHITE, 0.9 * (1 - kill2 * 0.5))
     if kill2:
         for xx in xs: cross(ctx, xx, ly[1], 40 * U, kill2)
     # level 2
@@ -396,7 +405,12 @@ def leafshape(ctx, x, y, s, rot, c, a=1.0):
 
 def sc_cleanup(ctx, t, d):
     vgrad(ctx, (0.08, 0.12, 0.26), (0.05, 0.08, 0.16)); stars(ctx, t, 0.3)
-    gy = H * 0.66 if not VERT else H * 0.60
+    gy = H * 0.58 if not VERT else H * 0.56
+    for k in range(7 if not VERT else 4):
+        tx = W * (k + 0.5) / (7 if not VERT else 4) + 40 * U * math.sin(k * 2.3); th = (220 + 80 * (k % 3)) * U
+        rgba(ctx, (0.07, 0.13, 0.15)); ctx.rectangle(tx - 14 * U, gy - th, 28 * U, th); ctx.fill()
+        for (ddx, ddy, rr) in [(0, -th, 110), (-70, -th + 60, 80), (70, -th + 50, 85)]:
+            circle(ctx, tx + ddx * U, gy + ddy, rr * U, (0.07, 0.15, 0.16))
     rgba(ctx, (0.18, 0.30, 0.18)); ctx.rectangle(0, gy, W, H - gy); ctx.fill()
     rgba(ctx, (0.24, 0.40, 0.22)); ctx.move_to(0, gy)
     for i in range(41): ctx.line_to(W * i / 40, gy - 10 * U * abs(math.sin(i * 1.3)))
@@ -412,24 +426,24 @@ def sc_cleanup(ctx, t, d):
     for k in range(8):
         x = lx - lw / 2 + random.random() * lw * 1.2; y = gy + 30 * U + random.random() * 60 * U
         leafshape(ctx, x, y, 1.2 * U * (1 - 0.8 * eat), random.random() * 3, random.choice([(0.85, 0.55, 0.2), (0.8, 0.35, 0.2), GOLD]))
-    beetle(ctx, lx + 80 * U, gy - 120 * U, 0.8 * U, 0.1, (0.25, 0.75, 0.6), 1, t)
-    beetle(ctx, lx - 120 * U, gy + 70 * U, 0.7 * U, 2.8, (0.6, 0.4, 0.8), 1, t)
-    ant(ctx, lx + 10 * U + 30 * U * math.sin(t), gy + 100 * U, 1.0 * U, 0.2, t)
+    beetle(ctx, lx + 60 * U, gy - 125 * U, 1.2 * U, 0.1, (0.25, 0.75, 0.6), 1, t)
+    beetle(ctx, lx - 130 * U, gy + 60 * U, 1.1 * U, 2.8, (0.6, 0.4, 0.8), 1, t)
+    ant(ctx, lx + 10 * U + 30 * U * math.sin(t), gy + 110 * U, 1.5 * U, 0.2, t)
     # dung beetle rolling a ball
     p = prog(t, d * 0.45, d * 0.95)
     dx = W * 0.74 if not VERT else W * 0.72
     dung(ctx, dx, gy + 20 * U, 1.2 * U, prog(t, d * 0.4, d * 0.5))
     if p > 0:
-        bx = dx - 140 * U - 260 * U * p * (1 if not VERT else 0.6); by = gy + 170 * U if not VERT else gy + 260 * U
+        bx = dx - 140 * U - 260 * U * p; by = gy + 170 * U
         if VERT: bx = dx - 160 * U - 180 * U * p
         rb = 34 * U
         ctx.save(); ctx.translate(bx, by - rb); ctx.rotate(-p * 8)
         circle(ctx, 0, 0, rb, (0.38, 0.26, 0.16)); line(ctx, [(-rb * 0.5, -rb * 0.3), (rb * 0.3, rb * 0.5)], (0.28, 0.18, 0.1), 3 * U)
         ctx.restore()
         ctx.save(); ctx.translate(bx + rb + 34 * U, by - 30 * U); ctx.rotate(-2.6); beetle(ctx, 0, 0, 0.75 * U, 0, (0.15, 0.15, 0.2), 1, t * 2); ctx.restore()
-        text(ctx, "AUSTRALIA · 1960s", dx if not VERT else CX, H * 0.20 if not VERT else H * 0.26, 46 * U, GOLD, prog(t, d * 0.55, d * 0.62))
-        text(ctx, "DUNG BEETLES BROUGHT IN", dx if not VERT else CX, H * 0.20 + 58 * U if not VERT else H * 0.26 + 58 * U, 34 * U, WHITE, prog(t, d * 0.6, d * 0.67), False)
-    text(ctx, "NATURE'S RECYCLERS", lx if not VERT else CX, H * 0.30 if not VERT else H * 0.18 + 90 * U, 42 * U, WHITE, prog(t, 1, 2) * (1 - prog(t, d * 0.5, d * 0.55) * (1 if VERT else 0)))
+        text(ctx, "AUSTRALIA · 1960s", dx if not VERT else CX, H * 0.12 if not VERT else H * 0.20, 46 * U, GOLD, prog(t, d * 0.55, d * 0.62))
+        text(ctx, "DUNG BEETLES BROUGHT IN", dx if not VERT else CX, H * 0.12 + 58 * U if not VERT else H * 0.20 + 58 * U, 34 * U, WHITE, prog(t, d * 0.6, d * 0.67), False)
+    text(ctx, "NATURE'S RECYCLERS", CX, H * 0.12 if not VERT else H * 0.20, 48 * U, GOLD, prog(t, 1, 2) * (1 - prog(t, d * 0.42, d * 0.5)))
     chip(ctx, "CONSEQUENCE 3 · THE CLEANUP", t)
 
 def sc_soil(ctx, t, d):
@@ -522,38 +536,52 @@ def sc_winners(ctx, t, d):
 
 def sc_decline(ctx, t, d):
     vgrad(ctx, NAVY2, NAVY); stars(ctx, t, 0.3)
-    if VERT: bx, by0, bw, bh = CX - 110 * U, H * 0.62, 220 * U, 620 * U
-    else: bx, by0, bw, bh = W * 0.30 - 120 * U, H * 0.74, 240 * U, 560 * U
-    p = prog(t, 4.5, 9.0)
+    if VERT: cxb, by0, bw, bh = CX, H * 0.62, 200 * U, 560 * U
+    else: cxb, by0, bw, bh = W * 0.30, H * 0.72, 210 * U, 500 * U
+    p = prog(t, 5.0, 9.0)
     v = 1 - 0.76 * p
-    rgba(ctx, WHITE, 0.25); ctx.set_line_width(3 * U); ctx.move_to(bx - 60 * U, by0); ctx.line_to(bx + bw + 60 * U, by0); ctx.stroke()
-    ctx.set_dash([10 * U, 10 * U]); rrect(ctx, bx, by0 - bh, bw, bh, 14 * U); rgba(ctx, WHITE, 0.4 * p); ctx.stroke(); ctx.set_dash([])
-    rrect(ctx, bx, by0 - bh * v, bw, bh * v, 14 * U); rgba(ctx, GOLD); ctx.fill()
-    # insects on bar fading
-    random.seed(50)
-    for k in range(12):
-        x = bx + 30 * U + random.random() * (bw - 60 * U); y = by0 - bh * random.random()
-        alive = 1 if y > by0 - bh * v else 1 - p
-        bee(ctx, x, y, 0.55 * U, t + k, alive * 0.9)
+    a0 = prog(t, 3.5, 4.5)
+    rgba(ctx, WHITE, 0.3 * a0); ctx.set_line_width(3 * U); ctx.move_to(cxb - 300 * U, by0); ctx.line_to(cxb + 300 * U, by0); ctx.stroke()
+    for k, (yr, val, col) in enumerate([("1989", 1.0, (0.55, 0.6, 0.8)), ("2016", v, GOLD)]):
+        bx = cxb + (-1 if k == 0 else 1) * 150 * U - bw / 2
+        if k == 1:
+            ctx.set_dash([10 * U, 10 * U]); rrect(ctx, bx, by0 - bh, bw, bh, 14 * U); rgba(ctx, WHITE, 0.4 * p); ctx.set_line_width(3 * U); ctx.stroke(); ctx.set_dash([])
+        hh = bh * val * (a0 if k == 0 else prog(t, 4.0, 5.0))
+        if hh > 1:
+            rrect(ctx, bx, by0 - hh, bw, hh, 14 * U); rgba(ctx, col); ctx.fill()
+        text(ctx, yr, bx + bw / 2, by0 + 40 * U, 36 * U, WHITE, a0)
+        random.seed(50 + k)
+        for j in range(8):
+            fy = by0 - hh * (0.1 + 0.8 * random.random()); fx = bx + 40 * U + random.random() * (bw - 80 * U)
+            if hh > 60 * U and (k == 0 or j < 8 * val):
+                bee(ctx, fx, fy, 0.6 * U, t + j, 0.9)
     pct = int(round(76 * p))
-    text(ctx, f"−{pct}%" if pct else "100%", bx + bw / 2, by0 - bh * v - 50 * U, 72 * U, CORAL if pct else WHITE, prog(t, 4, 4.5))
+    if pct: text(ctx, f"−{pct}%", cxb + 150 * U, by0 - bh * v - 55 * U, 72 * U, CORAL, 1)
     if VERT:
-        text(ctx, "FLYING INSECTS · GERMANY", CX, H * 0.16, 42 * U, GOLD, prog(t, 3.5, 4.5))
-        text(ctx, "UNDER 30 YEARS (ONE STUDY)", CX, H * 0.16 + 52 * U, 32 * U, WHITE, prog(t, 3.5, 4.5), False)
+        text(ctx, "FLYING INSECTS · GERMANY", CX, H * 0.16, 42 * U, GOLD, prog(t, 3.0, 4.0))
+        text(ctx, "NATURE RESERVES (ONE STUDY)", CX, H * 0.16 + 52 * U, 32 * U, WHITE, prog(t, 3.0, 4.0), False)
         tags = ["HABITAT LOSS", "PESTICIDES", "CLIMATE CHANGE"]
         for i, tg in enumerate(tags):
             k = prog(t, d - 5.5 + i * 0.6, d - 5.0 + i * 0.6)
             text(ctx, tg, CX, H * 0.83 + i * 60 * U, 40 * U, WHITE, k)
     else:
-        text(ctx, "FLYING INSECTS", bx + bw / 2, H * 0.08, 44 * U, GOLD, prog(t, 3.5, 4.5))
-        text(ctx, "GERMAN RESERVES · UNDER 30 YEARS", bx + bw / 2, H * 0.08 + 54 * U, 30 * U, WHITE, prog(t, 3.5, 4.5), False)
+        text(ctx, "FLYING INSECTS", cxb, H * 0.07, 46 * U, GOLD, prog(t, 3.0, 4.0))
+        text(ctx, "GERMAN NATURE RESERVES (ONE STUDY)", cxb, H * 0.07 + 54 * U, 30 * U, WHITE, prog(t, 3.0, 4.0), False)
         tags = ["HABITAT LOSS", "PESTICIDES", "CLIMATE CHANGE"]
-        text(ctx, "SUSPECTED CAUSES", W * 0.70, H * 0.26, 40 * U, GOLD, prog(t, d - 6.5, d - 5.8))
+        text(ctx, "SUSPECTED CAUSES", W * 0.72, H * 0.24, 44 * U, GOLD, prog(t, d - 6.5, d - 5.8))
         for i, tg in enumerate(tags):
             k = prog(t, d - 5.5 + i * 0.6, d - 5.0 + i * 0.6)
             font(ctx, 40 * U); w = ctx.text_extents(tg).width + 70 * U
-            rrect(ctx, W * 0.70 - w / 2, H * 0.34 + i * 110 * U, w, 80 * U, 40 * U); rgba(ctx, (0.2, 0.25, 0.45), 0.9 * k); ctx.fill()
-            text(ctx, tg, W * 0.70, H * 0.34 + i * 110 * U + 40 * U, 40 * U, WHITE, k)
+            rrect(ctx, W * 0.72 - w / 2, H * 0.32 + i * 110 * U, w, 80 * U, 40 * U); rgba(ctx, (0.2, 0.25, 0.45), 0.9 * k); ctx.fill()
+            text(ctx, tg, W * 0.72, H * 0.32 + i * 110 * U + 40 * U, 40 * U, WHITE, k)
+        m = 1 - prog(t, d - 7.0, d - 6.2)
+        if m > 0:
+            random.seed(77)
+            for j in range(9):
+                x = W * (0.58 + 0.30 * random.random()) + 30 * U * math.sin(t + j); y = H * (0.18 + 0.5 * random.random()) + 20 * U * math.cos(t * 1.3 + j)
+                alive = m * (1 - clamp(p * 1.3 - j / 12))
+                if j % 2: bee(ctx, x, y, 1.0 * U, t + j, alive)
+                else: butterfly(ctx, x, y, 0.9 * U, t + j, [PINK, VIOLET, CORAL][j % 3], alive)
 
 def sc_outro(ctx, t, d):
     vgrad(ctx, NAVY2, NAVY); stars(ctx, t, 0.6)

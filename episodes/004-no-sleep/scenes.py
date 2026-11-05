@@ -283,7 +283,7 @@ def sc_hour24(ctx, t, d):
     glass(ctx, gx, gy, gs, lv, marks)
     label(ctx, f"≈ {bac:.2f}%", gx, gy - gs - 50 * U, 60, GOLD)
     # road + microsleeps
-    rx, ry, rw, rh = L((W * 0.48, H * 0.13, W * 0.46, H * 0.62), (90 * U, 820 * U, W - 180 * U, 480 * U))
+    rx, ry, rw, rh = L((W * 0.48, H * 0.13, W * 0.46, H * 0.62), (90 * U, 820 * U, W - 180 * U, 440 * U))
     ra = prog(t, ST("hour24", 2) - 1, ST("hour24", 2))
     if ra > 0:
         ctx.save(); ctx.push_group()
@@ -443,9 +443,9 @@ def sc_mood(ctx, t, d):
     glow(ctx, ax, ay, 70 * U * pulse, CORAL, 0.8 * max(on, 0.3))
     circle(ctx, ax, ay, 26 * U * pulse, mix(PINK_D, CORAL, on))
     # pointer
-    lx, ly = L((bx - 0.05 * br, by + br + 120 * U), (bx - 280 * U, by + br + 100 * U))
+    lx, ly = L((bx - br - 120 * U, by + 0.75 * br), (bx - 280 * U, by + br + 100 * U))
     la = prog(t, ST("mood", 1) + 0.5, ST("mood", 1) + 1.5)
-    ctx.move_to(ax, ay + 30 * U); ctx.line_to(lx, ly - 40 * U); rgba(ctx, WHITE, 0.7 * la); ctx.set_line_width(3 * U); ctx.stroke()
+    ctx.move_to(ax, ay); ctx.line_to(lx, ly - 40 * U); rgba(ctx, WHITE, 0.7 * la); ctx.set_line_width(3 * U); ctx.stroke()
     label(ctx, "AMYGDALA", lx, ly, 42, CORAL, la)
     label(ctx, "the brain's alarm", lx, ly + 48 * U, 30, WHITE, 0.85 * la, False)
     # small problem -> big problem
@@ -518,11 +518,11 @@ def sc_longterm(ctx, t, d):
         hrs = random.uniform(4.8, 6.0)
         bh = hmax * hrs / 9
         x = x0 + sw * (i + 0.5)
-        moon(ctx, x, yb - hmax - 40 * U, 18 * U, a * (1 - 0.6 * fade))
-        rrect(ctx, x - sw * 0.28, yb - bh, sw * 0.56, bh, 10 * U); rgba(ctx, CORAL, 0.85 * a * (1 - 0.6 * fade)); ctx.fill()
+        moon(ctx, x, yb - hmax - 40 * U, 18 * U, a * (1 - fade))
+        rrect(ctx, x - sw * 0.28, yb - bh, sw * 0.56, bh, 10 * U); rgba(ctx, CORAL, 0.85 * a * (1 - fade)); ctx.fill()
     ctx.set_dash([12 * U, 10 * U]); ctx.move_to(x0, yb - ref); ctx.line_to(x1, yb - ref)
-    rgba(ctx, GOLD, 0.9 * prog(t, 2, 3) * (1 - 0.6 * fade)); ctx.set_line_width(4 * U); ctx.stroke(); ctx.set_dash([])
-    label(ctx, "7 h", x1 + 10 * U, yb - ref - 30 * U, 30, GOLD, prog(t, 2, 3) * (1 - 0.6 * fade), True, "r")
+    rgba(ctx, GOLD, 0.9 * prog(t, 2, 3) * (1 - fade)); ctx.set_line_width(4 * U); ctx.stroke(); ctx.set_dash([])
+    label(ctx, "7 h", x1 + 10 * U, yb - ref - 30 * U, 30, GOLD, prog(t, 2, 3) * (1 - fade), True, "r")
     label(ctx, "NIGHT AFTER NIGHT", CX, yb + 50 * U, 40, WHITE, prog(t, ST("longterm", 1), ST("longterm", 1) + 0.8) * (1 - fade))
     # risks
     if fade > 0:

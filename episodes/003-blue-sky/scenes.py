@@ -51,7 +51,7 @@ def molecule(ctx, x, y, s, a=1.0):
 def sc_hook(ctx, t, d):
     k = prog(t, d * 0.5, d * 0.85)
     hz = H * 0.68 if not VERT else H * 0.62
-    sky(ctx, k, hz)
+    sky(ctx, k, H)
     sx = (W * 0.72 if not VERT else W * 0.70) + k * 60 * U
     sy = mix((H * 0.22, 0, 0), (hz - 10 * U, 0, 0), k)[0] if not VERT else mix((H * 0.30, 0, 0), (hz - 10 * U, 0, 0), k)[0]
     glow(ctx, sx, sy, 260 * U, mix((1, 1, 0.9), (1, 0.6, 0.2), k), 0.55)
@@ -111,8 +111,8 @@ def wave(ctx, x0, x1, y, lam, amp, ph, c, w=8):
 def sc_waves(ctx, t, d):
     vgrad(ctx, NAVY2, NAVY); stars(ctx, t, 0.3)
     x0, x1 = W * 0.08, W * 0.92
-    rows = [(RAINBOW[0], 380 * U, "RED · LONG WAVES", "≈ 700 nm", H * 0.33 if not VERT else 600 * U, 0.6),
-            (RAINBOW[4], 245 * U, "BLUE · SHORT WAVES", "≈ 450 nm", H * 0.63 if not VERT else 1040 * U, 2.2)]
+    rows = [(RAINBOW[0], 380 * U, "RED · LONG WAVES", "≈ 700 nm", H * 0.27 if not VERT else 600 * U, 0.6),
+            (RAINBOW[4], 245 * U, "BLUE · SHORT WAVES", "≈ 450 nm", H * 0.62 if not VERT else 1040 * U, 2.2)]
     for c, lam, lab, nm, y, ta in rows:
         a = prog(t, ta, ta + 0.7)
         if not a: continue
@@ -120,16 +120,16 @@ def sc_waves(ctx, t, d):
         glow(ctx, CX, y, 300 * U, c, 0.12)
         wave(ctx, x0, x1, y, lam, 70 * U, t * 3, c)
         ctx.restore()
-        text(ctx, lab, x0, y - 140 * U, 44 * U, c, a, True, "l")
+        text(ctx, lab, x0, y - 115 * U, 44 * U, c, a, True, "l")
         # wavelength bracket
         bx = x0 + lam * 0.25 + (t * 3 / (2 * math.pi)) * lam % lam
         bx = x0 + ((lam * 0.25 + t * 3 / (2 * math.pi) * lam) % lam)
-        by = y + 110 * U
+        by = y + 98 * U
         if bx + lam < x1:
             ctx.move_to(bx, by - 15 * U); ctx.line_to(bx, by + 15 * U); ctx.move_to(bx, by); ctx.line_to(bx + lam, by)
             ctx.move_to(bx + lam, by - 15 * U); ctx.line_to(bx + lam, by + 15 * U)
             rgba(ctx, WHITE, 0.8 * a); ctx.set_line_width(3 * U); ctx.stroke()
-            text(ctx, nm, bx + lam / 2, by + 38 * U, 30 * U, WHITE, 0.9 * a, False)
+            text(ctx, nm, bx + lam / 2, by + 32 * U, 30 * U, WHITE, 0.9 * a, False)
 
 def person(ctx, x, y, s, c):
     circle(ctx, x, y - 100 * s, 16 * s, c)
@@ -189,7 +189,8 @@ def sc_scatter(ctx, t, d):
         fit(ctx, "BLUE SCATTERS ≈ 5× MORE THAN RED", CX - (120 * U if not VERT else 0), ty, 54 * U, WHITE, a1, maxw=W * (0.62 if not VERT else 0.9))
     a2 = prog(t, d * 0.8, d * 0.86)
     if a2: fit(ctx, "RAYLEIGH SCATTERING", CX - (120 * U if not VERT else 0), ty, 64 * U, GOLD, a2)
-    text(ctx, "N₂ / O₂ molecules", sx + (gx - sx) * 0.5 + 70 * U, sy + (gy - sy) * 0.5 - 50 * U, 30 * U, WHITE, prog(t, 1.5, 2.2) * (1 - ea), False, "l")
+    if VERT: text(ctx, "N₂ / O₂ molecules", sx + (gx - sx) * 0.5 - 60 * U, sy + (gy - sy) * 0.5 + 10 * U, 30 * U, WHITE, prog(t, 1.5, 2.2) * (1 - ea), False, "r")
+    else: text(ctx, "N₂ / O₂ molecules", sx + (gx - sx) * 0.5 + 70 * U, sy + (gy - sy) * 0.5 - 50 * U, 30 * U, WHITE, prog(t, 1.5, 2.2) * (1 - ea), False, "l")
     chip(ctx, "THE SECRET: SCATTERING", t)
 
 def bell(x, mu, sg): return math.exp(-((x - mu) / sg) ** 2 / 2)
@@ -216,7 +217,7 @@ def sc_violet(ctx, t, d):
         rgba(ctx, c); ctx.set_line_width(6 * U); ctx.stroke()
     la = prog(t, 3.0, 3.6)
     text(ctx, "EYE SENSITIVITY", x0 + (x1 - x0) * 0.55, top - 30 * U, 32 * U, WHITE, la)
-    text(ctx, "SUNLIGHT", x0 + (x1 - x0) * 0.86, sy - 20 * U - 0.62 * (sy - 20 * U - top) - 40 * U, 32 * U, GOLD, la)
+    text(ctx, "SUNLIGHT", x0 + (x1 - x0) * 0.86, sy - 20 * U - curves[0][2](0.86) * (sy - 20 * U - top) - 45 * U, 32 * U, GOLD, la)
     ty = H * 0.12 if not VERT else 300 * U
     fit(ctx, "WHY ISN'T THE SKY PURPLE?", CX, ty, 62 * U, (0.75, 0.6, 1.0), prog(t, 0.2, 0.8))
     reasons = ["LESS VIOLET IN SUNLIGHT", "SOME ABSORBED HIGH UP", "EYES PREFER BLUE"]
@@ -326,7 +327,7 @@ def sc_mars(ctx, t, d):
     g = cairo.LinearGradient(0, 0, 0, hz)
     g.add_color_stop_rgb(0, *mix((0.72, 0.55, 0.40), (0.10, 0.08, 0.14), k))
     g.add_color_stop_rgb(1, *mix((0.93, 0.78, 0.58), (0.30, 0.25, 0.30), k))
-    ctx.set_source(g); ctx.rectangle(0, 0, W, hz + 2); ctx.fill()
+    ctx.set_source(g); ctx.rectangle(0, 0, W, H); ctx.fill()
     stars(ctx, t, 0.5 * k)
     # small Martian sun
     sx = W * 0.62 if not VERT else W * 0.6
@@ -400,7 +401,7 @@ def sc_outro(ctx, t, d):
     q = prog(t, d * 0.3, d * 0.4)
     if q and k < 1: text(ctx, "Did you already know?", CX, CY + yo + 260 * U, 44 * U, WHITE, q * (1 - k))
 
-SHORT_SCENES = ["hook", "scatter", "sunset", "outro"]
+SHORT_SCENES = ["hook", "waves", "scatter", "outro"]
 
 SCENES = dict(hook=sc_hook, white=sc_white, waves=sc_waves, scatter=sc_scatter, violet=sc_violet, sunset=sc_sunset,
               clouds=sc_clouds, mars=sc_mars, space=sc_space, outro=sc_outro)

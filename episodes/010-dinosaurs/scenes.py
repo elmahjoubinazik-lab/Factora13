@@ -123,7 +123,7 @@ def sc_hook(ctx, t, d):
     k = prog(t, 2.0, 6.5)
     gy = prehistoric(ctx, t, 0.0)
     ax = W * 0.78 - k * W * 0.18 if not VERT else W * 0.72 - k * W * 0.12
-    ay = H * 0.12 + k * H * 0.12
+    ay = H * 0.12 + k * H * 0.12 if VERT else H * 0.08 + k * H * 0.06
     asteroid(ctx, ax, ay, (18 + 30 * k) * U, t, prog(t, 1.2, 2.2), 0.4 + 0.6 * k)
     # sky turns orange when it approaches
     glow(ctx, ax, ay, 500 * U * k, (1, 0.5, 0.2), 0.25 * k)

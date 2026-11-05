@@ -390,7 +390,9 @@ def sc_cables(ctx, t, d):
         ctx.arc(0, 0, 1, math.pi, 2 * math.pi); ctx.restore(); rgba(ctx, (0.22, 0.19, 0.16)); ctx.fill()
     ctx.set_line_cap(cairo.LINE_CAP_ROUND)
     for i in range(9):
-        sx_ = W * (0.12 + i * 0.1); ctx.set_line_width(6 * U); rgba(ctx, (0.2, 0.55, 0.4), 0.8)
+        sx_ = W * (0.12 + i * 0.1)
+        if sx_ < lw * 1.95 or sx_ > W - lw * 1.95: continue
+        ctx.set_line_width(6 * U); rgba(ctx, (0.2, 0.55, 0.4), 0.8)
         ctx.move_to(sx_, floor_ + 6 * U)
         for k in range(1, 6): ctx.line_to(sx_ + 10 * U * math.sin(t * 1.5 + k + i), floor_ + 6 * U - k * 16 * U)
         ctx.stroke()
@@ -410,6 +412,7 @@ def sc_cables(ctx, t, d):
     for i in range(5):
         fx = (W * (0.2 + i * 0.17) + t * 40 * U * (1 + i % 2)) % W
         fy = top + (floor_ - top) * (0.25 + 0.12 * (i % 3))
+        if fx < lw * 1.75 or fx > W - lw * 1.75: continue
         fish(ctx, fx, fy, 22 * U, (0.6, 0.85, 1.0), 0.35)
     a = prog(t, 7.0, 7.8)
     if VERT:
