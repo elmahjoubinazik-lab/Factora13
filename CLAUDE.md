@@ -20,7 +20,7 @@ sur `https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true`. Si 
 `config.json → youtube_channel_id`, **NE RIEN PUBLIER** : envoyer l'e-mail d'alerte (étape 7) et s'arrêter.
 
 ### 1. Passer en public l'épisode précédent
-Pour chaque entrée de `published.json` avec `"status": "unlisted"` : lire son statut réel (GET `videos?part=status&id=…`).
+Pour chaque entrée de `published.json` avec `"status": "unlisted"` (les statuts `attente_youtube` / `attente_short` relèvent de l'étape 1 bis) : lire son statut réel (GET `videos?part=status&id=…`).
 - s'il est **encore « unlisted »** → PUT `videos?part=status` avec `{"id": …, "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": false}}` ; noter `"status": "public"` ;
 - s'il est « private » ou supprimé → Nazik l'a retiré : noter `"status": "retire"`, ne rien toucher.
 Faire de même pour le Short associé.
@@ -28,7 +28,9 @@ Si l'entrée a un champ `remplace_ids` et vient d'être passée en public : supp
 
 ### 1 bis. Écouler la file d'attente YouTube
 YouTube limite le nombre de mises en ligne par 24 h. Les épisodes de `published.json` avec `"status": "attente_youtube"`
-(déjà publiés sur TikTok, fichiers hébergés dans `urls`) sont mis en ligne **avant** le nouvel épisode, dans l'ordre des numéros :
+(déjà publiés sur TikTok, fichiers hébergés dans `urls`) sont mis en ligne **avant** le nouvel épisode, dans l'ordre des numéros.
+**Priorité aux vidéos longues** (ce sont elles qui rapportent) : d'abord toutes les vidéos longues en attente, puis les Shorts.
+Un épisode dont la longue est en ligne mais pas le Short garde `"status": "attente_short"`. Pour chacun :
 vidéo longue en **public** directement (contenu déjà validé), vérifier qu'elle existe une seule fois, miniature, puis Short en public
 (description avec le lien `https://youtu.be/<long_id>`). Remplir `long_id`, `short_id`, `thumbnail_set`, `"status": "public"`.
 Si YouTube répond « exceeded the number of videos they may upload » : **arrêter les envois YouTube pour cette exécution**
