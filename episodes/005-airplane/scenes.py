@@ -174,8 +174,8 @@ def sc_hook(ctx, t, d):
     ca = prog(t, 3.2, 4.2) * (1 - prog(t, ST("hook", 1) - 0.3, ST("hook", 1) + 0.3))
     if ca:
         cols, rows = (25, 8)
-        cs = L(46, 34) * U
-        gx0 = CX - cols * cs * 1.1 / 2; gy0 = L(H * 0.12, 260 * U)
+        cs = L(38, 34) * U
+        gx0 = CX - cols * cs * 1.1 / 2; gy0 = L(H * 0.1, 260 * U)
         for i in range(200):
             r_, c_ = divmod(i, cols)
             pa = ca * prog(t, 3.2 + i * 0.006, 3.6 + i * 0.006)
@@ -506,11 +506,11 @@ def thumbnail(c):
     random.seed(1)
     for _ in range(140):
         c.arc(random.random() * W, random.random() * H * 0.7, random.uniform(.5, 1.8), 0, 6.3); c.set_source_rgba(1, 1, 1, random.uniform(.3, .9)); c.fill()
-    glow(c, 1020, 360, 330, GOLD, 0.25)
-    jet(c, 1010, 400, 620, -0.25)
-    arrow(c, 1000, 250, 1000, 60, GOLD, 1.0, 24, 50)
+    glow(c, 1010, 400, 300, GOLD, 0.25)
+    jet(c, 1010, 420, 470, -0.25)
+    arrow(c, 1010, 330, 1010, 110, GOLD, 1.0, 24, 50)
     c.select_font_face("Inter", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); c.set_font_size(56)
     w = c.text_extents("400 t").width
-    rrect(c, 1120 - 20, 540, w + 40, 80, 16); c.set_source_rgb(*CORAL); c.fill()
-    c.move_to(1120, 600); c.set_source_rgb(1, 1, 1); c.show_text("400 t")
+    rrect(c, 1080 - 20, 560, w + 40, 80, 16); c.set_source_rgb(*CORAL); c.fill()
+    c.move_to(1080, 620); c.set_source_rgb(1, 1, 1); c.show_text("400 t")
     thumb_text(c, "400 TONS...", "HOW DOES IT FLY?", "PHYSICS OF LIFT")

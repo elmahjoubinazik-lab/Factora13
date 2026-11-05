@@ -26,6 +26,14 @@ Pour chaque entrée de `published.json` avec `"status": "unlisted"` : lire son s
 Faire de même pour le Short associé.
 Si l'entrée a un champ `remplace_ids` et vient d'être passée en public : supprimer ces anciennes vidéos (DELETE `videos?id=…`), puis retirer le champ.
 
+### 1 bis. Écouler la file d'attente YouTube
+YouTube limite le nombre de mises en ligne par 24 h. Les épisodes de `published.json` avec `"status": "attente_youtube"`
+(déjà publiés sur TikTok, fichiers hébergés dans `urls`) sont mis en ligne **avant** le nouvel épisode, dans l'ordre des numéros :
+vidéo longue en **public** directement (contenu déjà validé), vérifier qu'elle existe une seule fois, miniature, puis Short en public
+(description avec le lien `https://youtu.be/<long_id>`). Remplir `long_id`, `short_id`, `thumbnail_set`, `"status": "public"`.
+Si YouTube répond « exceeded the number of videos they may upload » : **arrêter les envois YouTube pour cette exécution**
+(ne pas réessayer), garder le reste en attente, et continuer la procédure (le nouvel épisode ira lui aussi en attente, voir étape 6).
+
 ### 2. Choisir le sujet
 Premier sujet non coché de `topics.md`. **S'il reste moins de 10 sujets non cochés**, en ajouter 20 nouveaux à la fin (mêmes règles : intemporels, vérifiables, variés — science, corps humain, histoire, économie, nature, technologie ; jamais un sujet déjà traité). Créer `episodes/NNN-mot-cle/` (NNN = numéro suivant sur 3 chiffres).
 
@@ -64,7 +72,7 @@ Construire la description : `python3 engine/description.py episodes/NNN-x` (→ 
 
 ### 5. Héberger les fichiers (lien public pour Zapier)
 ```bash
-bash engine/host.sh episodes/NNN-x NNN   # pousse sur la branche « media » et affiche les 3 URL publiques
+bash engine/host.sh episodes/NNN-x NNN   # ajoute les fichiers sur la branche durable « backlog » et affiche les 3 URL publiques
 ```
 (Les « releases » GitHub sont interdites depuis les sessions : ne pas les utiliser.)
 
@@ -77,6 +85,7 @@ Puis action « Update Video Thumbnail » (`video_id`, `thumbnail` = URL miniatur
 (normalement résolu : téléphone vérifié le 2026-11-04) : continuer sans, noter `"thumbnail_set": false`, le signaler dans l'e-mail.
 Lors de l'étape 1, réessayer la miniature des épisodes avec `"thumbnail_set": false` (fichier : régénérer avec `render.py thumb` puis `host.sh`, ou ignorer si impossible).
 Short : `short_title`, description courte (anglais) avec le lien `https://youtu.be/<long_id>` + hashtags, sans miniature, `notify_subscribers` = false.
+Si l'upload échoue pour limite de mises en ligne : ne pas réessayer ; ajouter l'épisode avec `"status": "attente_youtube"` et `urls` (celles de host.sh), continuer avec TikTok.
 Ajouter l'épisode dans `published.json` (`episode`, `topic`, `dir`, `date`, `long_id`, `short_id`, `status`, `thumbnail_set`).
 Cocher le sujet dans `topics.md` (date + numéro). `git add -A && git commit && git push origin main`.
 

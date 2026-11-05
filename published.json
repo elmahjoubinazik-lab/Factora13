@@ -14,6 +14,176 @@
       "tiktok_buffer_id": "6aebb7e1e85a0f2da20ac444",
       "langue": "en",
       "public_date": "2026-11-04"
+    },
+    {
+      "episode": "002",
+      "topic": "What if the Earth stopped spinning?",
+      "dir": "episodes/002-earth-spin",
+      "date": "2026-11-05",
+      "langue": "en",
+      "tiktok": "envoye",
+      "tiktok_buffer_id": "6aebc86e927e9505e10693b4",
+      "long_id": "o3fN9-Owo9Y",
+      "short_id": "7CCGWV6FY3M",
+      "status": "public",
+      "thumbnail_set": true
+    },
+    {
+      "episode": "003",
+      "topic": "Why is the sky blue?",
+      "dir": "episodes/003-blue-sky",
+      "date": "2026-11-05",
+      "langue": "en",
+      "tiktok": "envoye",
+      "tiktok_buffer_id": "6aebc97d9bc0ca15020caaaf",
+      "status": "attente_youtube",
+      "long_id": null,
+      "short_id": null,
+      "thumbnail_set": false,
+      "urls": {
+        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep003/video_long.mp4",
+        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep003/video_short.mp4",
+        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep003/miniature.png"
+      }
+    },
+    {
+      "episode": "004",
+      "topic": "What happens when you don't sleep?",
+      "dir": "episodes/004-no-sleep",
+      "date": "2026-11-05",
+      "langue": "en",
+      "tiktok": "envoye",
+      "tiktok_buffer_id": "6aebca95bac45d3bb109e7aa",
+      "status": "attente_youtube",
+      "long_id": null,
+      "short_id": null,
+      "thumbnail_set": false,
+      "urls": {
+        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep004/video_long.mp4",
+        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep004/video_short.mp4",
+        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep004/miniature.png"
+      }
+    },
+    {
+      "episode": "005",
+      "topic": "How can a 400-ton airplane fly?",
+      "dir": "episodes/005-airplane",
+      "date": "2026-11-05",
+      "langue": "en",
+      "tiktok": "envoye",
+      "tiktok_buffer_id": "6aebcab1743ef2fce80f61a2",
+      "status": "attente_youtube",
+      "long_id": null,
+      "short_id": null,
+      "thumbnail_set": false,
+      "urls": {
+        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep005/video_long.mp4",
+        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep005/video_short.mp4",
+        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep005/miniature.png"
+      }
+    },
+    {
+      "episode": "006",
+      "topic": "What if all insects disappeared?",
+      "dir": "episodes/006-insects",
+      "date": "2026-11-05",
+      "langue": "en",
+      "tiktok": "envoye",
+      "tiktok_buffer_id": "6aebca1faa35faae1d0e7738",
+      "status": "attente_youtube",
+      "long_id": null,
+      "short_id": null,
+      "thumbnail_set": false,
+      "urls": {
+        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep006/video_long.mp4",
+        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep006/video_short.mp4",
+        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep006/miniature.png"
+      }
+    },
+    {
+      "episode": "007",
+      "topic": "Why is the sea salty?",
+      "dir": "episodes/007-salty-sea",
+      "date": "2026-11-05",
+      "langue": "en",
+      "tiktok": "envoye",
+      "tiktok_buffer_id": "6aebca398d94c5a39a0282e6",
+      "status": "attente_youtube",
+      "long_id": null,
+      "short_id": null,
+      "thumbnail_set": false,
+      "urls": {
+        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep007/video_long.mp4",
+        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep007/video_short.mp4",
+        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep007/miniature.png"
+      }
+    },
+    {
+      "episode": "008",
+      "topic": "How does the Internet work?",
+      "dir": "episodes/008-internet",
+      "date": "2026-11-05",
+      "langue": "en",
+      "tiktok": "envoye",
+      "tiktok_buffer_id": "6aebc999814e77a1360d24e8",
+      "status": "attente_youtube",
+      "long_id": null,
+      "short_id": null,
+      "thumbnail_set": false,
+      "urls": {
+        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep008/video_long.mp4",
+        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep008/video_short.mp4",
+        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep008/miniature.png"
+      }
+    },
+    {
+      "episode": "009",
+      "topic": "What if you dug a hole through the Earth?",
+      "dir": "episodes/009-hole-earth",
+      "date": "2026-11-05",
+      "langue": "en",
+      "tiktok": "envoye",
+      "tiktok_buffer_id": "6aebc9c329abc56a310a114a",
+      "status": "attente_youtube",
+      "long_id": null,
+      "short_id": null,
+      "thumbnail_set": false,
+      "urls": {
+        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep009/video_long.mp4",
+        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep009/video_short.mp4",
+        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep009/miniature.png"
+      }
+    },
+    {
+      "episode": "010",
+      "topic": "Why did the dinosaurs disappear?",
+      "dir": "episodes/010-dinosaurs",
+      "date": "2026-11-05",
+      "langue": "en",
+      "tiktok": "envoye",
+      "tiktok_buffer_id": "6aebc8d5ea2cbe552b02a997",
+      "long_id": "L92gEF78FOc",
+      "short_id": "ZeZkEaLxS88",
+      "status": "public",
+      "thumbnail_set": true
+    },
+    {
+      "episode": "011",
+      "topic": "How is money created?",
+      "dir": "episodes/011-money",
+      "date": "2026-11-05",
+      "langue": "en",
+      "tiktok": "envoye",
+      "tiktok_buffer_id": "6aebc96098ae3bc90a0d7566",
+      "status": "attente_youtube",
+      "long_id": null,
+      "short_id": null,
+      "thumbnail_set": false,
+      "urls": {
+        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep011/video_long.mp4",
+        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep011/video_short.mp4",
+        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep011/miniature.png"
+      }
     }
   ]
 }

@@ -183,7 +183,7 @@ def sc_scatter(ctx, t, d):
             ctx.move_to(mx, my); ctx.line_to(ox + 8 * U, gy - 130 * U)
             rgba(ctx, BLUE, 0.9 * ea); ctx.set_line_width(4 * U); ctx.stroke()
         ctx.set_dash([])
-    ty = H * 0.11 if not VERT else 300 * U
+    ty = H * 0.19 if not VERT else 300 * U
     a1 = prog(t, d * 0.25, d * 0.32) * (1 - prog(t, d * 0.72, d * 0.78))
     if a1:
         fit(ctx, "BLUE SCATTERS ≈ 5× MORE THAN RED", CX - (120 * U if not VERT else 0), ty, 54 * U, WHITE, a1, maxw=W * (0.62 if not VERT else 0.9))

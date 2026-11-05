@@ -93,7 +93,7 @@ def world(ctx, t):
         vgrad(ctx, NAVY2, (0.14, 0.2, 0.38), 0, gy)
         rgba(ctx, LAND); ctx.rectangle(0, gy, W, H - gy); ctx.fill()
         mountains(ctx, -40 * U, W * 0.75, gy, 300 * U)
-        river = [(W * 0.30, gy), (W * 0.48, gy + 40 * U), (W * 0.36, gy + 90 * U), (W * 0.60, sy + 10 * U)]
+        river = [(W * 0.30, gy), (W * 0.36, gy + 70 * U), (W * 0.50, gy + 110 * U), (W * 0.58, gy + 190 * U), (W * 0.62, sy + 10 * U)]
         sea(ctx, t, sy)
     else:
         gy, sx, sy = H * 0.56, W * 0.60, H * 0.52
@@ -116,7 +116,7 @@ def sc_hook(ctx, t, d):
     rain(ctx, t, cx_ - 110 * U, cx_ + 110 * U, cy_ + 50 * U, cy_ + 300 * U, 20)
     a1 = prog(t, 0.5, 1.2); a2 = prog(t, 3.0, 3.8)
     if VERT:
-        text(ctx, "FRESH", W * 0.80, H * 0.10, 52 * U, RAIN, a1)
+        text(ctx, "FRESH", W * 0.80, H * 0.40 + 110 * U, 52 * U, RAIN, a1)
         text(ctx, "SALTY", CX, sy + 90 * U, 64 * U, GOLD, a2)
     else:
         text(ctx, "FRESH", W * 0.40, gy_h + 185 * U, 52 * U, RAIN, a1)
@@ -166,7 +166,7 @@ def sc_rain(ctx, t, d):
     cx_, cy_ = (CX, H * 0.16) if not VERT else (CX, H * 0.20)
     cloud(ctx, cx_, cy_, 1.8 * U)
     rx, ry, rr = (CX, gy - 60 * U, 170 * U)
-    if VERT: rx, ry, rr = CX, gy - 60 * U, 160 * U
+    if VERT: rx, ry, rr = CX, gy - 80 * U, 200 * U
     # raindrops with CO2 bubbles
     random.seed(12)
     for i in range(16):
@@ -567,18 +567,18 @@ def thumbnail(c):
     for _ in range(150):
         c.arc(random.random() * W, random.random() * H, random.uniform(.5, 1.8), 0, 6.3); c.set_source_rgba(1, 1, 1, random.uniform(.3, .9)); c.fill()
     # sea on the right
-    sy = 470
+    sy = 545
     g = cairo.LinearGradient(0, sy, 0, H); g.add_color_stop_rgb(0, *SEA); g.add_color_stop_rgb(1, *SEA_D); c.set_source(g)
-    c.new_path(); c.move_to(780, H); c.line_to(780, sy)
-    for i in range(31): c.line_to(780 + 500 * i / 30, sy + 10 * math.sin(i * 0.9))
+    c.new_path(); c.move_to(0, H); c.line_to(0, sy)
+    for i in range(61): c.line_to(W * i / 60, sy + 10 * math.sin(i * 0.9))
     c.line_to(W, H); c.close_path(); c.fill()
     # big salt pile rising from the sea
-    glow(c, 1030, 330, 300, SALT, 0.35)
+    glow(c, 1030, 380, 300, SALT, 0.35)
     random.seed(4)
     for row in range(5):
         n = 6 - row
         for k in range(n):
-            crystal(c, 1030 - (n - 1) * 32 + k * 64 + random.uniform(-6, 6), 470 - row * 52, 40, 1, random.uniform(-0.15, 0.15))
-    for (x, y, r) in [(880, 260, 22), (1180, 200, 28), (1220, 380, 16)]:
+            crystal(c, 1030 - (n - 1) * 32 + k * 64 + random.uniform(-6, 6), 540 - row * 52, 40, 1, random.uniform(-0.15, 0.15))
+    for (x, y, r) in [(880, 320, 22), (1180, 260, 28), (1225, 440, 16)]:
         sparkle(c, x, y, r, 0.95)
     thumb_text(c, "WHY IS THE SEA", "SALTY?", "BLAME THE RAIN")

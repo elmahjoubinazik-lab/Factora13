@@ -5,16 +5,16 @@ Thèmes intemporels (pas d'actualité), vérifiables, adaptés aux illustrations
 Les vidéos sont en anglais : traduire le sujet en titre anglais accrocheur au moment de produire l épisode.
 
 - [x] 001 — Et si la Lune disparaissait ? (épisode test, 2026-11-04)
-- [ ] Et si la Terre arrêtait de tourner ?
-- [ ] Pourquoi le ciel est bleu (et le coucher de soleil orange) ?
-- [ ] Que se passe-t-il dans votre corps quand vous ne dormez pas ?
-- [ ] Comment un avion de 400 tonnes peut-il voler ?
-- [ ] Et si tous les insectes disparaissaient ?
-- [ ] Pourquoi la mer est-elle salée ?
-- [ ] Comment fonctionne Internet, en 3 minutes ?
-- [ ] Et si on creusait un trou à travers la Terre ?
-- [ ] Pourquoi les dinosaures ont-ils disparu ?
-- [ ] Comment l'argent est-il créé ?
+- [x] Et si la Terre arrêtait de tourner ? (épisode 002, 2026-11-05)
+- [x] Pourquoi le ciel est bleu (et le coucher de soleil orange) ? (épisode 003, 2026-11-05)
+- [x] Que se passe-t-il dans votre corps quand vous ne dormez pas ? (épisode 004, 2026-11-05)
+- [x] Comment un avion de 400 tonnes peut-il voler ? (épisode 005, 2026-11-05)
+- [x] Et si tous les insectes disparaissaient ? (épisode 006, 2026-11-05)
+- [x] Pourquoi la mer est-elle salée ? (épisode 007, 2026-11-05)
+- [x] Comment fonctionne Internet, en 3 minutes ? (épisode 008, 2026-11-05)
+- [x] Et si on creusait un trou à travers la Terre ? (épisode 009, 2026-11-05)
+- [x] Pourquoi les dinosaures ont-ils disparu ? (épisode 010, 2026-11-05)
+- [x] Comment l'argent est-il créé ? (épisode 011, 2026-11-05)
 - [ ] Que se passerait-il si le Soleil s'éteignait ?
 - [ ] Pourquoi avons-nous le hoquet ?
 - [ ] Comment les GPS savent-ils où vous êtes ?
