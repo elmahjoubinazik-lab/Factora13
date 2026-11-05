@@ -81,7 +81,7 @@ def foil_pts(c, aoa, m=0.045, p=0.4, th=0.12, n=60):
     ca, sa = math.cos(aoa), math.sin(aoa)
     for (xx, yy) in pts:
         X = (xx - 0.5) * c; Y = -yy * c        # screen y down
-        out.append((X * ca + Y * sa, -X * sa + Y * ca))
+        out.append((X * ca - Y * sa, X * sa + Y * ca))
     return out
 
 def draw_foil(ctx, x, y, c, aoa, col=BODY, a=1.0, **kw):
@@ -163,7 +163,7 @@ def sc_hook(ctx, t, d):
     py = gy - 0.13 * s - k * L(330, 520) * U
     jet(ctx, px, py, s * (1 - 0.35 * k), -0.22 * prog(t, ST("hook", 1) + 0.3, ST("hook", 1) + 1.2), 1.0, prog(t, ST("hook", 1) - 1, ST("hook", 1)))
     # weight tag
-    wa = prog(t, 0.6, 1.4) * (1 - k)
+    wa = prog(t, 0.6, 1.4) * (1 - prog(t, ST("hook", 1), ST("hook", 1) + 0.6))
     tx, ty = px, py - L(200, 210) * U
     if wa:
         font(ctx, 64 * U); w = ctx.text_extents("≈ 400 TONS").width + 70 * U
@@ -222,16 +222,16 @@ def sc_wing(ctx, t, d):
     if aa:
         ctx.set_dash([12 * U, 10 * U]); rgba(ctx, WHITE, 0.6 * aa); ctx.set_line_width(3 * U)
         ctx.move_to(x - c * 0.7, y); ctx.line_to(x + c * 0.7, y); ctx.stroke()
-        ctx.move_to(x - c * 0.7 * math.cos(aoa), y + c * 0.7 * math.sin(aoa)); ctx.line_to(x + c * 0.7 * math.cos(aoa), y - c * 0.7 * math.sin(aoa))
+        ctx.move_to(x - c * 0.7 * math.cos(aoa), y - c * 0.7 * math.sin(aoa)); ctx.line_to(x + c * 0.7 * math.cos(aoa), y + c * 0.7 * math.sin(aoa))
         ctx.stroke(); ctx.set_dash([])
-        ctx.new_path(); ctx.arc(x, y, c * 0.62, -aoa, 0); rgba(ctx, GOLD, aa); ctx.set_line_width(5 * U); ctx.stroke()
-        label(ctx, "ANGLE OF ATTACK", x + c * 0.62, y - c * 0.62 * math.sin(aoa) - 60 * U, 36, GOLD, aa, True, "r" if not VERT else "r")
+        ctx.new_path(); ctx.arc(x, y, c * 0.62, math.pi, math.pi + aoa); rgba(ctx, GOLD, aa); ctx.set_line_width(5 * U); ctx.stroke()
+        label(ctx, "ANGLE OF ATTACK", x - c * 0.62, y - c * 0.62 * math.sin(aoa) - 60 * U, 36, GOLD, aa, True, "l")
     label(ctx, "CURVED", x - c * 0.1, y - L(190, 200) * U, 40, WHITE, prog(t, ST("wing", 1), ST("wing", 1) + 0.6) * (1 - lift))
     if lift:
         for i in range(3):
-            ax = x + c * (0.75 + i * 0.12); ay = y + c * (0.12 + i * 0.03)
+            ax = x + c * (L(0.75, 0.3) + i * L(0.12, 0.14)); ay = y + c * (L(0.12, 0.3) + i * 0.03)
             arrow(ctx, ax, ay, ax + 60 * U, ay + 90 * U, SKY_L, lift, 12, 30)
-        label(ctx, "FLOW BENT DOWN", L(x + c * 0.55, CX), L(y + c * 0.48, y + c * 0.62), 44, SKY_L, lift)
+        label(ctx, "FLOW BENT DOWN", L(x + c * 0.68, CX), L(y - c * 0.05, y + c * 0.62), 44, SKY_L, lift)
     chip(ctx, "THE WING", t)
 
 def sc_newton(ctx, t, d):
@@ -246,7 +246,7 @@ def sc_newton(ctx, t, d):
     for i in range(4):
         ax = x + c * (-0.15 + i * 0.25); ay = y + c * (0.14 + i * 0.02)
         arrow(ctx, ax, ay, ax + 30 * U, ay + L(150, 170) * U * a1, SKY_L, a1, 16, 36)
-    label(ctx, "WING PUSHES AIR DOWN", L(x - c * 0.05, CX), L(y + c * 0.52, y + c * 0.62), 42, SKY_L, a1)
+    label(ctx, "WING PUSHES AIR DOWN", L(x - c * 0.72, CX), L(y + c * 0.32, y + c * 0.62), 42, SKY_L, a1)
     arrow(ctx, x, y - c * 0.12 - lift_up, x, y - c * 0.12 - lift_up - L(190, 210) * U * a2, GOLD, a2, 26, 50)
     label(ctx, "AIR PUSHES WING UP", L(x + 320 * U, CX), L(y - c * 0.12 - 200 * U, y - c * 0.12 - 290 * U), 42, GOLD, a2)
     n = prog(t, ST("newton", 2), ST("newton", 2) + 0.8)
@@ -267,7 +267,7 @@ def sc_pressure(ctx, t, d):
     draw_foil(ctx, x, y, c, math.radians(7))
     p1 = prog(t, 1.0, 2.0) * (1 - myth); p2 = prog(t, ST("pressure", 1), ST("pressure", 1) + 0.8) * (1 - myth)
     label(ctx, "FASTER AIR · LOWER PRESSURE", x, y - L(310, 330) * U, L(44, 40), SKY_L, p1)
-    label(ctx, "HIGHER PRESSURE", x, y + L(280, 300) * U, L(44, 40), GOLD, p2)
+    label(ctx, "HIGHER PRESSURE", x, y + L(225, 300) * U, L(44, 40), GOLD, p2)
     if p2:
         for i in range(5):
             xx = x + (i - 2) * c * 0.17
@@ -283,17 +283,17 @@ def sc_pressure(ctx, t, d):
         st = prog(t, ST("pressure", 2) + 2.5, ST("pressure", 2) + 3.2)
         if st:
             ctx.move_to(bx - bw * 0.42, by - 22 * U); ctx.line_to(bx - bw * 0.42 + bw * 0.84 * st, by - 22 * U)
-            rgba(ctx, CORAL, myth); ctx.set_line_width(7 * U); ctx.stroke()
+            rgba(ctx, CORAL, 0.75 * myth); ctx.set_line_width(5 * U); ctx.stroke()
     chip(ctx, "PRESSURE", t)
 
 def sc_speed(ctx, t, d):
     bg(ctx, t, 0.3)
     # chart
-    ox, oy, cw, ch = L((W * 0.08, H * 0.7, W * 0.36, H * 0.5), (W * 0.16, 870 * U, W * 0.72, 520 * U))
+    ox, oy, cw, ch = L((W * 0.08, H * 0.66, W * 0.36, H * 0.46), (W * 0.16, 870 * U, W * 0.72, 520 * U))
     ca = prog(t, ST("speed", 1) - 0.5, ST("speed", 1) + 0.3)
     rgba(ctx, WHITE, 0.8 * ca); ctx.set_line_width(4 * U)
     ctx.move_to(ox, oy - ch); ctx.line_to(ox, oy); ctx.line_to(ox + cw, oy); ctx.stroke()
-    label(ctx, "SPEED →", ox + cw, oy + 40 * U, 32, WHITE, ca, True, "r")
+    label(ctx, "SPEED →", ox + cw, oy + 85 * U, 32, WHITE, ca, True, "r")
     label(ctx, "LIFT", ox + 20 * U, oy - ch - 10 * U, 32, GOLD, ca, True, "l")
     p = prog(t, ST("speed", 1) + 0.5, ST("speed", 1) + 4.5)
     n = int(100 * p)
@@ -379,7 +379,7 @@ def sc_engines(ctx, t, d):
     label(ctx, "THRUST", ex + ln * 0.2 - 30 * U, ey + rad * 1.75, 42, GOLD, th, True, "r")
     big = prog(t, ST("engines", 2), ST("engines", 2) + 0.8)
     if big:
-        bx, by = L((W * 0.82, H * 0.3), (CX, 400 * U))
+        bx, by = L((W * 0.82, H * 0.62), (CX, 400 * U))
         label(ctx, "EACH ENGINE:", bx, by - 60 * U, 36, WHITE, big)
         label(ctx, "TENS OF THOUSANDS", bx, by, L(46, 52), GOLD, big)
         label(ctx, "OF POUNDS OF THRUST", bx, by + 55 * U, L(36, 40), GOLD, big)
@@ -398,28 +398,29 @@ def sc_flaps(ctx, t, d):
     ctx.restore()
     # flap: rear element slides back and rotates down
     ca, sa = math.cos(aoa), math.sin(aoa)
-    hx, hy = x + 0.25 * c * ca, y - 0.25 * c * sa
-    fl = foil_pts(c * 0.32, 0, m=0.02, th=0.10)
-    rot = -aoa - math.radians(30) * dep
-    off = 0.12 * c * dep
-    ctx.save(); ctx.translate(hx + off + c * 0.13, hy + 0.04 * c * dep); ctx.rotate(-rot)
+    hx, hy = x + 0.25 * c * ca, y + 0.25 * c * sa
+    fl = foil_pts(c * 0.32, 0, m=0.04, th=0.13)
+    rot = -aoa - math.radians(25) * dep
+    off = 0.04 * c * dep
+    fa = -rot; fr = 0.16 * c + off
+    ctx.save(); ctx.translate(hx + fr * math.cos(fa), hy + fr * math.sin(fa) + 0.025 * c * dep); ctx.rotate(fa)
     ctx.move_to(*fl[0])
     for pp in fl[1:]: ctx.line_to(*pp)
     ctx.close_path(); rgba(ctx, mix(BODY, GOLD, 0.35)); ctx.fill_preserve(); rgba(ctx, GOLD); ctx.set_line_width(4 * U); ctx.stroke()
     ctx.restore()
     # slat: front element slides forward and down
-    lx, ly = x - 0.5 * c * ca - 0.07 * c * dep, y + 0.5 * c * sa + 0.06 * c * dep
-    sl = foil_pts(c * 0.16, math.radians(5 + 20 * dep), m=0.06, th=0.08)
+    lx, ly = x - 0.5 * c * ca - 0.07 * c * dep, y - 0.5 * c * sa + 0.06 * c * dep
+    sl = foil_pts(c * 0.18, math.radians(5 - 30 * dep), m=0.06, th=0.14)
     ctx.move_to(lx + sl[0][0], ly + sl[0][1])
     for pp in sl[1:]: ctx.line_to(lx + pp[0], ly + pp[1])
     ctx.close_path(); rgba(ctx, mix(BODY, GOLD, 0.35), dep); ctx.fill()
     la = prog(t, ST("flaps", 1) + 2.0, ST("flaps", 1) + 2.8)
     label(ctx, "SLAT", lx - 40 * U, ly - L(110, 130) * U, 40, GOLD, la)
-    label(ctx, "FLAP", hx + c * 0.25, hy + L(170, 190) * U, 40, GOLD, la)
+    label(ctx, "FLAP", hx + c * 0.5, hy + c * 0.1, 40, GOLD, la)
     e = prog(t, ST("flaps", 2), ST("flaps", 2) + 0.8)
-    label(ctx, "EXTRA LIFT AT LOW SPEED", L(CX, CX), L(H * 0.2, 380 * U), L(50, 46), WHITE, e)
-    if e: arrow(ctx, x, y - c * 0.15, x, y - c * 0.15 - 150 * U * e, GOLD, e, 22, 46)
-    label(ctx, "TAKEOFF & LANDING", L(W * 0.78, CX), L(H * 0.72, 1240 * U), 36, DIM, prog(t, ST("flaps", 1), ST("flaps", 1) + 0.8) * (1 - L(0, 0)))
+    label(ctx, "EXTRA LIFT AT LOW SPEED", L(CX, CX), L(H * 0.17, 380 * U), L(50, 46), WHITE, e)
+    if e: arrow(ctx, x, y - c * 0.15, x, y - c * 0.15 - L(90, 150) * U * e, GOLD, e, 22, 46)
+    label(ctx, "TAKEOFF & LANDING", L(W * 0.8, CX), L(H * 0.2, 1240 * U), 36, DIM, prog(t, ST("flaps", 1), ST("flaps", 1) + 0.8) * (1 - e))
     chip(ctx, "SHAPE-SHIFTING WINGS", t)
 
 def sc_cruise(ctx, t, d):

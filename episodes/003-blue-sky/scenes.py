@@ -410,19 +410,19 @@ def thumbnail(c):
     """1280x720 thumbnail (render.py thumb mode)."""
     g = cairo.LinearGradient(0, 0, 0, H); g.add_color_stop_rgb(0, .08, .11, .26); g.add_color_stop_rgb(1, .02, .03, .08); c.set_source(g); c.paint()
     # right half: sky going from blue to sunset
-    c.save(); c.move_to(700, 0); c.line_to(W, 0); c.line_to(W, H); c.line_to(620, H); c.close_path(); c.clip()
+    c.save(); c.move_to(830, 0); c.line_to(W, 0); c.line_to(W, H); c.line_to(770, H); c.close_path(); c.clip()
     g = cairo.LinearGradient(0, 0, 0, H)
     g.add_color_stop_rgb(0, .14, .40, .84); g.add_color_stop_rgb(.45, .45, .70, .95); g.add_color_stop_rgb(.72, .98, .55, .30); g.add_color_stop_rgb(1, 1, .75, .3)
     c.set_source(g); c.paint()
-    rg = cairo.RadialGradient(990, 560, 0, 990, 560, 300); rg.add_color_stop_rgba(0, 1, .8, .4, .9); rg.add_color_stop_rgba(1, 1, .6, .2, 0)
-    c.set_source(rg); c.arc(990, 560, 300, 0, 6.3); c.fill()
-    c.arc(990, 575, 85, 0, 6.3); c.set_source_rgb(1, .9, .55); c.fill()
-    for (x, y, s) in [(900, 150, 1.1), (1170, 260, 0.8)]:
+    rg = cairo.RadialGradient(1050, 560, 0, 1050, 560, 300); rg.add_color_stop_rgba(0, 1, .8, .4, .9); rg.add_color_stop_rgba(1, 1, .6, .2, 0)
+    c.set_source(rg); c.arc(1050, 560, 300, 0, 6.3); c.fill()
+    c.arc(1050, 575, 85, 0, 6.3); c.set_source_rgb(1, .9, .55); c.fill()
+    for (x, y, s) in [(1000, 140, 1.0), (1190, 270, 0.75)]:
         for dx, dy, r in [(-60, 10, 45), (-15, -20, 60), (40, -5, 50), (80, 15, 38), (10, 20, 45)]:
             c.arc(x + dx * s, y + dy * s, r * s, 0, 6.3); c.set_source_rgba(1, 1, 1, .92); c.fill()
-    c.move_to(600, H)
+    c.move_to(740, H)
     for i in range(31):
-        x = 600 + 680 * i / 30
+        x = 740 + 540 * i / 30
         c.line_to(x, 620 - 30 * math.sin(i * 0.5) - 15 * math.sin(i * 1.4))
     c.line_to(W, H); c.close_path(); c.set_source_rgb(.12, .06, .12); c.fill()
     c.restore()

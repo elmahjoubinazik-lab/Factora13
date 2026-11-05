@@ -454,11 +454,11 @@ def thumbnail(c):
     random.seed(1)
     for _ in range(180):
         c.arc(random.random() * W, random.random() * H, random.uniform(.5, 1.8), 0, 6.3); c.set_source_rgba(1, 1, 1, random.uniform(.3, .9)); c.fill()
-    gx, gy, r = 1010, 340, 200
+    gx, gy, r = 1050, 340, 190
     globe(c, gx, gy, r, 0.5)
     c.set_line_width(10); c.set_line_cap(cairo.LINE_CAP_ROUND)
     for a0 in (2.6, -0.4):
-        c.save(); c.translate(gx, gy); c.scale(r * 1.25, r * 0.28); c.arc(0, 0, 1, a0, a0 + 1.4); c.restore()
+        c.save(); c.translate(gx, gy); c.scale(r * 1.18, r * 0.28); c.arc(0, 0, 1, a0, a0 + 1.4); c.restore()
         c.set_source_rgb(1, .8, .33); c.stroke()
     # stop sign
     sx, sy, sr = 1120, 560, 95
