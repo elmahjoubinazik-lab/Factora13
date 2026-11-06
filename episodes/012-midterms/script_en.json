@@ -1,0 +1,172 @@
+[
+ {
+  "scene": "hook",
+  "text": [
+   "Every two years, Americans vote in an election where the president is not even on the ballot.",
+   "And yet, this single vote can decide whether the next two years bring new laws, or total gridlock.",
+   "Here is how the midterms really work, and what changes with, or without, a majority in Congress."
+  ]
+ },
+ {
+  "scene": "calendar",
+  "text": [
+   "First, why are they called midterms?",
+   "A president serves a four-year term.",
+   "Halfway through, in November of the second year, voters choose a new Congress.",
+   "The date is fixed by law: the Tuesday after the first Monday in November.",
+   "In two thousand twenty-six, that was November third.",
+   "That is why the president is not running, but the president's party very much is."
+  ]
+ },
+ {
+  "scene": "capitol",
+  "text": [
+   "So what is Congress, exactly?",
+   "It is the branch of government that writes the laws and controls the money.",
+   "It has two chambers: the House of Representatives and the Senate.",
+   "A new law must pass both of them, word for word, before it reaches the president.",
+   "Think of them as two locked doors. To get a law through, you need the key to both."
+  ]
+ },
+ {
+  "scene": "house",
+  "text": [
+   "The House is the big room.",
+   "It has four hundred thirty-five voting members, and seats are shared out between the states by population.",
+   "California has dozens of representatives. Several small states have just one.",
+   "Every member serves only two years, so all four hundred thirty-five seats are up at every midterm.",
+   "To control the House, a party needs a majority: two hundred eighteen seats."
+  ]
+ },
+ {
+  "scene": "senate",
+  "text": [
+   "The Senate is the smaller room.",
+   "Every state gets exactly two senators, whatever its size. That makes one hundred.",
+   "Senators serve six years, and only about one third of the seats are up at each election.",
+   "So a party needs fifty-one seats for a clear majority.",
+   "But there is a twist. If the Senate splits fifty to fifty, the vice president casts the tie-breaking vote."
+  ]
+ },
+ {
+  "scene": "myth",
+  "text": [
+   "Here is a common misconception.",
+   "Many people think the midterms replace the whole Congress.",
+   "In reality, the entire House is up, but around two thirds of the senators keep their seats, whatever happens.",
+   "And it is not only Congress. Many states also elect governors, state lawmakers, judges and local officials on the same day.",
+   "Turnout is usually lower than in presidential years, which means every single vote weighs a little more."
+  ]
+ },
+ {
+  "scene": "bill",
+  "text": [
+   "To see why a majority matters, let's follow an imaginary law.",
+   "We will call it the Bridge Repair Act: a plan to fix old bridges across the country.",
+   "Step one: it must pass the House, by a simple majority.",
+   "Step two: it must pass the Senate.",
+   "Step three: the president signs it, and it becomes law. Or the president vetoes it, and it goes back to Congress."
+  ]
+ },
+ {
+  "scene": "filibuster",
+  "text": [
+   "But here's where it gets strange.",
+   "In the Senate, a simple majority is often not enough.",
+   "Under Senate rules, most bills can be blocked by a filibuster: senators can keep debate going so the bill never reaches a final vote."
+  ]
+ },
+ {
+  "scene": "sixty",
+  "text": [
+   "In the Senate, most laws need not fifty-one votes, but sixty out of one hundred, to get past a filibuster.",
+   "There are some exceptions, especially for certain budget bills.",
+   "But for most laws, fifty-one is not the magic number. Sixty is."
+  ]
+ },
+ {
+  "scene": "unified",
+  "text": [
+   "Now, the scenarios.",
+   "Scenario one: unified government.",
+   "Imagine Party A holds the White House, the House and the Senate.",
+   "Our Bridge Repair Act can move quickly through both chambers, and the president is ready to sign.",
+   "The main obstacle is the sixty-vote rule in the Senate, unless Party A has a very large majority or wins over some members of Party B.",
+   "Supporters say this lets a government deliver on its promises. Critics say it leaves fewer checks on the party in power."
+  ]
+ },
+ {
+  "scene": "househ",
+  "text": [
+   "Scenario two: the House changes hands.",
+   "Now Party A keeps the White House and the Senate, but Party B wins the House.",
+   "The House decides which bills it votes on. If its leaders do not schedule the Bridge Repair Act, it simply stalls.",
+   "The House can also launch investigations into the administration, and it can vote to impeach officials.",
+   "To pass anything, both sides now have to negotiate. Some call that healthy compromise. Others call it gridlock."
+  ]
+ },
+ {
+  "scene": "senateflip",
+  "text": [
+   "Scenario three: the Senate changes hands.",
+   "Party A keeps the White House and the House, but Party B wins the Senate.",
+   "The Senate has a power the House does not: it confirms the president's choices for federal judges, cabinet members and ambassadors.",
+   "With the other party in control, those nominations can be slowed, changed or rejected.",
+   "Treaties also need two thirds of the Senate to be approved."
+  ]
+ },
+ {
+  "scene": "both",
+  "text": [
+   "Scenario four: Party B wins both chambers.",
+   "Now Congress can pass its own version of the Bridge Repair Act, or a completely different plan, and send it to the president.",
+   "The president can veto it.",
+   "To override a veto, Congress needs two thirds in both chambers: about two hundred ninety votes in the House and sixty-seven in the Senate.",
+   "That is a very high bar. In practice, most vetoes stand, so each side holds a strong card, and deals become necessary."
+  ]
+ },
+ {
+  "scene": "budget",
+  "text": [
+   "Divided or not, there is one deadline nobody can avoid: the budget.",
+   "The federal fiscal year starts on October first.",
+   "If Congress and the president do not agree on funding in time, parts of the government can shut down.",
+   "Many federal workers are sent home, and services like national parks may close.",
+   "Shutdowns have lasted from a few hours to more than a month. And they can happen under any combination of majorities, because funding bills usually need sixty votes in the Senate too."
+  ]
+ },
+ {
+  "scene": "history",
+  "text": [
+   "And there is a surprising pattern in history.",
+   "Since the Civil War, the president's party has lost seats in the House in almost every midterm election.",
+   "There are only a handful of exceptions, such as nineteen thirty-four, nineteen ninety-eight and two thousand two.",
+   "Political scientists offer several explanations: voters balancing power, or the other party's supporters being more motivated to turn out.",
+   "It is a pattern, not a law of nature. Each election is decided by voters, district by district."
+  ]
+ },
+ {
+  "scene": "january",
+  "text": [
+   "So when does the change actually happen?",
+   "Not right away.",
+   "Under the Constitution, the new Congress begins on January third.",
+   "Until then, the outgoing members keep working, in what is called a lame duck session.",
+   "Then, in January, the new majorities take over, choose their leaders, and the next two years begin."
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "So, the midterms do not choose a president, but they decide how much a president can do.",
+   "Two chambers, two hundred eighteen and fifty-one, sixty votes for most laws, and two thirds to override a veto."
+  ]
+ },
+ {
+  "scene": "sub",
+  "text": [
+   "Do you think divided power leads to better laws, or worse? Tell us in the comments.",
+   "And subscribe to Factora, so you never miss a fascinating fact."
+  ]
+ }
+]
