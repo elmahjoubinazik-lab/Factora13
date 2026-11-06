@@ -6,7 +6,7 @@ Propriétaire : Nazik EL MAHJOUBI. Toute la communication avec elle se fait **en
 
 Paramètres : `config.json` (chaîne cible, dépôt d'hébergement des fichiers, rythme). Le dépôt est **public** : n'y écrire aucune donnée personnelle ni identifiant.
 
-## Procédure de publication (exécution planifiée chaque jour à 19h23, heure suisse, sans intervention humaine)
+## Procédure de publication (exécution planifiée 5 jours par semaine — mardi, jeudi, vendredi, samedi, dimanche — à 19h23, heure suisse, sans intervention humaine ; pas de production le lundi ni le mercredi, décision de Nazik du 2026-11-06 pour économiser les tokens)
 
 ### 0. Préparation
 ```bash
