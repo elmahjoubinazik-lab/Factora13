@@ -51,6 +51,13 @@ Premier sujet non coché de `topics.md`. **S'il reste moins de 10 sujets non coc
   la liste `SHORT_SCENES` (segments gardés pour le Short : **viser 30 à 40 s, jamais plus de 59 s** — vérifier avec build/timeline.json ; les Shorts de 25–45 s font le plus de vues ; commencer par l'accroche, finir par l'outro),
   et `thumbnail(c)` (1280×720, utiliser `thumb_text(c, ligne1, ligne2, bandeau)`).
   Modèle complet : `episodes/001-lune/scenes.py`. Style maison : fond bleu nuit, accents or, aplats vectoriels, pas d'images externes.
+  **Qualité graphique exigée (2026-11-06)** — le moteur ajoute déjà halo lumineux, vignette, grain, sous-titres animés et 1440p ; les scènes doivent suivre :
+  - **remplir le cadre** : le sujet principal occupe ≥ 60 % de la largeur en 16:9 et ≥ 75 % en 9:16 (Short) — jamais un petit objet au milieu d'un grand fond vide ;
+  - **profondeur** : 3 plans par scène (fond en dégradé + éléments lointains estompés, sujet, premier plan / particules), dégradés plutôt qu'aplats unis, `glow()` sur les éléments importants ;
+  - **mouvement permanent** : quelque chose bouge à chaque instant (particules, rotation, flux, rebond d'apparition `ease`) ; les éléments entrent en animation, jamais d'un coup ;
+  - **chiffres-clés en grand** : quand le texte cite un nombre marquant (« 100,000 tons »), l'afficher en très gros (≥ 120 px en 16:9) avec un compteur qui défile ;
+  - détails qui rendent l'objet reconnaissable (hublots, rivets, reflets, ombres portées), pas de silhouettes trop schématiques ;
+  - varier les couleurs d'accent d'une scène à l'autre (or, cyan, corail, vert) sur le fond bleu nuit.
   Les dessins doivent être **originaux et propres au sujet** (exigence YouTube « contenu authentique »).
   Éviter le bas de l'écran (sous-titres : ~0,80–0,92 H en 16:9, ~0,70–0,78 H en 9:16).
 - `meta_en.json` : `hook_text` (question courte, ≤ 8 mots, affichée en grand dès la 1re image du Short ; ex. « WHAT IF THE SUN WENT OUT? »), `playlist` (`what_if`, `how` ou `why`), `comment` (question au public, 1 phrase + emoji, publiée sous la vidéo), `title` (≤ 70 car., curiosité + mot-clé), `short_title` (question courte + 1 emoji, finir par `#shorts`), `description` (avec `{CHAPITRES}`),

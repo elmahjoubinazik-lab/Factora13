@@ -146,33 +146,58 @@ if MODE == "thumb":   # miniature 1280x720 dessinée par thumbnail(ctx) de l'ép
     thumbnail(cairo.Context(surf))
     surf.write_to_png(WD + "/miniature.png"); print("OK", WD + "/miniature.png"); sys.exit(0)
 
-# ---------- sous-titres ----------
+# ---------- sous-titres (style « Shorts » : gros texte contouré, mot prononcé surligné en or) ----------
 def chunks(sent):
     words = sent["text"].split()
-    n = 5 if VERT else 7
+    n = 4 if VERT else 6
     groups = [words[i:i + n] for i in range(0, len(words), n)]
-    if len(groups) > 1 and len(groups[-1]) <= 2: last = groups.pop(); groups[-1] += last
+    if len(groups) > 1 and len(groups[-1]) <= 1: last = groups.pop(); groups[-1] += last
     total = sum(len(" ".join(g)) for g in groups); t = sent["start"]; out = []
     for g in groups:
         s = " ".join(g); dur = (sent["end"] - sent["start"]) * len(s) / total
         out.append((t, t + dur, s)); t += dur
     return out
 
-def draw_caption(ctx, s):
-    size = (64 if VERT else 50) * U
-    font(ctx, size)
-    maxw = W * 0.86
-    lines, cur = [], ""
-    for w in s.split():
-        test = (cur + " " + w).strip()
-        if ctx.text_extents(test).width > maxw and cur: lines.append(cur); cur = w
-        else: cur = test
+def cap_font(ctx, size):
+    ctx.select_font_face("Inter ExtraBold", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD)
+    ctx.set_font_size(size)
+
+def draw_caption(ctx, s, k=1.0):
+    """s = texte du groupe, k = avancement (0..1) dans le groupe → mot actif surligné."""
+    size = (76 if VERT else 58) * U
+    cap_font(ctx, size)
+    words = s.split()
+    # mot actif : proportionnel à la longueur des mots
+    lens = [len(w) + 1 for w in words]; acc, act = 0, len(words) - 1
+    for i, L in enumerate(lens):
+        acc += L
+        if k * sum(lens) < acc: act = i; break
+    maxw = W * 0.88
+    lines, cur = [], []
+    for i, w in enumerate(words):
+        test = " ".join(words[j] for j in cur + [i])
+        if cur and ctx.text_extents(test).width > maxw: lines.append(cur); cur = [i]
+        else: cur.append(i)
     lines.append(cur)
-    lh = size * 1.25
-    y0 = (H * 0.86 if not VERT else H * 0.74) - lh * (len(lines) - 1) / 2
-    bw = max(ctx.text_extents(l).width for l in lines) + 60 * U
-    rrect(ctx, CX - bw / 2, y0 - lh * 0.65, bw, lh * len(lines) + lh * 0.3, 20 * U); rgba(ctx, (0, 0, 0), 0.55); ctx.fill()
-    for i, l in enumerate(lines): text(ctx, l, CX, y0 + i * lh, size, WHITE)
+    lh = size * 1.2
+    y0 = (H * 0.86 if not VERT else H * 0.73) - lh * (len(lines) - 1) / 2
+    sp = ctx.text_extents("a a").x_advance - 2 * ctx.text_extents("a").x_advance
+    for li, idxs in enumerate(lines):
+        wid = [ctx.text_extents(words[i]).x_advance for i in idxs]
+        x = CX - (sum(wid) + sp * (len(idxs) - 1)) / 2
+        y = y0 + li * lh + size * 0.35
+        for i, wd in zip(idxs, wid):
+            on = (i == act)
+            z = 1.08 if on else 1.0
+            ctx.save(); ctx.translate(x + wd / 2, y - size * 0.35); ctx.scale(z, z); ctx.translate(-(x + wd / 2), -(y - size * 0.35))
+            # ombre portée douce
+            ctx.move_to(x + 4 * U, y + 6 * U); ctx.text_path(words[i]); ctx.set_source_rgba(0, 0, 0, 0.45); ctx.fill()
+            # contour épais
+            ctx.move_to(x, y); ctx.text_path(words[i])
+            ctx.set_source_rgba(0.01, 0.02, 0.06, 1); ctx.set_line_width(size * 0.16); ctx.set_line_join(cairo.LINE_JOIN_ROUND); ctx.stroke_preserve()
+            rgba(ctx, GOLD if on else WHITE); ctx.fill()
+            ctx.restore()
+            x += wd + sp
 
 # ---------- montage ----------
 timeline = json.load(open(WD + "/timeline.json"))
@@ -246,6 +271,11 @@ sf.write(WD + f"/audio_{MODE}.wav", mixd, SR)
 
 out = WD + f"/video_{MODE}.mp4"
 STILLS = [float(x) for x in sys.argv[3].split(",")] if len(sys.argv) > 3 else None
+# finition « cinéma » appliquée par ffmpeg : halo lumineux (bloom) sur les zones claires, vignette, grain très léger ;
+# la vidéo longue est agrandie en 1440p (YouTube attribue alors un meilleur codec/débit, image nettement plus nette).
+FINISH = ("format=gbrp,split[a][b];[b]colorlevels=rimin=0.5:gimin=0.5:bimin=0.5,gblur=sigma=%d[g];[a][g]blend=all_mode=screen:all_opacity=0.55,"
+          "vignette=angle=PI/5,noise=alls=2:allf=t" % int(18 * U))
+if MODE == "long": FINISH += ",scale=2560:1440:flags=lanczos"
 class _N:
     def write(self, b): pass
     def close(self): pass
@@ -253,7 +283,7 @@ class _P:
     stdin=_N()
     def wait(self): pass
 ff = _P() if STILLS else subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgra", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-                       "-i", WD + f"/audio_{MODE}.wav", "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
+                       "-i", WD + f"/audio_{MODE}.wav", "-vf", FINISH, "-c:v", "libx264", "-preset", "slow", "-tune", "animation", "-crf", "17", "-pix_fmt", "yuv420p", "-r", str(FPS),
                        "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
 surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
 nf = int(TOTAL * FPS)
@@ -263,13 +293,13 @@ for f in (STILLS or range(nf)):
     ctx = cairo.Context(surf)
     ctx.set_source_rgb(0, 0, 0); ctx.paint()   # repartir d'une image vide (évite les restes de la scène précédente)
     lt, d = TNOW - seg["start"], seg["end"] - seg["start"]
-    # léger mouvement de caméra
-    z = 1 + 0.03 * lt / d
-    ctx.save(); ctx.translate(CX, CY); ctx.scale(z, z); ctx.translate(-CX, -CY)
+    # mouvement de caméra (zoom lent + léger panoramique, sens alterné d'une scène à l'autre)
+    si = plan.index(seg); z = 1 + 0.045 * ease(lt / d); px = (1 if si % 2 else -1) * 14 * U * (lt / d - 0.5)
+    ctx.save(); ctx.translate(CX + px, CY); ctx.scale(z, z); ctx.translate(-CX, -CY)
     SCENES[seg["scene"]](ctx, lt, d)
     ctx.restore()
     for (a, b, s) in seg["caps"]:
-        if a <= TNOW < b: draw_caption(ctx, s); break
+        if a <= TNOW < b: draw_caption(ctx, s, (TNOW - a) / max(b - a, 1e-6)); break
     # fondu entre scènes
     fade = min(clamp(lt / 0.3), clamp((d - lt) / 0.3)) if seg is not plan[0] or lt > 0.3 else clamp(lt / 0.3)
     if MODE == "short" and seg is plan[0]: fade = clamp((d - lt) / 0.3)   # Short : pas d'écran noir au départ
