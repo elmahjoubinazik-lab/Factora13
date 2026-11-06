@@ -20,8 +20,9 @@ sur `https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true`. Si 
 `config.json → youtube_channel_id`, **NE RIEN PUBLIER** : envoyer l'e-mail d'alerte (étape 7) et s'arrêter.
 
 ### 1. Passer en public l'épisode précédent
+(Depuis le 2026-11-06, les nouveaux épisodes sont publiés **directement en public** : cette étape ne concerne plus que d'éventuelles anciennes entrées « unlisted ».)
 Pour chaque entrée de `published.json` avec `"status": "unlisted"` (les statuts `attente_youtube` / `attente_short` relèvent de l'étape 1 bis) : lire son statut réel (GET `videos?part=status&id=…`).
-- s'il est **encore « unlisted »** → PUT `videos?part=status` avec `{"id": …, "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": false}}` ; noter `"status": "public"` ;
+- s'il est **encore « unlisted »** → PUT `videos?part=status` avec `{"id": …, "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": false, "embeddable": true, "publicStatsViewable": true, "license": "youtube"}}` (**toujours ces 5 champs** : un PUT qui les omet désactive l'intégration et les statistiques publiques) `` ; noter `"status": "public"` ;
 - s'il est « private » ou supprimé → Nazik l'a retiré : noter `"status": "retire"`, ne rien toucher.
 Faire de même pour le Short associé.
 Si l'entrée a un champ `remplace_ids` et vient d'être passée en public : supprimer ces anciennes vidéos (DELETE `videos?id=…`), puis retirer le champ.
@@ -88,7 +89,7 @@ bash engine/host.sh episodes/NNN-x NNN   # ajoute les fichiers sur la branche du
 (Les « releases » GitHub sont interdites depuis les sessions : ne pas les utiliser.)
 
 ### 6. Publier via Zapier (action YouTube « Upload Video »)
-Vidéo longue : `title`, `description` (= build/description.txt), `tags`, `video` = URL, `privacy_status` = `config.privacy_first`,
+Vidéo longue : `title`, `description` (= build/description.txt), `tags`, `video` = URL, `privacy_status` = `config.privacy_first` (= "public" depuis le 2026-11-06 : publication directe, Nazik contrôle a posteriori),
 `made_for_kids` = false, `category_id` = "27" (Éducation), `default_language` = en, `default_audio_language` = en, `notify_subscribers` = true.
 **Ne pas passer `thumbnail` dans l'upload** (s'il échoue, la vidéo est quand même créée → risque de doublon).
 Après chaque upload, vérifier avec GET `search?part=snippet&forMine=true&type=video` que la vidéo existe une seule fois.
@@ -117,9 +118,8 @@ Noter dans `published.json` : `"tiktok_buffer_id"` (champ `id` de la réponse) e
 Si Buffer échoue : ne pas bloquer YouTube ; noter `"tiktok": "echec"` et le signaler dans l'e-mail.
 
 ### 7. Prévenir Nazik
-E-mail via Zapier Gmail à l'adresse donnée dans le message de la tâche planifiée, objet « Factora — épisode NNN en ligne (non répertorié) » :
-titre, liens des 2 vidéos YouTube, statut TikTok, rappel : « Elle passera en public automatiquement à la prochaine exécution.
-Pour l'empêcher : mettez-la en Privé dans YouTube Studio. » En cas d'échec à une étape : e-mail « Factora — échec épisode NNN » avec l'erreur.
+E-mail via Zapier Gmail à l'adresse donnée dans le message de la tâche planifiée, objet « Factora — épisode NNN en ligne » :
+titre, liens des 2 vidéos YouTube (publiques), statut TikTok, rappel : « À contrôler quand vous pouvez ; pour la retirer : mettez-la en Privé dans YouTube Studio. » En cas d'échec à une étape : e-mail « Factora — échec épisode NNN » avec l'erreur.
 
 ## Récap du samedi (tâche planifiée séparée, samedi soir heure de New York)
 Même garde-fou chaîne (étape 0) avant toute écriture YouTube.

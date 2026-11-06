@@ -193,7 +193,7 @@
       "langue": "en",
       "long_id": "TIl3eN-TTIg",
       "short_id": "SGHz3eFNWBY",
-      "status": "unlisted",
+      "status": "public",
       "thumbnail_set": true,
       "tiktok": "envoye",
       "tiktok_buffer_id": "6aee26d8e6631285b7063e83",
@@ -201,7 +201,8 @@
         "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/eda1cc820bbe68b4ac7979ff1a7a2ad6bcff54f9/ep012/video_long.mp4",
         "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/eda1cc820bbe68b4ac7979ff1a7a2ad6bcff54f9/ep012/video_short.mp4",
         "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/eda1cc820bbe68b4ac7979ff1a7a2ad6bcff54f9/ep012/miniature.png"
-      }
+      },
+      "public_date": "2026-11-06"
     }
   ]
 }
