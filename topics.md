@@ -19,8 +19,10 @@ Les vidéos sont en anglais : traduire le sujet en titre anglais accrocheur au m
 - [x] Pourquoi les dinosaures ont-ils disparu ? (épisode 010, 2026-11-05)
 - [x] Comment l'argent est-il créé ? (épisode 011, 2026-11-05)
 - [ ] How does a 100,000-ton aircraft carrier float? (PRIORITÉ — même famille que le Short avion 400 t, 944 vues : « comment un géant d'acier défie l'intuition »)
+- [ ] Why don't jet engines go out in pouring rain? (idée de Nazik — famille « géants de la technique » ; faits : essais de certification à l'ingestion massive d'eau, force centrifuge du compresseur, chambre de combustion à plus de 1 500 °C)
 - [ ] How does a 2,000-ton rocket escape Earth's gravity? (priorité — même famille)
 - [ ] Que se passerait-il si le Soleil s'éteignait ?
+- [ ] How does a giant cruise ship float without ever sinking? (idée de Nazik — à espacer du porte-avions, même principe d'Archimède : angle différent = compartiments étanches, stabilisateurs, centre de gravité bas ; attention : « 200 000 » = jauge brute (volume), pas le poids — le déplacement réel tourne autour de 100 000 t, ne pas écrire « 200,000 tons » au sens du poids)
 - [ ] What if gravity doubled for 10 seconds? (priorité tendance)
 - [ ] What if you fell to the deepest point of the ocean? (priorité tendance)
 - [ ] What if a teaspoon of a neutron star landed on Earth? (priorité tendance)
