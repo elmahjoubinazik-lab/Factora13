@@ -275,7 +275,8 @@ STILLS = [float(x) for x in sys.argv[3].split(",")] if len(sys.argv) > 3 else No
 # la vidéo longue est agrandie en 1440p (YouTube attribue alors un meilleur codec/débit, image nettement plus nette).
 FINISH = ("format=gbrp,split[a][b];[b]colorlevels=rimin=0.5:gimin=0.5:bimin=0.5,gblur=sigma=%d[g];[a][g]blend=all_mode=screen:all_opacity=0.55,"
           "vignette=angle=PI/7,noise=alls=2:allf=t" % int(18 * U))
-if MODE == "long": FINISH += ",scale=2560:1440:flags=lanczos"
+if MODE == "long": FINISH += ",scale=2560:1440:flags=lanczos"   # (pas de grain : il alourdit trop le fichier, limite GitHub 100 Mo)
+else: FINISH += ",noise=alls=2:allf=t"
 class _N:
     def write(self, b): pass
     def close(self): pass
@@ -283,7 +284,7 @@ class _P:
     stdin=_N()
     def wait(self): pass
 ff = _P() if STILLS else subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgra", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-                       "-i", WD + f"/audio_{MODE}.wav", "-vf", FINISH, "-c:v", "libx264", "-preset", "slow", "-tune", "animation", "-crf", "17", "-pix_fmt", "yuv420p", "-r", str(FPS),
+                       "-i", WD + f"/audio_{MODE}.wav", "-vf", FINISH, "-c:v", "libx264", "-preset", "slow", "-tune", "animation", "-crf", ("19" if MODE == "long" else "17"), "-pix_fmt", "yuv420p", "-r", str(FPS),
                        "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
 surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
 nf = int(TOTAL * FPS)
