@@ -188,7 +188,7 @@ def draw_caption(ctx, s, k=1.0):
         y = y0 + li * lh + size * 0.35
         for i, wd in zip(idxs, wid):
             on = (i == act)
-            z = 1.08 if on else 1.0
+            z = 1.0
             ctx.save(); ctx.translate(x + wd / 2, y - size * 0.35); ctx.scale(z, z); ctx.translate(-(x + wd / 2), -(y - size * 0.35))
             # ombre portée douce
             ctx.move_to(x + 4 * U, y + 6 * U); ctx.text_path(words[i]); ctx.set_source_rgba(0, 0, 0, 0.45); ctx.fill()
