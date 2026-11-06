@@ -18,6 +18,8 @@ Les vidéos sont en anglais : traduire le sujet en titre anglais accrocheur au m
 - [x] Et si on creusait un trou à travers la Terre ? (épisode 009, 2026-11-05)
 - [x] Pourquoi les dinosaures ont-ils disparu ? (épisode 010, 2026-11-05)
 - [x] Comment l'argent est-il créé ? (épisode 011, 2026-11-05)
+- [ ] How does a 100,000-ton aircraft carrier float? (PRIORITÉ — même famille que le Short avion 400 t, 944 vues : « comment un géant d'acier défie l'intuition »)
+- [ ] How does a 2,000-ton rocket escape Earth's gravity? (priorité — même famille)
 - [ ] Que se passerait-il si le Soleil s'éteignait ?
 - [ ] What if gravity doubled for 10 seconds? (priorité tendance)
 - [ ] What if you fell to the deepest point of the ocean? (priorité tendance)
