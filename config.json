@@ -30,7 +30,17 @@
       "id": "PLDfwVoPj5Ibs",
       "titre": "Why Does It Happen? 🔬",
       "pour": "« Why… / What happens… », corps humain, mystères"
+    },
+    "recap": {
+      "id": "PLcsva6D3oKsA",
+      "titre": "Weekly Recaps: This Week's Most Fascinating Facts",
+      "pour": "récap du samedi"
     }
   },
-  "tiktok_heure": "19:30 America/New_York (heure de pointe US)"
+  "tiktok_heure": "19:30 America/New_York (heure de pointe US)",
+  "recap": {
+    "jour": "samedi",
+    "heure_production": "16:47 America/New_York",
+    "duree_cible_min": 8
+  }
 }

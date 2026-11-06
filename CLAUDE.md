@@ -1,7 +1,7 @@
 # Factora — production et publication automatiques
 
 Chaîne YouTube **Factora (@factoraofficiel, id UCzFd6_4jKV184oZtqr06ueA)** — ne pas publier sur @factora13 (UCYxSS4wKZUa3kmLnTYiGmuw), autre chaîne : vidéos éducatives sans visage, en français, sur des thèmes variés
-(« What if…? », « How does … work? », « Why…? »). **Toutes les vidéos sont en ANGLAIS** (décision de Nazik, 2026-11-04) ; `config.json → langue` = "en". Une vidéo longue (2–4 min, 16:9) + un Short (≤ 60 s, 9:16) par épisode.
+(« What if…? », « How does … work? », « Why…? »). **Toutes les vidéos sont en ANGLAIS** (décision de Nazik, 2026-11-04) ; `config.json → langue` = "en". Une vidéo longue (**7–10 min** depuis le 2026-11-06 : seules les vidéos longues comptent pour les 4 000 h de visionnage de la monétisation, 16:9) + un Short (≤ 60 s, 9:16) par épisode, et **un récap hebdomadaire de ~8 min le samedi** (voir « Récap du samedi »).
 Propriétaire : Nazik EL MAHJOUBI. Toute la communication avec elle se fait **en français**.
 
 Paramètres : `config.json` (chaîne cible, dépôt d'hébergement des fichiers, rythme). Le dépôt est **public** : n'y écrire aucune donnée personnelle ni identifiant.
@@ -41,7 +41,9 @@ Premier sujet non coché de `topics.md`. **S'il reste moins de 10 sujets non coc
 
 ### 3. Écrire l'épisode
 - `script_en.json` (langue de la chaîne ; `script.json` = ancien français, ne plus l'utiliser) : liste de segments `{"scene": "id", "text": ["phrase", …]}`. Modèle : `episodes/001-lune/script_en.json`. Rédiger directement en anglais naturel (américain), pas une traduction.
-  - 300–450 mots, 9–12 segments ; accroche forte en 2 phrases ; promesse tenue dans les 10 premières secondes ;
+  - **1 000–1 400 mots, 14–20 segments** (≈ 7–10 min) ; accroche forte en 2 phrases ; promesse tenue dans les 10 premières secondes ;
+    structure en 3–5 « chapitres » avec une relance de curiosité toutes les ~60 s (« But here's where it gets strange… ») pour garder le public jusqu'au bout ;
+    exemples concrets, comparaisons à l'échelle humaine, une anecdote historique, une idée reçue corrigée ;
   - nombres écrits en toutes lettres (la voix les lit mieux) ; phrases courtes ;
   - textes dessinés à l'écran : écrire directement en anglais dans `scenes.py` (ou clé française + dictionnaire `TR["en"]` comme l'épisode 001) ;
   - **uniquement des faits établis** (NASA, ESA, CNRS, INSERM, OMS, Banque de France, encyclopédies…). Pas de chiffre douteux ;
@@ -118,6 +120,21 @@ Si Buffer échoue : ne pas bloquer YouTube ; noter `"tiktok": "echec"` et le sig
 E-mail via Zapier Gmail à l'adresse donnée dans le message de la tâche planifiée, objet « Factora — épisode NNN en ligne (non répertorié) » :
 titre, liens des 2 vidéos YouTube, statut TikTok, rappel : « Elle passera en public automatiquement à la prochaine exécution.
 Pour l'empêcher : mettez-la en Privé dans YouTube Studio. » En cas d'échec à une étape : e-mail « Factora — échec épisode NNN » avec l'erreur.
+
+## Récap du samedi (tâche planifiée séparée, samedi soir heure de New York)
+Même garde-fou chaîne (étape 0) avant toute écriture YouTube.
+1. Épisodes à résumer : ceux de `published.json` en `"status": "public"` (ou unlisted) qui ne figurent dans aucune entrée de `recaps.json`. S'il y en a plus de 7, garder les 7 qui ont le plus de vues (GET `videos?part=statistics&id=…` sur `long_id` + `short_id`) ; les autres restent pour un prochain récap. Moins de 3 épisodes : ne rien publier, prévenir Nazik.
+2. Créer `episodes/recap-AAAA-MM-JJ/` :
+   - `script_en.json` : **≈ 1 100–1 200 mots (≈ 8 min)**, narration NEUVE (pas un copier-coller des scripts) : intro accrocheuse (« This week on Factora: … »), puis ~1 min par épisode (le fait le plus surprenant, l'explication essentielle), du plus fort au moins fort, transitions entre sujets, fin : « Which one surprised you most? Tell us in the comments. » + appel à l'abonnement. Mêmes règles de faits établis.
+   - `scenes.py` : réutiliser les illustrations des épisodes avec `episode_scenes("episodes/NNN-x")` (fonction du moteur) :
+     `A = episode_scenes("episodes/005-airplane"); SCENES = {"intro": sc_intro, "e005_wing": A["wing"], …}` — choisir des scènes sans étiquette numérotée hors contexte ; ajouter une scène d'intro et une carte titre par sujet (dessinées dans ce fichier), `SHORT_SCENES = []`, `thumbnail(c)` (mosaïque des sujets + « THIS WEEK'S MOST FASCINATING FACTS »).
+   - `meta_en.json` : `title` du type « 7 Mind-Blowing Facts From This Week: … » (≤ 70 car.), description avec `{CHAPITRES}` (un chapitre par sujet) et liens `https://youtu.be/<long_id>` de chaque épisode, `playlist` = `recap` si elle existe dans config.json sinon aucune, `comment`, `tags`.
+3. `tts.py`, captures de contrôle (Read), `render.py long` (> 5 min 30 → 1080p automatiquement, fichier < 100 Mo), `render.py thumb`, `description.py`, `host.sh episodes/recap-… recap-AAAA-MM-JJ`.
+4. Upload YouTube **public directement** (contenu déjà validé), `notify_subscribers` = true, vérification doublon, miniature, commentaire. Pas de Short ni de TikTok pour le récap.
+5. Ajouter `{"date", "dir", "video_id", "episodes": [numéros]}` à `recaps.json`, commit + push, e-mail à Nazik « Factora — récap de la semaine en ligne ».
+
+## Sujets d'actualité / politiques
+Strictement **neutres et factuels** : expliquer les règles et mécanismes (institutions, chiffres officiels), présenter chaque scénario avec ses effets sans jugement ni préférence, temps de parole égal pour chaque camp, aucun pronostic, aucun qualificatif partisan, aucune personne politique caricaturée ou dessinée. Ne citer un résultat électoral que s'il est vérifié à la date de production (AP, sources officielles) ; sinon rester sur les mécanismes. Exemples illustrés avec un projet de loi **fictif** et des partis représentés par des couleurs neutres (pas rouge/bleu : utiliser or et cyan avec une légende « Party A / Party B »).
 
 ## Règles
 - Jamais de contenu « conçu pour les enfants ». Jamais de copie d'une œuvre existante. Jamais de visage ou de voix d'une personne réelle.

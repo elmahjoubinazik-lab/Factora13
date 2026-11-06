@@ -18,6 +18,7 @@ Les vidéos sont en anglais : traduire le sujet en titre anglais accrocheur au m
 - [x] Et si on creusait un trou à travers la Terre ? (épisode 009, 2026-11-05)
 - [x] Pourquoi les dinosaures ont-ils disparu ? (épisode 010, 2026-11-05)
 - [x] Comment l'argent est-il créé ? (épisode 011, 2026-11-05)
+- [ ] US midterm elections explained: what happens with or without a majority in Congress? (idée de Nazik — ACTUALITÉ : élections du 3 nov. 2026, intérêt maximal cette semaine → PRIORITÉ ABSOLUE. Voir CLAUDE.md « Sujets d'actualité / politiques » : neutralité stricte. Contenu : rôle du Congrès, Chambre 435 sièges (majorité 218, tous renouvelés), Sénat 100 sièges (~1/3 renouvelé, majorité 51, le vice-président départage), scénarios : gouvernement unifié vs divisé (Chambre et/ou Sénat à l'autre parti) et effets concrets — vote des lois, budget et risque de shutdown, enquêtes parlementaires, confirmations des juges et ministres par le Sénat, veto présidentiel et sa levée aux 2/3 ; exemple illustré : un projet de loi fictif suivi dans chaque scénario. Playlist how)
 - [ ] How does a 100,000-ton aircraft carrier float? (PRIORITÉ — même famille que le Short avion 400 t, 944 vues : « comment un géant d'acier défie l'intuition »)
 - [ ] Why don't jet engines go out in pouring rain? (idée de Nazik — famille « géants de la technique » ; faits : essais de certification à l'ingestion massive d'eau, force centrifuge du compresseur, chambre de combustion à plus de 1 500 °C)
 - [ ] How does a 2,000-ton rocket escape Earth's gravity? (priorité — même famille)

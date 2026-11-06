@@ -138,6 +138,20 @@ def T(txt):
     """Texte à l'écran : la clé est la version française ; traduction dans TR[LANG] (défini dans scenes.py)."""
     return TR.get(LANG, {}).get(txt, txt)
 
+# ---------- réutiliser les scènes d'un autre épisode (récap hebdomadaire) ----------
+def episode_scenes(path):
+    """Charge le scenes.py d'un épisode déjà publié dans un espace de noms séparé et renvoie son dict SCENES.
+    Usage dans le scenes.py du récap : A = episode_scenes("episodes/005-airplane"); SCENES = {"e005_wing": A["wing"], ...}"""
+    path = path.rstrip("/")
+    if not os.path.isabs(path): path = os.path.join(ROOT, path)
+    ns = dict(globals()); ns["EP"] = path; ns["TR"] = {}
+    exec(open(path + "/scenes.py", encoding="utf-8").read(), ns)
+    tr = ns.get("TR", {})
+    if tr:   # textes à l'écran traduits propres à cet épisode
+        def _T(txt, _tr=tr): return _tr.get(LANG, {}).get(txt, txt)
+        ns["T"] = _T
+    return ns["SCENES"]
+
 # ---------- scènes de l'épisode ----------
 exec(open(EP + '/scenes.py', encoding='utf-8').read())
 
@@ -275,7 +289,7 @@ STILLS = [float(x) for x in sys.argv[3].split(",")] if len(sys.argv) > 3 else No
 # la vidéo longue est agrandie en 1440p (YouTube attribue alors un meilleur codec/débit, image nettement plus nette).
 FINISH = ("format=gbrp,split[a][b];[b]colorlevels=rimin=0.5:gimin=0.5:bimin=0.5,gblur=sigma=%d[g];[a][g]blend=all_mode=screen:all_opacity=0.55,"
           "vignette=angle=PI/7,noise=alls=2:allf=t" % int(18 * U))
-if MODE == "long": FINISH += ",scale=2560:1440:flags=lanczos"   # (pas de grain : il alourdit trop le fichier, limite GitHub 100 Mo)
+if MODE == "long" and TOTAL <= 330: FINISH += ",scale=2560:1440:flags=lanczos"   # > 5 min 30 : reste en 1080p (fichier < 100 Mo)   # (pas de grain : il alourdit trop le fichier, limite GitHub 100 Mo)
 else: FINISH += ",noise=alls=2:allf=t"
 class _N:
     def write(self, b): pass
