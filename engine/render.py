@@ -298,7 +298,7 @@ class _P:
     stdin=_N()
     def wait(self): pass
 ff = _P() if STILLS else subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgra", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-                       "-i", WD + f"/audio_{MODE}.wav", "-vf", FINISH, "-c:v", "libx264", "-preset", "slow", "-tune", "animation", "-crf", ("19" if MODE == "long" else "17"), "-pix_fmt", "yuv420p", "-r", str(FPS),
+                       "-i", WD + f"/audio_{MODE}.wav", "-vf", FINISH, "-c:v", "libx264", "-preset", "slow", "-tune", "animation", "-crf", ("19" if MODE == "long" else "17"), *(["-maxrate", "1500k", "-bufsize", "3000k"] if MODE == "long" else []), "-pix_fmt", "yuv420p", "-r", str(FPS),
                        "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
 surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
 nf = int(TOTAL * FPS)
