@@ -27,7 +27,7 @@ Faire de même pour le Short associé.
 Si l'entrée a un champ `remplace_ids` et vient d'être passée en public : supprimer ces anciennes vidéos (DELETE `videos?id=…`), puis retirer le champ.
 
 ### 1 bis. Écouler la file d'attente YouTube
-YouTube limite le nombre de mises en ligne (≈ 10 par 24 h glissantes pour ce compte). **Toujours garder 2 envois pour le nouvel épisode du jour** : au maximum 8 envois de file d'attente par exécution. Les épisodes de `published.json` avec `"status": "attente_youtube"`
+YouTube limite le nombre de mises en ligne (≈ 10 par 24 h avant la vérification d'identité ; limite nettement relevée depuis la vérification du 2026-11-06 : 18 envois acceptés en 2 h 30). **Toujours garder 2 envois pour le nouvel épisode du jour** : au maximum 8 envois de file d'attente par exécution. Les épisodes de `published.json` avec `"status": "attente_youtube"`
 (déjà publiés sur TikTok, fichiers hébergés dans `urls`) sont mis en ligne **avant** le nouvel épisode, dans l'ordre des numéros.
 **Priorité aux vidéos longues** (ce sont elles qui rapportent) : d'abord toutes les vidéos longues en attente, puis les Shorts.
 Un épisode dont la longue est en ligne mais pas le Short garde `"status": "attente_short"`. Pour chacun :
