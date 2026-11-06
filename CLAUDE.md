@@ -78,7 +78,7 @@ python3 engine/render.py long episodes/NNN-x
 python3 engine/render.py short episodes/NNN-x
 python3 engine/render.py thumb episodes/NNN-x
 ```
-Contrôles finaux : `ffprobe` (durée Short ≤ 60 s), volume (`volumedetect` : moyenne entre −24 et −16 dB), miniature lisible.
+Contrôles finaux : **extraire 3 images de chaque vidéo finale** (`ffmpeg -ss T -i build/video_X.mp4 -frames:v 1 …png`) et les regarder (couleurs, sous-titres nets, pas de dédoublement) — les captures `still_*` ne passent pas par la finition ffmpeg ; taille de la vidéo longue < 95 Mo ; `ffprobe` (durée Short ≤ 60 s), volume (`volumedetect` : moyenne entre −24 et −16 dB), miniature lisible.
 Construire la description : `python3 engine/description.py episodes/NNN-x` (→ `build/description.txt`, chapitres calculés).
 
 ### 5. Héberger les fichiers (lien public pour Zapier)
