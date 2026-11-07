@@ -117,9 +117,17 @@ Le Short est programmé sur TikTok dès cette exécution (pas d'étape « non r�
 Noter dans `published.json` : `"tiktok_buffer_id"` (champ `id` de la réponse) et `"tiktok": "envoye"`.
 Si Buffer échoue : ne pas bloquer YouTube ; noter `"tiktok": "echec"` et le signaler dans l'e-mail.
 
+### 6 ter. Publier le Short en Reel Instagram (via Buffer, Zapier) — depuis le 2026-11-07
+Même action Buffer que 6 bis, avec le `channelId` **Instagram** donné dans le message de la tâche planifiée (compte @factora132).
+`dynamic_properties` : `ig_post_type` = "reels", `ig_share_to_feed` = "true", `video` = URL du Short, `scheduling_type` = "direct",
+`scheduled_at` = même heure que TikTok (19:30 New York ; sinon `method` = "share_now"),
+`text` (anglais) = accroche + « Full videos on YouTube: Factora (link in bio) » (**pas** « @factoraofficiel » : sur Instagram ce @ pointe vers un autre compte)
++ « Synthetic voice, original illustrations. » + 5–6 hashtags (#science #didyouknow #learnoninstagram #factora + 1–2 du sujet).
+Noter dans `published.json` : `"instagram_buffer_id"` et `"instagram": "envoye"` (ou `"echec"`, signalé dans l'e-mail, sans bloquer le reste).
+
 ### 7. Prévenir Nazik
 E-mail via Zapier Gmail à l'adresse donnée dans le message de la tâche planifiée, objet « Factora — épisode NNN en ligne » :
-titre, liens des 2 vidéos YouTube (publiques), statut TikTok, rappel : « À contrôler quand vous pouvez ; pour la retirer : mettez-la en Privé dans YouTube Studio. » En cas d'échec à une étape : e-mail « Factora — échec épisode NNN » avec l'erreur.
+titre, liens des 2 vidéos YouTube (publiques), statuts TikTok et Instagram, rappel : « À contrôler quand vous pouvez ; pour la retirer : mettez-la en Privé dans YouTube Studio. » En cas d'échec à une étape : e-mail « Factora — échec épisode NNN » avec l'erreur.
 
 ## Récap du samedi (tâche planifiée séparée, samedi soir heure de New York)
 Même garde-fou chaîne (étape 0) avant toute écriture YouTube.

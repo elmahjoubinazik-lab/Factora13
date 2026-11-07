@@ -223,7 +223,9 @@
       },
       "note": "Short seul, à la demande de Nazik. V2 (nouvelle accroche + miniature) publiée sur YouTube et TikTok ; v1 passée en privé sur YouTube.",
       "ancienne_version_privee": "6jlYZDS55MU",
-      "tiktok_buffer_id_v1": "6aef331b8c38a71c3f0681d7"
+      "tiktok_buffer_id_v1": "6aef331b8c38a71c3f0681d7",
+      "instagram": "envoye",
+      "instagram_buffer_id": "6aef5eb218e6c7b8c50f27f6"
     },
     {
       "episode": "014",
@@ -242,7 +244,9 @@
         "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/d9c42f91cf49e05ad30a6c22682849937e7ea9f2/ep014/video_short.mp4",
         "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/d9c42f91cf49e05ad30a6c22682849937e7ea9f2/ep014/miniature.png"
       },
-      "note": "Short seul, idée de Nazik (vue sur TikTok) ; série « Household science » envisagée"
+      "note": "Short seul, idée de Nazik (vue sur TikTok) ; série « Household science » envisagée",
+      "instagram": "programme",
+      "instagram_buffer_id": "6aef5ecf1275ca62d70f0d92"
     }
   ]
 }
