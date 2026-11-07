@@ -216,13 +216,14 @@
       "status": "public",
       "thumbnail_set": true,
       "tiktok": "envoye",
-      "tiktok_buffer_id": "6aef331b8c38a71c3f0681d7",
+      "tiktok_buffer_id": "6aef3826b1b97a030e07f904",
       "urls": {
         "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a0a64b6c9bbd205a671de0875b27dc5fa96641f4/ep013b/video_short.mp4",
         "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a0a64b6c9bbd205a671de0875b27dc5fa96641f4/ep013b/miniature.png"
       },
-      "note": "Short seul, à la demande de Nazik. V2 (nouvelle accroche + miniature) ; v1 passée en privé. TikTok = v1.",
-      "ancienne_version_privee": "6jlYZDS55MU"
+      "note": "Short seul, à la demande de Nazik. V2 (nouvelle accroche + miniature) publiée sur YouTube et TikTok ; v1 passée en privé sur YouTube.",
+      "ancienne_version_privee": "6jlYZDS55MU",
+      "tiktok_buffer_id_v1": "6aef331b8c38a71c3f0681d7"
     }
   ]
 }
