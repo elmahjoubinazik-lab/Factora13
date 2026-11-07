@@ -40,6 +40,7 @@ def bigtext(ctx, s, x, y, size, c, a=1.0):
     ctx.restore()
 
 def drop(ctx, x, y, r, c=WATER, a=1.0):
+    if r <= 0.1 or a <= 0: return
     ctx.save(); ctx.translate(x, y); ctx.scale(r, r)
     ctx.move_to(0, -1.4); ctx.curve_to(0.9, -0.2, 1.0, 1.0, 0, 1.0); ctx.curve_to(-1.0, 1.0, -0.9, -0.2, 0, -1.4); ctx.restore()
     rgba(ctx, c, a); ctx.fill()
@@ -114,11 +115,13 @@ def kidney(ctx, x, y, s, c=CORAL, a=1.0):
     ctx.restore(); rgba(ctx, c, a); ctx.fill()
 
 def heart(ctx, x, y, s, c=CORAL, a=1.0):
+    if s <= 0.5 or a <= 0: return
     ctx.save(); ctx.translate(x, y); ctx.scale(s, s)
     ctx.move_to(0, 0.9); ctx.curve_to(-1.4, -0.1, -0.9, -1.2, 0, -0.45); ctx.curve_to(0.9, -1.2, 1.4, -0.1, 0, 0.9)
     ctx.restore(); rgba(ctx, c, a); ctx.fill()
 
 def brain(ctx, x, y, s, c=(1.0, 0.65, 0.75), a=1.0):
+    if a <= 0: return
     ctx.save(); ctx.translate(x, y)
     for (dx, dy, r) in [(-0.45, -0.1, 0.55), (0.0, -0.35, 0.55), (0.45, -0.1, 0.55), (-0.25, 0.3, 0.5), (0.3, 0.3, 0.5)]:
         circle(ctx, dx * s, dy * s, r * s, c, a)
