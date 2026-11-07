@@ -75,3 +75,9 @@ Les vidéos sont en anglais : traduire le sujet en titre anglais accrocheur au m
 - [ ] Et si la Terre était deux fois plus grande ?
 - [ ] Pourquoi l'océan est-il si peu exploré ?
 - [ ] Comment fonctionne l'inflation ?
+- [x] (2026-11-07, épisode 014, Short seul) Why a full washing machine leaves your clothes dirty (idée de Nazik)
+
+## Série « Household science » (Shorts seuls, idée 2026-11-07 — compilation longue « 5 everyday mistakes that ruin your appliances » quand 5 sont sortis)
+- [ ] Why you should never put metal in the microwave (and when it is actually fine)
+- [ ] Why an overfilled fridge keeps food less cold
+- [ ] The dishwasher loading mistakes that leave dishes dirty

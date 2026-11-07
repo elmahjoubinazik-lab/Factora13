@@ -224,6 +224,25 @@
       "note": "Short seul, à la demande de Nazik. V2 (nouvelle accroche + miniature) publiée sur YouTube et TikTok ; v1 passée en privé sur YouTube.",
       "ancienne_version_privee": "6jlYZDS55MU",
       "tiktok_buffer_id_v1": "6aef331b8c38a71c3f0681d7"
+    },
+    {
+      "episode": "014",
+      "topic": "Why a full washing machine leaves your clothes dirty",
+      "dir": "episodes/014-washing-machine",
+      "date": "2026-11-07",
+      "langue": "en",
+      "format": "short_seul",
+      "long_id": null,
+      "short_id": "EuuyAoUPAcg",
+      "status": "public",
+      "thumbnail_set": true,
+      "tiktok": "envoye",
+      "tiktok_buffer_id": "6aef52c2a83d5b9ffc0f754a",
+      "urls": {
+        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/d9c42f91cf49e05ad30a6c22682849937e7ea9f2/ep014/video_short.mp4",
+        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/d9c42f91cf49e05ad30a6c22682849937e7ea9f2/ep014/miniature.png"
+      },
+      "note": "Short seul, idée de Nazik (vue sur TikTok) ; série « Household science » envisagée"
     }
   ]
 }
