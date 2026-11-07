@@ -1,0 +1,183 @@
+[
+ {
+  "scene": "hook",
+  "text": [
+   "Your body is about sixty percent water, and it loses some every single minute, even while you sleep.",
+   "So what actually happens, hour by hour, if you stop drinking completely?"
+  ]
+ },
+ {
+  "scene": "water60",
+  "text": [
+   "Let's start with the numbers.",
+   "In an average adult, water makes up roughly fifty to sixty percent of body weight.",
+   "Most of it sits inside your cells. The rest flows in your blood and between your tissues.",
+   "Water carries nutrients, removes waste, cushions your joints, and keeps your temperature stable.",
+   "In other words, almost everything your body does depends on it."
+  ]
+ },
+ {
+  "scene": "ages",
+  "text": [
+   "And that share changes with age.",
+   "A newborn baby is around seventy-five percent water.",
+   "With age, the share tends to fall, because older bodies usually carry less muscle, and muscle holds a lot of water.",
+   "Your brain and your heart are each roughly three quarters water.",
+   "Your bones, surprisingly, still contain around a fifth to a third."
+  ]
+ },
+ {
+  "scene": "losses",
+  "text": [
+   "And you are losing it all the time.",
+   "You breathe out water vapor with every breath.",
+   "Your skin releases water, even when you do not feel sweaty.",
+   "And your kidneys produce urine to flush out waste.",
+   "Even resting in a cool room, an adult typically loses around two and a half liters a day.",
+   "In heat, or during exercise, that can double, or more."
+  ]
+ },
+ {
+  "scene": "sweat",
+  "text": [
+   "Sweat is your built-in air conditioner.",
+   "When sweat evaporates from your skin, it carries heat away with it.",
+   "During hard exercise in hot weather, a person can lose more than a liter of sweat in a single hour.",
+   "That is why people working or running in the heat can get dehydrated surprisingly fast, long before they feel it.",
+   "And every liter of sweat also takes salt with it."
+  ]
+ },
+ {
+  "scene": "hour1",
+  "text": [
+   "Hour one. You probably feel nothing.",
+   "But your brain is already watching.",
+   "Special sensors detect that your blood is becoming slightly more concentrated.",
+   "Once you have lost around one to two percent of your body weight in water, you start to feel thirsty.",
+   "At the same time, your brain releases a hormone called vasopressin, which tells your kidneys to save water.",
+   "Your urine becomes smaller in volume, and darker in color."
+  ]
+ },
+ {
+  "scene": "hour8",
+  "text": [
+   "Hour eight.",
+   "Your mouth feels dry. You may feel tired, and a little irritable.",
+   "Several studies suggest that losing just two percent of your body water can make it harder to concentrate, and can lower your physical performance.",
+   "Some people get a headache.",
+   "Your body is still coping, but it is clearly sending you a message."
+  ]
+ },
+ {
+  "scene": "day1",
+  "text": [
+   "Hour twenty-four.",
+   "Now your blood volume starts to drop.",
+   "Less blood means less pressure, so your heart beats faster to keep everything supplied.",
+   "You sweat less, which makes it harder to cool down.",
+   "Your skin feels dry, and you may feel dizzy when you stand up too quickly."
+  ]
+ },
+ {
+  "scene": "strange",
+  "text": [
+   "But here's where it gets strange.",
+   "Thirst is not a perfect alarm.",
+   "As people get older, the feeling of thirst often becomes weaker.",
+   "That is one reason older adults are at higher risk of dehydration, especially during heat waves.",
+   "They can be short of water without feeling truly thirsty."
+  ]
+ },
+ {
+  "scene": "day2",
+  "text": [
+   "Day two.",
+   "Your kidneys are now working hard to keep as much water as possible, and you produce very little urine.",
+   "Muscle cramps, nausea and a pounding headache become common.",
+   "Your body starts to prioritize: blood flow is directed toward the most vital organs, like the brain and the heart."
+  ]
+ },
+ {
+  "scene": "day3",
+  "text": [
+   "Day three.",
+   "This is the danger zone.",
+   "When water losses reach around ten percent of body weight, confusion and delirium can set in.",
+   "The kidneys can start to fail, and waste builds up in the blood.",
+   "Losses of fifteen to twenty percent are often fatal. At this stage, this is a medical emergency."
+  ]
+ },
+ {
+  "scene": "rule3",
+  "text": [
+   "You may have heard the survival rule of three: three minutes without air, three days without water, three weeks without food.",
+   "It is a rough guide, not a law.",
+   "In a hot desert, under the sun, a person can be in serious danger in much less time.",
+   "Resting in a cool place, some people have survived longer."
+  ]
+ },
+ {
+  "scene": "record",
+  "text": [
+   "One famous case comes from Austria, in nineteen seventy-nine.",
+   "A young man was put in a holding cell, and then forgotten.",
+   "He reportedly survived around eighteen days, partly by licking condensation from the walls.",
+   "It is an extreme exception, and it shows how hard the body fights to survive."
+  ]
+ },
+ {
+  "scene": "camel",
+  "text": [
+   "And what about the champions of thirst?",
+   "Many people think a camel stores water in its hump.",
+   "It does not. The hump is mostly fat, a reserve of energy.",
+   "The real trick is elsewhere: camels can lose a large share of their body water and keep going, and their red blood cells are specially shaped to handle it.",
+   "When a very thirsty camel finally finds water, it can drink around one hundred liters in a matter of minutes."
+  ]
+ },
+ {
+  "scene": "myth",
+  "text": [
+   "Now, a common misconception.",
+   "Many people believe everyone must drink exactly eight glasses of water a day.",
+   "In reality, there is no single magic number.",
+   "Your needs depend on your size, the weather, and how active you are.",
+   "And a good part of your water comes from food: fruit, vegetables, soup.",
+   "Drinks like tea and coffee also count toward your daily water."
+  ]
+ },
+ {
+  "scene": "howmuch",
+  "text": [
+   "So how much do you need?",
+   "European health authorities suggest around two liters of total water a day for women, and two and a half liters for men, including the water in food.",
+   "A simple clue is the color of your urine.",
+   "Pale yellow usually means you are well hydrated. Dark yellow often means you need to drink."
+  ]
+ },
+ {
+  "scene": "toomuch",
+  "text": [
+   "And here is the final twist.",
+   "Drinking far too much water in a short time can also be dangerous.",
+   "It can dilute the sodium in your blood, a condition called hyponatremia.",
+   "It is rare, but it has been seen in endurance athletes who drink much more than they sweat.",
+   "Balance is what your body wants."
+  ]
+ },
+ {
+  "scene": "recap",
+  "text": [
+   "So, without water: within hours, thirst and dark urine.",
+   "After one day, headache and a racing heart.",
+   "After about three days, real danger."
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "How much water do you really drink each day? Tell us in the comments.",
+   "And subscribe to Factora, so you never miss a fascinating fact."
+  ]
+ }
+]
