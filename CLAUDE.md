@@ -9,16 +9,17 @@ Paramètres : `config.json` (chaîne cible, dépôt d'hébergement des fichiers,
 ## Procédure de publication (exécution planifiée 5 jours par semaine — mardi, jeudi, vendredi, samedi, dimanche — à **23h47 heure suisse** (depuis le 2026-11-07, décision de Nazik : publication YouTube vers 18h30 à New York, début de soirée US ; TikTok/Instagram à 19h30 New York), sans intervention humaine ; pas de production le lundi ni le mercredi, décision de Nazik du 2026-11-06 pour économiser les tokens)
 
 ### 0. Préparation
-**Garde-fou « un épisode par jour » :** si `published.json` contient déjà un épisode (hors `"format": "short_seul"`) dont la `date` est celle d'aujourd'hui (heure suisse), ne rien produire : terminer par un court message à Nazik (pas d'e-mail).
+**Garde-fou « un épisode par jour » :** si `published.json` contient déjà un épisode (hors `"format": "short_seul"`) dont la `date` est celle d'aujourd'hui (heure suisse), ne rien produire : terminer par un court message à Nazik (sans notification).
 ```bash
 bash engine/setup.sh            # dépendances + voix Kokoro (≈1 min)
 ```
 Toutes les actions YouTube Zapier se font avec `connection_id` donné dans le message de la tâche planifiée (non stocké ici : dépôt public).
-Charger les outils Zapier (ToolSearch « select:mcp__Zapier__inspect_zapier_actions,mcp__Zapier__execute_zapier_read_action,mcp__Zapier__execute_zapier_write_action »).
+Charger les outils : ToolSearch « select:mcp__Zapier__execute_zapier_read_action,mcp__Zapier__execute_zapier_write_action,PushNotification ».
+**Économie d'appels (décision de Nazik, 2026-11-07) :** aucun appel `inspect_zapier_actions` ni `discover_zapier_actions`, sauf si un appel échoue (utiliser la « Référence des appels Zapier » ci-dessous) ; **un seul** garde-fou chaîne par exécution ; **une seule** lecture groupée de l'état YouTube (un GET `videos?part=status,statistics&id=<tous les ids utiles, séparés par des virgules>`) ; **une seule** lecture Buffer, et seulement si nécessaire ; **plus d'e-mail** : Nazik est prévenue par notification push (`PushNotification`).
 
 **Garde-fou chaîne — obligatoire avant toute écriture YouTube :** appeler l'action YouTube « Make API GET Request »
 sur `https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true`. Si l'`id` renvoyé n'est pas
-`config.json → youtube_channel_id`, **NE RIEN PUBLIER** : envoyer l'e-mail d'alerte (étape 7) et s'arrêter.
+`config.json → youtube_channel_id`, **NE RIEN PUBLIER** : envoyer une notification push d'alerte et s'arrêter.
 
 ### 1. Passer en public l'épisode précédent
 (Depuis le 2026-11-06, les nouveaux épisodes sont publiés **directement en public** : cette étape ne concerne plus que d'éventuelles anciennes entrées « unlisted ».)
@@ -93,15 +94,15 @@ bash engine/host.sh episodes/NNN-x NNN   # ajoute les fichiers sur la branche du
 Vidéo longue : `title`, `description` (= build/description.txt), `tags`, `video` = URL, `privacy_status` = `config.privacy_first` (= "public" depuis le 2026-11-06 : publication directe, Nazik contrôle a posteriori),
 `made_for_kids` = false, `category_id` = "27" (Éducation), `default_language` = en, `default_audio_language` = en, `notify_subscribers` = true.
 **Ne pas passer `thumbnail` dans l'upload** (s'il échoue, la vidéo est quand même créée → risque de doublon).
-Après chaque upload, vérifier avec GET `search?part=snippet&forMine=true&type=video` que la vidéo existe une seule fois.
+Après les uploads, **une seule** vérification de doublons : GET `search` (`part=id`, `forMine=true`, `type=video`, `maxResults=10`, `q=<mot-clé du titre>`).
 Puis action « Update Video Thumbnail » (`video_id`, `thumbnail` = URL miniature). Si refus « permissions… thumbnails »
-(normalement résolu : téléphone vérifié le 2026-11-04) : continuer sans, noter `"thumbnail_set": false`, le signaler dans l'e-mail.
+(normalement résolu : téléphone vérifié le 2026-11-04) : continuer sans, noter `"thumbnail_set": false`, le signaler dans le résumé final.
 Lors de l'étape 1, réessayer la miniature des épisodes avec `"thumbnail_set": false` (fichier : régénérer avec `render.py thumb` puis `host.sh`, ou ignorer si impossible).
 Short : `short_title`, description courte (anglais) avec le lien `https://youtu.be/<long_id>` + hashtags, sans miniature, `notify_subscribers` = false.
 Ensuite, pour la vidéo longue : (a) l'ajouter à la playlist `config.json → playlists[meta.playlist].id`
 (POST `playlistItems?part=snippet` avec `{"snippet":{"playlistId":…,"resourceId":{"kind":"youtube#video","videoId":…}}}`) ;
 (b) publier le commentaire `meta.comment` (POST `commentThreads?part=snippet` avec `{"snippet":{"channelId":…,"videoId":…,"topLevelComment":{"snippet":{"textOriginal":…}}}}`).
-Le commentaire ne peut pas être épinglé par l'API : le rappeler à Nazik dans l'e-mail. Un 429 de Zapier : attendre 60 s et réessayer une fois.
+Le commentaire ne peut pas être épinglé par l'API : le rappeler à Nazik dans le résumé final. Un 429 de Zapier : attendre 60 s et réessayer une fois.
 Si l'upload échoue pour limite de mises en ligne : ne pas réessayer ; ajouter l'épisode avec `"status": "attente_youtube"` et `urls` (celles de host.sh), continuer avec TikTok.
 Ajouter l'épisode dans `published.json` (`episode`, `topic`, `dir`, `date`, `long_id`, `short_id`, `status`, `thumbnail_set`).
 Cocher le sujet dans `topics.md` (date + numéro). `git add -A && git commit && git push origin main`.
@@ -116,7 +117,7 @@ Paramètres : `method` = "schedule", `scheduled_at` = aujourd'hui 19:30 heure de
 + 5–6 hashtags (#sciencetok #didyouknow #learnontiktok #factora + 1–2 du sujet). Mettre dans la 1re phrase les mots-clés que les gens taperaient dans la recherche TikTok. ≤ 2 200 caractères.
 Le Short est programmé sur TikTok dès cette exécution (pas d'étape « non répertorié » sur TikTok).
 Noter dans `published.json` : `"tiktok_buffer_id"` (champ `id` de la réponse) et `"tiktok": "envoye"`.
-Si Buffer échoue : ne pas bloquer YouTube ; noter `"tiktok": "echec"` et le signaler dans l'e-mail.
+Si Buffer échoue : ne pas bloquer YouTube ; noter `"tiktok": "echec"` et le signaler dans le résumé final.
 
 ### 6 ter. Publier le Short en Reel Instagram (via Buffer, Zapier) — depuis le 2026-11-07
 Même action Buffer que 6 bis, avec le `channelId` **Instagram** donné dans le message de la tâche planifiée (compte @factora132).
@@ -125,11 +126,27 @@ Même action Buffer que 6 bis, avec le `channelId` **Instagram** donné dans le 
 `text` (anglais) = accroche + « Full videos on YouTube: Factora (link in bio) » (**pas** « @factoraofficiel » : sur Instagram ce @ pointe vers un autre compte)
 + « Synthetic voice, original illustrations. » + 5–6 hashtags (#science #didyouknow #learnoninstagram #factora + 1–2 du sujet).
 **Buffer gratuit : 10 publications en attente maximum par compte** (erreur « 10 scheduled post limit ») : dans ce cas, réessayer quelques minutes plus tard ou utiliser `share_now`. Tous les anciens Shorts (001–014) ont été publiés en Reels le 2026-11-07.
-Noter dans `published.json` : `"instagram_buffer_id"` et `"instagram": "envoye"` (ou `"echec"`, signalé dans l'e-mail, sans bloquer le reste).
+Noter dans `published.json` : `"instagram_buffer_id"` et `"instagram": "envoye"` (ou `"echec"`, signalé dans le résumé final, sans bloquer le reste).
 
 ### 7. Prévenir Nazik
-E-mail via Zapier Gmail à l'adresse donnée dans le message de la tâche planifiée, objet « Factora — épisode NNN en ligne » :
-titre, liens des 2 vidéos YouTube (publiques), statuts TikTok et Instagram, rappel : « À contrôler quand vous pouvez ; pour la retirer : mettez-la en Privé dans YouTube Studio. » En cas d'échec à une étape : e-mail « Factora — échec épisode NNN » avec l'erreur.
+**Notification push** (`PushNotification`, < 200 caractères, une seule ligne) : « Factora : <titre court> en ligne — https://youtu.be/<long_id> ».
+En cas d'échec bloquant : notification « Factora — échec épisode NNN : <erreur en quelques mots> ».
+Terminer par un court résumé en français (liens des 2 vidéos, statuts TikTok/Instagram, rappel d'épingler le commentaire et de relier le Short à la vidéo longue dans Studio). Plus aucun e-mail.
+
+## Référence des appels Zapier (à utiliser tels quels, sans `inspect`)
+Tous les appels YouTube : `selected_api` = "YouTubeV4CLIAPI", `connection_id` = celui de la tâche planifiée.
+- **GET** : `execute_zapier_read_action`, action "_zap_raw_request", tool_name "youtube_make_api_get_request",
+  params `{"url": "https://www.googleapis.com/youtube/v3/<ressource>", "querystring": {…}, "fail_on_errors": "false"}` (**jamais** de `?…` dans l'URL : erreur 400).
+  Garde-fou : ressource `channels`, querystring `{"part": "id", "mine": "true"}`.
+- **POST / PUT / DELETE** : `execute_zapier_write_action`, action "_zap_raw_request", tool_name "youtube_make_api_mutating_request",
+  params `{"url": …, "method": "POST"|"PUT"|"DELETE", "querystring": {"part": "snippet"|"status"}, "body": "<JSON en texte>", "fail_on_errors": "false"}`.
+- **Upload** : `execute_zapier_write_action`, action "upload_video", tool_name "youtube_upload_video", params `title`, `description`, `tags` (liste), `video` (URL), `privacy_status`, `made_for_kids` "false", `category_id` "27", `default_language` "en", `default_audio_language` "en", `notify_subscribers` "true"|"false".
+- **Miniature** : action "upload_video_thumbnail", tool_name "youtube_update_video_thumbnail", params `video_id`, `thumbnail` (URL).
+- **Buffer** : `selected_api` "BufferCLIAPI", action "update", tool_name "buffer_add_to_queue", `connection_id`, params
+  `{"method": "schedule"|"share_now", "channelId": …, "organizationId": …, "dynamic_properties": {…}}`.
+  TikTok : `dynamic_properties` = `text`, `attachment` "video", `video`, `scheduling_type` "direct", `scheduled_at`.
+  Instagram : `dynamic_properties` = `ig_post_type` "reels", `ig_share_to_feed` "true", `text`, `video`, `scheduling_type` "direct", `scheduled_at`.
+- **Playlists** (`config.json → playlists`) : what_if, how, why, recap.
 
 ## Récap du samedi (tâche planifiée séparée, samedi soir heure de New York)
 Même garde-fou chaîne (étape 0) avant toute écriture YouTube.
@@ -141,7 +158,7 @@ Même garde-fou chaîne (étape 0) avant toute écriture YouTube.
    - `meta_en.json` : `title` du type « 7 Mind-Blowing Facts From This Week: … » (≤ 70 car.), description avec `{CHAPITRES}` (un chapitre par sujet) et liens `https://youtu.be/<long_id>` de chaque épisode, `playlist` = `recap` si elle existe dans config.json sinon aucune, `comment`, `tags`.
 3. `tts.py`, captures de contrôle (Read), `render.py long` (> 5 min 30 → 1080p automatiquement, fichier < 100 Mo), `render.py thumb`, `description.py`, `host.sh episodes/recap-… recap-AAAA-MM-JJ`.
 4. Upload YouTube **public directement** (contenu déjà validé), `notify_subscribers` = true, vérification doublon, miniature, commentaire. Pas de Short ni de TikTok pour le récap.
-5. Ajouter `{"date", "dir", "video_id", "episodes": [numéros]}` à `recaps.json`, commit + push, e-mail à Nazik « Factora — récap de la semaine en ligne ».
+5. Ajouter `{"date", "dir", "video_id", "episodes": [numéros]}` à `recaps.json`, commit + push, **notification push** « Factora : récap de la semaine en ligne — https://youtu.be/<id> » (pas d'e-mail). Statistiques de l'étape 1 : **un seul** GET groupé sur tous les ids.
 
 ## Sujets d'actualité / politiques
 Strictement **neutres et factuels** : expliquer les règles et mécanismes (institutions, chiffres officiels), présenter chaque scénario avec ses effets sans jugement ni préférence, temps de parole égal pour chaque camp, aucun pronostic, aucun qualificatif partisan, aucune personne politique caricaturée ou dessinée. Ne citer un résultat électoral que s'il est vérifié à la date de production (AP, sources officielles) ; sinon rester sur les mécanismes. Exemples illustrés avec un projet de loi **fictif** et des partis représentés par des couleurs neutres (pas rouge/bleu : utiliser or et cyan avec une légende « Party A / Party B »).
