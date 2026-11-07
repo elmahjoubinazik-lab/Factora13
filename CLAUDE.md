@@ -6,9 +6,10 @@ Propriétaire : Nazik EL MAHJOUBI. Toute la communication avec elle se fait **en
 
 Paramètres : `config.json` (chaîne cible, dépôt d'hébergement des fichiers, rythme). Le dépôt est **public** : n'y écrire aucune donnée personnelle ni identifiant.
 
-## Procédure de publication (exécution planifiée 5 jours par semaine — mardi, jeudi, vendredi, samedi, dimanche — à 19h23, heure suisse, sans intervention humaine ; pas de production le lundi ni le mercredi, décision de Nazik du 2026-11-06 pour économiser les tokens)
+## Procédure de publication (exécution planifiée 5 jours par semaine — mardi, jeudi, vendredi, samedi, dimanche — à **23h47 heure suisse** (depuis le 2026-11-07, décision de Nazik : publication YouTube vers 18h30 à New York, début de soirée US ; TikTok/Instagram à 19h30 New York), sans intervention humaine ; pas de production le lundi ni le mercredi, décision de Nazik du 2026-11-06 pour économiser les tokens)
 
 ### 0. Préparation
+**Garde-fou « un épisode par jour » :** si `published.json` contient déjà un épisode (hors `"format": "short_seul"`) dont la `date` est celle d'aujourd'hui (heure suisse), ne rien produire : terminer par un court message à Nazik (pas d'e-mail).
 ```bash
 bash engine/setup.sh            # dépendances + voix Kokoro (≈1 min)
 ```
