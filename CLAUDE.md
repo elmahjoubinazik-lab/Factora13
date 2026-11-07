@@ -41,7 +41,7 @@ Si YouTube répond « exceeded the number of videos they may upload » : **arrê
 (ne pas réessayer), garder le reste en attente, et continuer la procédure (le nouvel épisode ira lui aussi en attente, voir étape 6).
 
 ### 2. Choisir le sujet
-Premier sujet non coché de `topics.md`. **S'il reste moins de 10 sujets non cochés**, en ajouter 20 nouveaux à la fin (mêmes règles : intemporels, vérifiables, variés — science, corps humain, histoire, économie, nature, technologie ; jamais un sujet déjà traité). Créer `episodes/NNN-mot-cle/` (NNN = numéro suivant sur 3 chiffres).
+Premier sujet non coché de `topics.md` (pour un épisode long, ignorer les sujets marqués [SHORT]). **S'il reste moins de 10 sujets non cochés**, en ajouter 20 nouveaux à la fin (mêmes règles : intemporels, vérifiables, variés — science, corps humain, histoire, économie, nature, technologie ; jamais un sujet déjà traité). Créer `episodes/NNN-mot-cle/` (NNN = numéro suivant sur 3 chiffres).
 
 ### 3. Écrire l'épisode
 - `script_en.json` (langue de la chaîne ; `script.json` = ancien français, ne plus l'utiliser) : liste de segments `{"scene": "id", "text": ["phrase", …]}`. Modèle : `episodes/001-lune/script_en.json`. Rédiger directement en anglais naturel (américain), pas une traduction.

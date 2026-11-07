@@ -94,3 +94,13 @@ Les vidéos sont en anglais : traduire le sujet en titre anglais accrocheur au m
 - [ ] The coastline paradox
 - [ ] Zeno's paradox: Achilles and the tortoise
 - [ ] Gabriel's horn (finite volume, infinite surface)
+
+## Réserve Shorts (audit du 2026-11-07, format 25–35 s : l'anomalie à l'écran dès la 1re seconde, un 2e fait surprenant au milieu)
+- [ ] [SHORT] Why do airplane windows have a tiny hole? (« breather hole » : équilibre la pression entre les vitres intérieure et extérieure, la vitre extérieure porte la charge ; empêche la buée — sources : fabricants / Boeing)
+- [ ] [SHORT] Why does a mirror flip left and right, but not up and down? (il ne les inverse pas : il inverse l'avant et l'arrière ; paradoxe)
+- [ ] [SHORT] Why do wheels look like they spin backwards on video? (effet stroboscopique / « wagon-wheel effect » : fréquence d'images vs rotation)
+- [ ] [SHORT] Why does your voice sound so weird on recordings? (on s'entend aussi par conduction osseuse, plus grave ; l'enregistrement ne transmet que l'air)
+- [ ] [SHORT] Why is the fridge door hard to open right after you close it? (l'air chaud entré refroidit → pression plus basse à l'intérieur, le joint aspire ; quelques secondes)
+- [ ] [SHORT] Can ice make water boil? (expérience du ballon de Franklin : refroidir un ballon fermé d'eau chaude fait baisser la pression → l'eau bout de nouveau ; pas de feu)
+- [ ] [SHORT] Why do escalators have brushes on the sides? (déflecteurs de plinthe : éloignent pieds, lacets et vêtements de l'espace entre marche et paroi — sécurité, pas pour nettoyer les chaussures)
+- [ ] [SHORT] What happens in your body when you hold your breath? (c'est le CO2 qui monte, pas le manque d'oxygène, qui crée l'envie de respirer ; diaphragme qui se contracte ; ne pas encourager à essayer de battre un record)
