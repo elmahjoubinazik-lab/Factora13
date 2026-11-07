@@ -137,6 +137,7 @@ Même garde-fou chaîne (étape 0) avant toute écriture YouTube.
 Strictement **neutres et factuels** : expliquer les règles et mécanismes (institutions, chiffres officiels), présenter chaque scénario avec ses effets sans jugement ni préférence, temps de parole égal pour chaque camp, aucun pronostic, aucun qualificatif partisan, aucune personne politique caricaturée ou dessinée. Ne citer un résultat électoral que s'il est vérifié à la date de production (AP, sources officielles) ; sinon rester sur les mécanismes. Exemples illustrés avec un projet de loi **fictif** et des partis représentés par des couleurs neutres (pas rouge/bleu : utiliser or et cyan avec une légende « Party A / Party B »).
 
 ## Règles
+- **Short seul** (`meta_en.json → format = "short_seul"`) : à la demande de Nazik pour un sujet qui ne justifie pas 8 min. Pas de vidéo longue ni de miniature (`host.sh` n'héberge que les fichiers présents), Short public + commentaire + TikTok. Dans `published.json` : `"format": "short_seul"`, `long_id` null. Le récap du samedi peut l'inclure (statistiques sur `short_id`, scènes réutilisables).
 - Jamais de contenu « conçu pour les enfants ». Jamais de copie d'une œuvre existante. Jamais de visage ou de voix d'une personne réelle.
 - Une seule publication par exécution. Ne jamais republier un sujet déjà coché.
 - Ne jamais écrire sur YouTube si le garde-fou chaîne échoue.

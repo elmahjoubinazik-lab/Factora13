@@ -1,0 +1,37 @@
+[
+ {
+  "scene": "hook",
+  "text": [
+   "Every time you flush with the lid open, you may be spraying the whole room.",
+   "Scientists filmed it with green lasers."
+  ]
+ },
+ {
+  "scene": "plume",
+  "text": [
+   "In twenty twenty-two, University of Colorado engineers lit up a flushing toilet with lasers.",
+   "A cloud of tiny droplets shot up to five feet high in about eight seconds.",
+   "The smallest ones can linger in the air."
+  ]
+ },
+ {
+  "scene": "lid",
+  "text": [
+   "So, just close the lid?",
+   "It helps. But a twenty twenty-four study found it did not clearly reduce viruses on bathroom surfaces."
+  ]
+ },
+ {
+  "scene": "tips",
+  "text": [
+   "So clean the bowl and the handle, keep your toothbrush covered and away from the toilet, and air out the room."
+  ]
+ },
+ {
+  "scene": "sub",
+  "text": [
+   "Will you close the lid from now on?",
+   "And subscribe to Factora, so you never miss a fascinating fact."
+  ]
+ }
+]
