@@ -123,6 +123,7 @@ Même action Buffer que 6 bis, avec le `channelId` **Instagram** donné dans le 
 `scheduled_at` = même heure que TikTok (19:30 New York ; sinon `method` = "share_now"),
 `text` (anglais) = accroche + « Full videos on YouTube: Factora (link in bio) » (**pas** « @factoraofficiel » : sur Instagram ce @ pointe vers un autre compte)
 + « Synthetic voice, original illustrations. » + 5–6 hashtags (#science #didyouknow #learnoninstagram #factora + 1–2 du sujet).
+**Buffer gratuit : 10 publications en attente maximum par compte** (erreur « 10 scheduled post limit ») : dans ce cas, réessayer quelques minutes plus tard ou utiliser `share_now`. Tous les anciens Shorts (001–014) ont été publiés en Reels le 2026-11-07.
 Noter dans `published.json` : `"instagram_buffer_id"` et `"instagram": "envoye"` (ou `"echec"`, signalé dans l'e-mail, sans bloquer le reste).
 
 ### 7. Prévenir Nazik
