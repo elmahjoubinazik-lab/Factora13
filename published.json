@@ -259,6 +259,26 @@
       "note": "Short seul, idée de Nazik (vue sur TikTok) ; série « Household science » envisagée",
       "instagram": "envoye",
       "instagram_buffer_id": "6aef5ecf1275ca62d70f0d92"
+    },
+    {
+      "episode": "015",
+      "topic": "What Happens to Your Body When You Stop Drinking Water? Hour by Hour",
+      "dir": "episodes/015-no-water",
+      "date": "2026-11-07",
+      "langue": "en",
+      "long_id": "hVkuWWfH_ug",
+      "short_id": "OvB645JYb3U",
+      "status": "public",
+      "thumbnail_set": true,
+      "tiktok": "envoye",
+      "tiktok_buffer_id": "6aef74e86881eb699905e402",
+      "instagram": "envoye",
+      "instagram_buffer_id": "6aef74f2f778d3cb8909aa4a",
+      "urls": {
+        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/fa86271d24b02fdd9d5abc36dde724551b3a18db/ep015/video_long.mp4",
+        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/fa86271d24b02fdd9d5abc36dde724551b3a18db/ep015/video_short.mp4",
+        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/fa86271d24b02fdd9d5abc36dde724551b3a18db/ep015/miniature.png"
+      }
     }
   ]
 }
