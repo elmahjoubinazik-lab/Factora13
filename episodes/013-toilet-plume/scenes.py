@@ -56,7 +56,7 @@ def toilet(ctx, x, s, lid=0.0, a=1.0):
     ctx.restore()
     return rim_y
 
-def plume(ctx, x, y0, t, t0, hmax, a=1.0, width=1.0, n=420, seed=3, escape=0.0):
+def plume(ctx, x, y0, t, t0, hmax, a=1.0, width=1.0, n=420, seed=3, escape=0.0, rs=1.0):
     """Green aerosol particles rising from (x, y0) since t0, up to height hmax (px)."""
     if t < t0 or a <= 0: return
     random.seed(seed)
@@ -74,7 +74,7 @@ def plume(ctx, x, y0, t, t0, hmax, a=1.0, width=1.0, n=420, seed=3, escape=0.0):
             side = (1 if i % 2 else -1) * (0.25 * MPX + abs(random.gauss(0, 0.2)) * MPX)
         px = x + side * (30 * U + hgt * 0.35) + math.sin(t * 1.3 + i) * 10 * U
         py = y0 - hgt
-        r = random.uniform(1.5, 4.5) * U
+        r = random.uniform(1.5, 4.5) * U * rs
         al = a * (1 - k) * random.uniform(0.5, 1.0)
         if al <= 0.02: continue
         if r > 3.5 * U: glow(ctx, px, py, r * 4, GREEN, 0.18 * al)
@@ -118,10 +118,15 @@ def sc_hook(ctx, t, d):
     bg(ctx, t)
     laser_sheet(ctx, TX, t, prog(t, 0.2, 1.0))
     rim = toilet(ctx, TX, 1)
-    plume(ctx, TX - 0.06 * MPX, rim, t, 1.2, 1.5 * MPX)
-    k = prog(t, 0.8, 1.2)
-    # flush pulse on the handle
-    if k and t < 2.0: glow(ctx, TX + 0.2 * MPX, FLOOR_Y - 0.76 * MPX, 60 * U, GOLD, 0.6 * (1 - prog(t, 1.4, 2.0)))
+    # the cloud is already there on the very first frame
+    glow(ctx, TX - 0.06 * MPX, rim - 0.7 * MPX, 0.75 * MPX, GREEN, 0.18 + 0.05 * math.sin(t * 3))
+    plume(ctx, TX - 0.06 * MPX, rim, t, -1.5, 1.5 * MPX, n=900, seed=7, rs=1.6, width=1.2)
+    k = prog(t, 3.5, 4.2)
+    if k:
+        ctx.save(); ctx.translate(W * 0.5, H * 0.3); ctx.rotate(-0.08)
+        rrect(ctx, -210 * U, -50 * U, 420 * U, 100 * U, 18 * U); rgba(ctx, GREEN, 0.95 * k); ctx.fill()
+        text(ctx, "100% REAL", 0, 0, 58 * U, NAVY, k)
+        ctx.restore()
 
 def sc_plume(ctx, t, d):
     bg(ctx, t)
@@ -237,5 +242,17 @@ SHORT_SCENES = ["hook", "plume", "lid", "tips", "sub"]
 SCENES = dict(hook=sc_hook, plume=sc_plume, lid=sc_lid, tips=sc_tips, sub=sc_sub)
 
 def thumbnail(c):
-    g = cairo.LinearGradient(0, 0, 0, H); g.add_color_stop_rgb(0, .08, .11, .26); g.add_color_stop_rgb(1, .02, .03, .08); c.set_source(g); c.paint()
-    thumb_text(c, "LID OPEN?", "THINK AGAIN", "SCIENCE")
+    bg(c, 0)
+    x = W * 0.8
+    glow(c, x - 20, FLOOR_Y - 1.2 * MPX, 1.3 * MPX, GREEN, 0.4)
+    k = 1.3
+    c.save(); c.translate(x, FLOOR_Y); c.scale(k, k); c.translate(-x, -FLOOR_Y)
+    rim = toilet(c, x, 1, 0.0)
+    plume(c, x - 0.06 * MPX, rim, 3.0, 0.0, 1.5 * MPX, n=1100, seed=7, width=1.2, rs=1.8)
+    c.restore()
+    # height marker
+    y15 = FLOOR_Y - 1.5 * MPX * k
+    c.set_line_width(5); c.set_dash([14, 10]); rgba(c, GOLD, 0.95); c.move_to(x - 260, y15); c.line_to(W - 20, y15); c.stroke(); c.set_dash([])
+    c.select_font_face("Inter", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); c.set_font_size(54)
+    c.move_to(x - 250, y15 + 58); c.set_source_rgba(0, 0, 0, .7); c.show_text("1.5 m"); c.move_to(x - 253, y15 + 55); rgba(c, GOLD); c.show_text("1.5 m")
+    thumb_text(c, "NEVER FLUSH", "WITH THE LID UP", "FILMED WITH LASERS")
