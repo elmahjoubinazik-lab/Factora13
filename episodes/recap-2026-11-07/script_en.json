@@ -1,0 +1,213 @@
+[
+ {
+  "scene": "intro",
+  "text": [
+   "This week on Factora: a four-hundred-ton jet that floats on air, a trip straight through the center of the Earth, and a green cloud hiding in your bathroom.",
+   "Here are the seven most fascinating facts our viewers loved this week, starting with the most watched."
+  ]
+ },
+ {
+  "scene": "c1",
+  "text": [
+   "Number one: how can a four-hundred-ton airplane fly?",
+   "A fully loaded jumbo jet weighs about as much as two hundred cars."
+  ]
+ },
+ {
+  "scene": "e005_wing",
+  "text": [
+   "The secret is in the wings.",
+   "Each wing is curved and tilted slightly upward, so as the plane races forward, it deflects a huge amount of air downward.",
+   "And when the wing pushes air down, the air pushes the wing up. That is Newton's third law, working on tons of air every second."
+  ]
+ },
+ {
+  "scene": "e005_cruise",
+  "text": [
+   "Speed matters too: fly twice as fast, and you get about four times the lift.",
+   "That is why jets cruise at around thirty-five thousand feet, where the air is thin. Less air means less drag, so a plane can travel at more than five hundred miles per hour while burning less fuel."
+  ]
+ },
+ {
+  "scene": "e005_glide",
+  "text": [
+   "And here is the fact that surprised many of you: if every engine stopped, the plane would not fall like a stone.",
+   "An airliner is also a glider. For every mile it descends, it can travel roughly fifteen miles forward."
+  ]
+ },
+ {
+  "scene": "c2",
+  "text": [
+   "Number two: what if you dug a hole straight through the Earth, and jumped in?"
+  ]
+ },
+ {
+  "scene": "e009_layers",
+  "text": [
+   "In reality, we have barely scratched the surface. The deepest hole ever drilled reaches only about twelve kilometers.",
+   "Below the crust, there are thousands of kilometers of hot rock, then a sea of liquid metal, and a solid iron core roughly as hot as the surface of the Sun."
+  ]
+ },
+ {
+  "scene": "e009_heat",
+  "text": [
+   "And the pressure at the center is more than three million times the air pressure you feel right now.",
+   "No drill, no machine, and certainly no human could survive the trip in real life."
+  ]
+ },
+ {
+  "scene": "e009_center",
+  "text": [
+   "But in a perfect, airless tube, physics gives a strange answer.",
+   "You would fall faster and faster, cross the center at incredible speed, and feel completely weightless there, because the Earth pulls on you equally from every side.",
+   "The whole trip to the other side would take about forty minutes."
+  ]
+ },
+ {
+  "scene": "e009_antipode",
+  "text": [
+   "And where would you come out? Probably in the ocean.",
+   "Most of the Earth's land sits opposite water. Dig from Spain, and you would pop out near New Zealand. Dig from most of the United States, and you would splash into the Indian Ocean."
+  ]
+ },
+ {
+  "scene": "c3",
+  "text": [
+   "Number three: what happens to your body when you stop drinking water?"
+  ]
+ },
+ {
+  "scene": "e015_day1",
+  "text": [
+   "Within hours, you feel thirsty and your urine turns darker, as your kidneys start saving every drop.",
+   "After one day, your blood volume drops and your heart beats faster to compensate.",
+   "Around day three, you reach the danger zone."
+  ]
+ },
+ {
+  "scene": "e015_strange",
+  "text": [
+   "One detail surprised many of you: thirst is not a perfect alarm.",
+   "As people get older, the feeling of thirst often becomes weaker. That is one reason older adults are at higher risk of dehydration, especially during heat waves."
+  ]
+ },
+ {
+  "scene": "e015_camel",
+  "text": [
+   "And a myth we busted along the way: a camel's hump does not store water.",
+   "It is mostly fat. But a very thirsty camel can drink around one hundred liters in just a few minutes."
+  ]
+ },
+ {
+  "scene": "e015_toomuch",
+  "text": [
+   "We also debunked the famous eight glasses a day: there is no single magic number, and food, tea and coffee count too.",
+   "And the final twist: drinking far too much water too fast can be dangerous as well, because it dilutes the sodium in your blood."
+  ]
+ },
+ {
+  "scene": "c4",
+  "text": [
+   "Number four: what really happens when you flush with the lid open?"
+  ]
+ },
+ {
+  "scene": "e013_plume",
+  "text": [
+   "Engineers at the University of Colorado lit up a flushing toilet with green lasers.",
+   "A cloud of tiny droplets shot up to about five feet in roughly eight seconds.",
+   "Closing the lid helps, but it is not the whole story. Cleaning surfaces and keeping your toothbrush covered matter too."
+  ]
+ },
+ {
+  "scene": "e013_lid",
+  "text": [
+   "Many of you asked in the comments: does it matter if it's just a quick pee?",
+   "It does. The spray comes from the force of the flush itself, not from what is in the bowl."
+  ]
+ },
+ {
+  "scene": "c5",
+  "text": [
+   "Number five: why fifty-one votes are often not enough in the United States Senate."
+  ]
+ },
+ {
+  "scene": "e012_house",
+  "text": [
+   "First, the basics. The House of Representatives has four hundred thirty-five seats, all up for election every two years, and a party needs two hundred eighteen to control it.",
+   "The Senate has one hundred seats, and only about a third of them are up at each election."
+  ]
+ },
+ {
+  "scene": "e012_sixty",
+  "text": [
+   "A party needs fifty-one of the one hundred seats for a majority.",
+   "But under the Senate's filibuster rule, most bills can be blocked unless sixty senators vote to end the debate.",
+   "So for most laws, the real magic number is sixty."
+  ]
+ },
+ {
+  "scene": "e012_both",
+  "text": [
+   "We also explored what happens when the president and Congress belong to different parties.",
+   "To override a presidential veto, Congress needs two thirds of both chambers: about two hundred ninety votes in the House and sixty-seven in the Senate. That is why most vetoes stand."
+  ]
+ },
+ {
+  "scene": "c6",
+  "text": [
+   "Number six: why is the sky blue?"
+  ]
+ },
+ {
+  "scene": "e003_scatter",
+  "text": [
+   "Sunlight is a mix of every color.",
+   "But tiny molecules of air scatter short blue waves far more than long red ones, so blue light reaches your eyes from every direction of the sky."
+  ]
+ },
+ {
+  "scene": "e003_sunset",
+  "text": [
+   "At sunset, the light crosses much more air. Most of the blue is scattered away, and the reds and oranges are what is left.",
+   "And on Mars, it is the other way around: the sunsets glow blue."
+  ]
+ },
+ {
+  "scene": "e003_space",
+  "text": [
+   "And above our atmosphere, there is almost no air to scatter sunlight at all.",
+   "That is why astronauts see a pitch-black sky, even with the Sun shining right next to them."
+  ]
+ },
+ {
+  "scene": "c7",
+  "text": [
+   "And number seven: what if the Earth suddenly stopped spinning?"
+  ]
+ },
+ {
+  "scene": "e002_speed",
+  "text": [
+   "Right now, at the equator, you are moving at about one thousand miles per hour, and you cannot feel a thing.",
+   "If the planet stopped in an instant, everything not anchored to the bedrock would keep going east at that speed.",
+   "The good news: there is no known way for the Earth to stop suddenly."
+  ]
+ },
+ {
+  "scene": "e002_day",
+  "text": [
+   "And without spin, a single day would last a whole year: about six months of daylight, then six months of night.",
+   "In reality, the Earth is slowing down very gradually, because of the Moon's tides. Each century, the day gets longer by roughly two thousandths of a second."
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "That was our week: from jumbo jets to the center of the Earth, from your bathroom to the United States Senate.",
+   "Which one surprised you most? Tell us in the comments.",
+   "And subscribe to Factora, so you never miss a fascinating fact."
+  ]
+ }
+]
