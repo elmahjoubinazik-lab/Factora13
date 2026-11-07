@@ -1,0 +1,6 @@
+[
+ {"scene":"hook","text":["Here are four pieces forming a triangle.","Swap them around, same pieces, same triangle, and suddenly there's a hole.","So where did this square come from?"]},
+ {"scene":"slopes","text":["The trick is the long edge. It looks perfectly straight, but it isn't.","The red triangle rises three squares over eight. The blue one rises two over five.","Those slopes are slightly different."]},
+ {"scene":"sliver","text":["So the big shape is not a real triangle.","In the first version, its edge bends in a tiny bit. In the second, it bulges out.","That razor-thin sliver adds up to exactly one square: the missing one."]},
+ {"scene":"outro","text":["Did it fool you?","And subscribe to Factora, so you never miss a fascinating fact."]}
+]

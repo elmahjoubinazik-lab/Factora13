@@ -82,3 +82,11 @@ Les vidéos sont en anglais : traduire le sujet en titre anglais accrocheur au m
 - [ ] Why you should never put metal in the microwave (and when it is actually fine)
 - [ ] Why an overfilled fridge keeps food less cold
 - [ ] The dishwasher loading mistakes that leave dishes dirty
+
+## Série « Paradoxes / illusions » (Shorts seuls ~30–40 s, idée 2026-11-07 : une idée visuelle, intuition vs réalité, titre court + 🤔)
+- [x] (2026-11-07, épisode 016) The missing square puzzle
+- [ ] The birthday paradox (23 people → 50 %)
+- [ ] The Monty Hall problem (switching doubles your chances)
+- [ ] The coastline paradox
+- [ ] Zeno's paradox: Achilles and the tortoise
+- [ ] Gabriel's horn (finite volume, infinite surface)

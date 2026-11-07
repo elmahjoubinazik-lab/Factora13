@@ -279,6 +279,26 @@
         "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/fa86271d24b02fdd9d5abc36dde724551b3a18db/ep015/video_short.mp4",
         "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/fa86271d24b02fdd9d5abc36dde724551b3a18db/ep015/miniature.png"
       }
+    },
+    {
+      "episode": "016",
+      "topic": "Where does the missing square come from? (missing square puzzle)",
+      "dir": "episodes/016-missing-square",
+      "date": "2026-11-07",
+      "langue": "en",
+      "format": "short_seul",
+      "long_id": null,
+      "short_id": "fFmJRDgvxIQ",
+      "status": "public",
+      "thumbnail_set": null,
+      "tiktok": "envoye",
+      "tiktok_buffer_id": "6aefaba4360681807b0cec5a",
+      "instagram": "envoye",
+      "instagram_buffer_id": "6aefabaccfdf3f8eeb0ae826",
+      "urls": {
+        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/23ba8a3b6dd2943c340351d463a1aca7fa70d824/ep016/video_short.mp4"
+      },
+      "note": "Short seul, demande de Nazik (format inspiré d'un Short viral « paradoxe »)"
     }
   ]
 }
