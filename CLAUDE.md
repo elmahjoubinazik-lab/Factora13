@@ -10,7 +10,7 @@ Paramètres : `config.json` (chaîne cible, dépôt d'hébergement des fichiers,
 
 ### 0. Préparation
 **Garde-fou « un épisode par jour » :** si `published.json` contient déjà un épisode (hors `"format": "short_seul"`) dont la `date` est celle d'aujourd'hui (heure suisse), ne rien produire : terminer par un court message à Nazik (sans notification).
-**Mode « Shorts seuls » (décision de Nazik, 2026-11-07) — exécutions du dimanche 8, mardi 10 et jeudi 12 novembre 2026 :** ne produire **que le Short** (règle « Short seul » plus bas : `format` = "short_seul", pas de vidéo longue ni de miniature, 30–45 s, accroche forte dès la 1re seconde) sur le premier sujet de `topics.md` marqué **[SHORT]**. Ajouter `"auto": true` à l'entrée de `published.json` ; pendant ce mode, le garde-fou ci-dessus compte aussi les épisodes `"auto": true` du jour. Description du Short : lien vers la vidéo longue de la chaîne la plus proche du sujet (s'il y en a une). Publier Short + commentaire + TikTok + Instagram comme d'habitude. Le résumé final rappelle que le mode s'arrête après le jeudi 12 (vendredi 13 : retour à vidéo longue + Short, sauf nouvelle consigne).
+**Mode « Shorts seuls » (décision de Nazik, 2026-11-07) — exécutions du dimanche 8, mardi 10 et jeudi 12 novembre 2026 :** ne produire **que le Short** (règle « Short seul » plus bas : `format` = "short_seul", pas de vidéo longue ni de miniature, **25–35 s**, accroche forte dès la 1re seconde) sur le premier sujet de `topics.md` marqué **[SHORT]**. Ajouter `"auto": true` à l'entrée de `published.json` ; pendant ce mode, le garde-fou ci-dessus compte aussi les épisodes `"auto": true` du jour. Description du Short : lien vers la vidéo longue de la chaîne la plus proche du sujet (s'il y en a une). Publier Short + commentaire + TikTok + Instagram comme d'habitude. Le résumé final rappelle que le mode s'arrête après le jeudi 12 (vendredi 13 : retour à vidéo longue + Short, sauf nouvelle consigne).
 ```bash
 bash engine/setup.sh            # dépendances + voix Kokoro (≈1 min)
 ```
@@ -54,7 +54,7 @@ Premier sujet non coché de `topics.md` (pour un épisode long, ignorer les suje
     en cas de doute, formuler prudemment (« selon plusieurs études ») ou retirer. Lister les sources dans `meta.json` ;
   - fin : question au public + « And subscribe to Factora, so you never miss a fascinating fact. » (ne jamais citer de fréquence de publication : elle peut changer)
 - `scenes.py` : une fonction de dessin par scène `sc_xxx(ctx, t, d)` (t = temps local, d = durée), le dict `SCENES`,
-  la liste `SHORT_SCENES` (segments gardés pour le Short : **viser 30 à 40 s, jamais plus de 59 s** — vérifier avec build/timeline.json ; les Shorts de 25–45 s font le plus de vues ; commencer par l'accroche, finir par l'outro),
+  la liste `SHORT_SCENES` (segments gardés pour le Short : **viser 25 à 35 s, jamais plus de 45 s** — vérifier avec build/timeline.json ; données Studio du 2026-11-07 : nos Shorts de 53–59 s ne sont regardés qu’en moyenne 10 à 19 s (18–36 %) → plus courts, la réponse complète avant 30 s, une 2e surprise au milieu, une dernière image qui relance la boucle ; commencer par l'accroche, finir par l'outro),
   et `thumbnail(c)` (1280×720, utiliser `thumb_text(c, ligne1, ligne2, bandeau)`).
   Modèle complet : `episodes/001-lune/scenes.py`. Style maison : fond bleu nuit, accents or, aplats vectoriels, pas d'images externes.
   **Qualité graphique exigée (2026-11-06)** — le moteur ajoute déjà halo lumineux, vignette, grain, sous-titres animés et 1440p ; les scènes doivent suivre :
