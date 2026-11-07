@@ -34,7 +34,7 @@ YouTube limite le nombre de mises en ligne (≈ 10 par 24 h avant la vérificati
 (déjà publiés sur TikTok, fichiers hébergés dans `urls`) sont mis en ligne **avant** le nouvel épisode, dans l'ordre des numéros.
 **Priorité aux vidéos longues** (ce sont elles qui rapportent) : d'abord toutes les vidéos longues en attente, puis les Shorts.
 Un épisode dont la longue est en ligne mais pas le Short garde `"status": "attente_short"`. Pour chacun :
-vidéo longue en **public** directement (contenu déjà validé), vérifier qu'elle existe une seule fois, miniature, puis Short en public
+vidéo longue en **public** directement (contenu déjà validé), miniature, puis Short en public
 (description avec le lien `https://youtu.be/<long_id>`). Remplir `long_id`, `short_id`, `thumbnail_set`, `"status": "public"`.
 Si YouTube répond « exceeded the number of videos they may upload » : **arrêter les envois YouTube pour cette exécution**
 (ne pas réessayer), garder le reste en attente, et continuer la procédure (le nouvel épisode ira lui aussi en attente, voir étape 6).
@@ -94,14 +94,13 @@ bash engine/host.sh episodes/NNN-x NNN   # ajoute les fichiers sur la branche du
 Vidéo longue : `title`, `description` (= build/description.txt), `tags`, `video` = URL, `privacy_status` = `config.privacy_first` (= "public" depuis le 2026-11-06 : publication directe, Nazik contrôle a posteriori),
 `made_for_kids` = false, `category_id` = "27" (Éducation), `default_language` = en, `default_audio_language` = en, `notify_subscribers` = true.
 **Ne pas passer `thumbnail` dans l'upload** (s'il échoue, la vidéo est quand même créée → risque de doublon).
-Après les uploads, **une seule** vérification de doublons : GET `search` (`part=id`, `forMine=true`, `type=video`, `maxResults=10`, `q=<mot-clé du titre>`).
+**Pas de vérification de doublons** (supprimée le 2026-11-07 pour économiser les tasks Zapier) : ne jamais relancer un upload qui a renvoyé un `id`.
 Puis action « Update Video Thumbnail » (`video_id`, `thumbnail` = URL miniature). Si refus « permissions… thumbnails »
 (normalement résolu : téléphone vérifié le 2026-11-04) : continuer sans, noter `"thumbnail_set": false`, le signaler dans le résumé final.
 Lors de l'étape 1, réessayer la miniature des épisodes avec `"thumbnail_set": false` (fichier : régénérer avec `render.py thumb` puis `host.sh`, ou ignorer si impossible).
 Short : `short_title`, description courte (anglais) avec le lien `https://youtu.be/<long_id>` + hashtags, sans miniature, `notify_subscribers` = false.
-Ensuite, pour la vidéo longue : (a) l'ajouter à la playlist `config.json → playlists[meta.playlist].id`
-(POST `playlistItems?part=snippet` avec `{"snippet":{"playlistId":…,"resourceId":{"kind":"youtube#video","videoId":…}}}`) ;
-(b) publier le commentaire `meta.comment` (POST `commentThreads?part=snippet` avec `{"snippet":{"channelId":…,"videoId":…,"topLevelComment":{"snippet":{"textOriginal":…}}}}`).
+Ensuite, pour la vidéo longue : **pas d'ajout automatique en playlist** (supprimé le 2026-11-07 pour économiser les tasks ; Nazik le fait dans Studio si elle veut, la playlist conseillée = `meta.playlist`, à rappeler dans le résumé final) ;
+publier le commentaire `meta.comment` (POST `commentThreads?part=snippet` avec `{"snippet":{"channelId":…,"videoId":…,"topLevelComment":{"snippet":{"textOriginal":…}}}}`).
 Le commentaire ne peut pas être épinglé par l'API : le rappeler à Nazik dans le résumé final. Un 429 de Zapier : attendre 60 s et réessayer une fois.
 Si l'upload échoue pour limite de mises en ligne : ne pas réessayer ; ajouter l'épisode avec `"status": "attente_youtube"` et `urls` (celles de host.sh), continuer avec TikTok.
 Ajouter l'épisode dans `published.json` (`episode`, `topic`, `dir`, `date`, `long_id`, `short_id`, `status`, `thumbnail_set`).
@@ -157,7 +156,7 @@ Même garde-fou chaîne (étape 0) avant toute écriture YouTube.
      `A = episode_scenes("episodes/005-airplane"); SCENES = {"intro": sc_intro, "e005_wing": A["wing"], …}` — choisir des scènes sans étiquette numérotée hors contexte ; ajouter une scène d'intro et une carte titre par sujet (dessinées dans ce fichier), `SHORT_SCENES = []`, `thumbnail(c)` (mosaïque des sujets + « THIS WEEK'S MOST FASCINATING FACTS »).
    - `meta_en.json` : `title` du type « 7 Mind-Blowing Facts From This Week: … » (≤ 70 car.), description avec `{CHAPITRES}` (un chapitre par sujet) et liens `https://youtu.be/<long_id>` de chaque épisode, `playlist` = `recap` si elle existe dans config.json sinon aucune, `comment`, `tags`.
 3. `tts.py`, captures de contrôle (Read), `render.py long` (> 5 min 30 → 1080p automatiquement, fichier < 100 Mo), `render.py thumb`, `description.py`, `host.sh episodes/recap-… recap-AAAA-MM-JJ`.
-4. Upload YouTube **public directement** (contenu déjà validé), `notify_subscribers` = true, vérification doublon, miniature, commentaire. Pas de Short ni de TikTok pour le récap.
+4. Upload YouTube **public directement** (contenu déjà validé), `notify_subscribers` = true, miniature, commentaire (pas de vérification de doublons ni d'ajout en playlist : économie de tasks). Pas de Short ni de TikTok pour le récap.
 5. Ajouter `{"date", "dir", "video_id", "episodes": [numéros]}` à `recaps.json`, commit + push, **notification push** « Factora : récap de la semaine en ligne — https://youtu.be/<id> » (pas d'e-mail). Statistiques de l'étape 1 : **un seul** GET groupé sur tous les ids.
 
 ## Sujets d'actualité / politiques
