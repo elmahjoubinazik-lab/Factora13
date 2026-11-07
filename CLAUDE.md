@@ -10,6 +10,7 @@ Paramètres : `config.json` (chaîne cible, dépôt d'hébergement des fichiers,
 
 ### 0. Préparation
 **Garde-fou « un épisode par jour » :** si `published.json` contient déjà un épisode (hors `"format": "short_seul"`) dont la `date` est celle d'aujourd'hui (heure suisse), ne rien produire : terminer par un court message à Nazik (sans notification).
+**Mode « Shorts seuls » (décision de Nazik, 2026-11-07) — exécutions du dimanche 8, mardi 10 et jeudi 12 novembre 2026 :** ne produire **que le Short** (règle « Short seul » plus bas : `format` = "short_seul", pas de vidéo longue ni de miniature, 30–45 s, accroche forte dès la 1re seconde) sur le premier sujet de `topics.md` marqué **[SHORT]**. Ajouter `"auto": true` à l'entrée de `published.json` ; pendant ce mode, le garde-fou ci-dessus compte aussi les épisodes `"auto": true` du jour. Description du Short : lien vers la vidéo longue de la chaîne la plus proche du sujet (s'il y en a une). Publier Short + commentaire + TikTok + Instagram comme d'habitude. Le résumé final rappelle que le mode s'arrête après le jeudi 12 (vendredi 13 : retour à vidéo longue + Short, sauf nouvelle consigne).
 ```bash
 bash engine/setup.sh            # dépendances + voix Kokoro (≈1 min)
 ```
