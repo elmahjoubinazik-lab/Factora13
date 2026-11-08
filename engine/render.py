@@ -339,7 +339,7 @@ def draw_hook(ctx, a):
     lines.append(cur)
     lh = size * 1.18; y0 = H * 0.16
     bw = max(ctx.text_extents(l).width for l in lines) + 70 * U
-    rrect(ctx, CX - bw / 2, y0 - lh * 0.75, bw, lh * len(lines) + lh * 0.5, 28 * U); rgba(ctx, (0.02, 0.03, 0.10), 0.82 * a); ctx.fill()
+    rrect(ctx, CX - bw / 2, y0 - lh * 0.75, bw, lh * len(lines) + lh * 0.5, 28 * U); rgba(ctx, (0.02, 0.03, 0.10), (0.97 if TNOW < 2.0 / FPS else 0.82) * a); ctx.fill()
     rrect(ctx, CX - bw / 2, y0 - lh * 0.75, bw, lh * len(lines) + lh * 0.5, 28 * U); rgba(ctx, GOLD, 0.95 * a); ctx.set_line_width(5 * U); ctx.stroke()
     for i, l in enumerate(lines): text(ctx, l, CX, y0 + i * lh, size, GOLD if i == len(lines) - 1 else WHITE, a)
 
