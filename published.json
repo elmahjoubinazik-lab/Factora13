@@ -319,6 +319,26 @@
     "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/1dc9c80231abcc7cdf2af07d8cc0be6d37ce83f2/ep017/video_short.mp4"
    },
    "note": "Short seul, demande de Nazik (sujet d'actualité), publié manuellement"
+  },
+  {
+   "episode": "018",
+   "topic": "How many holes does a straw have? (série « holes debate » #1, réponse du pantalon au prochain Short)",
+   "dir": "episodes/018-straw-holes",
+   "date": "2026-11-08",
+   "langue": "en",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": "0kQmb0qDEqg",
+   "status": "public",
+   "thumbnail_set": null,
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6af0b5a402b95a142a03a089",
+   "instagram": "envoye",
+   "instagram_buffer_id": "6af0b5be05a08abc3d01fc63",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/c94ec8b70b56f154a31b48cc2ca3fdf8bcbf032f/ep018/video_short.mp4"
+   },
+   "note": "Validé par Nazik avant publication ; promesse : réponse du pantalon sous 48 h"
   }
  ]
 }
