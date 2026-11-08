@@ -20,13 +20,17 @@ VERT = H > W
 # ---------- palette ----------
 NAVY = (0.035, 0.05, 0.12)
 NAVY2 = (0.08, 0.11, 0.24)
-GOLD = (1.0, 0.80, 0.33)
+GOLD = (1.0, 0.78, 0.18)
 MOON = (0.95, 0.93, 0.85)
 SEA = (0.13, 0.45, 0.78)
 SEA_D = (0.05, 0.22, 0.45)
 EARTH_G = (0.25, 0.62, 0.38)
 WHITE = (1, 1, 1)
-CORAL = (1.0, 0.45, 0.45)
+CORAL = (1.0, 0.36, 0.38)
+CYAN = (0.20, 0.85, 1.0)
+GREEN = (0.30, 0.95, 0.55)
+PINK = (1.0, 0.42, 0.75)
+PURPLE = (0.66, 0.45, 1.0)
 
 random.seed(7)
 STARS = [(random.random(), random.random(), random.uniform(0.6, 2.4), random.random() * 6.28) for _ in range(260)]
@@ -104,6 +108,83 @@ def chip(ctx, label, t, a=1.0):
     x, y = (60 * U, 60 * U) if not VERT else (CX - w / 2, 150 * U)
     rrect(ctx, x, y, w, 60 * U, 30 * U); rgba(ctx, GOLD, 0.95 * k); ctx.fill()
     text(ctx, label, x + w / 2, y + 30 * U, 30 * U, NAVY, k)
+
+def cta(ctx, t, d, line1="WANT MORE?", line2="MORE THINGS YOU NEVER NOTICED", y=None):
+    """Appel à l'abonnement final (commun à toutes les vidéos) : bouton qui claque à l'écran avec rebond,
+    curseur qui clique, bouton qui passe à SUBSCRIBED, cloche qui sonne, explosion de confettis.
+    Placé au-dessus de la zone des sous-titres."""
+    y = y if y is not None else (H * 0.42 if VERT else H * 0.5)
+    S = (1.4 if VERT else 1.05) * U
+    k_in = clamp((t - 0.15) / 0.35)
+    sc = ease(k_in) * (1 + 0.3 * math.sin(k_in * math.pi) * (1 - k_in))       # arrivée avec rebond
+    tc = d * 0.45                                                                # instant du clic
+    clicked = t >= tc
+    bw, bh = 560 * S, 130 * S
+    # titre
+    tk = prog(t, 0.0, 0.3)
+    font(ctx, 100 * S); tw = ctx.text_extents(line1).width
+    ts = 100 * S * min(1.0, W * 0.9 / max(1, tw))
+    text(ctx, line1, CX + 5 * S, y - 230 * S + 7 * S, ts, (0, 0, 0), 0.5 * tk)
+    text(ctx, line1, CX, y - 230 * S, ts, GOLD, tk)
+    # confettis au clic (derrière le bouton)
+    if clicked:
+        e = t - tc
+        rnd = random.Random(11)
+        for i in range(110):
+            ang = rnd.uniform(0, 2 * math.pi); sp = rnd.uniform(500, 1500) * U
+            px = CX + math.cos(ang) * sp * e; py = y + math.sin(ang) * sp * e * 0.8 + 900 * U * e * e
+            c = [GOLD, CYAN, CORAL, GREEN, PINK, PURPLE][i % 6]
+            a = clamp(1 - e / 1.8)
+            if a > 0:
+                ctx.save(); ctx.translate(px, py); ctx.rotate(e * 9 + i)
+                ctx.rectangle(-12 * S, -6 * S, 24 * S, 12 * S); rgba(ctx, c, a); ctx.fill(); ctx.restore()
+    if sc > 0:
+        pulse = 1 + (0.05 * math.sin(t * 9) if not clicked else 0)
+        press = 1 - 0.12 * math.exp(-((t - tc) * 14) ** 2)
+        ctx.save(); ctx.translate(CX, y); ctx.scale(sc * pulse * press, sc * pulse * press)
+        col = CORAL if not clicked else (0.30, 0.34, 0.46)
+        glow(ctx, 0, 0, bw * 0.95, col if not clicked else GREEN, 0.5 if not clicked else 0.3)
+        rrect(ctx, -bw / 2 + 8 * S, -bh / 2 + 12 * S, bw, bh, bh / 2); rgba(ctx, (0, 0, 0), 0.45); ctx.fill()
+        rrect(ctx, -bw / 2, -bh / 2, bw, bh, bh / 2)
+        g = cairo.LinearGradient(0, -bh / 2, 0, bh / 2)
+        g.add_color_stop_rgb(0, *mix(col, WHITE, 0.25)); g.add_color_stop_rgb(1, *col); ctx.set_source(g); ctx.fill()
+        if not clicked:
+            text(ctx, "SUBSCRIBE", 0, 0, 66 * S, WHITE)
+        else:
+            text(ctx, "SUBSCRIBED", 35 * S, 0, 58 * S, WHITE)
+            ctx.set_line_width(10 * S); ctx.set_line_cap(cairo.LINE_CAP_ROUND); rgba(ctx, GREEN)
+            cx0 = -bw / 2 + 75 * S
+            ctx.move_to(cx0 - 24 * S, 0); ctx.line_to(cx0 - 6 * S, 20 * S); ctx.line_to(cx0 + 28 * S, -22 * S); ctx.stroke()
+        ctx.restore()
+        # cloche en badge, au-dessus du coin droit du bouton ; elle sonne après le clic
+        bx, by = CX + bw / 2 * sc - 30 * S, y - bh / 2 * sc - 30 * S
+        sw = 0.55 * math.sin((t - tc) * 22) * math.exp(-(t - tc) * 2.2) if clicked else 0.1 * math.sin(t * 5)
+        ctx.save(); ctx.translate(bx, by); ctx.rotate(sw); ctx.scale(S * sc * 0.9, S * sc * 0.9)
+        glow(ctx, 0, 20, 110, GOLD, 0.5 if clicked else 0.2)
+        circle(ctx, 0, 20, 62, NAVY, 0.9)
+        ctx.move_to(-38, 50); ctx.curve_to(-38, -12, -30, -8, 0, -10)
+        ctx.curve_to(30, -8, 38, -12, 38, 50); ctx.line_to(47, 60); ctx.line_to(-47, 60); ctx.close_path()
+        rgba(ctx, GOLD); ctx.fill(); circle(ctx, 0, 70, 11, GOLD); circle(ctx, 0, -15, 8, GOLD)
+        if clicked:
+            ctx.set_line_width(6); rgba(ctx, GOLD, clamp(1 - (t - tc) / 1.5)); ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+            for sgn in (-1, 1):
+                for r in (70, 92):
+                    ctx.new_path(); ctx.arc(0, 20, r, -math.pi / 2 + sgn * 0.5 - 0.3, -math.pi / 2 + sgn * 0.5 + 0.3); ctx.stroke()
+        ctx.restore()
+    # curseur qui arrive et clique
+    if tc - 0.7 < t < tc + 0.6:
+        k = ease(clamp((t - (tc - 0.7)) / 0.6))
+        hx = CX + 110 * S + (1 - k) * 300 * S; hy = y + 20 * S + (1 - k) * 320 * S
+        hs = 1.5 * S * (0.85 if abs(t - tc) < 0.08 else 1.0)
+        ctx.save(); ctx.translate(hx, hy); ctx.scale(hs, hs)
+        ctx.move_to(0, 0); ctx.line_to(0, 62); ctx.line_to(15, 48); ctx.line_to(27, 72); ctx.line_to(37, 67); ctx.line_to(25, 44); ctx.line_to(45, 44); ctx.close_path()
+        rgba(ctx, WHITE); ctx.fill_preserve(); ctx.set_line_width(4); rgba(ctx, NAVY); ctx.stroke(); ctx.restore()
+    # 2e ligne sous le bouton (reste au-dessus des sous-titres)
+    lk = prog(t, d * 0.55, d * 0.7)
+    if lk:
+        font(ctx, 52 * S); lw = ctx.text_extents(line2).width
+        ls = 52 * S * min(1.0, W * 0.88 / max(1, lw))
+        text(ctx, line2, CX, y + 175 * S, ls, WHITE, lk)
 
 def houses(ctx, ybase, c, a=1.0):
     rgba(ctx, c, a)
@@ -288,7 +369,7 @@ STILLS = [float(x) for x in sys.argv[3].split(",")] if len(sys.argv) > 3 else No
 # finition « cinéma » appliquée par ffmpeg : halo lumineux (bloom) sur les zones claires, vignette, grain très léger ;
 # la vidéo longue est agrandie en 1440p (YouTube attribue alors un meilleur codec/débit, image nettement plus nette).
 FINISH = ("format=gbrp,split[a][b];[b]colorlevels=rimin=0.5:gimin=0.5:bimin=0.5,gblur=sigma=%d[g];[a][g]blend=all_mode=screen:all_opacity=0.55,"
-          "vignette=angle=PI/7,noise=alls=2:allf=t" % int(18 * U))
+          "eq=saturation=1.4:contrast=1.07:brightness=0.01,vignette=angle=PI/7,noise=alls=2:allf=t" % int(18 * U))
 if MODE == "long" and TOTAL <= 330: FINISH += ",scale=2560:1440:flags=lanczos"   # > 5 min 30 : reste en 1080p (fichier < 100 Mo)   # (pas de grain : il alourdit trop le fichier, limite GitHub 100 Mo)
 else: FINISH += ",noise=alls=2:allf=t"
 class _N:
