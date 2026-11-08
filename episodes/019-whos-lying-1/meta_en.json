@@ -2,19 +2,91 @@
   "format": "short_seul",
   "hook_text": "ONE OF THEM IS LYING",
   "playlist": "why",
-  "voix": {"melange": {"am_onyx": 1.0}, "vitesse": 0.85, "code_langue": "en-us"},
+  "voix": {
+    "melange": {
+      "am_onyx": 0.75,
+      "am_fenrir": 0.25
+    },
+    "vitesse": 0.9,
+    "code_langue": "en-us"
+  },
   "music": "mystery",
   "sfx": [
-    {"scene": "hook", "at": 0.05, "type": "thunder"},
-    {"scene": "dark", "at": 2.2, "type": "hit"},
-    {"scene": "s3", "at": 0.3, "type": "thunder"},
-    {"scene": "think", "at": 0.0, "type": "heartbeat", "dur": 3.2},
-    {"scene": "outro", "at": 0.0, "type": "thunder"}
+    {
+      "scene": "hook",
+      "at": 0.05,
+      "type": "thunder"
+    },
+    {
+      "scene": "dark",
+      "at": 0.0,
+      "type": "riser",
+      "dur": 1.6
+    },
+    {
+      "scene": "dark",
+      "at": 1.7,
+      "type": "hit"
+    },
+    {
+      "scene": "lineup",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "s1",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "s2",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "s3",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "s3",
+      "at": 0.6,
+      "type": "thunder"
+    },
+    {
+      "scene": "s4",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "think",
+      "at": 0.0,
+      "type": "heartbeat",
+      "dur": 3.0
+    },
+    {
+      "scene": "outro",
+      "at": 0.0,
+      "type": "thunder"
+    }
   ],
   "short_title": "Who's lying? Only one alibi is impossible 🕵️ #shorts",
   "short_description": "Who's Lying? #1 — 9 p.m., a storm knocks out the power in an old mansion. When the lights come back on, the diamond is gone. Four suspects, four alibis… one of them is scientifically impossible. Comment the number of the liar 👇 The answer (and the science behind it) is in the next video.\n\nSynthetic voice, original illustrations. Fictional story.\n\n#shorts #mystery #riddle #whoslying #brainteaser #detective #factora",
   "comment": "🕵️ Who's lying: 1, 2, 3 or 4? Comment your answer, the reveal is in the next video 👇",
-  "tags": ["who's lying", "who is lying riddle", "detective riddle", "mystery riddle", "brain teaser", "can you solve it", "logic puzzle", "shorts", "factora"],
+  "tags": [
+    "who's lying",
+    "who is lying riddle",
+    "detective riddle",
+    "mystery riddle",
+    "brain teaser",
+    "can you solve it",
+    "logic puzzle",
+    "shorts",
+    "factora"
+  ],
   "solution": "3 — the gardener: light travels about 900,000 times faster than sound, so you always see the lightning before you hear the thunder.",
-  "sources": ["https://www.weather.gov/safety/lightning-science-thunder", "https://www.nssl.noaa.gov/education/svrwx101/lightning/faq/"]
+  "sources": [
+    "https://www.weather.gov/safety/lightning-science-thunder",
+    "https://www.nssl.noaa.gov/education/svrwx101/lightning/faq/"
+  ]
 }

@@ -27,7 +27,7 @@ out, t, timeline = [sil(0.1)], 0.1, []   # voix dès 0,1 s (avant : 0,4 s de sil
 for seg in script:
     s0, sents = t, []
     for txt in seg["text"]:
-        a, _ = k.create(txt, voice=VOICE, speed=SPEED, lang=V.get("code_langue", "fr-fr"))
+        a, _ = k.create(txt, voice=VOICE, speed=SPEED * float(seg.get("speed", 1.0)), lang=V.get("code_langue", "fr-fr"))   # "speed" par segment : rythme variable (suspense)
         a = a.astype(np.float32)
         sents.append({"text": txt, "start": t, "end": t + len(a) / SR})
         out += [a, sil(0.35)]; t += len(a) / SR + 0.35

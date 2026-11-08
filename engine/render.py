@@ -370,6 +370,14 @@ def music_mystery(total, sr=SR):
     for s0 in np.arange(0.5, total, 0.5):
         i = int(s0 * sr)
         if i + L < n: out[i:i + L] += (0.35 if int(s0 * 2) % 2 else 0.22) * tk
+    # pulsation de basse (croches ~100 bpm) qui donne de l'élan, plus forte vers la fin
+    beat = 60 / 100 / 2; Lb = int(0.16 * sr)
+    for j, s0 in enumerate(np.arange(0.0, total, beat)):
+        i = int(s0 * sr)
+        if i + Lb < n:
+            f0 = 73.42 if (j // 8) % 2 == 0 else 65.41
+            env = np.exp(-np.arange(Lb) / (0.05 * sr)) * (0.55 + 0.45 * min(1.0, s0 / max(1.0, total * 0.8)))
+            out[i:i + Lb] += (0.55 if j % 2 == 0 else 0.35) * (np.sin(2 * np.pi * f0 * np.arange(Lb) / sr) * env).astype(np.float32)
     rng = np.random.default_rng(3); rain = rng.standard_normal(n).astype(np.float32)
     rain = np.convolve(rain, np.ones(24) / 24, mode="same"); out += 0.25 * rain / (np.max(np.abs(rain)) + 1e-9)
     out /= np.max(np.abs(out)) + 1e-9
@@ -395,6 +403,11 @@ def sfx_track(total, events, sr=SR):
                     if j + m < L: seg[j:j + m] += amp * np.sin(2 * np.pi * 55 * np.arange(m) / sr) * np.exp(-np.arange(m) / (0.05 * sr))
                 s0 += per; per = max(0.45, per * 0.88)
             seg *= 0.9
+        elif kind == "riser":   # montée de tension (bruit filtré + glissando) avant une question
+            dur = ev.get("dur", 2.0); L = int(dur * sr); tl = np.arange(L) / sr
+            x = rng.standard_normal(L).astype(np.float32); x = np.convolve(x, np.ones(8) / 8, mode="same")
+            sweep = np.sin(2 * np.pi * (200 * tl + 400 * tl ** 2 / dur))
+            seg = ((0.5 * x / (np.max(np.abs(x)) + 1e-9) + 0.4 * sweep) * (tl / dur) ** 2 * 0.8).astype(np.float32)
         else:  # hit
             L = int(1.5 * sr); seg = (np.sin(2 * np.pi * 45 * np.arange(L) / sr) * np.exp(-np.arange(L) / (0.35 * sr))).astype(np.float32)
         j1 = min(n, i0 + len(seg))

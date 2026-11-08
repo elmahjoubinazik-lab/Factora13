@@ -1,11 +1,11 @@
 [
- {"scene":"hook","text":["Nine p.m. A storm knocks out the power."]},
- {"scene":"dark","text":["When the lights come back on... the diamond is gone."],"pause":0.4},
- {"scene":"lineup","text":["Four suspects. One of them is lying."]},
- {"scene":"s1","text":["The butler: I was lighting candles in the hall."]},
- {"scene":"s2","text":["The maid: I was in the kitchen, making tea."]},
- {"scene":"s3","text":["The gardener: I was outside, closing the greenhouse. I heard the thunder... then I saw the lightning."]},
- {"scene":"s4","text":["The niece: I was upstairs, reading with my phone's flashlight."]},
- {"scene":"think","text":["Listen again. Who's lying?"],"pause":1.2},
- {"scene":"outro","text":["Comment the number. The answer is in the next video."]}
+ {"scene":"hook","speed":1.0,"text":["Nine p.m.! A storm rips through the mansion... and the power goes out!"]},
+ {"scene":"dark","speed":0.92,"text":["The lights come back on... and the diamond? Gone!"],"pause":0.3},
+ {"scene":"lineup","speed":0.97,"text":["Four suspects. One of them... is lying!"]},
+ {"scene":"s1","speed":1.06,"text":["Number one, the butler: I was lighting candles in the hall!"]},
+ {"scene":"s2","speed":1.06,"text":["Two, the maid: I was in the kitchen, making tea!"]},
+ {"scene":"s3","speed":1.04,"text":["Three, the gardener: I was outside, closing the greenhouse. I heard the thunder... and then I saw the lightning!"]},
+ {"scene":"s4","speed":1.06,"text":["Four, the niece: I was upstairs, reading with my phone's flashlight!"]},
+ {"scene":"think","speed":0.9,"text":["Listen closely... Who's lying?"],"pause":1.0},
+ {"scene":"outro","speed":1.05,"text":["Comment the number! The answer drops in the next video!"]}
 ]
