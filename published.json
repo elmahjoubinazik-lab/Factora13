@@ -1,304 +1,324 @@
 {
-  "episodes": [
-    {
-      "episode": "001",
-      "topic": "Et si la Lune disparaissait ?",
-      "dir": "episodes/001-lune",
-      "date": "2026-11-04",
-      "long_id": "mLyvIsmmDYY",
-      "short_id": "dBl-sMY6TCo",
-      "status": "public",
-      "thumbnail_set": true,
-      "note": "version anglaise ; version française supprimée de YouTube et de TikTok le 2026-11-04",
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aebb7e1e85a0f2da20ac444",
-      "langue": "en",
-      "public_date": "2026-11-04",
-      "instagram": "envoye"
-    },
-    {
-      "episode": "002",
-      "topic": "What if the Earth stopped spinning?",
-      "dir": "episodes/002-earth-spin",
-      "date": "2026-11-05",
-      "langue": "en",
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aebc86e927e9505e10693b4",
-      "long_id": "o3fN9-Owo9Y",
-      "short_id": "7CCGWV6FY3M",
-      "status": "public",
-      "thumbnail_set": true,
-      "instagram": "envoye"
-    },
-    {
-      "episode": "003",
-      "topic": "Why is the sky blue?",
-      "dir": "episodes/003-blue-sky",
-      "date": "2026-11-05",
-      "langue": "en",
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aebc97d9bc0ca15020caaaf",
-      "status": "public",
-      "long_id": "o_k4p1KXuX4",
-      "short_id": "9BDCPQB3q9g",
-      "thumbnail_set": true,
-      "urls": {
-        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep003/video_long.mp4",
-        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep003/video_short.mp4",
-        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep003/miniature.png"
-      },
-      "instagram": "envoye"
-    },
-    {
-      "episode": "004",
-      "topic": "What happens when you don't sleep?",
-      "dir": "episodes/004-no-sleep",
-      "date": "2026-11-05",
-      "langue": "en",
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aebca95bac45d3bb109e7aa",
-      "status": "public",
-      "long_id": "eVMNvG5V8ZQ",
-      "short_id": "z3NpBfrM-Kg",
-      "thumbnail_set": true,
-      "urls": {
-        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep004/video_long.mp4",
-        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep004/video_short.mp4",
-        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep004/miniature.png"
-      },
-      "instagram": "envoye"
-    },
-    {
-      "episode": "005",
-      "topic": "How can a 400-ton airplane fly?",
-      "dir": "episodes/005-airplane",
-      "date": "2026-11-05",
-      "langue": "en",
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aebcab1743ef2fce80f61a2",
-      "status": "public",
-      "long_id": "kD1qUpYu944",
-      "short_id": "dMBbX5HNxbE",
-      "thumbnail_set": true,
-      "urls": {
-        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep005/video_long.mp4",
-        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep005/video_short.mp4",
-        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep005/miniature.png"
-      },
-      "instagram": "envoye"
-    },
-    {
-      "episode": "006",
-      "topic": "What if all insects disappeared?",
-      "dir": "episodes/006-insects",
-      "date": "2026-11-05",
-      "langue": "en",
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aebca1faa35faae1d0e7738",
-      "status": "public",
-      "long_id": "602Wq2n784k",
-      "short_id": "SrwejxDI0Zw",
-      "thumbnail_set": true,
-      "urls": {
-        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep006/video_long.mp4",
-        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep006/video_short.mp4",
-        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep006/miniature.png"
-      },
-      "instagram": "envoye"
-    },
-    {
-      "episode": "007",
-      "topic": "Why is the sea salty?",
-      "dir": "episodes/007-salty-sea",
-      "date": "2026-11-05",
-      "langue": "en",
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aebca398d94c5a39a0282e6",
-      "status": "public",
-      "long_id": "zwfsc9BqCGg",
-      "short_id": "pn5A_ANoIJ8",
-      "thumbnail_set": true,
-      "urls": {
-        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep007/video_long.mp4",
-        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep007/video_short.mp4",
-        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep007/miniature.png"
-      },
-      "instagram": "envoye"
-    },
-    {
-      "episode": "008",
-      "topic": "How does the Internet work?",
-      "dir": "episodes/008-internet",
-      "date": "2026-11-05",
-      "langue": "en",
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aebc999814e77a1360d24e8",
-      "status": "public",
-      "long_id": "IUph-jDkitI",
-      "short_id": "uA5LTwEm2C4",
-      "thumbnail_set": true,
-      "urls": {
-        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep008/video_long.mp4",
-        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep008/video_short.mp4",
-        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep008/miniature.png"
-      },
-      "instagram": "envoye"
-    },
-    {
-      "episode": "009",
-      "topic": "What if you dug a hole through the Earth?",
-      "dir": "episodes/009-hole-earth",
-      "date": "2026-11-05",
-      "langue": "en",
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aebc9c329abc56a310a114a",
-      "status": "public",
-      "long_id": "B9niFyNKwws",
-      "short_id": "g6r_JT9_YEE",
-      "thumbnail_set": true,
-      "urls": {
-        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep009/video_long.mp4",
-        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep009/video_short.mp4",
-        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep009/miniature.png"
-      },
-      "instagram": "envoye"
-    },
-    {
-      "episode": "010",
-      "topic": "Why did the dinosaurs disappear?",
-      "dir": "episodes/010-dinosaurs",
-      "date": "2026-11-05",
-      "langue": "en",
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aebc8d5ea2cbe552b02a997",
-      "long_id": "L92gEF78FOc",
-      "short_id": "ZeZkEaLxS88",
-      "status": "public",
-      "thumbnail_set": true,
-      "instagram": "envoye"
-    },
-    {
-      "episode": "011",
-      "topic": "How is money created?",
-      "dir": "episodes/011-money",
-      "date": "2026-11-05",
-      "langue": "en",
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aebc96098ae3bc90a0d7566",
-      "status": "public",
-      "long_id": "BCJj5HQJFU0",
-      "short_id": "lvHsQRlz0O8",
-      "thumbnail_set": true,
-      "urls": {
-        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep011/video_long.mp4",
-        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep011/video_short.mp4",
-        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep011/miniature.png"
-      },
-      "instagram": "envoye"
-    },
-    {
-      "episode": "012",
-      "topic": "US midterm elections explained: what happens with or without a majority in Congress?",
-      "dir": "episodes/012-midterms",
-      "date": "2026-11-06",
-      "langue": "en",
-      "long_id": "TIl3eN-TTIg",
-      "short_id": "SGHz3eFNWBY",
-      "status": "public",
-      "thumbnail_set": true,
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aee26d8e6631285b7063e83",
-      "urls": {
-        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/eda1cc820bbe68b4ac7979ff1a7a2ad6bcff54f9/ep012/video_long.mp4",
-        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/eda1cc820bbe68b4ac7979ff1a7a2ad6bcff54f9/ep012/video_short.mp4",
-        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/eda1cc820bbe68b4ac7979ff1a7a2ad6bcff54f9/ep012/miniature.png"
-      },
-      "public_date": "2026-11-06",
-      "instagram": "envoye"
-    },
-    {
-      "episode": "013",
-      "topic": "What really happens when you flush with the lid open?",
-      "dir": "episodes/013-toilet-plume",
-      "date": "2026-11-07",
-      "langue": "en",
-      "format": "short_seul",
-      "long_id": null,
-      "short_id": "D2dTGiROFtg",
-      "status": "public",
-      "thumbnail_set": true,
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aef3826b1b97a030e07f904",
-      "urls": {
-        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a0a64b6c9bbd205a671de0875b27dc5fa96641f4/ep013b/video_short.mp4",
-        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a0a64b6c9bbd205a671de0875b27dc5fa96641f4/ep013b/miniature.png"
-      },
-      "note": "Short seul, à la demande de Nazik. V2 (nouvelle accroche + miniature) publiée sur YouTube et TikTok ; v1 passée en privé sur YouTube.",
-      "ancienne_version_privee": "6jlYZDS55MU",
-      "tiktok_buffer_id_v1": "6aef331b8c38a71c3f0681d7",
-      "instagram": "envoye",
-      "instagram_buffer_id": "6aef5eb218e6c7b8c50f27f6"
-    },
-    {
-      "episode": "014",
-      "topic": "Why a full washing machine leaves your clothes dirty",
-      "dir": "episodes/014-washing-machine",
-      "date": "2026-11-07",
-      "langue": "en",
-      "format": "short_seul",
-      "long_id": null,
-      "short_id": "EuuyAoUPAcg",
-      "status": "public",
-      "thumbnail_set": true,
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aef52c2a83d5b9ffc0f754a",
-      "urls": {
-        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/d9c42f91cf49e05ad30a6c22682849937e7ea9f2/ep014/video_short.mp4",
-        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/d9c42f91cf49e05ad30a6c22682849937e7ea9f2/ep014/miniature.png"
-      },
-      "note": "Short seul, idée de Nazik (vue sur TikTok) ; série « Household science » envisagée",
-      "instagram": "envoye",
-      "instagram_buffer_id": "6aef5ecf1275ca62d70f0d92"
-    },
-    {
-      "episode": "015",
-      "topic": "What Happens to Your Body When You Stop Drinking Water? Hour by Hour",
-      "dir": "episodes/015-no-water",
-      "date": "2026-11-07",
-      "langue": "en",
-      "long_id": "hVkuWWfH_ug",
-      "short_id": "OvB645JYb3U",
-      "status": "public",
-      "thumbnail_set": true,
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aef74e86881eb699905e402",
-      "instagram": "envoye",
-      "instagram_buffer_id": "6aef74f2f778d3cb8909aa4a",
-      "urls": {
-        "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/fa86271d24b02fdd9d5abc36dde724551b3a18db/ep015/video_long.mp4",
-        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/fa86271d24b02fdd9d5abc36dde724551b3a18db/ep015/video_short.mp4",
-        "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/fa86271d24b02fdd9d5abc36dde724551b3a18db/ep015/miniature.png"
-      }
-    },
-    {
-      "episode": "016",
-      "topic": "Where does the missing square come from? (missing square puzzle)",
-      "dir": "episodes/016-missing-square",
-      "date": "2026-11-07",
-      "langue": "en",
-      "format": "short_seul",
-      "long_id": null,
-      "short_id": "fFmJRDgvxIQ",
-      "status": "public",
-      "thumbnail_set": null,
-      "tiktok": "envoye",
-      "tiktok_buffer_id": "6aefaba4360681807b0cec5a",
-      "instagram": "envoye",
-      "instagram_buffer_id": "6aefabaccfdf3f8eeb0ae826",
-      "urls": {
-        "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/23ba8a3b6dd2943c340351d463a1aca7fa70d824/ep016/video_short.mp4"
-      },
-      "note": "Short seul, demande de Nazik (format inspiré d'un Short viral « paradoxe »)"
-    }
-  ]
+ "episodes": [
+  {
+   "episode": "001",
+   "topic": "Et si la Lune disparaissait ?",
+   "dir": "episodes/001-lune",
+   "date": "2026-11-04",
+   "long_id": "mLyvIsmmDYY",
+   "short_id": "dBl-sMY6TCo",
+   "status": "public",
+   "thumbnail_set": true,
+   "note": "version anglaise ; version française supprimée de YouTube et de TikTok le 2026-11-04",
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aebb7e1e85a0f2da20ac444",
+   "langue": "en",
+   "public_date": "2026-11-04",
+   "instagram": "envoye"
+  },
+  {
+   "episode": "002",
+   "topic": "What if the Earth stopped spinning?",
+   "dir": "episodes/002-earth-spin",
+   "date": "2026-11-05",
+   "langue": "en",
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aebc86e927e9505e10693b4",
+   "long_id": "o3fN9-Owo9Y",
+   "short_id": "7CCGWV6FY3M",
+   "status": "public",
+   "thumbnail_set": true,
+   "instagram": "envoye"
+  },
+  {
+   "episode": "003",
+   "topic": "Why is the sky blue?",
+   "dir": "episodes/003-blue-sky",
+   "date": "2026-11-05",
+   "langue": "en",
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aebc97d9bc0ca15020caaaf",
+   "status": "public",
+   "long_id": "o_k4p1KXuX4",
+   "short_id": "9BDCPQB3q9g",
+   "thumbnail_set": true,
+   "urls": {
+    "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep003/video_long.mp4",
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep003/video_short.mp4",
+    "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep003/miniature.png"
+   },
+   "instagram": "envoye"
+  },
+  {
+   "episode": "004",
+   "topic": "What happens when you don't sleep?",
+   "dir": "episodes/004-no-sleep",
+   "date": "2026-11-05",
+   "langue": "en",
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aebca95bac45d3bb109e7aa",
+   "status": "public",
+   "long_id": "eVMNvG5V8ZQ",
+   "short_id": "z3NpBfrM-Kg",
+   "thumbnail_set": true,
+   "urls": {
+    "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep004/video_long.mp4",
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep004/video_short.mp4",
+    "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep004/miniature.png"
+   },
+   "instagram": "envoye"
+  },
+  {
+   "episode": "005",
+   "topic": "How can a 400-ton airplane fly?",
+   "dir": "episodes/005-airplane",
+   "date": "2026-11-05",
+   "langue": "en",
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aebcab1743ef2fce80f61a2",
+   "status": "public",
+   "long_id": "kD1qUpYu944",
+   "short_id": "dMBbX5HNxbE",
+   "thumbnail_set": true,
+   "urls": {
+    "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep005/video_long.mp4",
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep005/video_short.mp4",
+    "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep005/miniature.png"
+   },
+   "instagram": "envoye"
+  },
+  {
+   "episode": "006",
+   "topic": "What if all insects disappeared?",
+   "dir": "episodes/006-insects",
+   "date": "2026-11-05",
+   "langue": "en",
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aebca1faa35faae1d0e7738",
+   "status": "public",
+   "long_id": "602Wq2n784k",
+   "short_id": "SrwejxDI0Zw",
+   "thumbnail_set": true,
+   "urls": {
+    "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep006/video_long.mp4",
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep006/video_short.mp4",
+    "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep006/miniature.png"
+   },
+   "instagram": "envoye"
+  },
+  {
+   "episode": "007",
+   "topic": "Why is the sea salty?",
+   "dir": "episodes/007-salty-sea",
+   "date": "2026-11-05",
+   "langue": "en",
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aebca398d94c5a39a0282e6",
+   "status": "public",
+   "long_id": "zwfsc9BqCGg",
+   "short_id": "pn5A_ANoIJ8",
+   "thumbnail_set": true,
+   "urls": {
+    "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep007/video_long.mp4",
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep007/video_short.mp4",
+    "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep007/miniature.png"
+   },
+   "instagram": "envoye"
+  },
+  {
+   "episode": "008",
+   "topic": "How does the Internet work?",
+   "dir": "episodes/008-internet",
+   "date": "2026-11-05",
+   "langue": "en",
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aebc999814e77a1360d24e8",
+   "status": "public",
+   "long_id": "IUph-jDkitI",
+   "short_id": "uA5LTwEm2C4",
+   "thumbnail_set": true,
+   "urls": {
+    "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep008/video_long.mp4",
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep008/video_short.mp4",
+    "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep008/miniature.png"
+   },
+   "instagram": "envoye"
+  },
+  {
+   "episode": "009",
+   "topic": "What if you dug a hole through the Earth?",
+   "dir": "episodes/009-hole-earth",
+   "date": "2026-11-05",
+   "langue": "en",
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aebc9c329abc56a310a114a",
+   "status": "public",
+   "long_id": "B9niFyNKwws",
+   "short_id": "g6r_JT9_YEE",
+   "thumbnail_set": true,
+   "urls": {
+    "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep009/video_long.mp4",
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep009/video_short.mp4",
+    "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep009/miniature.png"
+   },
+   "instagram": "envoye"
+  },
+  {
+   "episode": "010",
+   "topic": "Why did the dinosaurs disappear?",
+   "dir": "episodes/010-dinosaurs",
+   "date": "2026-11-05",
+   "langue": "en",
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aebc8d5ea2cbe552b02a997",
+   "long_id": "L92gEF78FOc",
+   "short_id": "ZeZkEaLxS88",
+   "status": "public",
+   "thumbnail_set": true,
+   "instagram": "envoye"
+  },
+  {
+   "episode": "011",
+   "topic": "How is money created?",
+   "dir": "episodes/011-money",
+   "date": "2026-11-05",
+   "langue": "en",
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aebc96098ae3bc90a0d7566",
+   "status": "public",
+   "long_id": "BCJj5HQJFU0",
+   "short_id": "lvHsQRlz0O8",
+   "thumbnail_set": true,
+   "urls": {
+    "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep011/video_long.mp4",
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep011/video_short.mp4",
+    "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/304821470fc91df755089b83c66b120ee3de17eb/ep011/miniature.png"
+   },
+   "instagram": "envoye"
+  },
+  {
+   "episode": "012",
+   "topic": "US midterm elections explained: what happens with or without a majority in Congress?",
+   "dir": "episodes/012-midterms",
+   "date": "2026-11-06",
+   "langue": "en",
+   "long_id": "TIl3eN-TTIg",
+   "short_id": "SGHz3eFNWBY",
+   "status": "public",
+   "thumbnail_set": true,
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aee26d8e6631285b7063e83",
+   "urls": {
+    "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/eda1cc820bbe68b4ac7979ff1a7a2ad6bcff54f9/ep012/video_long.mp4",
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/eda1cc820bbe68b4ac7979ff1a7a2ad6bcff54f9/ep012/video_short.mp4",
+    "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/eda1cc820bbe68b4ac7979ff1a7a2ad6bcff54f9/ep012/miniature.png"
+   },
+   "public_date": "2026-11-06",
+   "instagram": "envoye"
+  },
+  {
+   "episode": "013",
+   "topic": "What really happens when you flush with the lid open?",
+   "dir": "episodes/013-toilet-plume",
+   "date": "2026-11-07",
+   "langue": "en",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": "D2dTGiROFtg",
+   "status": "public",
+   "thumbnail_set": true,
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aef3826b1b97a030e07f904",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a0a64b6c9bbd205a671de0875b27dc5fa96641f4/ep013b/video_short.mp4",
+    "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a0a64b6c9bbd205a671de0875b27dc5fa96641f4/ep013b/miniature.png"
+   },
+   "note": "Short seul, à la demande de Nazik. V2 (nouvelle accroche + miniature) publiée sur YouTube et TikTok ; v1 passée en privé sur YouTube.",
+   "ancienne_version_privee": "6jlYZDS55MU",
+   "tiktok_buffer_id_v1": "6aef331b8c38a71c3f0681d7",
+   "instagram": "envoye",
+   "instagram_buffer_id": "6aef5eb218e6c7b8c50f27f6"
+  },
+  {
+   "episode": "014",
+   "topic": "Why a full washing machine leaves your clothes dirty",
+   "dir": "episodes/014-washing-machine",
+   "date": "2026-11-07",
+   "langue": "en",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": "EuuyAoUPAcg",
+   "status": "public",
+   "thumbnail_set": true,
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aef52c2a83d5b9ffc0f754a",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/d9c42f91cf49e05ad30a6c22682849937e7ea9f2/ep014/video_short.mp4",
+    "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/d9c42f91cf49e05ad30a6c22682849937e7ea9f2/ep014/miniature.png"
+   },
+   "note": "Short seul, idée de Nazik (vue sur TikTok) ; série « Household science » envisagée",
+   "instagram": "envoye",
+   "instagram_buffer_id": "6aef5ecf1275ca62d70f0d92"
+  },
+  {
+   "episode": "015",
+   "topic": "What Happens to Your Body When You Stop Drinking Water? Hour by Hour",
+   "dir": "episodes/015-no-water",
+   "date": "2026-11-07",
+   "langue": "en",
+   "long_id": "hVkuWWfH_ug",
+   "short_id": "OvB645JYb3U",
+   "status": "public",
+   "thumbnail_set": true,
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aef74e86881eb699905e402",
+   "instagram": "envoye",
+   "instagram_buffer_id": "6aef74f2f778d3cb8909aa4a",
+   "urls": {
+    "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/fa86271d24b02fdd9d5abc36dde724551b3a18db/ep015/video_long.mp4",
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/fa86271d24b02fdd9d5abc36dde724551b3a18db/ep015/video_short.mp4",
+    "thumb": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/fa86271d24b02fdd9d5abc36dde724551b3a18db/ep015/miniature.png"
+   }
+  },
+  {
+   "episode": "016",
+   "topic": "Where does the missing square come from? (missing square puzzle)",
+   "dir": "episodes/016-missing-square",
+   "date": "2026-11-07",
+   "langue": "en",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": "fFmJRDgvxIQ",
+   "status": "public",
+   "thumbnail_set": null,
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6aefaba4360681807b0cec5a",
+   "instagram": "envoye",
+   "instagram_buffer_id": "6aefabaccfdf3f8eeb0ae826",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/23ba8a3b6dd2943c340351d463a1aca7fa70d824/ep016/video_short.mp4"
+   },
+   "note": "Short seul, demande de Nazik (format inspiré d'un Short viral « paradoxe »)"
+  },
+  {
+   "episode": "017",
+   "topic": "Why do officials say 72 hours for your emergency kit?",
+   "dir": "episodes/017-72-hours",
+   "date": "2026-11-08",
+   "langue": "en",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": "V_rQF8r4Vj4",
+   "status": "public",
+   "thumbnail_set": null,
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6af06aa796af9adb2200be9b",
+   "instagram": "envoye",
+   "instagram_buffer_id": "6af06ac396af9adb2200be9c",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/1dc9c80231abcc7cdf2af07d8cc0be6d37ce83f2/ep017/video_short.mp4"
+   },
+   "note": "Short seul, demande de Nazik (sujet d'actualité), publié manuellement"
+  }
+ ]
 }
