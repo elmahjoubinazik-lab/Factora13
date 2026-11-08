@@ -14,8 +14,14 @@
   "sfx": [
     {
       "scene": "hook",
-      "at": 0.05,
+      "at": 0.4,
       "type": "thunder"
+    },
+    {
+      "scene": "hook",
+      "at": 3.6,
+      "type": "thunder",
+      "vol": 0.7
     },
     {
       "scene": "dark",
@@ -34,14 +40,32 @@
       "type": "hit"
     },
     {
+      "scene": "lineup",
+      "at": 1.6,
+      "type": "thunder",
+      "vol": 0.8
+    },
+    {
       "scene": "s1",
       "at": 0.0,
       "type": "hit"
     },
     {
+      "scene": "s1",
+      "at": 2.6,
+      "type": "thunder",
+      "vol": 0.5
+    },
+    {
       "scene": "s2",
       "at": 0.0,
       "type": "hit"
+    },
+    {
+      "scene": "s2",
+      "at": 2.4,
+      "type": "thunder",
+      "vol": 0.55
     },
     {
       "scene": "s3",
@@ -54,9 +78,21 @@
       "type": "thunder"
     },
     {
+      "scene": "s3",
+      "at": 5.2,
+      "type": "thunder",
+      "vol": 0.75
+    },
+    {
       "scene": "s4",
       "at": 0.0,
       "type": "hit"
+    },
+    {
+      "scene": "s4",
+      "at": 2.8,
+      "type": "thunder",
+      "vol": 0.6
     },
     {
       "scene": "think",
@@ -65,8 +101,14 @@
       "dur": 3.0
     },
     {
+      "scene": "think",
+      "at": 2.8,
+      "type": "thunder",
+      "vol": 0.9
+    },
+    {
       "scene": "outro",
-      "at": 0.0,
+      "at": 0.4,
       "type": "thunder"
     }
   ],

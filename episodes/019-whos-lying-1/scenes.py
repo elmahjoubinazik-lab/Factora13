@@ -11,8 +11,9 @@ INK = (0.03, 0.035, 0.08)
 def flash():
     f = 0.0
     for (t0, kind) in SFX_TIMES:
-        if kind == "thunder" and 0 <= TNOW - t0 < 1.4:
-            e = TNOW - t0
+        tf = t0 - 0.35   # l'éclair se voit AVANT d'entendre le tonnerre (c'est l'indice de l'énigme !)
+        if kind == "thunder" and 0 <= TNOW - tf < 1.4:
+            e = TNOW - tf
             fl = 1.0 if e < 0.08 else (0.35 if e < 0.16 else (0.9 if e < 0.24 else math.exp(-(e - 0.24) * 5)))
             f = max(f, fl)
     return f

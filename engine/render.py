@@ -394,7 +394,7 @@ def sfx_track(total, events, sr=SR):
             x = np.convolve(x, np.ones(60) / 60, mode="same")
             env = np.exp(-np.arange(L) / (0.9 * sr)); env[:int(0.05 * sr)] *= np.linspace(0, 1, int(0.05 * sr))
             crack = rng.standard_normal(L).astype(np.float32) * np.exp(-np.arange(L) / (0.08 * sr)) * 0.5
-            seg = (x / (np.max(np.abs(x)) + 1e-9) * env + crack) * 0.9
+            seg = (x / (np.max(np.abs(x)) + 1e-9) * env + crack) * 0.9 * float(ev.get("vol", 1.0))
         elif kind == "heartbeat":
             dur = ev.get("dur", 3.0); L = int(dur * sr); seg = np.zeros(L, np.float32); s0 = 0.0; per = 0.9
             while s0 < dur - 0.3:
