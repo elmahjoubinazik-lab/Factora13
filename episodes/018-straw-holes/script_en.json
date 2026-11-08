@@ -1,7 +1,39 @@
 [
- {"scene":"hook","text":["How many holes does a straw have?","Zero, one, or two?"]},
- {"scene":"camps","text":["Some say zero: it's just a rolled-up sheet.","Some say two: one at each end.","Comment your answer now."]},
- {"scene":"answer","text":["Mathematicians say: one.","Squash the straw down, and it becomes a ring. A donut. One hole.","The two ends are just the two openings of the same hole."]},
- {"scene":"pants","text":["So how many holes does a pair of pants have?","Three openings. But only two holes."]},
- {"scene":"outro","text":["Did you get it right? Comment your answer.","Subscribe for more."]}
+ {
+  "scene": "hook",
+  "text": [
+   "How many holes does a straw have?",
+   "Zero, one, or two?"
+  ]
+ },
+ {
+  "scene": "camps",
+  "text": [
+   "Some say zero: it's just a rolled-up sheet.",
+   "Some say two: one at each end.",
+   "Comment your answer now."
+  ]
+ },
+ {
+  "scene": "answer",
+  "text": [
+   "Mathematicians say: one.",
+   "Squash the straw down, and it becomes a ring. A donut. One hole.",
+   "The two ends are just the two openings of the same hole."
+  ]
+ },
+ {
+  "scene": "pants",
+  "text": [
+   "So how many holes does a pair of pants have?",
+   "Three openings. But how many holes?"
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "Comment your answer. I'll reveal it in the next video.",
+   "Subscribe so you don't miss it."
+  ]
+ }
 ]

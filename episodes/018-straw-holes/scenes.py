@@ -157,26 +157,33 @@ def sc_pants(ctx, t, d):
     bg(ctx, t, (0.18, 0.05, 0.30))
     cx, cy = CX, H * 0.44
     ps = 1.2 * U
-    mk = prog(t, d * 0.72, d * 0.85)
-    if mk < 1:
-        pants(ctx, cx, cy, ps * (1 + 0.02 * math.sin(t * 3)), 1 - mk, PURPLE)
-        ok = prog(t, d * 0.45, d * 0.55) * (1 - mk)
-        if ok:
-            for (x, y) in [(cx, cy - 300 * ps), (cx - 165 * ps, cy + 330 * ps), (cx + 165 * ps, cy + 330 * ps)]:
-                circle(ctx, x, y, 34 * U * (1 + 0.15 * math.sin(t * 8)), GOLD, ok)
-            text(ctx, "3 OPENINGS", CX, H * 0.155, 100 * U, GOLD, ok * clamp(1 - 2 * mk))
-    if mk > 0:
-        double_donut(ctx, cx, cy, 1.0 * U, mk, PINK)
-        text(ctx, "= 2 HOLES", CX, H * 0.155, 130 * U, PINK, clamp(2 * mk - 1))
-    if not prog(t, d * 0.45, d * 0.55):
+    pants(ctx, cx, cy, ps * (1 + 0.02 * math.sin(t * 3)), 1.0, PURPLE)
+    ok = prog(t, d * 0.42, d * 0.52)
+    if ok:
+        for i, (x, y) in enumerate([(cx, cy - 300 * ps), (cx - 165 * ps, cy + 330 * ps), (cx + 165 * ps, cy + 330 * ps)]):
+            pk = prog(t, d * (0.42 + 0.05 * i), d * (0.5 + 0.05 * i))
+            glow(ctx, x, y, 90 * U, GOLD, 0.5 * pk)
+            circle(ctx, x, y, 34 * U * (1 + 0.15 * math.sin(t * 8 + i)), GOLD, pk)
+    qk = prog(t, d * 0.72, d * 0.8)
+    if qk:
+        # big pulsing question mark over the pants
+        s2 = 1 + 0.08 * math.sin(t * 6)
+        ctx.save(); ctx.translate(cx, cy); ctx.scale(s2 * qk, s2 * qk)
+        glow(ctx, 0, 0, 300 * U, PINK, 0.5)
+        text(ctx, "?", 8 * U, 12 * U, 420 * U, (0, 0, 0), 0.4)
+        text(ctx, "?", 0, 0, 420 * U, PINK)
+        ctx.restore()
+    if ok and not qk:
+        text(ctx, "3 OPENINGS", CX, H * 0.155, 100 * U, GOLD, ok)
+    elif qk:
+        text(ctx, "HOW MANY HOLES?", CX, H * 0.155, 100 * U, PINK, qk)
+    else:
         text(ctx, "AND A PAIR OF PANTS?", CX, H * 0.155, 80 * U, WHITE, prog(t, 0.1, 0.6))
 
 def sc_outro(ctx, t, d):
-    bg(ctx, t)
-    ctx.save(); ctx.translate(CX, H * 0.42); ctx.rotate(-0.5); ctx.translate(-CX, -H * 0.42)
-    straw_body(ctx, CX, H * 0.42, 100 * U, 1300 * U, 20 * U, t, 0.25, t * 0.4)
-    ctx.restore()
-    cta(ctx, t, d, "DID YOU GET IT RIGHT?", "COMMENT YOUR ANSWER")
+    bg(ctx, t, (0.18, 0.05, 0.30))
+    pants(ctx, CX, H * 0.42, 1.5 * U, 0.22, PURPLE)
+    cta(ctx, t, d, "HOW MANY HOLES IN PANTS?", "SUBSCRIBE FOR THE ANSWER")
 
 SHORT_SCENES = ["hook", "camps", "answer", "pants", "outro"]
 SCENES = dict(hook=sc_hook, camps=sc_camps, answer=sc_answer, pants=sc_pants, outro=sc_outro)
