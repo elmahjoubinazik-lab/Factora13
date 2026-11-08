@@ -389,6 +389,9 @@ for f in (STILLS or range(nf)):
     ctx = cairo.Context(surf)
     ctx.set_source_rgb(0, 0, 0); ctx.paint()   # repartir d'une image vide (évite les restes de la scène précédente)
     lt, d = TNOW - seg["start"], seg["end"] - seg["start"]
+    # Short : les 2 premières images servent de couverture (Instagram/TikTok prennent la 1re image) :
+    # on y montre la scène d'accroche déjà bien avancée (illustration complète) + l'accroche écrite.
+    if MODE == "short" and seg is plan[0] and TNOW < 2.0 / FPS: lt = min(d * 0.6, 2.4)
     # mouvement de caméra (zoom lent + léger panoramique, sens alterné d'une scène à l'autre)
     si = plan.index(seg); z = 1 + 0.045 * ease(lt / d); px = (1 if si % 2 else -1) * 14 * U * (lt / d - 0.5)
     ctx.save(); ctx.translate(CX + px, CY); ctx.scale(z, z); ctx.translate(-CX, -CY)
