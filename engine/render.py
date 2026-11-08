@@ -359,7 +359,60 @@ def music(total, sr=SR):
     out /= np.max(np.abs(out)) + 1e-9
     fade = np.clip(tt / 2, 0, 1) * np.clip((total - tt) / 2.5, 0, 1)
     return out * fade * 0.08
-mus = music(len(vo) / SR)
+def music_mystery(total, sr=SR):
+    """Ambiance « enquête » : drone grave en ré mineur qui respire, horloge, pluie douce."""
+    n = int(total * sr); tt = np.arange(n) / sr; out = np.zeros(n, np.float32)
+    for f, a in [(73.42, 1.0), (87.31, 0.5), (110.0, 0.6), (146.83, 0.25)]:
+        out += (a * np.sin(2 * np.pi * f * tt + 0.3 * np.sin(2 * np.pi * 0.1 * tt))).astype(np.float32)
+    out *= (0.5 + 0.5 * np.sin(2 * np.pi * 0.07 * tt - 1.5) ** 2).astype(np.float32)
+    out /= np.max(np.abs(out)) + 1e-9
+    L = int(0.03 * sr); tk = np.sin(2 * np.pi * 2400 * np.arange(L) / sr) * np.exp(-np.arange(L) / (0.004 * sr))
+    for s0 in np.arange(0.5, total, 0.5):
+        i = int(s0 * sr)
+        if i + L < n: out[i:i + L] += (0.35 if int(s0 * 2) % 2 else 0.22) * tk
+    rng = np.random.default_rng(3); rain = rng.standard_normal(n).astype(np.float32)
+    rain = np.convolve(rain, np.ones(24) / 24, mode="same"); out += 0.25 * rain / (np.max(np.abs(rain)) + 1e-9)
+    out /= np.max(np.abs(out)) + 1e-9
+    fade = np.clip(tt / 1.0, 0, 1) * np.clip((total - tt) / 1.5, 0, 1)
+    return out * fade * 0.16
+
+def sfx_track(total, events, sr=SR):
+    """Bruitages : thunder (coup de tonnerre), heartbeat (battements qui accélèrent, dur), hit (impact grave)."""
+    n = int(total * sr); out = np.zeros(n, np.float32); rng = np.random.default_rng(11)
+    for ev in events:
+        i0 = int(ev["t"] * sr); kind = ev["type"]
+        if kind == "thunder":
+            L = int(3.0 * sr); x = rng.standard_normal(L).astype(np.float32)
+            x = np.convolve(x, np.ones(60) / 60, mode="same")
+            env = np.exp(-np.arange(L) / (0.9 * sr)); env[:int(0.05 * sr)] *= np.linspace(0, 1, int(0.05 * sr))
+            crack = rng.standard_normal(L).astype(np.float32) * np.exp(-np.arange(L) / (0.08 * sr)) * 0.5
+            seg = (x / (np.max(np.abs(x)) + 1e-9) * env + crack) * 0.9
+        elif kind == "heartbeat":
+            dur = ev.get("dur", 3.0); L = int(dur * sr); seg = np.zeros(L, np.float32); s0 = 0.0; per = 0.9
+            while s0 < dur - 0.3:
+                for off, amp in [(0, 1.0), (0.2, 0.7)]:
+                    j = int((s0 + off) * sr); m = int(0.18 * sr)
+                    if j + m < L: seg[j:j + m] += amp * np.sin(2 * np.pi * 55 * np.arange(m) / sr) * np.exp(-np.arange(m) / (0.05 * sr))
+                s0 += per; per = max(0.45, per * 0.88)
+            seg *= 0.9
+        else:  # hit
+            L = int(1.5 * sr); seg = (np.sin(2 * np.pi * 45 * np.arange(L) / sr) * np.exp(-np.arange(L) / (0.35 * sr))).astype(np.float32)
+        j1 = min(n, i0 + len(seg))
+        if j1 > i0: out[i0:j1] += seg[:j1 - i0]
+    return out
+
+_MOOD, _SFX = "", []
+try:
+    _mm = json.load(open(EP + f"/meta_{LANG}.json", encoding="utf-8")) if os.path.exists(EP + f"/meta_{LANG}.json") else {}
+    _MOOD = _mm.get("music", "")
+    for ev in _mm.get("sfx", []):
+        seg0 = next((sg for sg in plan if sg["scene"] == ev["scene"]), None)
+        if seg0: _SFX.append({**ev, "t": seg0["start"] + ev.get("at", 0.0)})
+except Exception:
+    pass
+SFX_TIMES = [(e["t"], e["type"]) for e in _SFX]
+mus = music_mystery(len(vo) / SR) if _MOOD == "mystery" else music(len(vo) / SR)
+if _SFX: mus = mus + sfx_track(len(vo) / SR, _SFX)
 mixd = vo * 0.95 + mus[:len(vo)]
 mixd /= max(1.0, np.max(np.abs(mixd)) / 0.97)
 sf.write(WD + f"/audio_{MODE}.wav", mixd, SR)
