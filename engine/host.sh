@@ -7,8 +7,8 @@ REPO=$(python3 -c "import json;print(json.load(open('config.json'))['video_host_
 R="https://github.com/$REPO"
 TMP=$(mktemp -d); cd "$TMP"; git init -q -b backlog
 if git fetch -q --depth 1 "$R" backlog 2>/dev/null; then git checkout -q -B backlog FETCH_HEAD; fi
-mkdir -p "ep$N"; for f in video_long.mp4 video_short.mp4 miniature.png; do [ -f "$EP/build/$f" ] && cp "$EP/build/$f" "ep$N/"; done
+mkdir -p "ep$N"; for f in video_long.mp4 video_short.mp4 miniature.png short_cover.jpg; do [ -f "$EP/build/$f" ] && cp "$EP/build/$f" "ep$N/"; done
 git add -A && git -c user.name="Factora" -c user.email="noreply@anthropic.com" commit -qm "Fichiers épisode $N"
 git push -q "$R" HEAD:backlog 2>&1 | grep -v "^remote:" >&2 || true
 SHA=$(git rev-parse HEAD)
-for f in video_long.mp4 video_short.mp4 miniature.png; do [ -f "ep$N/$f" ] && echo "https://raw.githubusercontent.com/$REPO/$SHA/ep$N/$f"; done
+for f in video_long.mp4 video_short.mp4 miniature.png short_cover.jpg; do [ -f "ep$N/$f" ] && echo "https://raw.githubusercontent.com/$REPO/$SHA/ep$N/$f"; done

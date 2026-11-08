@@ -110,6 +110,7 @@ Vidéo longue : `title`, `description` (= build/description.txt), `tags`, `video
 Puis action « Update Video Thumbnail » (`video_id`, `thumbnail` = URL miniature). Si refus « permissions… thumbnails »
 (normalement résolu : téléphone vérifié le 2026-11-04) : continuer sans, noter `"thumbnail_set": false`, le signaler dans le résumé final.
 Lors de l'étape 1, réessayer la miniature des épisodes avec `"thumbnail_set": false` (fichier : régénérer avec `render.py thumb` puis `host.sh`, ou ignorer si impossible).
+**Couverture du Short (depuis le 2026-11-08 : YouTube avait choisi une image qui dévoilait la réponse)** : avant `host.sh`, extraire la 1re image du Short final (`ffmpeg -i build/video_short.mp4 -frames:v 1 -vf scale=1080:1920 -q:v 3 build/short_cover.jpg`, c'est l'image « couverture » avec l'accroche) ; host.sh l'héberge ; après l'upload du Short, action « Update Video Thumbnail » avec cette image (1 task). Ne jamais laisser une couverture qui montre la réponse d'une énigme.
 Short : `short_title`, description courte (anglais) avec le lien `https://youtu.be/<long_id>` + hashtags, sans miniature, `notify_subscribers` = false.
 Ensuite, pour la vidéo longue : **pas d'ajout automatique en playlist** (supprimé le 2026-11-07 pour économiser les tasks ; Nazik le fait dans Studio si elle veut, la playlist conseillée = `meta.playlist`, à rappeler dans le résumé final) ;
 publier le commentaire `meta.comment` (POST `commentThreads?part=snippet` avec `{"snippet":{"channelId":…,"videoId":…,"topLevelComment":{"snippet":{"textOriginal":…}}}}`).
