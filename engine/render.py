@@ -369,7 +369,7 @@ STILLS = [float(x) for x in sys.argv[3].split(",")] if len(sys.argv) > 3 else No
 # finition « cinéma » appliquée par ffmpeg : halo lumineux (bloom) sur les zones claires, vignette, grain très léger ;
 # la vidéo longue est agrandie en 1440p (YouTube attribue alors un meilleur codec/débit, image nettement plus nette).
 FINISH = ("format=gbrp,split[a][b];[b]colorlevels=rimin=0.5:gimin=0.5:bimin=0.5,gblur=sigma=%d[g];[a][g]blend=all_mode=screen:all_opacity=0.55,"
-          "eq=saturation=1.4:contrast=1.07:brightness=0.01,vignette=angle=PI/7,noise=alls=2:allf=t" % int(18 * U))
+          "colorbalance=rs=0.03:bs=0.07:bm=0.03:rh=0.02,eq=saturation=1.75:contrast=1.1:brightness=0.025:gamma=1.06,vibrance=intensity=0.35,vignette=angle=PI/5,noise=alls=2:allf=t" % int(18 * U))
 if MODE == "long" and TOTAL <= 330: FINISH += ",scale=2560:1440:flags=lanczos"   # > 5 min 30 : reste en 1080p (fichier < 100 Mo)   # (pas de grain : il alourdit trop le fichier, limite GitHub 100 Mo)
 else: FINISH += ",noise=alls=2:allf=t"
 class _N:
