@@ -12,7 +12,7 @@ MODE, EP = sys.argv[1], sys.argv[2].rstrip('/')
 WD = EP + '/build'
 os.makedirs(WD, exist_ok=True)
 FPS = 30
-W, H = {"long": (1920, 1080), "short": (1080, 1920), "thumb": (1280, 720)}[MODE]
+W, H = {"long": (1920, 1080), "short": (1440, 2560), "thumb": (1280, 720)}[MODE]
 U = min(W, H) / 1080.0          # unité d'échelle
 CX, CY = W / 2, H / 2
 VERT = H > W
@@ -371,7 +371,8 @@ STILLS = [float(x) for x in sys.argv[3].split(",")] if len(sys.argv) > 3 else No
 FINISH = ("format=gbrp,split[a][b];[b]colorlevels=rimin=0.5:gimin=0.5:bimin=0.5,gblur=sigma=%d[g];[a][g]blend=all_mode=screen:all_opacity=0.55,"
           "colorbalance=rs=0.03:bs=0.07:bm=0.03:rh=0.02,eq=saturation=1.75:contrast=1.1:brightness=0.025:gamma=1.06,vibrance=intensity=0.35,vignette=angle=PI/5,noise=alls=2:allf=t" % int(18 * U))
 if MODE == "long" and TOTAL <= 330: FINISH += ",scale=2560:1440:flags=lanczos"   # > 5 min 30 : reste en 1080p (fichier < 100 Mo)   # (pas de grain : il alourdit trop le fichier, limite GitHub 100 Mo)
-else: FINISH += ",noise=alls=2:allf=t"
+elif MODE == "long": FINISH += ",noise=alls=2:allf=t"
+if MODE == "short": FINISH += ",unsharp=5:5:0.5:5:5:0.0"   # Short rendu nativement en 1440×2560, sans grain, léger piqué (demande de Nazik 2026-11-08)
 class _N:
     def write(self, b): pass
     def close(self): pass
@@ -379,7 +380,7 @@ class _P:
     stdin=_N()
     def wait(self): pass
 ff = _P() if STILLS else subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgra", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-                       "-i", WD + f"/audio_{MODE}.wav", "-vf", FINISH, "-c:v", "libx264", "-preset", "slow", "-tune", "animation", "-crf", ("19" if MODE == "long" else "17"), *(["-maxrate", "1500k", "-bufsize", "3000k"] if MODE == "long" else []), "-pix_fmt", "yuv420p", "-r", str(FPS),
+                       "-i", WD + f"/audio_{MODE}.wav", "-vf", FINISH, "-c:v", "libx264", "-preset", "slow", "-tune", "animation", "-crf", ("19" if MODE == "long" else "18"), *(["-maxrate", "1500k", "-bufsize", "3000k"] if MODE == "long" else []), "-pix_fmt", "yuv420p", "-r", str(FPS),
                        "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", out], stdin=subprocess.PIPE)
 surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
 nf = int(TOTAL * FPS)
