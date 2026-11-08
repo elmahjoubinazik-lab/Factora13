@@ -1,0 +1,10 @@
+[
+ {"scene":"hook","text":["A gold coin vanished. Four suspects. One of them is lying."]},
+ {"scene":"setting","text":["New York. December twenty-first. Eight p.m. The coin disappears during a museum gala."]},
+ {"scene":"s1","text":["Suspect one, the guard: I was doing my rounds with my flashlight."]},
+ {"scene":"s2","text":["Suspect two, the cleaner: I was mopping the hall. The floor was still wet when the alarm rang."]},
+ {"scene":"s3","text":["Suspect three, the photographer: I was on the rooftop, shooting the sunset."]},
+ {"scene":"s4","text":["Suspect four, the chef: I was in the kitchen. My ice cream was melting."]},
+ {"scene":"think","text":["So, who's lying?"],"pause":1.5},
+ {"scene":"outro","text":["Comment the number. The answer is in the next video.","Subscribe so you don't miss it."]}
+]
