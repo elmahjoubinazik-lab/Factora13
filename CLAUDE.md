@@ -55,6 +55,7 @@ Premier sujet non coché de `topics.md` (pour un épisode long, ignorer les suje
     structure en 3–5 « chapitres » avec une relance de curiosité toutes les ~60 s (« But here's where it gets strange… ») pour garder le public jusqu'au bout ;
     exemples concrets, comparaisons à l'échelle humaine, une anecdote historique, une idée reçue corrigée ;
   - nombres écrits en toutes lettres (la voix les lit mieux) ; phrases courtes ;
+  - **public américain (77 % des vues, Studio 2026-11-08)** : unités US d'abord (feet, miles, pounds, °F, gallons ; métrique éventuellement entre parenthèses à l'écran), comparaisons américaines (football field, school bus, Statue of Liberty, Empire State Building), orthographe et vocabulaire US (color, gas, fall, trash), exemples du quotidien US (dryer, garbage disposal, Thanksgiving…) quand c'est naturel ; titres et hashtags avec les mots que tapent les Américains.
   - textes dessinés à l'écran : écrire directement en anglais dans `scenes.py` (ou clé française + dictionnaire `TR["en"]` comme l'épisode 001) ;
   - **uniquement des faits établis** (NASA, ESA, CNRS, INSERM, OMS, Banque de France, encyclopédies…). Pas de chiffre douteux ;
     en cas de doute, formuler prudemment (« selon plusieurs études ») ou retirer. Lister les sources dans `meta.json` ;
@@ -99,7 +100,7 @@ bash engine/host.sh episodes/NNN-x NNN   # ajoute les fichiers sur la branche du
 
 ### 6. Publier via Zapier (action YouTube « Upload Video »)
 Vidéo longue : `title`, `description` (= build/description.txt), `tags`, `video` = URL, `privacy_status` = `config.privacy_first` (= "public" depuis le 2026-11-06 : publication directe, Nazik contrôle a posteriori),
-`made_for_kids` = false, `category_id` = "27" (Éducation), `default_language` = en, `default_audio_language` = en, `notify_subscribers` = true.
+`made_for_kids` = false, `category_id` = "27" (Éducation), `default_language` = en-US, `default_audio_language` = en-US, `notify_subscribers` = true.
 **Ne pas passer `thumbnail` dans l'upload** (s'il échoue, la vidéo est quand même créée → risque de doublon).
 **Pas de vérification de doublons** (supprimée le 2026-11-07 pour économiser les tasks Zapier) : ne jamais relancer un upload qui a renvoyé un `id`.
 Puis action « Update Video Thumbnail » (`video_id`, `thumbnail` = URL miniature). Si refus « permissions… thumbnails »
@@ -146,7 +147,7 @@ Tous les appels YouTube : `selected_api` = "YouTubeV4CLIAPI", `connection_id` = 
   Garde-fou : ressource `channels`, querystring `{"part": "id", "mine": "true"}`.
 - **POST / PUT / DELETE** : `execute_zapier_write_action`, action "_zap_raw_request", tool_name "youtube_make_api_mutating_request",
   params `{"url": …, "method": "POST"|"PUT"|"DELETE", "querystring": {"part": "snippet"|"status"}, "body": "<JSON en texte>", "fail_on_errors": "false"}`.
-- **Upload** : `execute_zapier_write_action`, action "upload_video", tool_name "youtube_upload_video", params `title`, `description`, `tags` (liste), `video` (URL), `privacy_status`, `made_for_kids` "false", `category_id` "27", `default_language` "en", `default_audio_language` "en", `notify_subscribers` "true"|"false".
+- **Upload** : `execute_zapier_write_action`, action "upload_video", tool_name "youtube_upload_video", params `title`, `description`, `tags` (liste), `video` (URL), `privacy_status`, `made_for_kids` "false", `category_id` "27", `default_language` "en-US", `default_audio_language` "en-US", `notify_subscribers` "true"|"false".
 - **Miniature** : action "upload_video_thumbnail", tool_name "youtube_update_video_thumbnail", params `video_id`, `thumbnail` (URL).
 - **Buffer** : `selected_api` "BufferCLIAPI", action "update", tool_name "buffer_add_to_queue", `connection_id`, params
   `{"method": "schedule"|"share_now", "channelId": …, "organizationId": …, "dynamic_properties": {…}}`.
