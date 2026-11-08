@@ -25,7 +25,8 @@ for seg in script:
         a = a.astype(np.float32)
         sents.append({"text": txt, "start": t, "end": t + len(a) / SR})
         out += [a, sil(0.35)]; t += len(a) / SR + 0.35
-    out.append(sil(0.5)); t += 0.5
+    extra = float(seg.get("pause", 0))   # silence volontaire (ex. chronomètre « pause the video » des énigmes)
+    out.append(sil(0.5 + extra)); t += 0.5 + extra
     timeline.append({"scene": seg["scene"], "start": s0, "end": t, "sents": sents})
 sf.write(WD + "/voice.wav", np.concatenate(out), SR)
 if V.get("traitement_doux"):   # même durée : les repères de timeline restent valables
