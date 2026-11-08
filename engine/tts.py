@@ -17,7 +17,7 @@ SCRIPT = EP + f"/script_{LANG}.json" if os.path.exists(EP + f"/script_{LANG}.jso
 script = json.load(open(SCRIPT, encoding="utf-8"))
 SR = 24000
 def sil(s): return np.zeros(int(SR * s), dtype=np.float32)
-out, t, timeline = [sil(0.4)], 0.4, []
+out, t, timeline = [sil(0.1)], 0.1, []   # voix dès 0,1 s (avant : 0,4 s de silence au début = balayages)
 for seg in script:
     s0, sents = t, []
     for txt in seg["text"]:
