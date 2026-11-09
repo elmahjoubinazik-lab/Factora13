@@ -15,7 +15,7 @@ Paramètres : `config.json` (chaîne cible, dépôt d'hébergement des fichiers,
 ### 0. Préparation
 **Exécutions sautées (décision de Nazik)** : 2026-11-08 (dimanche soir — laisser le Short de la paille faire effet). Si la date d'aujourd'hui (heure suisse) figure ici : ne rien produire ni publier, aucun appel Zapier, aucune notification ; terminer par une ligne de message.
 **Garde-fou « un épisode par jour » :** si `published.json` contient déjà un épisode (hors `"format": "short_seul"`) dont la `date` est celle d'aujourd'hui (heure suisse), ne rien produire : terminer par un court message à Nazik (sans notification).
-**Mode « Shorts seuls » (décision de Nazik, 2026-11-07 : plan de 30 jours, objectif +1 000 abonnés) — toutes les exécutions du dimanche 8 novembre au dimanche 6 décembre 2026 inclus (même rythme 5/7) :** ne produire **que le Short** (règle « Short seul » plus bas : `format` = "short_seul", pas de vidéo longue ni de miniature, **25–35 s**, accroche forte dès la 1re seconde) sur le premier sujet non coché de `topics.md` marqué **[SHORT]**. Ajouter `"auto": true` à l'entrée de `published.json` ; pendant ce mode, le garde-fou ci-dessus compte aussi les épisodes `"auto": true` du jour. Description du Short : lien vers la vidéo longue de la chaîne la plus proche du sujet (s'il y en a une). Publier Short + commentaire + TikTok + Instagram comme d'habitude.
+**Mode « Shorts seuls » (décision de Nazik, 2026-11-07 : plan de 30 jours, objectif +1 000 abonnés) — toutes les exécutions du dimanche 8 novembre au dimanche 6 décembre 2026 inclus (même rythme 5/7) :** ne produire **que le Short** (règle « Short seul » plus bas : `format` = "short_seul", pas de vidéo longue ni de miniature, **25–35 s**, accroche forte dès la 1re seconde) sur le premier sujet non coché de `topics.md` marqué **[SHORT]**. Ajouter `"auto": true` à l'entrée de `published.json` ; pendant ce mode, le garde-fou ci-dessus compte aussi les épisodes `"auto": true` du jour. Description du Short : lien vers la vidéo longue de la chaîne la plus proche du sujet (s'il y en a une). Publier Short + commentaire + Instagram comme d'habitude ; TikTok = préparé pour Nazik (étape 6 bis, publication manuelle).
 - **Familles** (décision de Nazik, 2026-11-08 : les énigmes font le plus d'engagement) : **2 Shorts sur 5 par semaine sont des énigmes** (sujets `[SHORT][ENIGME]` : question + vote en commentaire, réponse dans le Short suivant ou dans le même Short ; séries reconnaissables « The Holes Debate », « Can you solve it? ») ; les 3 autres : quotidien surprenant, corps humain, paradoxes expliqués. Ne pas enchaîner 2 énigmes de suite, sauf une réponse promise (prioritaire). Les énigmes restent scientifiques / logiques / mathématiques (pas de devinettes gratuites) et se terminent par la science qui explique la réponse. Un Short énigme renvoie vers la dernière vidéo longue d'énigmes (« More puzzles like this in the full video ») si elle existe.
 - **Apprendre des chiffres :** la lecture groupée de l'état YouTube (étape 0) inclut les `short_id` des 10 derniers Shorts ; le **dimanche**, remonter en tête des [SHORT] un sujet de la famille dont les Shorts ont la meilleure moyenne de vues (repère : 2× la médiane = succès) et noter ce classement dans le résumé.
 - S'il reste moins de 6 sujets [SHORT] non cochés, en ajouter 10 (mêmes règles, faits vérifiables, familles ci-dessus).
@@ -123,26 +123,22 @@ Short : `short_title`, description courte (anglais) avec le lien `https://youtu.
 Ensuite, pour la vidéo longue : **pas d'ajout automatique en playlist** (supprimé le 2026-11-07 pour économiser les tasks ; Nazik le fait dans Studio si elle veut, la playlist conseillée = `meta.playlist`, à rappeler dans le résumé final) ;
 publier le commentaire `meta.comment` (POST `commentThreads?part=snippet` avec `{"snippet":{"channelId":…,"videoId":…,"topLevelComment":{"snippet":{"textOriginal":…}}}}`).
 Le commentaire ne peut pas être épinglé par l'API : le rappeler à Nazik dans le résumé final. Un 429 de Zapier : attendre 60 s et réessayer une fois.
-Si l'upload échoue pour limite de mises en ligne : ne pas réessayer ; ajouter l'épisode avec `"status": "attente_youtube"` et `urls` (celles de host.sh), continuer avec TikTok.
+Si l'upload échoue pour limite de mises en ligne : ne pas réessayer ; ajouter l'épisode avec `"status": "attente_youtube"` et `urls` (celles de host.sh), continuer avec Instagram et la préparation TikTok.
 Ajouter l'épisode dans `published.json` (`episode`, `topic`, `dir`, `date`, `long_id`, `short_id`, `status`, `thumbnail_set`).
 Cocher le sujet dans `topics.md` (date + numéro). `git add -A && git commit && git push origin main`.
 
-### 6 bis. Publier le Short sur TikTok (via Buffer, Zapier)
-Action Zapier Buffer « Add to Queue » (selected_api BufferCLIAPI, action « update », tool_name « buffer_add_to_queue »),
-avec le `connection_id`, l'`organizationId` et le `channelId` TikTok donnés dans le message de la tâche planifiée.
-Paramètres : `method` = "schedule", `scheduled_at` = aujourd'hui 19:30 heure de New York (heure de pointe US) — calculer avec
-`python3 -c "from datetime import datetime;from zoneinfo import ZoneInfo as Z;n=datetime.now(Z('America/New_York'));t=n.replace(hour=19,minute=30,second=0,microsecond=0);print((t if t>n else n.replace(second=0,microsecond=0)).isoformat())"`
-(si 19:30 est déjà passé à New York : `method` = "share_now"), `attachment` = "video", `video` = URL du Short (celle de host.sh), `scheduling_type` = "direct",
-`text` (en anglais) = accroche (1–2 phrases) + « Full video on YouTube: @factoraofficiel » + « Synthetic voice, original illustrations. »
-+ 5–6 hashtags (#sciencetok #didyouknow #learnontiktok #factora + 1–2 du sujet). Mettre dans la 1re phrase les mots-clés que les gens taperaient dans la recherche TikTok. ≤ 2 200 caractères.
-Le Short est programmé sur TikTok dès cette exécution (pas d'étape « non répertorié » sur TikTok).
-Noter dans `published.json` : `"tiktok_buffer_id"` (champ `id` de la réponse) et `"tiktok": "envoye"`.
-Si Buffer échoue : ne pas bloquer YouTube ; noter `"tiktok": "echec"` et le signaler dans le résumé final.
+### 6 bis. TikTok : publication MANUELLE par Nazik depuis l'application TikTok (décision de Nazik, 2026-11-09)
+**Ne plus publier sur TikTok via Buffer** (aucun appel Buffer TikTok). Nazik poste elle-même avec l'outil natif de TikTok (bouton « + », ou le planificateur de TikTok Studio) : son test a montré beaucoup plus de vues au démarrage qu'une publication via un outil tiers.
+L'exécution prépare tout pour elle :
+1. **Envoyer le fichier du Short** dans la conversation avec `SendUserFile` (`episodes/NNN-x/build/video_short.mp4`, `display` = "attach", légende « Short pour TikTok »), pour qu'elle l'enregistre sur son téléphone.
+2. Dans le résumé final, donner la **légende TikTok prête à copier** dans un bloc de code (en anglais) = accroche (1–2 phrases, avec dans la 1re phrase les mots-clés que les gens taperaient dans la recherche TikTok) + la phrase d'engagement + « Full videos on YouTube: @factoraofficiel » + « Think fast. Learn something amazing. » + « Synthetic voice, original illustrations. » + 5–6 hashtags (#sciencetok #didyouknow #learnontiktok #factora + 1–2 du sujet) ; ≤ 2 200 caractères. La garder aussi dans `meta_en.json → tiktok_text`.
+3. Rappeler l'heure conseillée : **19h30 à New York (01h30 en Suisse)** → utiliser la programmation native de TikTok (TikTok Studio sur ordinateur, ou « Programmer » dans l'application si l'option est disponible) ; sinon publier au réveil. Conseils natifs : ajouter un son tendance à volume très bas sous la voix, cocher « Contenu généré par l'IA » si la vidéo vient d'un outil d'IA externe.
+Noter dans `published.json` : `"tiktok": "manuel"` (Nazik publie). La notification push mentionne « Short prêt pour TikTok ».
 
 ### 6 ter. Publier le Short en Reel Instagram (via Buffer, Zapier) — depuis le 2026-11-07
-Même action Buffer que 6 bis, avec le `channelId` **Instagram** donné dans le message de la tâche planifiée (compte @factora132).
+Action Zapier Buffer « Add to Queue » (voir « Référence des appels Zapier »), avec le `connection_id`, l'`organizationId` et le `channelId` **Instagram** donné dans le message de la tâche planifiée (compte @factora132).
 `dynamic_properties` : `ig_post_type` = "reels", `ig_share_to_feed` = "true", `video` = URL du Short, `scheduling_type` = "direct",
-`scheduled_at` = même heure que TikTok (19:30 New York ; sinon `method` = "share_now"),
+`scheduled_at` = aujourd'hui 19:30 heure de New York (si l'heure est passée, `method` = "share_now"), commande : `python3 -c "from datetime import datetime;from zoneinfo import ZoneInfo as Z;n=datetime.now(Z('America/New_York'));t=n.replace(hour=19,minute=30,second=0,microsecond=0);print((t if t>n else n.replace(second=0,microsecond=0)).isoformat())"`,
 `text` (anglais) = accroche + « Full videos on YouTube: Factora (link in bio) » (**pas** « @factoraofficiel » : sur Instagram ce @ pointe vers un autre compte)
 + « Synthetic voice, original illustrations. » + 5–6 hashtags (#science #didyouknow #learnoninstagram #factora + 1–2 du sujet).
 **Buffer gratuit : 10 publications en attente maximum par compte** (erreur « 10 scheduled post limit ») : dans ce cas, réessayer quelques minutes plus tard ou utiliser `share_now`. Tous les anciens Shorts (001–014) ont été publiés en Reels le 2026-11-07.
@@ -164,7 +160,7 @@ Tous les appels YouTube : `selected_api` = "YouTubeV4CLIAPI", `connection_id` = 
 - **Miniature** : action "upload_video_thumbnail", tool_name "youtube_update_video_thumbnail", params `video_id`, `thumbnail` (URL).
 - **Buffer** : `selected_api` "BufferCLIAPI", action "update", tool_name "buffer_add_to_queue", `connection_id`, params
   `{"method": "schedule"|"share_now", "channelId": …, "organizationId": …, "dynamic_properties": {…}}`.
-  TikTok : `dynamic_properties` = `text`, `attachment` "video", `video`, `scheduling_type` "direct", `scheduled_at`.
+  TikTok (plus utilisé depuis le 2026-11-09 : Nazik publie elle-même) : `dynamic_properties` = `text`, `attachment` "video", `video`, `scheduling_type` "direct", `scheduled_at`.
   Instagram : `dynamic_properties` = `ig_post_type` "reels", `ig_share_to_feed` "true", `text`, `video`, `scheduling_type` "direct", `scheduled_at`.
 - **Playlists** (`config.json → playlists`) : what_if, how, why, recap.
 
@@ -181,7 +177,7 @@ Procédure technique = étapes 3 à 6 (vidéo longue seule, **pas de Short ni Ti
 Strictement **neutres et factuels** : expliquer les règles et mécanismes (institutions, chiffres officiels), présenter chaque scénario avec ses effets sans jugement ni préférence, temps de parole égal pour chaque camp, aucun pronostic, aucun qualificatif partisan, aucune personne politique caricaturée ou dessinée. Ne citer un résultat électoral que s'il est vérifié à la date de production (AP, sources officielles) ; sinon rester sur les mécanismes. Exemples illustrés avec un projet de loi **fictif** et des partis représentés par des couleurs neutres (pas rouge/bleu : utiliser or et cyan avec une légende « Party A / Party B »).
 
 ## Règles
-- **Short seul** (`meta_en.json → format = "short_seul"`) : à la demande de Nazik pour un sujet qui ne justifie pas 8 min. Pas de vidéo longue ni de miniature (`host.sh` n'héberge que les fichiers présents), Short public + commentaire + TikTok. Dans `published.json` : `"format": "short_seul"`, `long_id` null. Le récap du samedi peut l'inclure (statistiques sur `short_id`, scènes réutilisables).
+- **Short seul** (`meta_en.json → format = "short_seul"`) : à la demande de Nazik pour un sujet qui ne justifie pas 8 min. Pas de vidéo longue ni de miniature (`host.sh` n'héberge que les fichiers présents), Short public + commentaire + Instagram (TikTok : préparé pour Nazik, étape 6 bis). Dans `published.json` : `"format": "short_seul"`, `long_id` null. Le récap du samedi peut l'inclure (statistiques sur `short_id`, scènes réutilisables).
 - Jamais de contenu « conçu pour les enfants ». Jamais de copie d'une œuvre existante. Jamais de visage ou de voix d'une personne réelle.
 - Une seule publication par exécution. Ne jamais republier un sujet déjà coché.
 - Ne jamais écrire sur YouTube si le garde-fou chaîne échoue.
