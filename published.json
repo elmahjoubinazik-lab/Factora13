@@ -401,6 +401,26 @@
     "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/0cf15502465aeb3d5c8db8e4ec8321a594c3989e/ep021/video_short.mp4"
    },
    "note": "Short seul 25 s, demande et validation de Nazik, publié manuellement le lundi 9 nov à 20h52 (Zurich) ; sujet initialement prévu ven 13"
+  },
+  {
+   "episode": "022",
+   "topic": "Who's Lying? #1 — THE ANSWER (the gardener)",
+   "dir": "episodes/022-whos-lying-1-answer",
+   "date": "2026-11-09",
+   "langue": "en",
+   "format": "short_seul",
+   "auto": true,
+   "long_id": null,
+   "short_id": "nL51s1ndDqI",
+   "status": "public",
+   "thumbnail_set": true,
+   "tiktok": "manuel",
+   "instagram": "envoye",
+   "instagram_buffer_id": "6af24fdddc2e7b1cdb0ac553",
+   "comment_id": "Ugx6LKLICNtzB6D28Rp4AaABAg",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/031f9974b82d37de2a0dcfc177f0687b18804947/ep022/video_short.mp4"
+   }
   }
  ]
 }

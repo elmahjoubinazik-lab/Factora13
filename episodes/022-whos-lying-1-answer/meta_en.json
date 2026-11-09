@@ -1,0 +1,60 @@
+{
+  "format": "short_seul",
+  "hook_text": "WHO LIED?",
+  "playlist": "why",
+  "voix": {
+    "melange": {
+      "am_onyx": 0.75,
+      "am_fenrir": 0.25
+    },
+    "vitesse": 0.9,
+    "code_langue": "en-us"
+  },
+  "music": "mystery",
+  "sfx": [
+    {
+      "scene": "hook",
+      "at": 0.3,
+      "type": "thunder",
+      "vol": 0.8
+    },
+    {
+      "scene": "clue",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "science",
+      "at": 4.7,
+      "type": "thunder",
+      "vol": 0.9
+    },
+    {
+      "scene": "outro",
+      "at": 0.4,
+      "type": "thunder",
+      "vol": 0.6
+    }
+  ],
+  "short_title": "Who's Lying? #1 — the answer 🕵️ #shorts",
+  "short_description": "Who's Lying? #1, the answer: the gardener lied. He said he heard the thunder, then saw the lightning. That's impossible: light travels nearly a million times faster than sound (about 186,000 miles per second vs. about 767 mph), so you always see the flash before you hear the boom. And the maid's tea? A gas stove works fine in a blackout.\n\nBonus trick: count the seconds between the flash and the thunder. Every 5 seconds is about 1 mile (NOAA / National Weather Service).\n\nMissed the case? Watch it here: https://youtube.com/shorts/sy3cjTLxhQA\nNew case this Saturday 🕵️\n\nSources: NOAA National Weather Service, NOAA National Severe Storms Laboratory.\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations. Fictional story.\n\n#shorts #mystery #riddle #whoslying #brainteaser #science #factora",
+  "comment": "Did you solve it? 🕵️ Comment ✅ if you said the gardener, ❌ if he fooled you. New case this Saturday 👇",
+  "tiktok_text": "Who's Lying? #1, the answer 🕵️ The gardener said he heard the thunder BEFORE he saw the lightning. Impossible: light is nearly a million times faster than sound, so you always see the flash first. Did you get it? Comment ✅ or ❌ 👇 New case this Saturday!\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations. Fictional story.\n#sciencetok #didyouknow #learnontiktok #factora #mystery #whoslying",
+  "instagram_text": "Who's Lying? #1, the answer 🕵️ The gardener said he heard the thunder BEFORE he saw the lightning. Impossible: light is nearly a million times faster than sound, so you always see the flash first. Did you get it? Comment ✅ or ❌ 👇 New case this Saturday!\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations. Fictional story.\n#science #didyouknow #learnoninstagram #factora #mystery #whoslying",
+  "tags": [
+    "who's lying answer",
+    "who is lying riddle",
+    "detective riddle",
+    "thunder and lightning",
+    "speed of light vs sound",
+    "why do we see lightning before thunder",
+    "brain teaser",
+    "shorts",
+    "factora"
+  ],
+  "sources": [
+    "https://www.weather.gov/safety/lightning-science-thunder",
+    "https://www.nssl.noaa.gov/education/svrwx101/lightning/faq/",
+    "https://www.weather.gov/safety/lightning-struck"
+  ]
+}

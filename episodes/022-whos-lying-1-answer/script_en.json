@@ -1,0 +1,7 @@
+[
+ {"scene": "hook", "speed": 1.05, "text": ["The gardener lied! Here's how you could tell."]},
+ {"scene": "clue", "speed": 1.05, "text": ["He said: I heard the thunder... then I saw the lightning."]},
+ {"scene": "science", "speed": 1.08, "text": ["Impossible! Light travels nearly a million times faster than sound.", "You always see the flash first. Then the boom."]},
+ {"scene": "tea", "speed": 1.08, "text": ["One of you asked: how did the maid make tea with no power?", "Great question! A gas stove works in a blackout."]},
+ {"scene": "outro", "speed": 1.06, "text": ["Did you get it? New case this Saturday. Subscribe so you don't miss it!"]}
+]
