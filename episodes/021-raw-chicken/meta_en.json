@@ -7,12 +7,48 @@
   "comment": "Be honest: do you wash your raw chicken? 🐔 Yes or no 👇 (and send this to someone who still does)",
   "tiktok_text": "Should you wash raw chicken before cooking? 🐔 Food safety experts say no: rinsing splashes germs up to about two feet around your sink. Only 165°F inside the meat makes it safe. Send this to someone who still washes chicken 👇\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations.\n#sciencetok #didyouknow #learnontiktok #factora #foodsafety #cookingtips",
   "instagram_text": "Should you wash raw chicken before cooking? 🐔 Food safety experts say no: rinsing splashes germs up to about two feet around your sink. Only 165°F inside the meat makes it safe. Send this to someone who still washes chicken 👇\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations.\n#science #didyouknow #learnoninstagram #factora #foodsafety #cookingtips",
-  "tags": ["should you wash raw chicken", "washing chicken", "dont wash chicken", "food safety", "raw chicken bacteria", "cooking tips", "165 degrees chicken", "kitchen hygiene", "shorts", "factora"],
-  "sfx": [{"scene": "splash", "at": 0.0, "type": "hit"}, {"scene": "study", "at": 0.1, "type": "hit"}, {"scene": "heat", "at": 1.6, "type": "riser", "dur": 1.4}],
+  "tags": [
+    "should you wash raw chicken",
+    "washing chicken",
+    "dont wash chicken",
+    "food safety",
+    "raw chicken bacteria",
+    "cooking tips",
+    "165 degrees chicken",
+    "kitchen hygiene",
+    "shorts",
+    "factora"
+  ],
+  "sfx": [
+    {
+      "scene": "splash",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "study",
+      "at": 0.1,
+      "type": "hit"
+    },
+    {
+      "scene": "heat",
+      "at": 1.6,
+      "type": "riser",
+      "dur": 1.4
+    }
+  ],
   "sources": [
     "https://www.usda.gov/media/press-releases/2019/08/22/usda-study-shows-washing-raw-poultry-increases-risk-cross-contamination",
     "https://www.cdc.gov/food-safety/foods/chicken.html",
     "https://www.food.gov.uk/safety-hygiene/raw-chicken",
     "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/washing-food-does-it-promote-food"
-  ]
+  ],
+  "voix": {
+    "melange": {
+      "af_heart": 1.0
+    },
+    "vitesse": 1.1,
+    "traitement_doux": true,
+    "code_langue": "en-us"
+  }
 }

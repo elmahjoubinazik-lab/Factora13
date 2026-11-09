@@ -1,7 +1,7 @@
 [
- {"scene": "hook", "text": ["Still washing raw chicken?", "Please stop."]},
- {"scene": "splash", "text": ["Rinsing doesn't wash germs away. It launches them.", "Droplets can fly about two feet, onto your counter, towels, and food."]},
- {"scene": "study", "text": ["In a USDA study, sixty percent of people who rinsed chicken had germs in their sink."]},
- {"scene": "heat", "text": ["Vinegar or lemon won't make it safe.", "Only heat will: one hundred sixty-five degrees, inside the meat."]},
- {"scene": "outro", "text": ["Do you wash yours? Send this to someone who still washes chicken.", "Subscribe for more things you never noticed."]}
+ {"scene": "hook", "text": ["Still washing raw chicken? Stop."]},
+ {"scene": "splash", "text": ["Rinsing doesn't remove germs. It launches them up to two feet, onto your counter and food."]},
+ {"scene": "study", "text": ["In a USDA study, sixty percent of rinsers had germs in their sink."]},
+ {"scene": "heat", "text": ["Vinegar or lemon won't fix it. Only heat will: one hundred sixty-five degrees inside."]},
+ {"scene": "outro", "text": ["Send this to someone who still washes chicken. Subscribe for more."]}
 ]
