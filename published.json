@@ -380,6 +380,27 @@
     "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/6ada50ada0ec5ec217f31663d287bdd71926cbc2/ep020/video_short.mp4"
    },
    "note": "Vidéo générée par Nazik avec CapCut AI, corrigée (fautes, sous-titres, 1080p, chrono 5 s, fin), marquage retiré à sa demande avec mention IA (YouTube containsSyntheticMedia + descriptions). Publiée le 2026-11-09 13 h 40 New York. La version néon maison (scenes.py) reste disponible, non publiée."
+  },
+  {
+   "episode": "021",
+   "topic": "Why you should never wash raw chicken",
+   "dir": "episodes/021-raw-chicken",
+   "date": "2026-11-09",
+   "langue": "en",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": "_WgIPvYNgzY",
+   "status": "public",
+   "thumbnail_set": true,
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6af224961b8291af55024c97",
+   "instagram": "envoye",
+   "instagram_buffer_id": "6af224b1b2b3cacfe805e752",
+   "comment_id": "Ugyvv2yo9X20nE31vBV4AaABAg",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/0cf15502465aeb3d5c8db8e4ec8321a594c3989e/ep021/video_short.mp4"
+   },
+   "note": "Short seul 25 s, demande et validation de Nazik, publié manuellement le lundi 9 nov à 20h52 (Zurich) ; sujet initialement prévu ven 13"
   }
  ]
 }
