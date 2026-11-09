@@ -185,6 +185,37 @@ def cta(ctx, t, d, line1="WANT MORE?", line2="MORE THINGS YOU NEVER NOTICED", y=
         font(ctx, 52 * S); lw = ctx.text_extents(line2).width
         ls = 52 * S * min(1.0, W * 0.88 / max(1, lw))
         text(ctx, line2, CX, y + 175 * S, ls, WHITE, lk)
+        # signature de la marque (décision de Nazik, 2026-11-09)
+        text(ctx, "THINK FAST. LEARN SOMETHING AMAZING.", CX, y + 265 * S, 34 * S, GOLD, 0.85 * lk)
+
+def neon_path(ctx, draw, col, width, a=1.0, col2=None):
+    """Trace « néon » : halo large et doux, puis trait coloré, puis cœur blanc. draw(ctx) construit le chemin."""
+    if a <= 0: return
+    c2 = col2 or col
+    for w, al, c in ((width * 5.0, 0.10, c2), (width * 2.6, 0.22, col), (width * 1.4, 0.55, col), (width * 0.55, 0.95, mix(col, WHITE, 0.65))):
+        ctx.new_path(); draw(ctx)
+        ctx.set_line_width(w); ctx.set_line_cap(cairo.LINE_CAP_ROUND); ctx.set_line_join(cairo.LINE_JOIN_ROUND)
+        rgba(ctx, c, al * a); ctx.stroke()
+
+def neon_text(ctx, s, x, y, size, col, a=1.0, col2=None, fill=0.0):
+    """Texte néon (contour lumineux) centré en (x, y) ; fill > 0 ajoute un remplissage doux."""
+    if a <= 0: return
+    font(ctx, size); e = ctx.text_extents(s)
+    ox, oy = x - e.width / 2 - e.x_bearing, y + size * 0.35
+    def d(c):
+        c.move_to(ox, oy); c.text_path(s)
+    if fill > 0:
+        ctx.new_path(); d(ctx); rgba(ctx, col, fill * a); ctx.fill()
+    neon_path(ctx, d, col, max(2.0, size * 0.045), a, col2)
+
+def neon_bg(ctx, t, c1=(0.10, 0.04, 0.22), c2=(0.01, 0.02, 0.08), tint=PURPLE):
+    """Fond sobre : dégradé sombre + grand halo coloré lent + quelques particules."""
+    vgrad(ctx, c1, c2)
+    glow(ctx, W * (0.5 + 0.15 * math.sin(t * 0.3)), H * 0.42, 0.85 * max(W, H), tint, 0.18)
+    rnd = random.Random(8)
+    for i in range(26):
+        x = rnd.random() * W; y = (rnd.random() * H - t * rnd.uniform(10, 40) * U) % H
+        circle(ctx, x, y, rnd.uniform(3, 8) * U, rnd.choice([PINK, CYAN, PURPLE]), 0.25 + 0.15 * math.sin(t * 2 + i))
 
 def houses(ctx, ybase, c, a=1.0):
     rgba(ctx, c, a)

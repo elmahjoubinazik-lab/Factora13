@@ -1,0 +1,7 @@
+[
+ {"scene":"hook","speed":1.05,"text":["Quick brain test!"]},
+ {"scene":"race","speed":1.05,"text":["You're running a race. You pass the person in second place.","What place are you in now?"]},
+ {"scene":"think","speed":1.0,"text":["First? Second? Third?"],"pause":0.8},
+ {"scene":"reveal","speed":1.05,"text":["Second! You took their spot. First place is still ahead of you."]},
+ {"scene":"outro","speed":1.05,"text":["Now... what if you pass the LAST person? Comment your answer!"]}
+]
