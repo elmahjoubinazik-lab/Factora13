@@ -4,6 +4,8 @@ Chaîne YouTube **Factora (@factoraofficiel, id UCzFd6_4jKV184oZtqr06ueA)** — 
 (« What if…? », « How does … work? », « Why…? »). **Toutes les vidéos sont en ANGLAIS** (décision de Nazik, 2026-11-04) ; `config.json → langue` = "en". Une vidéo longue (**7–10 min** depuis le 2026-11-06 : seules les vidéos longues comptent pour les 4 000 h de visionnage de la monétisation, 16:9) + un Short (≤ 60 s, 9:16) par épisode, et **un récap hebdomadaire de ~8 min le samedi** (voir « Récap du samedi »).
 Propriétaire : Nazik EL MAHJOUBI. Toute la communication avec elle se fait **en français**.
 
+**Vidéos générées avec un outil d'IA externe (CapCut, HeyGen…) fournies par Nazik :** après l'upload, PUT `videos?part=status` avec les 5 champs + `"containsSyntheticMedia": true`, et la ligne « Created with AI tools » dans la description et les légendes (décision de Nazik, 2026-11-09).
+
 **Signature de la marque (décision de Nazik, 2026-11-09) : « Think fast. Learn something amazing. »** — affichée automatiquement par `cta()` sous l'appel à l'action ; à mettre aussi en fin de chaque description YouTube et légende TikTok/Instagram (avant « Synthetic voice, original illustrations. »).
 
 Paramètres : `config.json` (chaîne cible, dépôt d'hébergement des fichiers, rythme). Le dépôt est **public** : n'y écrire aucune donnée personnelle ni identifiant.

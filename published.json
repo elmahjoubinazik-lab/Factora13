@@ -359,6 +359,27 @@
     "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a7a09be10701ebc371d50a4c927d87e039b846c1/ep019/video_short.mp4"
    },
    "note": "Validé par Nazik (v4), publié le 2026-11-08 18:40 New York ; solution : 3 (le jardinier) ; réponse promise au Short suivant"
+  },
+  {
+   "episode": "020",
+   "topic": "Brain Test: You pass 2nd place. What place are you? (version CapCut corrigée, test 15–25 s)",
+   "dir": "episodes/020-race-riddle",
+   "date": "2026-11-09",
+   "langue": "en",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": "jX3HqesRDck",
+   "status": "public",
+   "thumbnail_set": true,
+   "contains_synthetic_media": true,
+   "tiktok": "envoye",
+   "tiktok_buffer_id": "6af213b1d739106b870c90a9",
+   "instagram": "envoye",
+   "instagram_buffer_id": "6af213cdb1b8f82c830e3617",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/6ada50ada0ec5ec217f31663d287bdd71926cbc2/ep020/video_short.mp4"
+   },
+   "note": "Vidéo générée par Nazik avec CapCut AI, corrigée (fautes, sous-titres, 1080p, chrono 5 s, fin), marquage retiré à sa demande avec mention IA (YouTube containsSyntheticMedia + descriptions). Publiée le 2026-11-09 13 h 40 New York. La version néon maison (scenes.py) reste disponible, non publiée."
   }
  ]
 }
