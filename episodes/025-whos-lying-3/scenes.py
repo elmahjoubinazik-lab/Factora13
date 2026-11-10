@@ -217,3 +217,27 @@ SCENES = dict(hook=sc_hook, story=sc_story, d1=suspect(0), d2=suspect(1), d3=sus
 def thumbnail(c):
     vgrad(c, (0.06, 0.12, 0.14), (0.01, 0.02, 0.03))
     thumb_text(c, "WHO'S", "LYING?", "ONE DOCTOR IS FAKE")
+
+def cover(ctx):
+    """Poster cover of the series (Nazik 2026-11-10: soignée, qui attrape l'œil ; aucun suspect mis en avant)."""
+    t = 0.5
+    corridor(ctx, t, bright=1.0)
+    rgba(ctx, (0.0, 0.02, 0.03), 0.30); ctx.paint()
+    g = cairo.LinearGradient(0, 0, 0, H * 0.34); g.add_color_stop_rgba(0, 0, 0.01, 0.02, 0.95); g.add_color_stop_rgba(1, 0, 0.01, 0.02, 0)
+    ctx.rectangle(0, 0, W, H * 0.34); ctx.set_source(g); ctx.fill()
+    for i in range(4):                                    # one spotlight per doctor, same for all
+        x = W * (0.14 + 0.24 * i)
+        gg = cairo.LinearGradient(0, H * 0.33, 0, H * 0.70); gg.add_color_stop_rgba(0, 1, 1, 0.95, 0.0); gg.add_color_stop_rgba(1, 1, 1, 0.95, 0.16)
+        ctx.move_to(x - 30 * U, H * 0.33); ctx.line_to(x + 30 * U, H * 0.33); ctx.line_to(x + 160 * U, H * 0.70); ctx.line_to(x - 160 * U, H * 0.70); ctx.close_path()
+        ctx.set_source(gg); ctx.fill()
+        glow(ctx, x, H * 0.55, 250 * U, COLS[i], 0.35)
+        doctor(ctx, x, H * 0.69, 1.05 * U, COLS[i], i, 1.0, t, 1.0)
+        badge(ctx, x, H * 0.69 + 90 * U, i + 1, COLS[i], 1.0, 58)
+    for dx, dy, col, a in ((10, 12, (0, 0, 0), 0.65), (0, 0, None, 1.0)):
+        text(ctx, "WHO'S", CX + dx * U, H * 0.10 + dy * U, 210 * U, col or GOLD, a)
+        text(ctx, "LYING?", CX + dx * U, H * 0.20 + dy * U, 230 * U, col or CORAL, a)
+    label(ctx, "ONE OF THESE DOCTORS IS A FAKE", CX, H * 0.282, 56 * U, WHITE, 1.0)
+    rrect(ctx, CX - 470 * U, H * 0.815 - 60 * U, 940 * U, 120 * U, 60 * U); rgba(ctx, CORAL, 0.96); ctx.fill()
+    text(ctx, "COMMENT 1, 2, 3 OR 4", CX, H * 0.815, 70 * U, WHITE)
+    rrect(ctx, CX - 150 * U, H * 0.90 - 40 * U, 300 * U, 80 * U, 40 * U); rgba(ctx, GOLD, 0.95); ctx.fill()
+    text(ctx, "CASE #3", CX, H * 0.90, 52 * U, (0.05, 0.05, 0.08))

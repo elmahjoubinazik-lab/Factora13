@@ -96,7 +96,30 @@ def air_stream(ctx, t, x, y0, y1, a=1.0, spread=120):
         ctx.move_to(xx, yy); ctx.line_to(xx + (k - 4) * 4 * U, yy + 60 * U)
         ctx.set_line_width(6 * U); rgba(ctx, (0.85, 0.95, 1.0), 0.45 * a * (1 - e)); ctx.stroke()
 
+def dryer_closeup(ctx, t, scale=1.0, germ_a=1.0, dark=0.45, cx=None, top=None, gap=1000):
+    """Dramatic close-up: big hot-air dryer above freshly washed (wet) hands, glowing bacteria raining down."""
+    cx = cx if cx is not None else CX
+    top = top if top is not None else H * 0.30
+    bathroom(ctx, t)
+    rgba(ctx, (0.0, 0.02, 0.03), dark); ctx.paint()
+    (nx, ny), _ = hot_dryer(ctx, cx, top, 2.1 * scale)
+    glow(ctx, nx, ny + 380 * U * scale, 700 * U * scale, GERMC, 0.22 * germ_a)
+    air_stream(ctx, t, nx, ny, ny + 520 * U * scale, 1.0, spread=260)
+    hy = ny + gap * U * scale
+    hand(ctx, nx - 120 * U * scale, hy, 1.45 * scale, -0.12, 1.0, wet=0.9)
+    hand(ctx, nx + 120 * U * scale, hy, 1.45 * scale, 0.12, 1.0, wet=0.9, mirror=-1)
+    rnd = random.Random(21)
+    for i in range(34):
+        e = (t * 0.9 + rnd.random()) % 1.0
+        germ(ctx, nx + rnd.uniform(-330, 330) * U * scale * (0.4 + e), ny + 40 * U + e * (gap - 360) * U * scale, rnd.uniform(11, 20) * U * scale, t, germ_a * (0.6 + 0.4 * (1 - e)))
+    for i in range(16):
+        germ(ctx, nx + rnd.uniform(-300, 300) * U * scale, hy - rnd.uniform(80, 420) * U * scale, rnd.uniform(9, 15) * U * scale, t, germ_a * 0.9)
+    return nx, ny, hy
+
 def sc_hook(ctx, t, d):
+    dryer_closeup(ctx, t, 0.9, prog(t, 0, 0.4) * 0.6 + 0.4, top=H * 0.37, gap=820)
+
+def sc_vs(ctx, t, d):
     bathroom(ctx, t)
     (nx, ny), _ = hot_dryer(ctx, W * 0.30, H * 0.40, 1.15)
     air_stream(ctx, t, nx, ny, ny + 300 * U)
@@ -216,9 +239,28 @@ def sc_outro(ctx, t, d):
     neon_bg(ctx, t, tint=CYAN)
     cta(ctx, t, d, "TEAM TOWEL OR TEAM DRYER?", "COMMENT BELOW")
 
-SHORT_SCENES = ["hook", "dryer", "jet", "verdict", "outro"]
-SCENES = dict(hook=sc_hook, dryer=sc_dryer, jet=sc_jet, verdict=sc_verdict, outro=sc_outro)
+SHORT_SCENES = ["hook", "vs", "dryer", "jet", "verdict", "outro"]
+SCENES = dict(hook=sc_hook, vs=sc_vs, dryer=sc_dryer, jet=sc_jet, verdict=sc_verdict, outro=sc_outro)
 
 def thumbnail(c):
     vgrad(c, (0.10, 0.20, 0.24), (0.02, 0.05, 0.07))
     thumb_text(c, "HAND DRYER", "OR PAPER TOWEL?", "SCIENCE")
+
+def cover(ctx):
+    """Poster cover (Nazik 2026-11-10: soignée, qui attrape l'œil, accroche intrigante, sans donner la réponse)."""
+    nx, ny, hy = dryer_closeup(ctx, 0.6, 0.78, 1.0, 0.35, top=H * 0.415, gap=800)
+    g = cairo.LinearGradient(0, 0, 0, H * 0.36); g.add_color_stop_rgba(0, 0, 0.02, 0.03, 0.92); g.add_color_stop_rgba(1, 0, 0.02, 0.03, 0)
+    ctx.rectangle(0, 0, W, H * 0.36); ctx.set_source(g); ctx.fill()
+    for dx, dy, col, a in ((9, 11, (0, 0, 0), 0.7), (0, 0, None, 1.0)):
+        text(ctx, "IS YOUR DRYER", CX + dx * U, H * 0.085 + dy * U, 118 * U, col or WHITE, a)
+        text(ctx, "BLOWING THIS", CX + dx * U, H * 0.16 + dy * U, 128 * U, col or GERMC, a)
+        text(ctx, "ON YOU?", CX + dx * U, H * 0.235 + dy * U, 150 * U, col or GOLD, a)
+    # sticker
+    ctx.save(); ctx.translate(W * 0.82, H * 0.60); ctx.rotate(0.18)
+    circle(ctx, 0, 0, 150 * U, CORAL, 1.0)
+    ctx.new_path(); ctx.arc(0, 0, 150 * U, 0, 2 * math.pi); ctx.set_line_width(8 * U); rgba(ctx, WHITE, 0.9); ctx.stroke()
+    text(ctx, "27×", 0, -25 * U, 110 * U, WHITE, 1.0); text(ctx, "MORE GERMS?", 0, 60 * U, 36 * U, WHITE, 1.0)
+    ctx.restore()
+    rrect(ctx, CX - 470 * U, H * 0.94 - 58 * U, 940 * U, 116 * U, 58 * U); rgba(ctx, (0.02, 0.03, 0.05), 0.88); ctx.fill()
+    rrect(ctx, CX - 470 * U, H * 0.94 - 58 * U, 940 * U, 116 * U, 58 * U); ctx.set_line_width(6 * U); rgba(ctx, GOLD, 1); ctx.stroke()
+    text(ctx, "TOWEL OR DRYER?", CX, H * 0.94, 66 * U, GOLD)

@@ -368,6 +368,9 @@ def draw_hook(ctx, a):
         if ctx.text_extents(test).width > W * 0.84 and cur: lines.append(cur); cur = w
         else: cur = test
     lines.append(cur)
+    if len(lines) == 2:   # 2 lignes équilibrées (évite un mot seul en 2e ligne, ex. « THINK / AGAIN »)
+        best = min(((max(ctx.text_extents(" ".join(words[:k])).width, ctx.text_extents(" ".join(words[k:])).width), k) for k in range(1, len(words))))
+        if best[0] <= W * 0.84: lines = [" ".join(words[:best[1]]), " ".join(words[best[1]:])]
     lh = size * 1.18; y0 = H * 0.16
     bw = max(ctx.text_extents(l).width for l in lines) + 70 * U
     rrect(ctx, CX - bw / 2, y0 - lh * 0.75, bw, lh * len(lines) + lh * 0.5, 28 * U); rgba(ctx, (0.02, 0.03, 0.10), (0.97 if TNOW < 2.0 / FPS else 0.82) * a); ctx.fill()

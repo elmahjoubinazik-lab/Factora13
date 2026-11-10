@@ -1,7 +1,39 @@
 [
- {"scene": "hook", "text": ["Hand dryer or paper towel: which one is cleaner?"]},
- {"scene": "dryer", "text": ["Hot air dryers pull in bathroom air, bacteria included, and blow it onto your hands."]},
- {"scene": "jet", "text": ["Near jet dryers, one study found twenty-seven times more germs in the air.", "But the paper industry funded it."]},
- {"scene": "verdict", "text": ["The CDC says both work. The real rule: dry your hands completely.", "Wet hands spread germs more easily."]},
- {"scene": "outro", "text": ["Team towel or team dryer? Comment below!"]}
+ {
+  "scene": "hook",
+  "text": [
+   "You just washed your hands... then you used this."
+  ]
+ },
+ {
+  "scene": "vs",
+  "text": [
+   "Hand dryer or paper towel: which one is actually cleaner?"
+  ]
+ },
+ {
+  "scene": "dryer",
+  "text": [
+   "Hot air dryers pull in bathroom air, bacteria included, and blow it onto your hands."
+  ]
+ },
+ {
+  "scene": "jet",
+  "text": [
+   "Near jet dryers, one study found twenty-seven times more germs in the air.",
+   "But the paper industry funded it."
+  ]
+ },
+ {
+  "scene": "verdict",
+  "text": [
+   "The CDC says both work. The real rule: dry your hands completely. Wet hands spread germs."
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "Team towel or team dryer? Comment below!"
+  ]
+ }
 ]

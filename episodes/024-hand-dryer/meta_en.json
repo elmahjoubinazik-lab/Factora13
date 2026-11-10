@@ -1,16 +1,39 @@
 {
   "format": "short_seul",
-  "hook_text": "HAND DRYER OR PAPER TOWEL?",
+  "hook_text": "CLEAN HANDS? THINK AGAIN",
   "playlist": "why",
   "music": "upbeat",
-  "voix": {"melange": {"af_heart": 1.0}, "vitesse": 1.1, "traitement_doux": true, "code_langue": "en-us"},
-  "short_title": "Hand dryer or paper towel: which is cleaner? 🧻 #shorts",
+  "voix": {
+    "melange": {
+      "af_heart": 1.0
+    },
+    "vitesse": 1.1,
+    "traitement_doux": true,
+    "code_langue": "en-us"
+  },
+  "short_title": "Is your hand dryer blowing germs on you? 😳 #shorts",
   "short_description": "Team towel or team dryer? Here's what the science says.\n\nHot-air hand dryers pull in restroom air and can blow its bacteria onto your hands (University of Connecticut, Applied and Environmental Microbiology, 2018; HEPA filters cut that by about four times). Near jet dryers, a University of Leeds study (Journal of Hospital Infection, 2014) found about 27 times more airborne germs than near paper towel dispensers, but that study was funded by the paper industry, and other studies found smaller differences.\n\nThe CDC says either a clean towel or a hand dryer works. The rule that really matters: dry your hands completely, because germs transfer more easily to and from wet hands.\n\nTeam towel or team dryer? Comment below 👇\n\nMore everyday habits: https://youtube.com/shorts/_WgIPvYNgzY\n\nSources: University of Connecticut (2018), University of Leeds (2014), CDC handwashing guidance.\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations.\n\n#shorts #handdryer #hygiene #germs #didyouknow #factora",
   "comment": "Team towel 🧻 or team dryer 💨? Comment below 👇",
   "tiktok_text": "Hand dryer or paper towel: which is cleaner? 🧻💨 Hot air dryers can blow restroom bacteria onto your hands, and one study found 27x more airborne germs near jet dryers (but the paper industry funded it). The CDC says both work: just dry your hands completely. Team towel or team dryer? 👇\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations.\n#sciencetok #didyouknow #learnontiktok #factora #hygiene #germs",
   "instagram_text": "Hand dryer or paper towel: which is cleaner? 🧻💨 Hot air dryers can blow restroom bacteria onto your hands, and one study found 27x more airborne germs near jet dryers (but the paper industry funded it). The CDC says both work: just dry your hands completely. Team towel or team dryer? 👇\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations.\n#science #didyouknow #learnoninstagram #factora #hygiene #germs",
-  "tags": ["hand dryer vs paper towel", "are hand dryers dirty", "hand dryer bacteria", "jet dryer germs", "hygiene facts", "paper towels", "public restroom", "shorts", "factora"],
-  "sfx": [{"scene": "jet", "at": 0.1, "type": "hit"}],
+  "tags": [
+    "hand dryer vs paper towel",
+    "are hand dryers dirty",
+    "hand dryer bacteria",
+    "jet dryer germs",
+    "hygiene facts",
+    "paper towels",
+    "public restroom",
+    "shorts",
+    "factora"
+  ],
+  "sfx": [
+    {
+      "scene": "jet",
+      "at": 0.1,
+      "type": "hit"
+    }
+  ],
   "sources": [
     "https://journals.asm.org/doi/10.1128/AEM.00044-18",
     "https://www.thejournal.ie/hand-dryers-bacteria-university-of-leeds-1791585-Nov2014/",
