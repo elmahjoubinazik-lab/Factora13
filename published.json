@@ -441,6 +441,23 @@
     "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/4d6d9582e81ffe43da4663f1982dece4dc314d8a/ep023/video_short.mp4"
    },
    "note": "Sujet demandé et validé par Nazik, 40 s, musique upbeat, publié manuellement le mar 10 nov vers 12h (Zurich) ; 1re tentative Buffer Instagram en erreur, 2e réussie"
+  },
+  {
+   "episode": "024",
+   "topic": "Hand dryer or paper towel: which is cleaner?",
+   "dir": "episodes/024-hand-dryer",
+   "date": "2026-11-10",
+   "langue": "en",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": null,
+   "status": "public",
+   "thumbnail_set": null,
+   "ai_generated": true,
+   "publication": "manuelle_studio (Nazik, pendant la pause Zapier)",
+   "tiktok": "manuel",
+   "instagram": "a_faire",
+   "note": "version IA (clips Runway) ; short_id à remplir dès que Nazik donne le lien"
   }
  ]
 }
