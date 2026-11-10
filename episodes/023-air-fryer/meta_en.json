@@ -2,17 +2,41 @@
   "format": "short_seul",
   "hook_text": "WHAT'S HIDING IN YOUR AIR FRYER?",
   "playlist": "why",
-  "voix": {"melange": {"af_heart": 1.0}, "vitesse": 1.1, "traitement_doux": true, "code_langue": "en-us"},
+  "voix": {
+    "melange": {
+      "af_heart": 1.0
+    },
+    "vitesse": 1.1,
+    "traitement_doux": true,
+    "code_langue": "en-us"
+  },
   "short_title": "What's hiding above your air fryer basket? 😳 #shorts",
   "short_description": "Look above the basket: grease splatters onto the heating coil and burns there, cook after cook. Over time it can smoke, make food taste burnt, and become a fire hazard (consumer safety groups such as CHOICE and Ireland's CCPC warn about it).\n\nHow to clean it (always check your model's manual first):\n1. Unplug and let it cool completely.\n2. If your manual allows it, turn the air fryer upside down on a soft towel to reach the heating element.\n3. Scrub gently with a soft-to-medium bristle brush and a little warm soapy water. No steel wool or hard brushes: they damage the coating. Don't soak the element or the electrical parts.\n4. Dry with paper towels and let it air-dry fully before using it again.\n\nSend this to an air fryer lover 👇\n\nMore everyday habits: https://youtube.com/shorts/_WgIPvYNgzY\n\nSources: Philips Airfryer support (cleaning the heating element), CHOICE (Australia), Competition and Consumer Protection Commission (Ireland).\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations.\n\n#shorts #airfryer #cleaningtips #kitchenhacks #didyouknow #factora",
   "comment": "Be honest: have you EVER cleaned the coil above your air fryer basket? 😳 Yes or never 👇",
   "tiktok_text": "What's hiding above your air fryer basket? 😳 Grease splatters onto the heating coil and burns there: smoke, burnt taste, even a fire risk. Unplug, let it cool, flip it on a towel (if your manual allows), scrub gently with a soft brush and soapy water, then dry. Send this to an air fryer lover 👇\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations.\n#sciencetok #didyouknow #learnontiktok #factora #airfryer #cleaningtips",
   "instagram_text": "What's hiding above your air fryer basket? 😳 Grease splatters onto the heating coil and burns there: smoke, burnt taste, even a fire risk. Unplug, let it cool, flip it on a towel (if your manual allows), scrub gently with a soft brush and soapy water, then dry. Send this to an air fryer lover 👇\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations.\n#science #didyouknow #learnoninstagram #factora #airfryer #cleaningtips",
-  "tags": ["air fryer cleaning", "how to clean air fryer heating element", "air fryer heating coil", "air fryer fire risk", "air fryer grease", "cleaning hacks", "kitchen tips", "shorts", "factora"],
-  "sfx": [{"scene": "grease", "at": 0.0, "type": "hit"}],
+  "tags": [
+    "air fryer cleaning",
+    "how to clean air fryer heating element",
+    "air fryer heating coil",
+    "air fryer fire risk",
+    "air fryer grease",
+    "cleaning hacks",
+    "kitchen tips",
+    "shorts",
+    "factora"
+  ],
+  "sfx": [
+    {
+      "scene": "grease",
+      "at": 0.0,
+      "type": "hit"
+    }
+  ],
   "sources": [
     "https://www.usa.philips.com/c-f/XC000012903",
     "https://www.choice.com.au/home-and-living/kitchen/benchtop-cooking/articles/how-to-clean-an-air-fryer",
     "https://www.newstalk.com/news/air-fryer-2-2276283"
-  ]
+  ],
+  "music": "upbeat"
 }

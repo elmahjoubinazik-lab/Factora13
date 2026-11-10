@@ -415,6 +415,41 @@ def music_mystery(total, sr=SR):
     fade = np.clip(tt / 1.0, 0, 1) * np.clip((total - tt) / 1.5, 0, 1)
     return out * fade * 0.16
 
+def music_upbeat(total, sr=SR, bpm=122):
+    """Musique énergique originale (générée, libre de droits) : kick sur chaque temps, clap sur 2 et 4,
+    charleston en contretemps, basse en croches et arpège pluck en doubles-croches sur La m - Fa - Do - Sol."""
+    n = int(total * sr); tt = np.arange(n) / sr; out = np.zeros(n, np.float32)
+    rng = np.random.default_rng(9)
+    beat = 60.0 / bpm
+    roots = [110.0, 87.31, 130.81, 98.0]                       # A2 F2 C3 G2
+    chords = [[440.0, 523.25, 659.25], [349.23, 440.0, 523.25], [523.25, 659.25, 783.99], [392.0, 493.88, 587.33]]
+    def add(t0, sig, g):
+        i = int(t0 * sr); j = min(n, i + len(sig))
+        if 0 <= i < n: out[i:j] += (g * sig[:j - i]).astype(np.float32)
+    Lk = int(0.28 * sr); tk = np.arange(Lk) / sr
+    kick = np.sin(2 * np.pi * (45 * tk + 75 * (1 - np.exp(-tk / 0.035)) * 0.035 * 10)) * np.exp(-tk / 0.11)
+    Lc = int(0.18 * sr); clap = rng.standard_normal(Lc) * np.exp(-np.arange(Lc) / (0.035 * sr))
+    clap = np.convolve(clap, [1, -0.9], mode="same")
+    Lh = int(0.05 * sr); hat = np.diff(rng.standard_normal(Lh + 1)) * np.exp(-np.arange(Lh) / (0.012 * sr))
+    nb = int(total / beat) + 1
+    for b in range(nb):
+        t0 = b * beat; bar = (b // 4) % 4
+        add(t0, kick, 0.9)
+        if b % 4 in (1, 3): add(t0, clap, 0.35)
+        add(t0 + beat / 2, hat, 0.22)
+        for e in (0, 1):                                          # basse en croches
+            Lb = int(beat / 2 * 0.9 * sr); tb = np.arange(Lb) / sr; f = roots[bar]
+            bass = (np.sin(2 * np.pi * f * tb) + 0.4 * np.sin(2 * np.pi * 2 * f * tb) + 0.2 * np.sin(2 * np.pi * 3 * f * tb)) * np.exp(-tb / 0.18)
+            add(t0 + e * beat / 2, bass, 0.32 if e == 0 else 0.22)
+        for q in range(4):                                        # arpège pluck en doubles-croches
+            f = chords[bar][(b * 4 + q) % 3] * (2 if q == 3 else 1)
+            Lp = int(0.16 * sr); tp = np.arange(Lp) / sr
+            pl = (np.sin(2 * np.pi * f * tp) + 0.3 * np.sin(2 * np.pi * 2 * f * tp)) * np.exp(-tp / 0.06)
+            add(t0 + q * beat / 4, pl, 0.10)
+    out /= np.max(np.abs(out)) + 1e-9
+    fade = np.clip(tt / 0.3, 0, 1) * np.clip((total - tt) / 1.5, 0, 1)
+    return out * fade * 0.25   # ~14 dB sous la voix : présente mais sans gêner
+
 def sfx_track(total, events, sr=SR):
     """Bruitages : thunder (coup de tonnerre), heartbeat (battements qui accélèrent, dur), hit (impact grave)."""
     n = int(total * sr); out = np.zeros(n, np.float32); rng = np.random.default_rng(11)
@@ -455,7 +490,7 @@ try:
 except Exception:
     pass
 SFX_TIMES = [(e["t"], e["type"]) for e in _SFX]
-mus = music_mystery(len(vo) / SR) if _MOOD == "mystery" else music(len(vo) / SR)
+mus = music_mystery(len(vo) / SR) if _MOOD == "mystery" else (music_upbeat(len(vo) / SR) if _MOOD == "upbeat" else music(len(vo) / SR))
 if _SFX: mus = mus + sfx_track(len(vo) / SR, _SFX)
 mixd = vo * 0.95 + mus[:len(vo)]
 mixd /= max(1.0, np.max(np.abs(mixd)) / 0.97)
