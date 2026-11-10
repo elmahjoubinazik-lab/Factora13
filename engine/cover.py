@@ -20,7 +20,9 @@ if "cover" not in globals():
 surf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H); ctx = cairo.Context(surf)
 cover(ctx)
 raw = EP + "/build/short_cover_raw.png"; os.makedirs(EP + "/build", exist_ok=True); surf.write_to_png(raw)
+import json as _json
+_photo = os.path.exists(EP + "/meta_en.json") and _json.load(open(EP + "/meta_en.json", encoding="utf-8")).get("finish") == "photo"
 subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", raw, "-vf",
-                "eq=saturation=1.4:contrast=1.08,unsharp=5:5:0.4,scale=1080:1920:flags=lanczos", "-q:v", "2", EP + "/build/short_cover.jpg"], check=True)
+                ("eq=saturation=1.1:contrast=1.04" if _photo else "eq=saturation=1.4:contrast=1.08") + ",unsharp=5:5:0.4,scale=1080:1920:flags=lanczos", "-q:v", "2", EP + "/build/short_cover.jpg"], check=True)
 subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", EP + "/build/short_cover.jpg", "-vf", "scale=270:480", EP + "/build/short_cover_small.png"], check=True)
 print("OK", EP + "/build/short_cover.jpg")

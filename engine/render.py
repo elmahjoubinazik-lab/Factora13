@@ -208,7 +208,8 @@ def cta(ctx, t, d, line1="WANT MORE?", line2="MORE THINGS YOU NEVER NOTICED", y=
         ls = 52 * S * min(1.0, W * 0.88 / max(1, lw))
         text(ctx, line2, CX, y + 175 * S, ls, WHITE, lk)
         # signature de la marque (décision de Nazik, 2026-11-09)
-        text(ctx, "THINK FAST. LEARN SOMETHING AMAZING.", CX, y + 265 * S, 34 * S, GOLD, 0.85 * lk)
+        _sg = "THINK FAST. LEARN SOMETHING AMAZING."; font(ctx, 34 * S); _ss = 34 * S * min(1.0, W * 0.88 / max(1.0, ctx.text_extents(_sg).width))   # jamais coupée sur les bords
+        text(ctx, _sg, CX, y + 265 * S, _ss, GOLD, 0.85 * lk)
 
 def neon_path(ctx, draw, col, width, a=1.0, col2=None):
     """Trace « néon » : halo large et doux, puis trait coloré, puis cœur blanc. draw(ctx) construit le chemin."""
@@ -370,13 +371,14 @@ TOTAL = t0 + 0.6
 vo = np.concatenate(pieces + [np.zeros(int(0.6 * SR), np.float32)])
 
 # Short : accroche écrite en grand dès la première image (meta « hook_text », sinon short_title sans emoji ni #shorts)
-HOOK = ""
+HOOK, HOOK_Y = "", 0.16   # hook_y (meta) : hauteur du bandeau d'accroche, en fraction de H
 if MODE == "short":
     _mp = EP + f"/meta_{LANG}.json"
     _mp = _mp if os.path.exists(_mp) else EP + "/meta.json"
     try:
         _m = json.load(open(_mp, encoding="utf-8"))
         HOOK = _m.get("hook_text") or _m.get("short_title", "")
+        HOOK_Y = float(_m.get("hook_y", HOOK_Y))
     except Exception:
         HOOK = ""
     HOOK = "".join(ch for ch in HOOK.replace("#shorts", "") if ord(ch) < 0x2190).strip().upper()
@@ -393,7 +395,7 @@ def draw_hook(ctx, a):
     if len(lines) == 2:   # 2 lignes équilibrées (évite un mot seul en 2e ligne, ex. « THINK / AGAIN »)
         best = min(((max(ctx.text_extents(" ".join(words[:k])).width, ctx.text_extents(" ".join(words[k:])).width), k) for k in range(1, len(words))))
         if best[0] <= W * 0.84: lines = [" ".join(words[:best[1]]), " ".join(words[best[1]:])]
-    lh = size * 1.18; y0 = H * 0.16
+    lh = size * 1.18; y0 = H * HOOK_Y
     bw = max(ctx.text_extents(l).width for l in lines) + 70 * U
     rrect(ctx, CX - bw / 2, y0 - lh * 0.75, bw, lh * len(lines) + lh * 0.5, 28 * U); rgba(ctx, (0.02, 0.03, 0.10), (0.97 if TNOW < 2.0 / FPS else 0.82) * a); ctx.fill()
     rrect(ctx, CX - bw / 2, y0 - lh * 0.75, bw, lh * len(lines) + lh * 0.5, 28 * U); rgba(ctx, GOLD, 0.95 * a); ctx.set_line_width(5 * U); ctx.stroke()
@@ -558,7 +560,7 @@ def sfx_track(total, events, sr=SR):
         if j1 > i0: out[i0:j1] += seg[:j1 - i0]
     return out
 
-_MOOD, _SFX = "", []
+_MOOD, _SFX, _mm = "", [], {}
 try:
     _mm = json.load(open(EP + f"/meta_{LANG}.json", encoding="utf-8")) if os.path.exists(EP + f"/meta_{LANG}.json") else {}
     _MOOD = _mm.get("music", "")
@@ -568,6 +570,7 @@ try:
 except Exception:
     pass
 SFX_TIMES = [(e["t"], e["type"]) for e in _SFX]
+_FD = max(0.01, float(_mm.get("fade", 0.3)))   # durée du fondu au noir entre scènes (meta « fade » ; 0.06 ≈ cut sec)
 mus = music_mystery(len(vo) / SR) if _MOOD == "mystery" else (music_upbeat(len(vo) / SR) if _MOOD == "upbeat" else (music_hype(len(vo) / SR) if _MOOD == "hype" else music(len(vo) / SR)))
 if _SFX: mus = mus + sfx_track(len(vo) / SR, _SFX)
 mixd = vo * 0.95 + mus[:len(vo)]
@@ -582,7 +585,10 @@ FINISH = ("format=gbrp,split[a][b];[b]colorlevels=rimin=0.5:gimin=0.5:bimin=0.5,
           "colorbalance=rs=0.03:bs=0.07:bm=0.03:rh=0.02,eq=saturation=1.75:contrast=1.1:brightness=0.025:gamma=1.06,vibrance=intensity=0.35,vignette=angle=PI/5,noise=alls=2:allf=t" % int(18 * U))
 if MODE == "long" and TOTAL <= 330: FINISH += ",scale=2560:1440:flags=lanczos"   # > 5 min 30 : reste en 1080p (fichier < 100 Mo)   # (pas de grain : il alourdit trop le fichier, limite GitHub 100 Mo)
 elif MODE == "long": FINISH += ",noise=alls=2:allf=t"
-if MODE == "short": FINISH += ",unsharp=5:5:0.5:5:5:0.0"   # Short rendu nativement en 1440×2560, sans grain, léger piqué (demande de Nazik 2026-11-08)
+if MODE == "short": FINISH += ",unsharp=5:5:0.5:5:5:0.0"
+# séquences filmées (clips générés par IA, meta « finish » = "photo") : finition légère, sinon la peau devient orange
+if _mm.get("finish") == "photo":
+    FINISH = "eq=saturation=1.12:contrast=1.04,vibrance=intensity=0.18,vignette=angle=PI/5" + (",unsharp=5:5:0.6:5:5:0.0" if MODE == "short" else "")   # Short rendu nativement en 1440×2560, sans grain, léger piqué (demande de Nazik 2026-11-08)
 class _N:
     def write(self, b): pass
     def close(self): pass
@@ -611,8 +617,8 @@ for f in (STILLS or range(nf)):
     for (a, b, s) in seg["caps"]:
         if a <= TNOW < b: draw_caption(ctx, s, (TNOW - a) / max(b - a, 1e-6)); break
     # fondu entre scènes
-    fade = min(clamp(lt / 0.3), clamp((d - lt) / 0.3)) if seg is not plan[0] or lt > 0.3 else clamp(lt / 0.3)
-    if MODE == "short" and seg is plan[0]: fade = clamp((d - lt) / 0.3)   # Short : pas d'écran noir au départ
+    fade = min(clamp(lt / _FD), clamp((d - lt) / _FD)) if seg is not plan[0] or lt > _FD else clamp(lt / _FD)
+    if MODE == "short" and seg is plan[0]: fade = clamp((d - lt) / _FD)   # Short : pas d'écran noir au départ
     if MODE == "short": draw_hook(ctx, 1 - prog(TNOW, 2.6, 3.2))
     if fade < 1: ctx.set_source_rgba(0, 0, 0, 1 - fade); ctx.paint()
     surf.flush()
