@@ -421,6 +421,26 @@
    "urls": {
     "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/031f9974b82d37de2a0dcfc177f0687b18804947/ep022/video_short.mp4"
    }
+  },
+  {
+   "episode": "023",
+   "topic": "Is your air fryer a fire hazard? (heating coil grease, paper liners, cleaning)",
+   "dir": "episodes/023-air-fryer",
+   "date": "2026-11-10",
+   "langue": "en",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": "4ZNXr9r0CQA",
+   "status": "public",
+   "thumbnail_set": true,
+   "tiktok": "manuel",
+   "instagram": "envoye",
+   "instagram_buffer_id": "6af2fa379c0c9d5fae04cfc5",
+   "comment_id": "UgxXdeWYtgVZ8XZLTDJ4AaABAg",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/4d6d9582e81ffe43da4663f1982dece4dc314d8a/ep023/video_short.mp4"
+   },
+   "note": "Sujet demandé et validé par Nazik, 40 s, musique upbeat, publié manuellement le mar 10 nov vers 12h (Zurich) ; 1re tentative Buffer Instagram en erreur, 2e réussie"
   }
  ]
 }
