@@ -2,12 +2,12 @@
   "format": "short_seul",
   "hook_text": "CLEAN HANDS? THINK AGAIN",
   "playlist": "why",
-  "music": "upbeat",
+  "music": "hype",
   "voix": {
     "melange": {
       "af_heart": 1.0
     },
-    "vitesse": 1.1,
+    "vitesse": 1.18,
     "traitement_doux": true,
     "code_langue": "en-us"
   },
@@ -29,9 +29,39 @@
   ],
   "sfx": [
     {
+      "scene": "hook",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "vs",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "dryer",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "jet",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
       "scene": "jet",
       "at": 0.1,
       "type": "hit"
+    },
+    {
+      "scene": "verdict",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "outro",
+      "at": 0.0,
+      "type": "whoosh"
     }
   ],
   "sources": [

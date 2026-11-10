@@ -475,6 +475,53 @@ def music_upbeat(total, sr=SR, bpm=122):
     fade = np.clip(tt / 0.3, 0, 1) * np.clip((total - tt) / 1.5, 0, 1)
     return out * fade * 0.25   # ~14 dB sous la voix : présente mais sans gêner
 
+def music_hype(total, sr=SR, bpm=140):
+    """Musique très énergique originale (générée, libre de droits ; demande de Nazik 2026-11-10 : « plus de dynamisme ») :
+    140 bpm, kick à chaque temps + basse « pompée » (sidechain), clap sur 2 et 4, charleston en doubles-croches,
+    stabs de synthé en contretemps, montée (riser) toutes les 4 mesures et crash au début de chaque phrase."""
+    n = int(total * sr); tt = np.arange(n) / sr; out = np.zeros(n, np.float32); rng = np.random.default_rng(5)
+    beat = 60.0 / bpm; bar = 4 * beat
+    roots = [110.0, 87.31, 130.81, 98.0]
+    chords = [[440.0, 523.25, 659.25], [349.23, 440.0, 523.25], [523.25, 659.25, 783.99], [392.0, 493.88, 587.33]]
+    def add(t0, sig, g):
+        i = int(t0 * sr); j = min(n, i + len(sig))
+        if 0 <= i < n: out[i:j] += (g * sig[:j - i]).astype(np.float32)
+    Lk = int(0.22 * sr); tk = np.arange(Lk) / sr
+    kick = np.sin(2 * np.pi * (50 * tk + 2.6 * (1 - np.exp(-tk / 0.03)))) * np.exp(-tk / 0.09)
+    Lc = int(0.16 * sr); clap = np.convolve(rng.standard_normal(Lc) * np.exp(-np.arange(Lc) / (0.03 * sr)), [1, -0.95], mode="same")
+    Lh = int(0.035 * sr); hat = np.diff(rng.standard_normal(Lh + 1)) * np.exp(-np.arange(Lh) / (0.008 * sr))
+    Lo = int(0.12 * sr); ohat = np.diff(rng.standard_normal(Lo + 1)) * np.exp(-np.arange(Lo) / (0.04 * sr))
+    # basse continue « pompée » par le kick (effet sidechain)
+    bass = np.zeros(n, np.float32)
+    for b in range(int(total / beat) + 1):
+        f = roots[(b // 4) % 4]; i0 = int(b * beat * sr); L = int(beat * sr); i1 = min(n, i0 + L)
+        if i0 >= n: break
+        tb = np.arange(i1 - i0) / sr
+        env = np.clip(tb / (beat * 0.45), 0, 1) ** 1.5                                   # remonte après chaque kick
+        bass[i0:i1] = (np.sign(np.sin(2 * np.pi * f * tb)) * 0.35 + np.sin(2 * np.pi * f * tb)) * env
+    bass = np.convolve(bass, np.ones(12) / 12, mode="same")
+    out += 0.30 * bass
+    for b in range(int(total / beat) + 1):
+        t0 = b * beat; ci = (b // 4) % 4
+        add(t0, kick, 1.0)
+        if b % 4 in (1, 3): add(t0, clap, 0.45)
+        for q in range(4): add(t0 + q * beat / 4, hat, 0.20 if q % 2 else 0.12)
+        add(t0 + beat / 2, ohat, 0.18)
+        Ls = int(0.11 * sr); ts = np.arange(Ls) / sr
+        stab = sum(np.sign(np.sin(2 * np.pi * f * ts)) for f in chords[ci]) / 3 * np.exp(-ts / 0.05)
+        add(t0 + beat / 2, stab, 0.16)
+    # riser (bruit qui monte) sur la dernière mesure de chaque phrase de 4 mesures, crash au début de la suivante
+    Lcr = int(1.2 * sr); crash = rng.standard_normal(Lcr) * np.exp(-np.arange(Lcr) / (0.35 * sr))
+    for ph in range(int(total / (4 * bar)) + 1):
+        t0 = ph * 4 * bar
+        add(t0, crash, 0.20)
+        Lr = int(bar * sr); tr = np.arange(Lr) / sr
+        riser = rng.standard_normal(Lr) * (tr / bar) ** 2
+        add(t0 + 3 * bar, np.convolve(riser, np.ones(4) / 4, mode="same"), 0.16)
+    out /= np.max(np.abs(out)) + 1e-9
+    fade = np.clip(tt / 0.05, 0, 1) * np.clip((total - tt) / 1.2, 0, 1)
+    return out * fade * 0.30   # ~12 dB sous la voix
+
 def sfx_track(total, events, sr=SR):
     """Bruitages : thunder (coup de tonnerre), heartbeat (battements qui accélèrent, dur), hit (impact grave)."""
     n = int(total * sr); out = np.zeros(n, np.float32); rng = np.random.default_rng(11)
@@ -499,6 +546,12 @@ def sfx_track(total, events, sr=SR):
             x = rng.standard_normal(L).astype(np.float32); x = np.convolve(x, np.ones(8) / 8, mode="same")
             sweep = np.sin(2 * np.pi * (200 * tl + 400 * tl ** 2 / dur))
             seg = ((0.5 * x / (np.max(np.abs(x)) + 1e-9) + 0.4 * sweep) * (tl / dur) ** 2 * 0.8).astype(np.float32)
+        elif kind == "whoosh":   # transition rapide (bruit filtré qui monte puis retombe)
+            dur = ev.get("dur", 0.45); L = int(dur * sr); tl = np.arange(L) / sr
+            x = rng.standard_normal(L).astype(np.float32)
+            x = np.convolve(x, np.ones(6) / 6, mode="same") - np.convolve(x, np.ones(40) / 40, mode="same")
+            env = np.sin(np.pi * np.clip(tl / dur, 0, 1)) ** 2
+            seg = (x / (np.max(np.abs(x)) + 1e-9) * env * 0.55 * float(ev.get("vol", 1.0))).astype(np.float32)
         else:  # hit
             L = int(1.5 * sr); seg = (np.sin(2 * np.pi * 45 * np.arange(L) / sr) * np.exp(-np.arange(L) / (0.35 * sr))).astype(np.float32)
         j1 = min(n, i0 + len(seg))
@@ -515,7 +568,7 @@ try:
 except Exception:
     pass
 SFX_TIMES = [(e["t"], e["type"]) for e in _SFX]
-mus = music_mystery(len(vo) / SR) if _MOOD == "mystery" else (music_upbeat(len(vo) / SR) if _MOOD == "upbeat" else music(len(vo) / SR))
+mus = music_mystery(len(vo) / SR) if _MOOD == "mystery" else (music_upbeat(len(vo) / SR) if _MOOD == "upbeat" else (music_hype(len(vo) / SR) if _MOOD == "hype" else music(len(vo) / SR)))
 if _SFX: mus = mus + sfx_track(len(vo) / SR, _SFX)
 mixd = vo * 0.95 + mus[:len(vo)]
 mixd /= max(1.0, np.max(np.abs(mixd)) / 0.97)
