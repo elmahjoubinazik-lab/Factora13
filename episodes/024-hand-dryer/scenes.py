@@ -149,19 +149,55 @@ def thumbnail(c):
     vgrad(c, (0.10, 0.20, 0.24), (0.02, 0.05, 0.07))
     thumb_text(c, "HAND DRYER", "OR PAPER TOWEL?", "SCIENCE")
 
+def poster_text(ctx, s, x, y, size, col, maxw=None):
+    """Titre d'affiche : lettres énormes, contour noir épais + ombre portée ; réduit si trop large."""
+    font(ctx, size); w = ctx.text_extents(s).width
+    if maxw and w > maxw: size *= maxw / w; font(ctx, size); w = ctx.text_extents(s).width
+    e = ctx.text_extents(s); x0 = x - e.width / 2 - e.x_bearing; y0 = y + size * 0.35
+    ctx.save(); ctx.translate(10 * U, 14 * U); ctx.move_to(x0, y0); ctx.text_path(s); rgba(ctx, (0, 0, 0), 0.75)
+    ctx.set_line_width(size * 0.20); ctx.set_line_join(cairo.LINE_JOIN_ROUND); ctx.stroke_preserve(); ctx.fill(); ctx.restore()
+    ctx.move_to(x0, y0); ctx.text_path(s); rgba(ctx, (0.01, 0.01, 0.02), 1); ctx.set_line_width(size * 0.16)
+    ctx.set_line_join(cairo.LINE_JOIN_ROUND); ctx.stroke_preserve(); rgba(ctx, col, 1); ctx.fill()
+    return size, w
+
+def red_arrow(ctx, x0, y0, x1, y1, bend=0.25, width=26):
+    """Flèche rouge épaisse et courbe (pointe en (x1, y1))."""
+    mx, my = (x0 + x1) / 2 + (y1 - y0) * bend, (y0 + y1) / 2 - (x1 - x0) * bend
+    ang = math.atan2(y1 - my, x1 - mx); hl = width * 3.2 * U
+    ex, ey = x1 - math.cos(ang) * hl * 0.6, y1 - math.sin(ang) * hl * 0.6
+    for col, lw, a in (((0, 0, 0), width * 1.7, 0.85), ((1.0, 0.16, 0.16), width, 1.0)):
+        ctx.new_path(); ctx.move_to(x0, y0); ctx.curve_to(mx, my, mx, my, ex, ey)
+        ctx.set_line_width(lw * U); ctx.set_line_cap(cairo.LINE_CAP_ROUND); rgba(ctx, col, a); ctx.stroke()
+    for col, grow in (((0, 0, 0), 1.25), ((1.0, 0.16, 0.16), 1.0)):
+        h = hl * grow; ctx.new_path(); ctx.move_to(x1 + math.cos(ang) * (grow - 1) * hl * 0.5, y1 + math.sin(ang) * (grow - 1) * hl * 0.5)
+        ctx.line_to(x1 - math.cos(ang - 0.45) * h, y1 - math.sin(ang - 0.45) * h); ctx.line_to(x1 - math.cos(ang + 0.45) * h, y1 - math.sin(ang + 0.45) * h)
+        ctx.close_path(); rgba(ctx, col, 1); ctx.fill()
+
+COVER_BG = os.path.join(EP, "build", "rw", "cover_bg.png")   # fond Runway (option 1 du 2026-11-10)
+
 def cover(ctx):
-    """Affiche : l'image IA de l'accroche (sèche-mains, jet de bactéries, mains mouillées) + titre en 3 couleurs, pastille, bandeau."""
-    paint(ctx, _load(os.path.join(EP, "build", "rw", "key1.png")))
-    scrim(ctx, 0.34, 0.92)
-    for dx, dy, col, a in ((9, 11, (0, 0, 0), 0.7), (0, 0, None, 1.0)):
-        text(ctx, "IS YOUR DRYER", CX + dx * U, H * 0.075 + dy * U, 118 * U, col or WHITE, a)
-        text(ctx, "BLOWING THIS", CX + dx * U, H * 0.15 + dy * U, 128 * U, col or GERMC, a)
-        text(ctx, "ON YOU?", CX + dx * U, H * 0.225 + dy * U, 150 * U, col or GOLD, a)
-    ctx.save(); ctx.translate(W * 0.83, H * 0.46); ctx.rotate(0.18)
-    circle(ctx, 0, 0, 140 * U, CORAL, 1.0)
-    ctx.new_path(); ctx.arc(0, 0, 140 * U, 0, 2 * math.pi); ctx.set_line_width(8 * U); rgba(ctx, WHITE, 0.9); ctx.stroke()
-    text(ctx, "27×", 0, -22 * U, 104 * U, WHITE, 1.0); text(ctx, "MORE GERMS?", 0, 58 * U, 34 * U, WHITE, 1.0)
+    """Affiche v2 (Nazik 2026-11-10 : « une couverture impactante ») : fond IA dramatique descendu de 8 % (le titre ne cache
+    pas la buse), titre énorme à contour épais, flèche rouge de « THIS » vers la bactérie sur la paume, pastille 27×, bandeau."""
+    img = _load(COVER_BG); sw, sh = img.get_width(), img.get_height()
+    paint(ctx, img); rgba(ctx, (0, 0.01, 0.02), 0.75); ctx.paint()                 # base sombre (haut du cadre)
+    s = W / sw * 1.03; top = H * 0.08
+    g = cairo.LinearGradient(0, top, 0, top + H * 0.07); g.add_color_stop_rgba(0, 0, 0, 0, 0); g.add_color_stop_rgba(1, 0, 0, 0, 1)
+    ctx.save(); ctx.translate(CX - sw * s / 2, top); ctx.scale(s, s); ctx.set_source_surface(img, 0, 0); ctx.get_source().set_filter(cairo.FILTER_GOOD)
     ctx.restore()
-    rrect(ctx, CX - 470 * U, H * 0.94 - 58 * U, 940 * U, 116 * U, 58 * U); rgba(ctx, (0.02, 0.03, 0.05), 0.88); ctx.fill()
-    rrect(ctx, CX - 470 * U, H * 0.94 - 58 * U, 940 * U, 116 * U, 58 * U); ctx.set_line_width(6 * U); rgba(ctx, GOLD, 1); ctx.stroke()
-    text(ctx, "TOWEL OR DRYER?", CX, H * 0.94, 66 * U, GOLD)
+    ctx.save(); ctx.translate(CX - sw * s / 2, top); ctx.scale(s, s); ctx.set_source_surface(img, 0, 0); ctx.get_source().set_filter(cairo.FILTER_GOOD); ctx.restore()
+    pat = cairo.SurfacePattern(img); m = cairo.Matrix(); m.scale(1 / s, 1 / s); m.translate(-(CX - sw * s / 2), -top); pat.set_matrix(m); pat.set_filter(cairo.FILTER_GOOD)
+    ctx.set_source(pat); ctx.mask(g)
+    scrim(ctx, 0.27, 0.80)
+    poster_text(ctx, "IS YOUR DRYER", CX, H * 0.050, 118 * U, WHITE, W * 0.86)
+    sz, w2 = poster_text(ctx, "BLOWING THIS", CX, H * 0.118, 140 * U, GERMC, W * 0.92)
+    poster_text(ctx, "ON YOU?", CX, H * 0.193, 170 * U, GOLD, W * 0.76)
+    red_arrow(ctx, W * 0.90, H * 0.235, W * 0.745, H * 0.765, -0.28)
+    ctx.save(); ctx.translate(W * 0.17, H * 0.45); ctx.rotate(-0.14)
+    glow(ctx, 0, 0, 200 * U, CORAL, 0.45)
+    circle(ctx, 0, 0, 128 * U, (0.95, 0.12, 0.16), 1.0)
+    ctx.new_path(); ctx.arc(0, 0, 128 * U, 0, 2 * math.pi); ctx.set_line_width(9 * U); rgba(ctx, WHITE, 1); ctx.stroke()
+    text(ctx, "27×", 0, -20 * U, 96 * U, WHITE, 1.0); text(ctx, "MORE GERMS?", 0, 52 * U, 29 * U, WHITE, 1.0)
+    ctx.restore()
+    rrect(ctx, CX - 480 * U, H * 0.952 - 58 * U, 960 * U, 116 * U, 58 * U); rgba(ctx, GOLD, 1); ctx.fill()
+    rrect(ctx, CX - 480 * U, H * 0.952 - 58 * U, 960 * U, 116 * U, 58 * U); ctx.set_line_width(7 * U); rgba(ctx, (0.01, 0.01, 0.02), 1); ctx.stroke()
+    text(ctx, "TOWEL OR DRYER?", CX, H * 0.952, 70 * U, (0.02, 0.03, 0.06))
