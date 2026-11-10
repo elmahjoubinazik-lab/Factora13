@@ -1,0 +1,59 @@
+[
+ {
+  "scene": "hook",
+  "speed": 1.02,
+  "text": [
+   "One of these doctors is a fake. Can you spot who?"
+  ]
+ },
+ {
+  "scene": "story",
+  "speed": 1.08,
+  "text": [
+   "Midnight. A patient's file vanishes. Four doctors were on the floor."
+  ]
+ },
+ {
+  "scene": "d1",
+  "speed": 1.13,
+  "text": [
+   "Doctor one: his pulse was seventy-two beats per minute."
+  ]
+ },
+ {
+  "scene": "d2",
+  "speed": 1.13,
+  "text": [
+   "Doctor two: his temperature was ninety-eight point six degrees Celsius."
+  ]
+ },
+ {
+  "scene": "d3",
+  "speed": 1.13,
+  "text": [
+   "Doctor three: his blood pressure was one-twenty over eighty."
+  ]
+ },
+ {
+  "scene": "d4",
+  "speed": 1.13,
+  "text": [
+   "Doctor four: I listened to his lungs. All clear."
+  ]
+ },
+ {
+  "scene": "think",
+  "speed": 0.95,
+  "text": [
+   "Listen closely... Who's the fake?"
+  ],
+  "pause": 0.6
+ },
+ {
+  "scene": "outro",
+  "speed": 1.1,
+  "text": [
+   "Comment the number! The answer drops in the next video!"
+  ]
+ }
+]

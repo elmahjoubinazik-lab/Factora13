@@ -1,0 +1,16 @@
+{
+  "format": "short_seul",
+  "hook_text": "ONE DOCTOR IS A FAKE",
+  "playlist": "why",
+  "voix": {"melange": {"am_onyx": 0.75, "am_fenrir": 0.25}, "vitesse": 0.9, "code_langue": "en-us"},
+  "music": "mystery",
+  "sfx": [{"scene": "hook", "at": 0.2, "type": "hit"}, {"scene": "story", "at": 0.0, "type": "riser", "dur": 1.6}, {"scene": "d1", "at": 0.0, "type": "hit"}, {"scene": "d2", "at": 0.0, "type": "hit"}, {"scene": "d3", "at": 0.0, "type": "hit"}, {"scene": "d4", "at": 0.0, "type": "hit"}, {"scene": "think", "at": 0.0, "type": "heartbeat", "dur": 3.0}, {"scene": "outro", "at": 0.2, "type": "hit"}],
+  "short_title": "Who's lying? One of these doctors is a fake 🕵️ #shorts",
+  "short_description": "Who's Lying? #3 — Midnight at the hospital: a patient's file vanishes. Four doctors were on the floor, and one of them is a fake. Listen to what each one says… one statement is scientifically impossible. Comment the number of the impostor 👇 The answer (and the science behind it) is in the next video.\n\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations. Fictional story.\n\n#shorts #mystery #riddle #whoslying #brainteaser #detective #factora",
+  "comment": "🕵️ Who's the fake doctor: 1, 2, 3 or 4? Comment your answer, the reveal is in the next video 👇",
+  "tiktok_text": "Who's lying? 🕵️ One of these doctors is a fake. Listen to what each one says: one statement is scientifically impossible. Comment 1, 2, 3 or 4 👇 Answer in the next video!\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations. Fictional story.\n#sciencetok #didyouknow #learnontiktok #factora #mystery #whoslying",
+  "instagram_text": "Who's lying? 🕵️ One of these doctors is a fake. Listen to what each one says: one statement is scientifically impossible. Comment 1, 2, 3 or 4 👇 Answer in the next video!\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations. Fictional story.\n#science #didyouknow #learnoninstagram #factora #mystery #whoslying",
+  "tags": ["who's lying", "fake doctor riddle", "detective riddle", "mystery riddle", "brain teaser", "can you solve it", "logic puzzle", "shorts", "factora"],
+  "solution": "2 — 98.6 °F is a normal body temperature (37 °C); 98.6 °C would be close to boiling water (100 °C) and no one could survive it. A real doctor would never mix up the units. (Normal adult resting pulse 60–100 bpm; 120/80 mmHg is a normal blood pressure.)",
+  "sources": ["https://www.ncbi.nlm.nih.gov/books/NBK331/", "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings", "https://www.heart.org/en/healthy-living/fitness/fitness-basics/target-heart-rates"]
+}

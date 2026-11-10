@@ -1,0 +1,11 @@
+{
+ "_note": "Shorts déjà produits et hébergés, en réserve (demande de Nazik, 2026-11-10). Le jour où leur sujet est choisi, NE PAS les refaire : publier directement avec ces URLs et les textes de meta_en.json (étapes 6, 6 bis, 6 ter), puis retirer l'entrée d'ici.",
+ "reserve": [
+  {"episode": "024", "dir": "episodes/024-hand-dryer", "topic_starts_with": "[SHORT] Hand dryer or paper towel", "prevu": "ven 13 nov",
+   "urls": {"short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/0e0be6e5dae690ab3b19ff3863abeb5c0378eaf3/ep024/video_short.mp4",
+            "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/0e0be6e5dae690ab3b19ff3863abeb5c0378eaf3/ep024/short_cover.jpg"}},
+  {"episode": "025", "dir": "episodes/025-whos-lying-3", "topic_starts_with": "[WL-CASE] Who's Lying? #3", "prevu": "sam 21 nov (après l'enquête #2 du sam 14 et sa solution du lun 16)",
+   "urls": {"short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/996f5da6b5b7248043551b54fa90cbaa92ac3f65/ep025/video_short.mp4",
+            "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/996f5da6b5b7248043551b54fa90cbaa92ac3f65/ep025/short_cover.jpg"}}
+ ]
+}
