@@ -106,7 +106,7 @@ def shell(ctx, x, y, w, h, S, a=1.0):
     rrect(ctx, x - w / 2 + 40 * S, y - h / 2 + 20 * S, 36 * S, h - 40 * S, 18 * S); rgba(ctx, WHITE, 0.10 * a); ctx.fill()
     ctx.new_path(); body(ctx); ctx.set_line_width(3 * S); rgba(ctx, (0.45, 0.47, 0.55), 0.6 * a); ctx.stroke()
 
-def fryer_cut(ctx, x, y, s, t, a=1.0, grime=0.8, heat=1.0, drops=0.0, smoke_a=0.0, fire=0.0):
+def fryer_cut(ctx, x, y, s, t, a=1.0, grime=0.8, heat=1.0, drops=0.0, smoke_a=0.0, fire=0.0, fries_on=True):
     """Cut-away air fryer standing on the counter (y = centre of the body)."""
     S = U * s
     w, h = 640 * S, 760 * S
@@ -128,7 +128,7 @@ def fryer_cut(ctx, x, y, s, t, a=1.0, grime=0.8, heat=1.0, drops=0.0, smoke_a=0.
     hy = cy0 + 105 * S
     heater(ctx, x, hy, 215 * S, 0.20, S, t, heat, grime, a)
     # basket with fries
-    basket(ctx, x, cy0 + ch * 0.55, 230 * S, 190 * S, S, a)
+    basket(ctx, x, cy0 + ch * 0.55, 230 * S, 190 * S, S, a, fries_on)
     # grease droplets rising
     if drops > 0:
         rnd = random.Random(5)
@@ -163,7 +163,7 @@ def fryer_cut(ctx, x, y, s, t, a=1.0, grime=0.8, heat=1.0, drops=0.0, smoke_a=0.
     ctx.set_source(lin(0, dy, 0, dy + 120 * S, [(0, (0.20, 0.20, 0.23), a), (1, (0.07, 0.07, 0.08), a)])); ctx.fill()
     rrect(ctx, x - 140 * S, dy + 35 * S, 280 * S, 50 * S, 25 * S)
     ctx.set_source(lin(0, dy + 35 * S, 0, dy + 85 * S, [(0, (0.55, 0.56, 0.62), a), (1, (0.18, 0.18, 0.2), a)])); ctx.fill()
-    return hy
+    return dict(hy=hy, rim=cy0 + ch * 0.55, rx=230 * S, S=S, x=x)
 
 def label(ctx, s, x, y, size, col, a):
     if a <= 0: return
@@ -175,7 +175,7 @@ def sc_hook(ctx, t, d):
     cy = H * 0.50; s = 1.22
     kitchen(ctx, t, cy + 380 * U * s)
     k = prog(t, d * 0.3, d * 0.8)
-    hy = fryer_cut(ctx, CX, cy, s, t, 1.0, grime=0.7 + 0.3 * k, heat=0.8, drops=0.3)
+    hy = fryer_cut(ctx, CX, cy, s, t, 1.0, grime=0.7 + 0.3 * k, heat=0.8, drops=0.3)["hy"]
     # pointer to the dirty element
     ya = hy - 10 * U + 10 * U * math.sin(t * 6)
     neon_path(ctx, lambda c: (c.move_to(W * 0.95, ya - 150 * U), c.line_to(W * 0.84, ya - 25 * U), c.move_to(W * 0.84, ya - 25 * U), c.line_to(W * 0.88, ya - 60 * U),
@@ -191,6 +191,92 @@ def sc_grease(ctx, t, d):
     for i, (lab, col) in enumerate((("SMOKE", WHITE), ("BURNT TASTE", GOLD), ("FIRE RISK", CORAL))):
         kk = prog(t, d * (0.55 + 0.12 * i), d * (0.65 + 0.12 * i))
         label(ctx, lab, W * (0.17 + 0.33 * i), H * 0.685, 44 * U, col, kk)
+
+def flame_at(ctx, fx, fy, S, t, a):
+    if a <= 0: return
+    for k_, (col, sc) in enumerate(((HOTC, 1.0), ((1.0, 0.75, 0.2), 0.6), ((1, 1, 0.85), 0.28))):
+        hh = (150 + 30 * math.sin(t * 17 + k_)) * S * sc; ww = 70 * S * sc
+        ctx.move_to(fx - ww, fy); ctx.curve_to(fx - ww, fy - hh * 0.5, fx - ww * 0.2, fy - hh * 0.7, fx, fy - hh)
+        ctx.curve_to(fx + ww * 0.2, fy - hh * 0.7, fx + ww, fy - hh * 0.5, fx + ww, fy); ctx.close_path()
+        rgba(ctx, col, 0.92 * a); ctx.fill()
+    glow(ctx, fx, fy - 60 * S, 230 * S, HOTC, 0.55 * a)
+
+def sheet(ctx, cx, cy, hw, S, t, flutter, burn, a=1.0):
+    """Parchment liner in perspective, fluttering when lifted; burn darkens and chars it."""
+    if a <= 0: return
+    hd = hw * 0.22
+    f = flutter * math.sin(t * 15)
+    def path(c):
+        c.move_to(cx - hw, cy + f * 40 * S)
+        c.curve_to(cx - hw * 0.4, cy - hd - f * 60 * S, cx + hw * 0.4, cy - hd + f * 60 * S, cx + hw, cy - f * 40 * S)
+        c.curve_to(cx + hw * 0.9, cy + hd * 0.6, cx + hw * 0.4, cy + hd + f * 30 * S, cx, cy + hd)
+        c.curve_to(cx - hw * 0.5, cy + hd - f * 30 * S, cx - hw * 0.95, cy + hd * 0.6, cx - hw, cy + f * 40 * S)
+        c.close_path()
+    col = mix((0.95, 0.88, 0.72), (0.12, 0.07, 0.04), 0.85 * burn)
+    ctx.new_path(); path(ctx); rgba(ctx, col, a); ctx.fill()
+    ctx.new_path(); path(ctx); ctx.set_line_width(3 * S); rgba(ctx, mix((0.75, 0.65, 0.45), (0.9, 0.35, 0.1), burn), a); ctx.stroke()
+    rnd = random.Random(4)
+    for i in range(14):
+        circle(ctx, cx + rnd.uniform(-0.7, 0.7) * hw, cy + rnd.uniform(-0.5, 0.5) * hd, 3 * S, (0.8, 0.72, 0.55), 0.6 * a * (1 - burn))
+
+def check(ctx, x, y, s, a, col=GREEN):
+    if a <= 0: return
+    ctx.move_to(x - 40 * s * U, y); ctx.line_to(x - 10 * s * U, y + 32 * s * U); ctx.line_to(x + 48 * s * U, y - 36 * s * U)
+    ctx.set_line_width(16 * s * U); ctx.set_line_cap(cairo.LINE_CAP_ROUND); ctx.set_line_join(cairo.LINE_JOIN_ROUND); rgba(ctx, col, a); ctx.stroke()
+
+def sc_paper(ctx, t, d):
+    cy = H * 0.44; s = 1.18
+    kitchen(ctx, t, cy + 380 * U * s)
+    t2 = d * 0.70
+    if t < t2:
+        g = fryer_cut(ctx, CX, cy, s, t, 1.0, grime=0.5, heat=1.0, fries_on=False)
+        S = g["S"]
+        # hot air rising through the empty basket
+        for i, dx in enumerate((-120, 0, 120)):
+            e = (t * 0.9 + i * 0.33) % 1.0
+            yy = g["rim"] + 120 * S - e * (g["rim"] - g["hy"] + 60 * S)
+            neon_path(ctx, lambda c, dx=dx, yy=yy: (c.move_to(g["x"] + dx * S, yy + 70 * S), c.line_to(g["x"] + dx * S, yy),
+                      c.move_to(g["x"] + (dx - 22) * S, yy + 24 * S), c.line_to(g["x"] + dx * S, yy), c.line_to(g["x"] + (dx + 22) * S, yy + 24 * S)), CYAN, 5 * S, 0.7 * (1 - e))
+        lift = prog(t, d * 0.12, d * 0.40)
+        burn = prog(t, d * 0.42, d * 0.62)
+        py = g["rim"] - 10 * S - lift * (g["rim"] - g["hy"] - 45 * S)
+        sheet(ctx, g["x"], py, 210 * S, S, t, 0.15 + 0.85 * lift * (1 - burn), burn)
+        flame_at(ctx, g["x"] - 40 * S, py + 10 * S, S, t, prog(t, d * 0.44, d * 0.5) * (1 - prog(t, t2 - 0.25, t2)))
+        label(ctx, "EMPTY LINER + HOT AIR = FIRE", CX, H * 0.07, 56 * U, CORAL, prog(t, 0, 0.3))
+    else:
+        k = prog(t, t2, t2 + 0.35)
+        g = fryer_cut(ctx, CX, cy, s, t, 1.0, grime=0.5, heat=1.0, fries_on=False)
+        S = g["S"]
+        sheet(ctx, g["x"], g["rim"] - 10 * S, 210 * S, S, t, 0.0, 0.0)
+        fries(ctx, g["x"], g["rim"] - 15 * S, g["rx"] * 0.85, g["rx"] * 0.17, S, k)
+        label(ctx, "ALWAYS PUT FOOD ON TOP", CX + 40 * U, H * 0.07, 56 * U, GREEN, k)
+        check(ctx, CX - 470 * U, H * 0.07, 0.9, k)
+
+YEARS = [("2021/22", 23), ("2022/23", 93), ("2023/24", 146)]
+
+def sc_stats(ctx, t, d):
+    neon_bg(ctx, t, tint=CORAL)
+    label(ctx, "AIR FRYER FIRES IN ENGLAND", CX, H * 0.075, 66 * U, WHITE, prog(t, 0, 0.3))
+    text(ctx, "FIRES IN HOMES  ·  HOME OFFICE DATA", CX, H * 0.118, 40 * U, (0.85, 0.87, 0.95), prog(t, 0.1, 0.4))
+    base = H * 0.60; maxh = H * 0.36
+    cols = [GOLD, CORAL, (1.0, 0.22, 0.18)]
+    for i, (yr, v) in enumerate(YEARS):
+        k = prog(t, d * (0.12 + 0.17 * i), d * (0.27 + 0.17 * i))
+        x = W * (0.22 + 0.28 * i); bw = 230 * U; hgt = maxh * v / 146 * k
+        glow(ctx, x, base - hgt / 2, 260 * U, cols[i], 0.25 * k)
+        rrect(ctx, x - bw / 2, base - hgt, bw, max(1, hgt), 18 * U)
+        ctx.set_source(lin(x - bw / 2, 0, x + bw / 2, 0, [(0, mix(cols[i], (0, 0, 0), 0.3), 1), (0.4, mix(cols[i], WHITE, 0.25), 1), (1, mix(cols[i], (0, 0, 0), 0.45), 1)])); ctx.fill()
+        if k > 0:
+            text(ctx, str(int(round(v * k))), x, base - hgt - 60 * U, 96 * U, WHITE, k)
+        text(ctx, yr, x, base + 50 * U, 44 * U, (0.85, 0.87, 0.95), prog(t, 0.1, 0.4))
+        if i == 2: flame_at(ctx, x, base - hgt - 120 * U, U * 0.8, t, prog(t, d * 0.55, d * 0.62))
+    ctx.move_to(W * 0.06, base); ctx.line_to(W * 0.94, base); ctx.set_line_width(4 * U); rgba(ctx, WHITE, 0.5); ctx.stroke()
+    xk = prog(t, d * 0.55, d * 0.65)
+    if xk:
+        sc_ = 1 + 0.06 * math.sin(t * 7)
+        ctx.save(); ctx.translate(W * 0.30, H * 0.215); ctx.scale(sc_, sc_)
+        neon_text(ctx, "6× MORE", 0, 0, 110 * U, GOLD, xk, CORAL, fill=0.3); ctx.restore()
+    label(ctx, "MOST WERE AVOIDABLE", CX, H * 0.665, 58 * U, GREEN, prog(t, d * 0.72, d * 0.82))
 
 def towel(ctx, y, a):
     ctx.rectangle(W * 0.03, y, W * 0.94, 150 * U)
@@ -264,10 +350,10 @@ def sc_clean(ctx, t, d):
 
 def sc_outro(ctx, t, d):
     neon_bg(ctx, t, tint=CYAN)
-    cta(ctx, t, d, "CHECKED YOURS LATELY?", "SEND THIS TO AN AIR FRYER LOVER")
+    cta(ctx, t, d, "SAVE THIS VIDEO", "SHARE IT WITH YOUR FAMILY")
 
-SHORT_SCENES = ["hook", "grease", "clean", "outro"]
-SCENES = dict(hook=sc_hook, grease=sc_grease, clean=sc_clean, outro=sc_outro)
+SHORT_SCENES = ["hook", "grease", "paper", "stats", "clean", "outro"]
+SCENES = dict(hook=sc_hook, grease=sc_grease, paper=sc_paper, stats=sc_stats, clean=sc_clean, outro=sc_outro)
 
 def thumbnail(c):
     vgrad(c, (0.10, 0.04, 0.22), (0.01, 0.02, 0.08))

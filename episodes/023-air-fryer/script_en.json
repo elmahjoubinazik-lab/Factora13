@@ -1,6 +1,8 @@
 [
  {"scene": "hook", "text": ["When did you last look above your air fryer basket?"]},
- {"scene": "grease", "text": ["Grease splatters onto the heating coil and burns, over and over.", "Smoke, burnt taste, even a fire risk."]},
- {"scene": "clean", "text": ["Unplug it, let it cool, and flip it onto a towel.", "Scrub the coil gently with a soft brush and soapy water. Then dry it."]},
- {"scene": "outro", "text": ["Send this to an air fryer lover. Subscribe for more!"]}
+ {"scene": "grease", "text": ["Grease splatters onto the heating coil and burns there.", "Smoke, burnt taste, even fire."]},
+ {"scene": "paper", "text": ["Never preheat with an empty paper liner. The fan lifts it into the coil, and it can ignite.", "Always weigh it down with food."]},
+ {"scene": "stats", "text": ["In England, fires involving air fryers jumped from twenty-three to one hundred forty-six a year, in just two years.", "Fire services say most were avoidable."]},
+ {"scene": "clean", "text": ["Unplug, let it cool, and flip it onto a towel if your manual allows.", "Scrub the coil with a soft brush and soapy water, then dry."]},
+ {"scene": "outro", "text": ["Save this, share it with your family, and subscribe for more safety tips!"]}
 ]
