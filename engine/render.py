@@ -109,6 +109,22 @@ def chip(ctx, label, t, a=1.0):
     rrect(ctx, x, y, w, 60 * U, 30 * U); rgba(ctx, GOLD, 0.95 * k); ctx.fill()
     text(ctx, label, x + w / 2, y + 30 * U, 30 * U, NAVY, k)
 
+_OWL = []
+def mascot(ctx, cx, cy, size, a=1.0, t=0.0):
+    """Mascotte Factora (chouette constellation, logo de la chaîne depuis le 2026-11-10) : engine/assets/owl.png."""
+    if a <= 0: return
+    if not _OWL:
+        try: _OWL.append(cairo.ImageSurface.create_from_png(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "owl.png")))
+        except Exception: _OWL.append(None)
+    img = _OWL[0]
+    if img is None: return
+    glow(ctx, cx, cy, size * 0.95, PURPLE, 0.40 * a)
+    glow(ctx, cx, cy - size * 0.05, size * 0.45, GREEN, 0.18 * a * (0.6 + 0.4 * math.sin(t * 4)))
+    k = size / max(img.get_width(), img.get_height())
+    ctx.save(); ctx.translate(cx, cy); ctx.scale(k, k)
+    ctx.set_source_surface(img, -img.get_width() / 2, -img.get_height() / 2); ctx.paint_with_alpha(a)
+    ctx.restore()
+
 def cta(ctx, t, d, line1="WANT MORE?", line2="MORE THINGS YOU NEVER NOTICED", y=None):
     """Appel à l'abonnement final (commun à toutes les vidéos) : bouton qui claque à l'écran avec rebond,
     curseur qui clique, bouton qui passe à SUBSCRIBED, cloche qui sonne, explosion de confettis.
@@ -120,6 +136,12 @@ def cta(ctx, t, d, line1="WANT MORE?", line2="MORE THINGS YOU NEVER NOTICED", y=
     tc = d * 0.45                                                                # instant du clic
     clicked = t >= tc
     bw, bh = 560 * S, 130 * S
+    # mascotte au-dessus du titre (demande de Nazik, 2026-11-10) : arrive avec un rebond, flotte, petit saut au clic
+    mk = clamp(t / 0.45)
+    msc = ease(mk) * (1 + 0.25 * math.sin(mk * math.pi) * (1 - mk))
+    hop = -28 * S * math.exp(-((t - tc - 0.15) * 7) ** 2)
+    msize = (210 if VERT else 170) * S
+    mascot(ctx, CX, y - 230 * S - (175 if VERT else 150) * S + 8 * S * math.sin(t * 3) + hop, msize * msc, min(1.0, mk * 2), t)
     # titre
     tk = prog(t, 0.0, 0.3)
     font(ctx, 100 * S); tw = ctx.text_extents(line1).width
