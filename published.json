@@ -481,6 +481,29 @@
    "publication": "Zapier (autorisée par Nazik le 2026-11-11)",
    "comment_id": "UgyHjcMj_VL3ubyo23V4AaABAg",
    "instagram_buffer_id": "6af45bce4e9572f10b050242"
+  },
+  {
+   "episode": "027",
+   "topic": "Why do your fingers wrinkle in water? (1er Short en mode Runway)",
+   "dir": "episodes/027-wrinkly-fingers",
+   "date": "2026-11-11",
+   "langue": "en",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": "poT_oiM8RAY",
+   "status": "public",
+   "thumbnail_set": true,
+   "ai_generated": true,
+   "tiktok": "manuel",
+   "instagram": "manuel (Nazik)",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a2c761d9bdd6f57038e96df3405aed558ca37bad/ep027/video_short.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a2c761d9bdd6f57038e96df3405aed558ca37bad/ep027/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a2c761d9bdd6f57038e96df3405aed558ca37bad/ep027/short_cover_yt.jpg"
+   },
+   "note": "Publié à 22h heure suisse sur YouTube seulement, à la demande de Nazik (économie de tâches Zapier).",
+   "synthetic_declared": true,
+   "comment_id": "Ugy2Ls0QiyYBg5ho02V4AaABAg"
   }
  ]
 }
