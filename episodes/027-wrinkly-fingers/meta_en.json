@@ -1,0 +1,85 @@
+{
+  "format": "short_seul",
+  "hook_text": "WHY DO FINGERS WRINKLE?",
+  "playlist": "why",
+  "music": "upbeat",
+  "finish": "photo",
+  "fade": 0.06,
+  "ai_generated": true,
+  "voix": {
+    "melange": {
+      "af_heart": 1.0
+    },
+    "vitesse": 1.12,
+    "traitement_doux": true,
+    "code_langue": "en-us"
+  },
+  "short_title": "Why do your fingers wrinkle in water? 🛁 #shorts",
+  "short_description": "Those wrinkly bath fingers aren't just soggy skin. After about five minutes in warm water, your nervous system makes the blood vessels in your fingertips narrow, the pads lose volume, and the skin folds into wrinkles. The proof: when the nerve to a finger is damaged, that finger stays smooth, which is why doctors have used water immersion as a simple nerve test.\n\nWhy would we have this reflex? A 2013 study (Biology Letters) found that wrinkled fingers handle wet objects better, like treads on a tire. A 2014 study (PLOS ONE) couldn't confirm it, so scientists still debate it.\n\nSend this to someone who takes really long showers 🚿\n\nWhat happens to your body without water: https://youtu.be/hVkuWWfH_ug\n\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#shorts #wrinklyfingers #humanbody #science #didyouknow #factora",
+  "comment": "Do your fingers wrinkle fast in the shower? 🚿 Send this to someone who takes really long showers 👇",
+  "tiktok_text": "Why do your fingers wrinkle in water? 🛁 It's not just soggy skin: after about 5 minutes in warm water, your nerves narrow the blood vessels in your fingertips and the skin folds. Proof: if a finger's nerve is damaged, it stays smooth! One study says wrinkles give a better grip on wet things... another couldn't confirm it.\n\nSend this to someone who takes really long showers 🚿\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#sciencetok #didyouknow #learnontiktok #factora #humanbody #wrinklyfingers",
+  "instagram_text": "Why do your fingers wrinkle in water? 🛁 It's not just soggy skin: after about 5 minutes in warm water, your nerves narrow the blood vessels in your fingertips and the skin folds. Proof: if a finger's nerve is damaged, it stays smooth! One study says wrinkles give a better grip on wet things... another couldn't confirm it.\n\nSend this to someone who takes really long showers 🚿\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#science #didyouknow #learnoninstagram #factora #humanbody #wrinklyfingers",
+  "tags": [
+    "why do fingers wrinkle in water",
+    "wrinkly fingers",
+    "pruney fingers",
+    "human body facts",
+    "nervous system",
+    "science facts",
+    "shorts",
+    "factora"
+  ],
+  "sfx": [
+    {
+      "scene": "hook",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "nerves",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "proof",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "grip",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "outro",
+      "at": 0.0,
+      "type": "whoosh"
+    }
+  ],
+  "sources": [
+    "https://royalsocietypublishing.org/doi/10.1098/rsbl.2012.0999",
+    "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0084949",
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3523841/"
+  ],
+  "hook_y": 0.58,
+  "clips": [
+    {
+      "name": "hook",
+      "file": "hook.mp4",
+      "from": 0.0,
+      "to": 2.88
+    },
+    {
+      "name": "nerves",
+      "file": "nerves.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "grip",
+      "file": "grip.mp4",
+      "from": 0.0,
+      "to": 4.2
+    }
+  ]
+}

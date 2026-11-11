@@ -2,6 +2,19 @@
  "_note": "Shorts déjà produits et hébergés, en réserve (demande de Nazik, 2026-11-10). Le jour où leur sujet est choisi, NE PAS les refaire : publier directement avec ces URLs et les textes de meta_en.json (étapes 6, 6 bis, 6 ter), puis retirer l'entrée d'ici.",
  "reserve": [
   {
+   "episode": "027",
+   "dir": "episodes/027-wrinkly-fingers",
+   "topic_starts_with": "[SHORT] Why do your fingers wrinkle in water?",
+   "prevu": "jeu 12 nov (1er Short en mode Runway, à valider par Nazik)",
+   "ai_generated": true,
+   "a_faire_a_la_publication": "PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; Instagram = textes de meta_en.json",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a2c761d9bdd6f57038e96df3405aed558ca37bad/ep027/video_short.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a2c761d9bdd6f57038e96df3405aed558ca37bad/ep027/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a2c761d9bdd6f57038e96df3405aed558ca37bad/ep027/short_cover_yt.jpg"
+   }
+  },
+  {
    "episode": "025",
    "dir": "episodes/025-whos-lying-3",
    "topic_starts_with": "[WL-CASE] Who's Lying? #3",

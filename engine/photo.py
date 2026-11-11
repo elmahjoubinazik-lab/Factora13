@@ -55,11 +55,12 @@ def with_cam(fn, push=0.04, punch=0.06):
         ctx.restore()
     return sc
 
-def clip_scene(name, overlay=None, push=0.04, punch=0.06, top_scrim=0.0, cover_t=None):
+def clip_scene(name, overlay=None, push=0.04, punch=0.06, top_scrim=0.0, cover_t=None, fx=0.5, fy=0.5, zoom=1.0):
     """Scène standard : le clip `name` en plein cadre (+ zoom), puis les titres `overlay(ctx, t, d)` par-dessus.
-    cover_t : instant du clip montré sur les 2 premières images de la vidéo (vignette Instagram/TikTok)."""
+    cover_t : instant du clip montré sur les 2 premières images de la vidéo (vignette Instagram/TikTok) ;
+    fx, fy, zoom : recadrage (ex. zoom 1.5 pour cacher un défaut en bord d'image)."""
     def bg(ctx, t, d):
-        paint(ctx, frame(name, cover_t if (cover_t is not None and TNOW < 2.0 / FPS) else t))
+        paint(ctx, frame(name, cover_t if (cover_t is not None and TNOW < 2.0 / FPS) else t), fx, fy, zoom)
         if top_scrim: scrim(ctx, top_scrim)
     cam = with_cam(bg, push, punch)
     def sc(ctx, t, d):
