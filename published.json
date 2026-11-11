@@ -467,16 +467,19 @@
    "langue": "en",
    "format": "short_seul",
    "long_id": null,
-   "short_id": null,
-   "status": "publication_manuelle_nazik",
-   "thumbnail_set": null,
+   "short_id": "ln1wl1AVVi4",
+   "status": "public",
+   "thumbnail_set": true,
    "tiktok": "manuel",
-   "instagram": "manuel",
+   "instagram": "envoye",
    "urls": {
     "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/62f4260c3ab9db48c670b47054081a3f12125a08/ep026/video_short.mp4",
     "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/62f4260c3ab9db48c670b47054081a3f12125a08/ep026/short_cover.jpg"
    },
-   "note": "Promesse faite aux spectateurs : réponse « T-shirt = 3 trous » dans la vidéo longue d'énigmes du samedi 14 (bonus). short_id à remplir quand Nazik donne le lien."
+   "note": "Réponse « T-shirt = 3 trous » promise dans la vidéo longue d'énigmes du samedi 14 (bonus). Instagram programmé à 19h30 New York le 2026-11-11.",
+   "publication": "Zapier (autorisée par Nazik le 2026-11-11)",
+   "comment_id": "UgyHjcMj_VL3ubyo23V4AaABAg",
+   "instagram_buffer_id": "6af45bce4e9572f10b050242"
   }
  ]
 }
