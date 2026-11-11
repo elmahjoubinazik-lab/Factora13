@@ -25,4 +25,10 @@ _photo = os.path.exists(EP + "/meta_en.json") and _json.load(open(EP + "/meta_en
 subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", raw, "-vf",
                 ("eq=saturation=1.1:contrast=1.04" if _photo else "eq=saturation=1.4:contrast=1.08") + ",unsharp=5:5:0.4,scale=1080:1920:flags=lanczos", "-q:v", "2", EP + "/build/short_cover.jpg"], check=True)
 subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", EP + "/build/short_cover.jpg", "-vf", "scale=270:480", EP + "/build/short_cover_small.png"], check=True)
-print("OK", EP + "/build/short_cover.jpg")
+# Miniature YouTube du Short (leçon du 2026-11-11 : une affiche 9:16 envoyée telle quelle est recadrée par YouTube, titre et
+# bandeau coupés) : image 16:9 (1920×1080) avec l'affiche entière au centre et un fond flouté sur les côtés. Le recadrage
+# vertical des étagères Shorts (9:16 ou 3:4 au centre) montre alors l'affiche complète.
+subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", EP + "/build/short_cover.jpg", "-filter_complex",
+                "[0]scale=1920:-1,crop=1920:1080,gblur=sigma=32,eq=brightness=-0.20:saturation=1.2[bg];[0]scale=-1:1080[fg];[bg][fg]overlay=(W-w)/2:0",
+                "-q:v", "2", EP + "/build/short_cover_yt.jpg"], check=True)
+print("OK", EP + "/build/short_cover.jpg", "+ short_cover_yt.jpg (miniature YouTube 16:9)")
