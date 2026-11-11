@@ -1,0 +1,7 @@
+[
+ {"scene": "hook", "text": ["How many holes does a pair of pants have?", "Three? Look again."]},
+ {"scene": "morph", "text": ["Stretch them without tearing, and they flatten into a shape with just two holes."]},
+ {"scene": "rule", "text": ["The rule: openings minus one.", "A straw: two openings, one hole.", "Pants: three openings, two holes."]},
+ {"scene": "pockets", "text": ["Pockets? They don't count. A pocket is a dead end, not a tunnel."]},
+ {"scene": "outro", "text": ["So how many holes does a T-shirt have? Comment your answer!", "The reveal is in Saturday's puzzle video."]}
+]

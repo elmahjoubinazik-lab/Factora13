@@ -458,6 +458,25 @@
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
    "note": "version IA (clips Runway) ; publiée vers 21h, supprimée puis remise en ligne plusieurs fois par Nazik pour la miniature (dernière mise en ligne ≈ 22h55) → 9 vues en 1 h sur YouTube ; à 00h01 : TikTok 240 vues, Instagram 128 ; short_id à remplir"
+  },
+  {
+   "episode": "026",
+   "topic": "How many holes does a pair of pants have? (holes debate #2, réponse de l'ép. 018)",
+   "dir": "episodes/026-pants-holes",
+   "date": "2026-11-11",
+   "langue": "en",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": null,
+   "status": "publication_manuelle_nazik",
+   "thumbnail_set": null,
+   "tiktok": "manuel",
+   "instagram": "manuel",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/62f4260c3ab9db48c670b47054081a3f12125a08/ep026/video_short.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/62f4260c3ab9db48c670b47054081a3f12125a08/ep026/short_cover.jpg"
+   },
+   "note": "Promesse faite aux spectateurs : réponse « T-shirt = 3 trous » dans la vidéo longue d'énigmes du samedi 14 (bonus). short_id à remplir quand Nazik donne le lien."
   }
  ]
 }

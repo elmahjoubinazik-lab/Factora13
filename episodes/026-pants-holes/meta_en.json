@@ -1,0 +1,25 @@
+{
+  "format": "short_seul",
+  "hook_text": "HOW MANY HOLES IN PANTS?",
+  "playlist": "how",
+  "music": "upbeat",
+  "voix": {"melange": {"af_heart": 1.0}, "vitesse": 1.12, "traitement_doux": true, "code_langue": "en-us"},
+  "short_title": "How many holes does a pair of pants have? 👖 #shorts",
+  "short_description": "Three openings... but how many holes? In topology, a hole is a tunnel you can pass through. Stretch a pair of pants without tearing or gluing and it flattens into a shape with exactly two holes.\n\nThe rule for a one-piece tube-like object: holes = openings minus one. A straw: 2 openings, 1 hole. Pants: 3 openings, 2 holes. Pockets don't count: a pocket is a dead end, not a tunnel.\n\nNow your turn: how many holes does a T-shirt have? Comment your answer 👇 The reveal is in Saturday's puzzle video.\n\nPart 1, the straw debate: https://youtube.com/shorts/0kQmb0qDEqg\n\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations.\n\n#shorts #topology #math #brainteaser #holesdebate #factora",
+  "comment": "Pants = 2 holes. Now: how many holes in a T-shirt? 👕 Comment your answer, the reveal is on Saturday 👇",
+  "tiktok_text": "How many holes does a pair of pants have? 👖 Three openings, but only TWO holes: stretch them without tearing and they flatten into a shape with two holes. The rule: openings minus one (a straw: 2 openings, 1 hole). Pockets don't count!\n\nSo how many holes does a T-shirt have? Comment your answer 👇 Send this to the friend who said three 😏\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations.\n\n#sciencetok #didyouknow #learnontiktok #factora #topology #brainteaser",
+  "instagram_text": "How many holes does a pair of pants have? 👖 Three openings, but only TWO holes: stretch them without tearing and they flatten into a shape with two holes. The rule: openings minus one (a straw: 2 openings, 1 hole). Pockets don't count!\n\nSo how many holes does a T-shirt have? Comment your answer 👇 Send this to the friend who said three 😏\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nSynthetic voice, original illustrations.\n\n#science #didyouknow #learnoninstagram #factora #topology #brainteaser",
+  "tags": ["how many holes do pants have", "pants holes debate", "how many holes does a straw have", "topology", "math puzzle", "brain teaser", "holes debate", "shorts", "factora"],
+  "sfx": [
+    {"scene": "hook", "at": 0.0, "type": "hit"},
+    {"scene": "morph", "at": 0.0, "type": "whoosh"},
+    {"scene": "rule", "at": 0.0, "type": "whoosh"},
+    {"scene": "pockets", "at": 0.0, "type": "whoosh"},
+    {"scene": "outro", "at": 0.0, "type": "whoosh"}
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Genus_(mathematics)",
+    "https://en.wikipedia.org/wiki/Pair_of_pants_(mathematics)",
+    "https://en.wikipedia.org/wiki/Betti_number"
+  ]
+}
