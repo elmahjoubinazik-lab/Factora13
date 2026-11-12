@@ -1,0 +1,7 @@
+[
+ {"scene": "hook", "text": ["Think more water is always healthy?", "Your kidneys have a speed limit."]},
+ {"scene": "kidneys", "text": ["About a quart an hour.", "Drink much faster, and the extra water stays in your blood."]},
+ {"scene": "cells", "text": ["It dilutes your sodium, and your cells swell, even in your brain."]},
+ {"scene": "danger", "text": ["Headache, nausea, confusion. In rare cases, it's deadly."]},
+ {"scene": "outro", "text": ["So sip when you're thirsty.", "And send this to someone who chugs water like it's a contest."]}
+]
