@@ -5,14 +5,15 @@
    "episode": "029",
    "dir": "episodes/029-airplane-toilet",
    "topic_starts_with": "[SHORT] Where does airplane toilet waste really go?",
-   "prevu": "ven 13 nov à 23h47 (publication automatique), à valider par Nazik",
+   "prevu": "ven 13 nov à 23h47, YouTube SEULEMENT (Nazik a publié Instagram et TikTok elle-même le jeu 12)",
    "ai_generated": true,
-   "a_faire_a_la_publication": "PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; notify_subscribers true ; Instagram via Buffer avec instagram_text (version sans musique) sauf contrordre de Nazik",
+   "a_faire_a_la_publication": "YouTube SEULEMENT : PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; notify_subscribers true ; commentaire. AUCUN appel Buffer : noter instagram et tiktok « manuel (Nazik) » dans published.json.",
    "urls": {
     "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/39cbe54da5c352a7b5500067af6d72377ae3bf3d/ep029/video_short.mp4",
     "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/39cbe54da5c352a7b5500067af6d72377ae3bf3d/ep029/short_cover.jpg",
     "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/39cbe54da5c352a7b5500067af6d72377ae3bf3d/ep029/short_cover_yt.jpg"
-   }
+   },
+   "instagram": "manuel"
   },
   {
    "episode": "028",
