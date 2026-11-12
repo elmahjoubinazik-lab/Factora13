@@ -32,7 +32,7 @@ def _hook_fx(ctx, t, d):
 def _kidneys_fx(ctx, t, d):
     k = prog(t, 0.0, 0.25)
     ctx.save(); ctx.translate(CX, H * 0.085); s_ = 1 + 0.25 * math.exp(-((t - 0.4) * 6) ** 2); ctx.scale(s_, s_)
-    neon_text(ctx, "≈ 1 QUART / HOUR", 0, 0, 120 * U, CYAN, k, PURPLE, fill=0.45); ctx.restore()
+    neon_text(ctx, "≈ 1 QUART / HOUR", 0, 0, 92 * U, CYAN, k, PURPLE, fill=0.45); ctx.restore()
     label(ctx, "(ABOUT 1 LITER)", CX, H * 0.15, 40 * U, WHITE, prog(t, 0.3, 0.6))
     label(ctx, "FASTER → EXTRA WATER STAYS IN YOUR BLOOD", CX, H * 0.62, 42 * U, CORAL, prog(t, 1.6, 1.9))
 
