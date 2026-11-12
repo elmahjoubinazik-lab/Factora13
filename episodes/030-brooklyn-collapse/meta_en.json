@@ -59,5 +59,10 @@
     }
   ],
   "_note_ia": "Visualisations explicatives générées avec Runway (schémas en coupe), jamais l'événement réel : mention « AI illustration · not footage » à l'écran ; containsSyntheticMedia = true.",
-  "hook_y": 0.19
+  "hook_y": 0.19,
+  "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/5e9a7fb31473b3794cc5f3acf50a625d1e641ca9/ep030/video_short.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/5e9a7fb31473b3794cc5f3acf50a625d1e641ca9/ep030/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/5e9a7fb31473b3794cc5f3acf50a625d1e641ca9/ep030/short_cover_yt.jpg"
+  }
 }
