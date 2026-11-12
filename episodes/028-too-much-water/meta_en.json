@@ -2,7 +2,7 @@
   "format": "short_seul",
   "hook_text": "TOO MUCH WATER?",
   "playlist": "why",
-  "music": "upbeat",
+  "music": "none",
   "finish": "photo",
   "fade": 0.06,
   "ai_generated": true,
@@ -87,5 +87,6 @@
       "from": 2.5,
       "to": 5.0
     }
-  ]
+  ],
+  "_music_note": "Musique retirée le 2026-11-12 à la demande de Nazik (« pas adaptée ») : elle ajoute elle-même sa musique."
 }

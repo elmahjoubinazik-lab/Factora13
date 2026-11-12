@@ -401,7 +401,7 @@ def draw_hook(ctx, a):
     rrect(ctx, CX - bw / 2, y0 - lh * 0.75, bw, lh * len(lines) + lh * 0.5, 28 * U); rgba(ctx, GOLD, 0.95 * a); ctx.set_line_width(5 * U); ctx.stroke()
     for i, l in enumerate(lines): text(ctx, l, CX, y0 + i * lh, size, GOLD if i == len(lines) - 1 else WHITE, a)
 
-# musique d'ambiance générée (libre de droits) : nappe douce Am - F - C - G
+# musique d'ambiance générée (libre de droits) : nappe douce Am - F - C - G ; meta « music » = "none" : aucune musique (voix + bruitages seulement — Nazik ajoute sa propre musique)
 def music(total, sr=SR):
     n = int(total * sr); tt = np.arange(n) / sr; out = np.zeros(n, np.float32)
     chords = [[220.0, 261.63, 329.63], [174.61, 220.0, 261.63], [196.0, 261.63, 329.63], [196.0, 246.94, 293.66]]
@@ -571,7 +571,7 @@ except Exception:
     pass
 SFX_TIMES = [(e["t"], e["type"]) for e in _SFX]
 _FD = max(0.01, float(_mm.get("fade", 0.3)))   # durée du fondu au noir entre scènes (meta « fade » ; 0.06 ≈ cut sec)
-mus = music_mystery(len(vo) / SR) if _MOOD == "mystery" else (music_upbeat(len(vo) / SR) if _MOOD == "upbeat" else (music_hype(len(vo) / SR) if _MOOD == "hype" else music(len(vo) / SR)))
+mus = np.zeros(len(vo), np.float32) if _MOOD == "none" else music_mystery(len(vo) / SR) if _MOOD == "mystery" else (music_upbeat(len(vo) / SR) if _MOOD == "upbeat" else (music_hype(len(vo) / SR) if _MOOD == "hype" else music(len(vo) / SR)))
 if _SFX: mus = mus + sfx_track(len(vo) / SR, _SFX)
 mixd = vo * 0.95 + mus[:len(vo)]
 mixd /= max(1.0, np.max(np.abs(mixd)) / 0.97)

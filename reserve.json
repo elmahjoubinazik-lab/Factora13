@@ -9,10 +9,11 @@
    "ai_generated": true,
    "a_faire_a_la_publication": "PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; Instagram = textes de meta_en.json",
    "urls": {
-    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/2270ace013e1f4a40608fbf98ff55e3b9b2add4f/ep028/video_short.mp4",
-    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/2270ace013e1f4a40608fbf98ff55e3b9b2add4f/ep028/short_cover.jpg",
-    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/2270ace013e1f4a40608fbf98ff55e3b9b2add4f/ep028/short_cover_yt.jpg"
-   }
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/9fa97a72fe4ed4c037008e94a96c8095d5f15a31/ep028/video_short.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/9fa97a72fe4ed4c037008e94a96c8095d5f15a31/ep028/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/9fa97a72fe4ed4c037008e94a96c8095d5f15a31/ep028/short_cover_yt.jpg"
+   },
+   "note": "Version SANS musique (demande de Nazik 2026-11-12 : elle ajoute sa propre musique)."
   },
   {
    "episode": "025",
