@@ -10,9 +10,12 @@ SOFTGOLD = (0.95, 0.80, 0.45)
 KEY_HOOK = os.path.join(RW, "key_hook.png")
 
 def ai_tag(ctx):
-    font(ctx, 30 * U); s = "AI ILLUSTRATION · NOT FOOTAGE"; e = ctx.text_extents(s)
-    rrect(ctx, CX - e.width / 2 - 18 * U, H * 0.875 - 26 * U, e.width + 36 * U, 52 * U, 26 * U); rgba(ctx, (0.02, 0.03, 0.06), 0.75); ctx.fill()
-    text(ctx, s, CX, H * 0.875, 30 * U, (0.8, 0.85, 0.95), 0.95)
+    """Avertissement permanent (demande de Nazik 2026-11-12) : images purement illustratives, pas de vraies images."""
+    font(ctx, 32 * U); s1 = "ILLUSTRATIVE IMAGES ONLY"; s2 = "NOT REAL IMAGES OF THE EVENT"
+    w = max(ctx.text_extents(s1).width, ctx.text_extents(s2).width) + 50 * U; y = H * 0.835
+    rrect(ctx, CX - w / 2, y - 50 * U, w, 100 * U, 22 * U); rgba(ctx, (0.02, 0.03, 0.06), 0.82); ctx.fill()
+    rrect(ctx, CX - w / 2, y - 50 * U, w, 100 * U, 22 * U); ctx.set_line_width(3 * U); rgba(ctx, SOFTGOLD, 0.8); ctx.stroke()
+    text(ctx, s1, CX, y - 20 * U, 32 * U, SOFTGOLD, 1.0); text(ctx, s2, CX, y + 22 * U, 28 * U, (0.85, 0.88, 0.95), 1.0)
 
 def caption_top(ctx, s, y, size, col, a):
     if a <= 0: return
@@ -35,6 +38,7 @@ def sc_toll(ctx, t, d):
     text(ctx, "17+", W * 0.71, H * 0.30, 280 * U, SOFTGOLD, k2); text(ctx, "INJURED", W * 0.71, H * 0.43, 64 * U, (0.8, 0.84, 0.92), k2)
     ctx.move_to(CX, H * 0.22); ctx.line_to(CX, H * 0.46); ctx.set_line_width(3 * U); rgba(ctx, INK, 0.3 * k1); ctx.stroke()
     text(ctx, "Source: NYC Mayor's Office · Nov 12, 2026", CX, H * 0.50, 36 * U, (0.7, 0.75, 0.85), prog(t, 0.6, 1.0))
+    ai_tag(ctx)
 
 def _soil_fx(ctx, t, d):
     caption_top(ctx, "FOUNDATION ON SOIL", H * 0.11, 56 * U, CYAN, prog(t, 0.4, 0.8))
@@ -72,6 +76,7 @@ def sc_outro(ctx, t, d):
     mk = prog(t, 3.5, 4.3)
     text(ctx, "Our thoughts are with the victims", CX, H * 0.52, 60 * U, INK, mk)
     text(ctx, "and their families.", CX, H * 0.565, 60 * U, INK, mk)
+    ai_tag(ctx)
 
 SHORT_SCENES = ["hook", "toll", "soil", "rule", "probe", "outro"]
 SCENES = dict(hook=clip_scene("hook", _hook_fx, 0.04, 0.0, top_scrim=0.2, cover_t=0.3),
@@ -95,3 +100,4 @@ def cover(ctx):
     rrect(ctx, CX - 470 * U, H * 0.83 - 52 * U, 940 * U, 104 * U, 52 * U); rgba(ctx, (0.02, 0.03, 0.06), 0.9); ctx.fill()
     rrect(ctx, CX - 470 * U, H * 0.83 - 52 * U, 940 * U, 104 * U, 52 * U); ctx.set_line_width(5 * U); rgba(ctx, SOFTGOLD, 1); ctx.stroke()
     text(ctx, "FLATBUSH · NOV 11, 2026", CX, H * 0.83, 56 * U, SOFTGOLD)
+    text(ctx, "Illustration only · not a real image", CX, H * 0.875, 36 * U, (0.85, 0.88, 0.95), 0.95)
