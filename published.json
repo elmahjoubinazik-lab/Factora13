@@ -495,15 +495,16 @@
    "thumbnail_set": true,
    "ai_generated": true,
    "tiktok": "manuel",
-   "instagram": "manuel (Nazik)",
+   "instagram": "envoye",
    "urls": {
     "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a2c761d9bdd6f57038e96df3405aed558ca37bad/ep027/video_short.mp4",
     "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a2c761d9bdd6f57038e96df3405aed558ca37bad/ep027/short_cover.jpg",
     "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a2c761d9bdd6f57038e96df3405aed558ca37bad/ep027/short_cover_yt.jpg"
    },
-   "note": "Publié à 22h heure suisse sur YouTube seulement, à la demande de Nazik (économie de tâches Zapier).",
+   "note": "Publié à 22h heure suisse sur YouTube seulement ; Instagram envoyé par Buffer (share_now) le 2026-11-12 à 2h17 heure suisse (20h17 New York) à la demande de Nazik, pour tester l'audience américaine. TikTok : Nazik.",
    "synthetic_declared": true,
-   "comment_id": "Ugy2Ls0QiyYBg5ho02V4AaABAg"
+   "comment_id": "Ugy2Ls0QiyYBg5ho02V4AaABAg",
+   "instagram_buffer_id": "6af513a0bcecac3a60032877"
   }
  ]
 }
