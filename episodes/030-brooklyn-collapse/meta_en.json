@@ -14,10 +14,10 @@
     "code_langue": "en-us"
   },
   "short_title": "Brooklyn building collapse: what we know #shorts",
-  "short_description": "What we know about the building collapse in Flatbush, Brooklyn (information as of November 12, 2026).\n\nOn November 11, 2026, a three-story building on Flatbush Avenue collapsed into an adjacent construction excavation dug for a new residential building. New York City Mayor Zohran Mamdani confirmed that eight people died; at least 17 people were injured, according to officials. The NYC Department of Buildings and law enforcement are investigating; the cause has not been officially determined.\n\nWhy excavations next to buildings matter: a building's foundation relies on the soil around it. New York City's Building Code requires whoever performs excavation or foundation work to protect adjoining structures, for example by underpinning their foundations.\n\nIf you see new cracks or unsafe conditions in a building near construction in New York City, report them to 311.\n\nOur thoughts are with the victims and their families.\n\nSources: NYC Mayor's Office and FDNY briefings as reported by ABC7 New York, UPI, Gothamist and CNN (November 11–12, 2026); New York City Building Code, Chapter 33.\nIllustrations, not footage. Synthetic voice, original illustrations.\n\n#brooklyn #buildingcollapse #nyc #flatbush #shorts",
+  "short_description": "What we know about the building collapse in Flatbush, Brooklyn (information as of November 12, 2026).\n\nOn November 11, 2026, a three-story building on Flatbush Avenue collapsed into an adjacent construction excavation dug for a new residential building. New York City Mayor Zohran Mamdani confirmed that eight people died; at least 17 people were injured, according to officials. The NYC Department of Buildings and law enforcement are investigating; the cause has not been officially determined.\n\nWhy excavations next to buildings matter: a building's foundation relies on the soil around it. New York City's Building Code requires whoever performs excavation or foundation work to protect adjoining structures, for example by underpinning their foundations.\n\nIf you see new cracks or unsafe conditions in a building near construction in New York City, report them to 311.\n\nOur thoughts are with the victims and their families.\n\nSources: NYC Mayor's Office and FDNY briefings as reported by ABC7 New York, UPI, Gothamist and CNN (November 11–12, 2026); New York City Building Code, Chapter 33.\nAI-generated explanatory illustrations, not footage of the event. Created with AI tools. Synthetic voice.\n\n#brooklyn #buildingcollapse #nyc #flatbush #shorts",
   "comment": "Our thoughts are with the victims and their families. If you live in NYC: report new cracks near construction sites to 311.",
-  "tiktok_text": "What we know about the Brooklyn building collapse (as of Nov 12, 2026): a three-story building in Flatbush collapsed into the construction pit next door. The mayor confirmed 8 deaths and at least 17 injured. The cause has not been officially determined: the Department of Buildings and law enforcement are investigating.\n\nWhy digging next door matters, and what NYC rules require 👆 Illustrations, not footage.\n\nOur thoughts are with the victims and their families.\n\nSynthetic voice, original illustrations.\n#brooklyn #nyc #buildingcollapse #flatbush #news",
-  "instagram_text": "What we know about the Brooklyn building collapse (as of Nov 12, 2026): a three-story building in Flatbush collapsed into the construction pit next door. The mayor confirmed 8 deaths and at least 17 injured. The cause has not been officially determined: the Department of Buildings and law enforcement are investigating.\n\nWhy digging next door matters, and what NYC rules require. Illustrations, not footage.\n\nOur thoughts are with the victims and their families.\n\nSynthetic voice, original illustrations.\n#brooklyn #nyc #buildingcollapse #flatbush #news",
+  "tiktok_text": "What we know about the Brooklyn building collapse (as of Nov 12, 2026): a three-story building in Flatbush collapsed into the construction pit next door. The mayor confirmed 8 deaths and at least 17 injured. The cause has not been officially determined: the Department of Buildings and law enforcement are investigating.\n\nWhy digging next door matters, and what NYC rules require 👆 AI-generated explanatory illustrations, not footage of the event.\n\nOur thoughts are with the victims and their families.\n\nCreated with AI tools. Synthetic voice.\n#brooklyn #nyc #buildingcollapse #flatbush #news",
+  "instagram_text": "What we know about the Brooklyn building collapse (as of Nov 12, 2026): a three-story building in Flatbush collapsed into the construction pit next door. The mayor confirmed 8 deaths and at least 17 injured. The cause has not been officially determined: the Department of Buildings and law enforcement are investigating.\n\nWhy digging next door matters, and what NYC rules require. AI-generated explanatory illustrations, not footage of the event.\n\nOur thoughts are with the victims and their families.\n\nCreated with AI tools. Synthetic voice.\n#brooklyn #nyc #buildingcollapse #flatbush #news",
   "tags": [
     "brooklyn building collapse",
     "flatbush building collapse",
@@ -35,5 +35,28 @@
     "https://gothamist.com/news/death-toll-from-brooklyn-building-collapse-continues-to-rise-amid-ongoing-search",
     "https://www.cnn.com/2026/11/11/us/live-news/brooklyn-building-collapse-nyc",
     "https://www.nyc.gov/site/buildings/codes/2022-construction-codes.page"
-  ]
+  ],
+  "finish": "photo",
+  "ai_generated": true,
+  "clips": [
+    {
+      "name": "hook",
+      "file": "hook.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "soil",
+      "file": "soil.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "rule",
+      "file": "rule.mp4",
+      "from": 0.0,
+      "to": 5.0
+    }
+  ],
+  "_note_ia": "Visualisations explicatives générées avec Runway (schémas en coupe), jamais l'événement réel : mention « AI illustration · not footage » à l'écran ; containsSyntheticMedia = true."
 }
