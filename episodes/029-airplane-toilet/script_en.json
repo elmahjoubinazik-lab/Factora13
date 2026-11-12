@@ -1,0 +1,7 @@
+[
+ {"scene": "hook", "text": ["You flush at thirty-five thousand feet.", "Where does it actually go?"]},
+ {"scene": "vacuum", "text": ["It's not water pushing it. A valve opens, and a pressure difference sucks everything away at high speed."]},
+ {"scene": "tank", "text": ["Straight into a sealed tank at the back of the plane.", "Nothing is dumped in the sky."]},
+ {"scene": "truck", "text": ["After landing, a service truck drains it.", "The only exception: rare leaks that freeze into blue ice."]},
+ {"scene": "outro", "text": ["Send this to someone who's scared of airplane toilets."]}
+]

@@ -1,0 +1,85 @@
+{
+  "format": "short_seul",
+  "hook_text": "WHERE DOES IT GO?",
+  "playlist": "how",
+  "music": "none",
+  "_music_note": "Sans musique par défaut depuis le 2026-11-12 (Nazik a trouvé la musique générée pas adaptée et ajoute la sienne).",
+  "finish": "photo",
+  "fade": 0.06,
+  "ai_generated": true,
+  "voix": {
+    "melange": {
+      "af_heart": 1.0
+    },
+    "vitesse": 1.12,
+    "traitement_doux": true,
+    "code_langue": "en-us"
+  },
+  "short_title": "Where does airplane toilet waste really go? ✈️ #shorts",
+  "short_description": "Where does airplane toilet waste really go? Modern airliners use vacuum toilets: when you press flush, a valve opens and the pressure difference between the cabin and the outside (or a vacuum pump on the ground) sucks everything through pipes into a sealed tank, usually at the back of the plane. They need only a small splash of rinse water.\n\nNothing is dumped during the flight. After landing, a lavatory service truck connects to the plane and drains the tank. The famous \"blue ice\" that sometimes falls from the sky comes from rare leaks that freeze on the outside of the aircraft, not from planes emptying their tanks.\n\nSend this to someone who's scared of airplane toilets ✈️\n\nSources: FAA, aircraft manufacturers' public documentation, encyclopedias.\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#airplane #aviation #airplanetoilet #didyouknow #factora #shorts",
+  "comment": "Have you ever been scared of the airplane toilet flush? ✈️ Send this to someone who is 👇",
+  "tiktok_text": "Where does airplane toilet waste really go? ✈️ Airplane toilets use a vacuum: a valve opens and a pressure difference sucks everything into a sealed tank at the back of the plane. Nothing is dumped in the sky! After landing, a service truck drains it. The only exception: rare leaks that freeze into \"blue ice\".\n\nSend this to someone who's scared of airplane toilets ✈️\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#sciencetok #didyouknow #learnontiktok #factora #aviation #airplane",
+  "instagram_text": "Where does airplane toilet waste really go? ✈️ Airplane toilets use a vacuum: a valve opens and a pressure difference sucks everything into a sealed tank at the back of the plane. Nothing is dumped in the sky! After landing, a service truck drains it. The only exception: rare leaks that freeze into \"blue ice\".\n\nSend this to someone who's scared of airplane toilets ✈️\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#science #didyouknow #learnoninstagram #factora #aviation #airplane",
+  "tags": [
+    "where does airplane toilet waste go",
+    "airplane toilet",
+    "airplane vacuum toilet",
+    "blue ice",
+    "aviation facts",
+    "how planes work",
+    "shorts",
+    "factora"
+  ],
+  "sfx": [
+    {
+      "scene": "hook",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "vacuum",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "tank",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "truck",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "outro",
+      "at": 0.0,
+      "type": "whoosh"
+    }
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Aircraft_lavatory",
+    "https://en.wikipedia.org/wiki/Vacuum_toilet",
+    "https://en.wikipedia.org/wiki/Blue_ice_(aviation)"
+  ],
+  "clips": [
+    {
+      "name": "hook",
+      "file": "hook.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "vacuum",
+      "file": "tank.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "truck",
+      "file": "truck.mp4",
+      "from": 0.0,
+      "to": 5.0
+    }
+  ]
+}
