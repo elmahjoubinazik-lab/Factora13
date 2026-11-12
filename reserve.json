@@ -5,7 +5,7 @@
    "episode": "028",
    "dir": "episodes/028-too-much-water",
    "topic_starts_with": "[SHORT] What happens if you drink too much water?",
-   "prevu": "ven 13 nov à 23h47, YouTube seulement (version sans musique)",
+   "prevu": "jeu 12 nov à 18h New York (minuit en Suisse), YouTube seulement, par la tâche programmée « Publier ép. 028 (eau) sur YouTube à 18h NY »",
    "ai_generated": true,
    "a_faire_a_la_publication": "YouTube SEULEMENT : PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; commentaire. AUCUN appel Buffer : Nazik publie elle-même Instagram et TikTok (avec sa musique) — noter instagram et tiktok « manuel (Nazik) » dans published.json.",
    "urls": {
