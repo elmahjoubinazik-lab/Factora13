@@ -1,7 +1,8 @@
 # Episode 030 (Short, actualité) - "Brooklyn building collapse: what we know" — VERSION RUNWAY (demande de Nazik 2026-11-12)
 # SUJET GRAVE (8 morts) : les images Runway sont des VISUALISATIONS EXPLICATIVES (coupes transparentes façon schéma),
 # jamais une image réaliste de l'effondrement, des décombres, des secours ou des victimes ; mention permanente
-# « AI ILLUSTRATION · NOT FOOTAGE » ; ton sobre, pas de musique, pas de confettis ; aucune cause affirmée.
+# « ILLUSTRATIVE IMAGES ONLY » ; ton sobre, pas de confettis ; aucune cause affirmée. Logo Factora permanent en haut à
+# gauche et musique dramatique originale (meta « music » = "dramatic") : demandes de Nazik du 2026-11-12.
 # Faits et sources : voir meta_en.json. Ancienne version 100 % vectorielle : scenes_vector.py.
 exec(open("engine/photo.py", encoding="utf-8").read())
 
@@ -9,8 +10,27 @@ INK = (0.92, 0.94, 0.98)
 SOFTGOLD = (0.95, 0.80, 0.45)
 KEY_HOOK = os.path.join(RW, "key_hook.png")
 
+_OWL_IMG = []
+def brand_bug(ctx, a=1.0):
+    """Logo Factora permanent (demande de Nazik 2026-11-12) : chouette + FACTORA en haut à gauche, sous les barres
+    d'interface de YouTube, TikTok et Instagram, au-dessus des titres de scène (qui commencent à 0,165 H)."""
+    if not _OWL_IMG: _OWL_IMG.append(cairo.ImageSurface.create_from_png("engine/assets/owl.png"))
+    img = _OWL_IMG[0]; sz = 96 * U; x0 = 44 * U; y = H * 0.098; ph = 112 * U
+    font(ctx, 46 * U); tw = ctx.text_extents("FACTORA").width
+    pw = 18 * U + sz + 16 * U + tw + 34 * U
+    rrect(ctx, x0, y - ph / 2, pw, ph, ph / 2); rgba(ctx, (0.02, 0.03, 0.08), 0.74 * a); ctx.fill()
+    rrect(ctx, x0, y - ph / 2, pw, ph, ph / 2); ctx.set_line_width(3 * U); rgba(ctx, PURPLE, 0.75 * a); ctx.stroke()
+    ox = x0 + 18 * U + sz / 2
+    glow(ctx, ox, y, sz * 0.75, PURPLE, 0.35 * a)
+    k = sz / max(img.get_width(), img.get_height())
+    ctx.save(); ctx.translate(ox, y); ctx.scale(k, k)
+    ctx.set_source_surface(img, -img.get_width() / 2, -img.get_height() / 2); ctx.paint_with_alpha(a); ctx.restore()
+    text(ctx, "FACTORA", ox + sz / 2 + 16 * U, y, 46 * U, WHITE, a, align="l")
+
 def ai_tag(ctx):
-    """Avertissement permanent (demande de Nazik 2026-11-12) : images purement illustratives, pas de vraies images."""
+    """Avertissement permanent (demande de Nazik 2026-11-12) : images purement illustratives, pas de vraies images.
+    Dessine aussi le logo Factora (brand_bug), présent sur toutes les scènes."""
+    brand_bug(ctx)
     font(ctx, 32 * U); s1 = "ILLUSTRATIVE IMAGES ONLY"; s2 = "NOT REAL IMAGES OF THE EVENT"
     w = max(ctx.text_extents(s1).width, ctx.text_extents(s2).width) + 50 * U; y = H * 0.835
     rrect(ctx, CX - w / 2, y - 50 * U, w, 100 * U, 22 * U); rgba(ctx, (0.02, 0.03, 0.06), 0.82); ctx.fill()
@@ -28,7 +48,7 @@ def dark_bg(ctx, t, darken=0.6):
     rgba(ctx, (0.01, 0.02, 0.05), darken); ctx.paint()
 
 def _hook_fx(ctx, t, d):
-    caption_top(ctx, "FLATBUSH, BROOKLYN · NOV 11, 2026", H * 0.13, 50 * U, INK, prog(t, 3.2, 3.6))
+    caption_top(ctx, "FLATBUSH, BROOKLYN · NOV 11, 2026", H * 0.165, 50 * U, INK, prog(t, 3.2, 3.6))
     ai_tag(ctx)
 
 def sc_toll(ctx, t, d):
@@ -41,13 +61,13 @@ def sc_toll(ctx, t, d):
     ai_tag(ctx)
 
 def _soil_fx(ctx, t, d):
-    caption_top(ctx, "FOUNDATION ON SOIL", H * 0.11, 56 * U, CYAN, prog(t, 0.4, 0.8))
-    caption_top(ctx, "SOIL CAN LOSE ITS SUPPORT", H * 0.18, 52 * U, CORAL, prog(t, 3.6, 4.0))
+    caption_top(ctx, "FOUNDATION ON SOIL", H * 0.165, 56 * U, CYAN, prog(t, 0.4, 0.8))
+    caption_top(ctx, "SOIL CAN LOSE ITS SUPPORT", H * 0.235, 52 * U, CORAL, prog(t, 3.6, 4.0))
     ai_tag(ctx)
 
 def _rule_fx(ctx, t, d):
-    caption_top(ctx, "NYC CODE: PROTECT ADJOINING BUILDINGS", H * 0.11, 40 * U, INK, prog(t, 0.1, 0.4))
-    caption_top(ctx, "UNDERPINNING", H * 0.18, 64 * U, GREEN, prog(t, 1.2, 1.6))
+    caption_top(ctx, "NYC CODE: PROTECT ADJOINING BUILDINGS", H * 0.165, 40 * U, INK, prog(t, 0.1, 0.4))
+    caption_top(ctx, "UNDERPINNING", H * 0.235, 64 * U, GREEN, prog(t, 1.2, 1.6))
     ai_tag(ctx)
 
 def sc_probe(ctx, t, d):
@@ -76,13 +96,15 @@ def sc_outro(ctx, t, d):
     mk = prog(t, 3.5, 4.3)
     text(ctx, "Our thoughts are with the victims", CX, H * 0.52, 60 * U, INK, mk)
     text(ctx, "and their families.", CX, H * 0.565, 60 * U, INK, mk)
+    ok = prog(t, 3.9, 4.6)                                       # chouette Factora en signature, sobre (pas de confettis)
+    if ok: mascot(ctx, CX, H * 0.635 + 6 * U * math.sin(t * 2), 190 * U * (0.85 + 0.15 * ease(ok)), ok, t)
     ai_tag(ctx)
 
 SHORT_SCENES = ["hook", "toll", "soil", "rule", "probe", "outro"]
-SCENES = dict(hook=clip_scene("hook", _hook_fx, 0.04, 0.0, top_scrim=0.2, cover_t=0.3),
+SCENES = dict(hook=clip_scene("hook", _hook_fx, 0.04, 0.0, top_scrim=0.24, cover_t=0.3),
               toll=sc_toll,
-              soil=clip_scene("soil", _soil_fx, top_scrim=0.24),
-              rule=clip_scene("rule", _rule_fx, top_scrim=0.24),
+              soil=clip_scene("soil", _soil_fx, top_scrim=0.30),
+              rule=clip_scene("rule", _rule_fx, top_scrim=0.30),
               probe=sc_probe, outro=sc_outro)
 
 def thumbnail(c):
@@ -101,3 +123,4 @@ def cover(ctx):
     rrect(ctx, CX - 470 * U, H * 0.83 - 52 * U, 940 * U, 104 * U, 52 * U); ctx.set_line_width(5 * U); rgba(ctx, SOFTGOLD, 1); ctx.stroke()
     text(ctx, "FLATBUSH · NOV 11, 2026", CX, H * 0.83, 56 * U, SOFTGOLD)
     text(ctx, "Illustration only · not a real image", CX, H * 0.875, 36 * U, (0.85, 0.88, 0.95), 0.95)
+    brand_bug(ctx)

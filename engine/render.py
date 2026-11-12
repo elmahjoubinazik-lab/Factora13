@@ -614,6 +614,60 @@ def sfx_track(total, events, sr=SR):
         if j1 > i0: out[i0:j1] += seg[:j1 - i0]
     return out
 
+def _lowpass(x, fc, sr=SR, order=2):
+    """Filtre passe-bas doux (dans le domaine fréquentiel ; pas de dépendance scipy)."""
+    X = np.fft.rfft(x); f = np.fft.rfftfreq(len(x), 1.0 / sr)
+    return np.fft.irfft(X / (1 + (f / fc) ** 2) ** (order / 2), len(x)).astype(np.float32)
+
+def music_dramatic(total, sr=SR):
+    """Nappe cinématographique sombre ORIGINALE (générée, libre de droits ; demande de Nazik 2026-11-12 pour un sujet
+    d'actualité grave) : cordes graves en ré mineur (Ré m - Si♭ - Sol m - La, 4 s par accord, attaques lentes),
+    violoncelles à l'octave grave, timbale feutrée à chaque accord, pulsation sourde façon battement de cœur au milieu,
+    note tenue aiguë (pas de mélodie) dans la 2e moitié ; léger crescendo puis fondu final."""
+    n = int(total * sr); tt = np.arange(n) / sr
+    pad = np.zeros(n, np.float32); low = np.zeros(n, np.float32); top = np.zeros(n, np.float32); hits = np.zeros(n, np.float32)
+    rng = np.random.default_rng(31)
+    L = 4.0
+    chords = [[146.83, 174.61, 220.0], [116.54, 146.83, 174.61], [98.0, 116.54, 146.83], [110.0, 138.59, 164.81]]   # Ré m, Si♭, Sol m, La
+    roots = [73.42, 58.27, 49.0, 55.0]
+    tops = [440.0, 587.33, 587.33, 554.37]
+    def strings(f, tl, nh=8, vib=0.0025):
+        s_ = np.zeros(len(tl))
+        for dt in (-0.004, 0.0, 0.0035):                          # 3 pupitres légèrement désaccordés (effet d'ensemble)
+            ph = 2 * np.pi * f * (1 + dt) * (tl + vib / (2 * np.pi * 5.2) * np.sin(2 * np.pi * 5.2 * tl + 7 * dt))
+            for h in range(1, nh + 1): s_ += np.sin(h * ph) / h
+        return s_ / 3
+    for ci in range(int(total / L) + 2):
+        c = ci % 4; st = ci * L; a0, a1 = st - 0.8, st + L + 1.8
+        idx = (tt >= max(0, a0)) & (tt < a1)
+        if not idx.any(): continue
+        tl = tt[idx]; loc = tl - a0
+        env = np.clip(loc / 1.6, 0, 1) ** 1.5 * np.clip((a1 - tl) / 2.2, 0, 1)
+        pad[idx] += (sum(strings(f, tl) for f in chords[c]) * env).astype(np.float32)
+        low[idx] += (strings(roots[c], tl, 10, 0.0) * env).astype(np.float32)
+        if st >= 15.5: top[idx] += (strings(tops[c], tl, 6, 0.004) * env).astype(np.float32)
+        i0 = int(st * sr)
+        if i0 < n:                                                # timbale feutrée au début de chaque accord
+            Lt = min(int(1.6 * sr), n - i0); tk = np.arange(Lt) / sr
+            f0 = roots[c] * (1 + 0.25 * np.exp(-tk / 0.03))
+            tim = np.sin(2 * np.pi * np.cumsum(f0) / sr) * np.exp(-tk / 0.55) + 0.25 * _lowpass(rng.standard_normal(Lt), 300, sr) * np.exp(-tk / 0.08)
+            tim *= np.clip(tk / 0.006, 0, 1)                      # attaque de 6 ms : pas de clic
+            hits[i0:i0 + Lt] += (0.9 * tim).astype(np.float32)
+    beat = 1.0                                                    # pulsation « cœur » (60 bpm) de 7 s à 31 s
+    Lp = int(0.22 * sr); tp = np.arange(Lp) / sr; thump = np.sin(2 * np.pi * 52 * tp) * np.exp(-tp / 0.07)
+    for s0 in np.arange(7.0, min(total - 3, 31.0), beat):
+        for off, g in ((0.0, 0.55), (0.26, 0.35)):
+            i = int((s0 + off) * sr); j = min(n, i + Lp)
+            if i < n: hits[i:j] += (g * thump[:j - i]).astype(np.float32)
+    pad = _lowpass(pad, 1500, sr); low = _lowpass(low, 380, sr); top = _lowpass(top, 2600, sr)
+    def nz(x): return x / (np.max(np.abs(x)) + 1e-9)
+    out = 1.0 * nz(pad) + 0.7 * nz(low) + 0.32 * nz(top) + 0.55 * nz(hits)
+    out = nz(out)
+    swell = 0.75 + 0.25 * np.clip((tt - 4) / 24, 0, 1)
+    fade = np.clip(tt / 1.2, 0, 1) * np.clip((total - tt) / 2.5, 0, 1)
+    return (out * swell * fade * MUSIC_DRAMATIC_GAIN).astype(np.float32)
+MUSIC_DRAMATIC_GAIN = 0.14   # ≈ 15-16 dB sous la voix (mesuré sur l’ép. 030) : présente, jamais devant le texte
+
 _MOOD, _SFX, _mm = "", [], {}
 try:
     _mm = json.load(open(EP + f"/meta_{LANG}.json", encoding="utf-8")) if os.path.exists(EP + f"/meta_{LANG}.json") else {}
@@ -625,7 +679,8 @@ except Exception:
     pass
 SFX_TIMES = [(e["t"], e["type"]) for e in _SFX]
 _FD = max(0.01, float(_mm.get("fade", 0.3)))   # durée du fondu au noir entre scènes (meta « fade » ; 0.06 ≈ cut sec)
-mus = np.zeros(len(vo), np.float32) if _MOOD == "none" else music_mystery(len(vo) / SR) if _MOOD == "mystery" else (music_upbeat(len(vo) / SR) if _MOOD == "upbeat" else (music_hype(len(vo) / SR) if _MOOD == "hype" else (music_westcoast(len(vo) / SR) if _MOOD == "westcoast" else music(len(vo) / SR))))
+_MUSIC = {"mystery": music_mystery, "upbeat": music_upbeat, "hype": music_hype, "westcoast": music_westcoast, "dramatic": music_dramatic}
+mus = np.zeros(len(vo), np.float32) if _MOOD == "none" else _MUSIC.get(_MOOD, music)(len(vo) / SR)
 if _SFX: mus = mus + sfx_track(len(vo) / SR, _SFX)
 mixd = vo * 0.95 + mus[:len(vo)]
 mixd /= max(1.0, np.max(np.abs(mixd)) / 0.97)

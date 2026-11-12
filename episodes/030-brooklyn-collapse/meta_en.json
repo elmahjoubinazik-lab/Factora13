@@ -3,7 +3,7 @@
   "news": true,
   "hook_text": "BROOKLYN COLLAPSE: WHAT WE KNOW",
   "playlist": "why",
-  "music": "none",
+  "music": "dramatic",
   "fade": 0.3,
   "voix": {
     "melange": {
@@ -58,5 +58,6 @@
       "to": 5.0
     }
   ],
-  "_note_ia": "Visualisations explicatives générées avec Runway (schémas en coupe), jamais l'événement réel : mention « AI illustration · not footage » à l'écran ; containsSyntheticMedia = true."
+  "_note_ia": "Visualisations explicatives générées avec Runway (schémas en coupe), jamais l'événement réel : mention « AI illustration · not footage » à l'écran ; containsSyntheticMedia = true.",
+  "hook_y": 0.19
 }
