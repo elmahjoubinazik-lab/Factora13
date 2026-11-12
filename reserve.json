@@ -5,15 +5,16 @@
    "episode": "028",
    "dir": "episodes/028-too-much-water",
    "topic_starts_with": "[SHORT] What happens if you drink too much water?",
-   "prevu": "ven 13 nov (décision de Nazik 2026-11-12), à valider par Nazik",
+   "prevu": "ven 13 nov à 23h47, YouTube seulement (version sans musique)",
    "ai_generated": true,
-   "a_faire_a_la_publication": "PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; Instagram = textes de meta_en.json",
+   "a_faire_a_la_publication": "YouTube SEULEMENT : PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; commentaire. AUCUN appel Buffer : Nazik publie elle-même Instagram et TikTok (avec sa musique) — noter instagram et tiktok « manuel (Nazik) » dans published.json.",
    "urls": {
     "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/9fa97a72fe4ed4c037008e94a96c8095d5f15a31/ep028/video_short.mp4",
     "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/9fa97a72fe4ed4c037008e94a96c8095d5f15a31/ep028/short_cover.jpg",
     "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/9fa97a72fe4ed4c037008e94a96c8095d5f15a31/ep028/short_cover_yt.jpg"
    },
-   "note": "Version SANS musique (demande de Nazik 2026-11-12 : elle ajoute sa propre musique)."
+   "note": "Version SANS musique (demande de Nazik 2026-11-12 : elle ajoute sa propre musique).",
+   "instagram": "manuel"
   },
   {
    "episode": "025",
