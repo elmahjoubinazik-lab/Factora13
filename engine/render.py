@@ -477,6 +477,60 @@ def music_upbeat(total, sr=SR, bpm=122):
     fade = np.clip(tt / 0.3, 0, 1) * np.clip((total - tt) / 1.5, 0, 1)
     return out * fade * 0.25   # ~14 dB sous la voix : présente mais sans gêner
 
+def music_westcoast(total, sr=SR, bpm=92):
+    """Beat hip-hop « West Coast » ORIGINAL (généré, libre de droits ; demande de Nazik 2026-11-12 : une ambiance façon
+    Dr. Dre, sans reprendre aucune mélodie existante) : tempo posé, grosse caisse lourde, caisse claire sur 2 et 4,
+    charleston en croches swinguées, basse grave, accords de piano sombres Mi m - Do maj7 - La m7 - Si7 et petite
+    nappe aiguë qui glisse (couleur G-funk)."""
+    n = int(total * sr); tt = np.arange(n) / sr; out = np.zeros(n, np.float32)
+    rng = np.random.default_rng(23)
+    beat = 60.0 / bpm; s16 = beat / 4; swing = 0.18 * s16
+    roots = [82.41, 65.41, 55.0, 61.74]                        # E2 C2 A1 B1
+    chords = [[329.63, 392.0, 493.88], [261.63, 329.63, 392.0, 493.88], [220.0, 261.63, 329.63, 392.0], [246.94, 311.13, 369.99, 440.0]]
+    def add(t0, sig, g):
+        i = int(t0 * sr); j = min(n, i + len(sig))
+        if 0 <= i < n: out[i:j] += (g * sig[:j - i]).astype(np.float32)
+    Lk = int(0.35 * sr); tk = np.arange(Lk) / sr
+    kick = np.sin(2 * np.pi * (48 * tk + 90 * 0.04 * (1 - np.exp(-tk / 0.04)))) * np.exp(-tk / 0.16)
+    kick = np.tanh(2.2 * kick)
+    Ls = int(0.25 * sr); ts = np.arange(Ls) / sr
+    snare = (0.7 * rng.standard_normal(Ls) * np.exp(-ts / 0.07) + 0.6 * np.sin(2 * np.pi * 190 * ts) * np.exp(-ts / 0.05))
+    snare = np.convolve(snare, [1, -0.6], mode="same")
+    Lh = int(0.06 * sr); hat = np.diff(rng.standard_normal(Lh + 1)) * np.exp(-np.arange(Lh) / (0.014 * sr))
+    Lo = int(0.22 * sr); ohat = np.diff(rng.standard_normal(Lo + 1)) * np.exp(-np.arange(Lo) / (0.07 * sr))
+    def piano(freqs, dur, g):
+        L = int(dur * sr); tp = np.arange(L) / sr; sig = np.zeros(L)
+        for f in freqs:
+            for h, a in ((1, 1.0), (2, 0.45), (3, 0.2), (4, 0.1)):
+                sig += a * np.sin(2 * np.pi * f * h * tp) * np.exp(-tp * (1.6 + 0.9 * h))
+        sig *= np.clip(tp / 0.004, 0, 1)
+        return sig / max(1, len(freqs)) * g
+    nbar = int(total / (4 * beat)) + 1
+    for bar in range(nbar):
+        t0 = bar * 4 * beat; c = bar % 4
+        for k16 in (0, 7, 8, 10):                                  # grosse caisse (motif boom-bap)
+            add(t0 + k16 * s16, kick, 0.95 if k16 in (0, 8) else 0.6)
+        for k16 in (4, 12):                                        # caisse claire sur 2 et 4
+            add(t0 + k16 * s16, snare, 0.55)
+        for e in range(8):                                         # charleston en croches swinguées
+            tt0 = t0 + e * 2 * s16 + (swing if e % 2 else 0)
+            if c == 3 and e == 7: add(tt0, ohat, 0.16)
+            else: add(tt0, hat, 0.20 if e % 2 == 0 else 0.13)
+        Lb = int(beat * 1.8 * sr); tb = np.arange(Lb) / sr; f = roots[c]   # basse
+        bass = np.tanh(1.5 * (np.sin(2 * np.pi * f * tb) + 0.3 * np.sin(2 * np.pi * 2 * f * tb))) * np.exp(-tb / 0.9)
+        add(t0, bass, 0.42); add(t0 + 2.5 * beat, bass[: int(beat * sr)], 0.30)
+        add(t0, piano(chords[c], 2.6 * beat, 1.0), 0.30)           # accord de piano sur le 1
+        add(t0 + 2.5 * beat, piano(chords[c], 1.2 * beat, 1.0), 0.16)   # rappel plus léger sur le « et » du 3
+        if c in (1, 3):                                            # nappe aiguë qui glisse (sinus, couleur G-funk)
+            L = int(2 * beat * sr); tl = np.arange(L) / sr
+            f0, f1 = (987.77, 880.0) if c == 1 else (1174.66, 987.77)
+            fr = f0 + (f1 - f0) * np.clip(tl / (2 * beat), 0, 1)
+            lead = np.sin(2 * np.pi * np.cumsum(fr) / sr) * np.sin(np.pi * np.clip(tl / (2 * beat), 0, 1)) ** 2
+            add(t0 + 2 * beat, lead, 0.06)
+    out /= np.max(np.abs(out)) + 1e-9
+    fade = np.clip(tt / 0.3, 0, 1) * np.clip((total - tt) / 1.5, 0, 1)
+    return out * fade * 0.27   # sous la voix
+
 def music_hype(total, sr=SR, bpm=140):
     """Musique très énergique originale (générée, libre de droits ; demande de Nazik 2026-11-10 : « plus de dynamisme ») :
     140 bpm, kick à chaque temps + basse « pompée » (sidechain), clap sur 2 et 4, charleston en doubles-croches,
@@ -571,7 +625,7 @@ except Exception:
     pass
 SFX_TIMES = [(e["t"], e["type"]) for e in _SFX]
 _FD = max(0.01, float(_mm.get("fade", 0.3)))   # durée du fondu au noir entre scènes (meta « fade » ; 0.06 ≈ cut sec)
-mus = np.zeros(len(vo), np.float32) if _MOOD == "none" else music_mystery(len(vo) / SR) if _MOOD == "mystery" else (music_upbeat(len(vo) / SR) if _MOOD == "upbeat" else (music_hype(len(vo) / SR) if _MOOD == "hype" else music(len(vo) / SR)))
+mus = np.zeros(len(vo), np.float32) if _MOOD == "none" else music_mystery(len(vo) / SR) if _MOOD == "mystery" else (music_upbeat(len(vo) / SR) if _MOOD == "upbeat" else (music_hype(len(vo) / SR) if _MOOD == "hype" else (music_westcoast(len(vo) / SR) if _MOOD == "westcoast" else music(len(vo) / SR))))
 if _SFX: mus = mus + sfx_track(len(vo) / SR, _SFX)
 mixd = vo * 0.95 + mus[:len(vo)]
 mixd /= max(1.0, np.max(np.abs(mixd)) / 0.97)

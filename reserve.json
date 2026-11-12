@@ -9,11 +9,12 @@
    "ai_generated": true,
    "a_faire_a_la_publication": "YouTube SEULEMENT : PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; notify_subscribers true ; commentaire. AUCUN appel Buffer : noter instagram et tiktok « manuel (Nazik) » dans published.json.",
    "urls": {
-    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/39cbe54da5c352a7b5500067af6d72377ae3bf3d/ep029/video_short.mp4",
-    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/39cbe54da5c352a7b5500067af6d72377ae3bf3d/ep029/short_cover.jpg",
-    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/39cbe54da5c352a7b5500067af6d72377ae3bf3d/ep029/short_cover_yt.jpg"
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3d6606a5614ed2f8b814fb17adca5dc912a53077/ep029/video_short.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3d6606a5614ed2f8b814fb17adca5dc912a53077/ep029/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3d6606a5614ed2f8b814fb17adca5dc912a53077/ep029/short_cover_yt.jpg"
    },
-   "instagram": "manuel"
+   "instagram": "manuel",
+   "note": "Version avec le beat hip-hop West Coast original (demande de Nazik 2026-11-12)."
   },
   {
    "episode": "028",
