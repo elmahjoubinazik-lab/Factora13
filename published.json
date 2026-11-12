@@ -505,6 +505,24 @@
    "synthetic_declared": true,
    "comment_id": "Ugy2Ls0QiyYBg5ho02V4AaABAg",
    "instagram_buffer_id": "6af513a0bcecac3a60032877"
+  },
+  {
+   "episode": "030",
+   "topic": "[SHORT][ACTU] Brooklyn building collapse: what we know",
+   "dir": "episodes/030-brooklyn-collapse",
+   "format": "short_seul",
+   "news": true,
+   "date": "2026-11-12",
+   "long_id": null,
+   "short_id": "2PWMetVH59k",
+   "status": "public",
+   "thumbnail_set": true,
+   "ai_generated": true,
+   "tiktok": "manuel (Nazik)",
+   "instagram": "manuel (Nazik)",
+   "note": "Sujet d'actualité demandé par Nazik ; publié jeu 12 à 18h New York, YouTube seulement ; bilan revérifié à 17h NY (8 morts, au moins 17 blessés, cause non déterminée).",
+   "comment_id": "UgxfrCdCnWFv2CJ8lfV4AaABAg",
+   "synthetic_declared": true
   }
  ]
 }
