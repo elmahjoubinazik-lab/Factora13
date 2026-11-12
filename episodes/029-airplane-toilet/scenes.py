@@ -20,7 +20,7 @@ def _hook_fx(ctx, t, d):
     k = prog(t, 0.2, 0.5)
     if k:
         ctx.save(); ctx.translate(W * 0.73, H * 0.44); s_ = 1 + 0.3 * (1 - k); ctx.scale(s_, s_)
-        label(ctx, "35,000 FT ✈", 0, 0, 52 * U, CYAN, k); ctx.restore()
+        label(ctx, "35,000 FT", 0, 0, 52 * U, CYAN, k); ctx.restore()
 
 def _vacuum_fx(ctx, t, d):
     k = prog(t, 0.0, 0.25)
