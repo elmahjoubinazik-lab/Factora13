@@ -2,22 +2,6 @@
  "_note": "Shorts déjà produits et hébergés, en réserve (demande de Nazik, 2026-11-10). Le jour où leur sujet est choisi, NE PAS les refaire : publier directement avec ces URLs et les textes de meta_en.json (étapes 6, 6 bis, 6 ter), puis retirer l'entrée d'ici.",
  "reserve": [
   {
-   "episode": "029",
-   "dir": "episodes/029-airplane-toilet",
-   "topic_starts_with": "[SHORT] Where does airplane toilet waste really go?",
-   "prevu": "ven 13 nov à 23h47, YouTube SEULEMENT (Nazik a publié Instagram et TikTok elle-même le jeu 12)",
-   "ai_generated": true,
-   "a_faire_a_la_publication": "YouTube SEULEMENT : titre = short_title (règles SEO du 2026-11-13), description = build/description_short.txt (python3 engine/seo.py episodes/029-airplane-toilet short), tags de meta_en.json ; PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; notify_subscribers true ; commentaire ; ajout à la playlist du thème (meta_en.json → theme, POST playlistItems). AUCUN appel Buffer : noter instagram et tiktok « manuel (Nazik) » dans published.json (avec \"theme\").",
-   "urls": {
-    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/2f92fcbfee359194b9dd3ca259d341e0de46cc5f/ep029/airplane-toilets-where-does-the-waste-go-at-35-000-ft.mp4",
-    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/2f92fcbfee359194b9dd3ca259d341e0de46cc5f/ep029/short_cover.jpg",
-    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/2f92fcbfee359194b9dd3ca259d341e0de46cc5f/ep029/short_cover_yt.jpg"
-   },
-   "instagram": "manuel",
-   "note": "Version avec le beat hip-hop West Coast original (demande de Nazik 2026-11-12).",
-   "note_quiz": "En attente de la décision de Nazik (2026-11-13) : publier tel quel (défaut), ajouter une carte quiz au début (nouveau rendu, sans Runway), ou annuler."
-  },
-  {
    "episode": "028",
    "dir": "episodes/028-too-much-water",
    "topic_starts_with": "[SHORT] What happens if you drink too much water?",

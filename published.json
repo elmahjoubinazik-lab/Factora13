@@ -549,6 +549,24 @@
    "note": "Sujet d'actualité demandé par Nazik ; publié jeu 12 à 18h New York, YouTube seulement ; bilan revérifié à 17h NY (8 morts, au moins 17 blessés, cause non déterminée).",
    "comment_id": "UgxfrCdCnWFv2CJ8lfV4AaABAg",
    "synthetic_declared": true
+  },
+  {
+   "episode": "029",
+   "topic": "[SHORT] Where does airplane toilet waste really go?",
+   "dir": "episodes/029-airplane-toilet",
+   "format": "short_seul",
+   "date": "2026-11-13",
+   "long_id": null,
+   "short_id": "5fVii3m9g6k",
+   "status": "private",
+   "thumbnail_set": true,
+   "ai_generated": true,
+   "theme": "how",
+   "tiktok": "manuel (Nazik)",
+   "instagram": "manuel (Nazik)",
+   "note": "Test de Nazik (2026-11-13) : mis en ligne en PRIVÉ à 01h32 (heure suisse) ; Nazik le passe en public elle-même le vendredi 13 (laisser ~24 h à YouTube). Commentaire à publier et épingler par Nazik après le passage en public.",
+   "synthetic_declared": true,
+   "playlist_added": "how"
   }
  ]
 }
