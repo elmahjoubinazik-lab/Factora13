@@ -18,6 +18,7 @@ keep = None
 if MODE == "short" and os.path.exists(EP + "/scenes.py"):
     m = re.search(r"SHORT_SCENES\s*=\s*\[([^\]]*)\]", open(EP + "/scenes.py", encoding="utf-8").read())
     if m: keep = re.findall(r"[\"']([\w-]+)[\"']", m.group(1))
+if meta.get("transcript_scenes"): keep = meta["transcript_scenes"]   # ex. vidéo d'énigmes : les questions seulement (pas les réponses)
 seen, words = set(), []
 for seg in script:
     if keep and seg["scene"] not in keep: continue
@@ -51,7 +52,13 @@ if rel:
     out.append("")
 if meta.get("yesterday"):   # série « Can you solve it? » : lien vers l'énigme de la veille
     out += [f"Yesterday's riddle: https://youtube.com/shorts/{meta['yesterday']}", ""]
-out += ["Full transcript:", transcript, ""]
+if MODE == "long" and meta.get("chapters") and os.path.exists(EP + "/build/timeline.json"):   # chapitres (vidéo longue)
+    tl = json.load(open(EP + "/build/timeline.json", encoding="utf-8")); ch = []
+    for sg in tl:
+        if sg["scene"] in meta["chapters"]:
+            t0 = 0 if not ch else int(sg["start"]); ch.append(f"{t0 // 60:02d}:{t0 % 60:02d} {meta['chapters'][sg['scene']]}")
+    out += ["Chapters:"] + ch + [""]
+out += [meta.get("transcript_label", "Full transcript:"), transcript, ""]
 src = meta.get("sources_text") or meta.get("sources")   # sources_text : sources nommées (plus lisibles que des URL)
 if src:
     out.append("Sources: " + (src if isinstance(src, str) else "; ".join(src))); out.append("")

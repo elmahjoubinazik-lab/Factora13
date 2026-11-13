@@ -1,0 +1,196 @@
+[
+ {
+  "scene": "intro",
+  "text": [
+   "Seven riddles. Sixty seconds each.",
+   "Some are easy. Some are sneaky.",
+   "Keep score in your head, and tell me your score at the end. Let's go."
+  ]
+ },
+ {
+  "scene": "r1_q",
+  "text": [
+   "Riddle number one.",
+   "A bat and a ball cost one dollar and ten cents in total.",
+   "The bat costs one dollar more than the ball.",
+   "How much does the ball cost?"
+  ]
+ },
+ {
+  "scene": "r1_t",
+  "text": [
+   "You have sixty seconds. Pause the video if you need more time. Go!"
+  ],
+  "pause": 60
+ },
+ {
+  "scene": "r1_a",
+  "text": [
+   "Time's up! Did you say ten cents? That's the answer most people give first.",
+   "But if the ball cost ten cents, the bat would cost one dollar and ten cents, and together they would cost one dollar and twenty cents.",
+   "The real answer is five cents.",
+   "Five cents for the ball, plus one dollar and five cents for the bat: exactly one dollar and ten cents.",
+   "Psychologists use this very question to test whether we stop and check our first instinct."
+  ]
+ },
+ {
+  "scene": "r2_q",
+  "text": [
+   "Riddle number two.",
+   "A patch of lily pads doubles in size every single day.",
+   "On day forty-eight, it covers the whole lake.",
+   "On which day did it cover half the lake?"
+  ]
+ },
+ {
+  "scene": "r2_t",
+  "text": [
+   "You have sixty seconds. Pause the video if you need more time. Go!"
+  ],
+  "pause": 60
+ },
+ {
+  "scene": "r2_a",
+  "text": [
+   "Time's up! The answer is day forty-seven.",
+   "If the patch doubles every day, then one day before the lake is full, it was exactly half full.",
+   "Many people say day twenty-four, because our brains think in straight lines, not in doublings.",
+   "That's why anything that keeps doubling, from bacteria to savings, can surprise us at the very end."
+  ]
+ },
+ {
+  "scene": "r3_q",
+  "text": [
+   "Riddle number three is where it gets trickier.",
+   "You have two ropes and a lighter.",
+   "Each rope takes exactly one hour to burn from end to end, but they burn unevenly: half a rope doesn't always take half an hour.",
+   "How can you measure exactly forty-five minutes?"
+  ]
+ },
+ {
+  "scene": "r3_t",
+  "text": [
+   "You have sixty seconds. Pause the video if you need more time. Go!"
+  ],
+  "pause": 60
+ },
+ {
+  "scene": "r3_a",
+  "text": [
+   "Time's up! Here's the trick.",
+   "Light the first rope at both ends, and the second rope at one end, at the same time.",
+   "Burning from both ends, the first rope is gone in exactly thirty minutes, no matter how unevenly it burns.",
+   "At that moment, light the other end of the second rope.",
+   "It had thirty minutes of burning left, and now it burns from both ends, so it takes fifteen minutes.",
+   "Thirty plus fifteen: forty-five minutes."
+  ]
+ },
+ {
+  "scene": "r4_q",
+  "text": [
+   "Riddle number four.",
+   "In one of our Shorts, we showed that a pair of pants has two holes.",
+   "So how many holes does a T-shirt have?",
+   "One: four. Two: three. Three: zero."
+  ]
+ },
+ {
+  "scene": "r4_t",
+  "text": [
+   "You have sixty seconds. Pause the video if you need more time. Go!"
+  ],
+  "pause": 60
+ },
+ {
+  "scene": "r4_a",
+  "text": [
+   "Time's up! The answer is three.",
+   "A T-shirt has four openings: the neck, the bottom, and two sleeves.",
+   "Mathematicians who study shapes count tunnels you can pass through, and for a single piece like this, holes equal openings minus one.",
+   "Four openings minus one: three holes. Stretch the T-shirt without tearing it, and it flattens into a shape with three holes."
+  ]
+ },
+ {
+  "scene": "r5_q",
+  "text": [
+   "Riddle number five.",
+   "Imagine a rope wrapped tightly around the Earth's equator, almost twenty-five thousand miles long.",
+   "Now you add just three feet of rope, and lift it evenly all the way around the planet.",
+   "How high above the ground does it float? One: the width of a hair. Two: about six inches. Three: about a mile."
+  ]
+ },
+ {
+  "scene": "r5_t",
+  "text": [
+   "You have sixty seconds. Pause the video if you need more time. Go!"
+  ],
+  "pause": 60
+ },
+ {
+  "scene": "r5_a",
+  "text": [
+   "Time's up! The answer is about six inches.",
+   "A circle's length is two times pi times its radius, so adding three feet to the length raises the rope by three feet divided by two pi.",
+   "That's about five point seven inches, all the way around the Earth.",
+   "A mouse could walk under it. And here's the strange part: you'd get exactly the same gap around a basketball."
+  ]
+ },
+ {
+  "scene": "r6_q",
+  "text": [
+   "Riddle number six.",
+   "How many people do you need in a room for a better than fifty-fifty chance that two of them share a birthday?",
+   "One: twenty-three. Two: one hundred eighty-three. Three: three hundred sixty-six."
+  ]
+ },
+ {
+  "scene": "r6_t",
+  "text": [
+   "You have sixty seconds. Pause the video if you need more time. Go!"
+  ],
+  "pause": 60
+ },
+ {
+  "scene": "r6_a",
+  "text": [
+   "Time's up! The answer is just twenty-three.",
+   "It sounds far too small, because we imagine someone sharing our own birthday.",
+   "But with twenty-three people, there are two hundred fifty-three different pairs, and every pair is a chance for a match.",
+   "Put together, the odds pass fifty percent at twenty-three people. With seventy people, they're over ninety-nine percent."
+  ]
+ },
+ {
+  "scene": "r7_q",
+  "text": [
+   "And riddle number seven, the famous one that fooled even mathematicians.",
+   "On a game show, there are three doors. Behind one is a car. Behind the other two, goats.",
+   "You pick door number one. The host, who knows where the car is, opens door number three: a goat.",
+   "Should you stay with door one, or switch to door two? One: stay. Two: switch. Three: it doesn't matter."
+  ]
+ },
+ {
+  "scene": "r7_t",
+  "text": [
+   "You have sixty seconds. Pause the video if you need more time. Go!"
+  ],
+  "pause": 60
+ },
+ {
+  "scene": "r7_a",
+  "text": [
+   "Time's up! You should switch. Switching wins two times out of three.",
+   "When you first picked, you had a one in three chance of being right, and a two in three chance that the car was behind one of the other doors.",
+   "The host always opens a door with a goat, so he doesn't change your first chance. He just shows you which other door to take.",
+   "Stay, and you win one time in three. Switch, and you win two times in three.",
+   "When this puzzle ran in a magazine column in nineteen ninety, thousands of readers, including some with PhDs, wrote in to say the answer was wrong. It wasn't."
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "So, how many did you get right?",
+   "Comment your score out of seven!",
+   "And subscribe to Factora, so you never miss a fascinating fact."
+  ]
+ }
+]
