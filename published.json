@@ -607,19 +607,20 @@
   },
   {
    "episode": "032",
-   "topic": "Test Your Logic: 7 Riddles, 60 Seconds Each. Can You Get 7/7?",
+   "topic": "Test Your Logic: 7 Riddles, 15 Seconds Each. Can You Get 7/7?",
    "dir": "episodes/032-seven-riddles",
    "format": "long_enigmes",
    "date": "2026-11-13",
-   "long_id": "xYOuqO5MLak",
+   "long_id": "VeSojmrDnlo",
    "short_id": null,
    "status": "private",
    "thumbnail_set": true,
    "ai_generated": false,
    "theme": "brain",
-   "note": "Vidéo longue de test demandée par Nazik (format « 7 énigmes, 60 s de réflexion chacune », script validé par elle) ; 11 min 58 ; mise en ligne en privé le 13, publication programmée sam 14 à 18h30 New York.",
+   "note": "Vidéo longue de test (format « 7 énigmes », script validé par Nazik), 15 s de réflexion par énigme à sa demande ; 6 min 58 ; en privé le 13, publication par Nazik (ou programmation sur sa confirmation).",
    "playlist_added": "brain",
-   "publish_at": "NON programmé : en attente de la confirmation de Nazik (sam 14 à 18h30 New York proposé)"
+   "publish_at": "NON programmé : en attente de la confirmation de Nazik (sam 14 à 18h30 New York proposé)",
+   "ancienne_version_privee": "xYOuqO5MLak (version 60 s, jamais publique) — retirée de la playlist ; à supprimer dans Studio si Nazik le souhaite"
   }
  ]
 }
