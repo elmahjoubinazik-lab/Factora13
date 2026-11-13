@@ -7,7 +7,7 @@
    "topic_starts_with": "[SHORT] What happens if you drink too much water?",
    "prevu": "jeu 19 nov à 23h47 (exécution automatique), YouTube SEULEMENT — reporté du jeu 12 (le Short d'actualité Brooklyn, ép. 030, a pris ce créneau ; décision de Nazik 2026-11-12)",
    "ai_generated": true,
-   "a_faire_a_la_publication": "YouTube SEULEMENT : titre = short_title (règles SEO du 2026-11-13), description = build/description_short.txt (python3 engine/seo.py episodes/028-too-much-water short), tags de meta_en.json ; PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; notify_subscribers true ; commentaire ; ajout à la playlist du thème (meta_en.json → theme, POST playlistItems). AUCUN appel Buffer : noter instagram et tiktok « manuel (Nazik) » dans published.json (avec \"theme\").",
+   "a_faire_a_la_publication": "YouTube SEULEMENT, EN PRIVÉ (règle du 2026-11-13) : titre = short_title, description = build/description_short.txt (python3 engine/seo.py episodes/028-too-much-water short), tags de meta_en.json ; PUT videos?part=status avec privacyStatus private + les 4 autres champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; ajout à la playlist du thème (why) ; PAS de commentaire par l'API (le donner à Nazik) ; livrer le fichier nommé comme le titre et l'affiche à Nazik ; AUCUN appel Buffer.",
    "urls": {
     "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/c44125ed6ba254080879e9750c075bf3e6672a03/ep028/what-happens-if-you-drink-too-much-water.mp4",
     "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/c44125ed6ba254080879e9750c075bf3e6672a03/ep028/short_cover.jpg",
@@ -15,7 +15,7 @@
    },
    "note": "Version SANS musique (demande de Nazik 2026-11-12 : elle ajoute sa propre musique).",
    "instagram": "manuel",
-   "note_quiz": "En attente de la décision de Nazik (2026-11-13) : publier tel quel (défaut), ajouter une carte quiz au début (nouveau rendu, sans Runway), ou annuler."
+   "note_quiz": "Version quiz faite le 2026-11-13 à la demande de Nazik (carte quiz au début, révélation, affiche quiz) ; URLs mises à jour après le nouveau rendu."
   },
   {
    "episode": "025",
