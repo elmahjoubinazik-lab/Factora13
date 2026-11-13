@@ -68,8 +68,8 @@ def _hook_fx(ctx, t, d):
 
 def _kidneys_fx(ctx, t, d):
     k = prog(t, 1.8, 2.1)
-    ctx.save(); ctx.translate(CX, H * 0.085); s_ = 1 + 0.25 * math.exp(-((t - 2.2) * 6) ** 2); ctx.scale(s_, s_)
-    neon_text(ctx, "≈ 1 QUART / HOUR", 0, 0, 92 * U, CYAN, k, PURPLE, fill=0.45); ctx.restore()
+    ctx.save(); ctx.translate(CX, H * 0.085); s_ = 1 + 0.12 * math.exp(-((t - 2.2) * 6) ** 2); ctx.scale(s_, s_)
+    neon_text(ctx, "≈ 1 QUART / HOUR", 0, 0, 76 * U, CYAN, k, PURPLE, fill=0.45); ctx.restore()
     label(ctx, "(ABOUT 1 LITER)", CX, H * 0.15, 40 * U, WHITE, prog(t, 2.1, 2.4))
     ks = prog(t, 0.15, 0.45)
     if ks:
