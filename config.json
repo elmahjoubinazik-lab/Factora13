@@ -24,17 +24,32 @@
     "how": {
       "id": "PLKY_up1k1FCo",
       "titre": "How Does It Work? ⚙️",
-      "pour": "« How does… work / How is… »"
+      "pour": "« How does… work », technologie, avions, argent"
     },
     "why": {
       "id": "PLDfwVoPj5Ibs",
       "titre": "Why Does It Happen? 🔬",
-      "pour": "« Why… / What happens… », corps humain, mystères"
+      "pour": "« Why… / What happens… », corps humain, nature, mystères"
     },
     "recap": {
       "id": "PLcsva6D3oKsA",
       "titre": "Weekly Recaps: This Week's Most Fascinating Facts",
       "pour": "récap du samedi"
+    },
+    "brain": {
+      "id": "PLUwgX-5k-zws",
+      "titre": "Brain Teasers & Riddles: Can You Solve It? 🧠",
+      "pour": "énigmes, paradoxes, série des trous, « Can you solve it? », vidéos longues d'énigmes du samedi"
+    },
+    "whos_lying": {
+      "id": "PLex8ouK5i7i0",
+      "titre": "Who's Lying? Detective Riddles 🕵️",
+      "pour": "série « Who's Lying? » (enquêtes et solutions)"
+    },
+    "hygiene": {
+      "id": "PLde9Y1g4G84M",
+      "titre": "Germs & Hygiene: Gross Everyday Science 🦠",
+      "pour": "germes, hygiène, cuisine, maison"
     }
   },
   "tiktok_heure": "19:30 America/New_York (heure de pointe US)",
@@ -48,5 +63,6 @@
     "compte": "@factora132",
     "statut": "connecté à Buffer le 2026-11-07",
     "heure": "19:30 America/New_York, même jour que TikTok"
-  }
+  },
+  "_note_playlists": "Playlists par thème créées le 2026-11-13 à la demande de Nazik ; chaque nouvelle vidéo est ajoutée à sa playlist (meta_en.json → theme) et la description renvoie à la playlist entière (deep links)."
 }

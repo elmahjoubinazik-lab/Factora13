@@ -7,14 +7,15 @@
    "topic_starts_with": "[SHORT] Where does airplane toilet waste really go?",
    "prevu": "ven 13 nov à 23h47, YouTube SEULEMENT (Nazik a publié Instagram et TikTok elle-même le jeu 12)",
    "ai_generated": true,
-   "a_faire_a_la_publication": "YouTube SEULEMENT : PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; notify_subscribers true ; commentaire. AUCUN appel Buffer : noter instagram et tiktok « manuel (Nazik) » dans published.json.",
+   "a_faire_a_la_publication": "YouTube SEULEMENT : titre = short_title (règles SEO du 2026-11-13), description = build/description_short.txt (python3 engine/seo.py episodes/029-airplane-toilet short), tags de meta_en.json ; PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; notify_subscribers true ; commentaire ; ajout à la playlist du thème (meta_en.json → theme, POST playlistItems). AUCUN appel Buffer : noter instagram et tiktok « manuel (Nazik) » dans published.json (avec \"theme\").",
    "urls": {
-    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3d6606a5614ed2f8b814fb17adca5dc912a53077/ep029/video_short.mp4",
-    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3d6606a5614ed2f8b814fb17adca5dc912a53077/ep029/short_cover.jpg",
-    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3d6606a5614ed2f8b814fb17adca5dc912a53077/ep029/short_cover_yt.jpg"
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/2f92fcbfee359194b9dd3ca259d341e0de46cc5f/ep029/airplane-toilets-where-does-the-waste-go-at-35-000-ft.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/2f92fcbfee359194b9dd3ca259d341e0de46cc5f/ep029/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/2f92fcbfee359194b9dd3ca259d341e0de46cc5f/ep029/short_cover_yt.jpg"
    },
    "instagram": "manuel",
-   "note": "Version avec le beat hip-hop West Coast original (demande de Nazik 2026-11-12)."
+   "note": "Version avec le beat hip-hop West Coast original (demande de Nazik 2026-11-12).",
+   "note_quiz": "En attente de la décision de Nazik (2026-11-13) : publier tel quel (défaut), ajouter une carte quiz au début (nouveau rendu, sans Runway), ou annuler."
   },
   {
    "episode": "028",
@@ -22,14 +23,15 @@
    "topic_starts_with": "[SHORT] What happens if you drink too much water?",
    "prevu": "jeu 19 nov à 23h47 (exécution automatique), YouTube SEULEMENT — reporté du jeu 12 (le Short d'actualité Brooklyn, ép. 030, a pris ce créneau ; décision de Nazik 2026-11-12)",
    "ai_generated": true,
-   "a_faire_a_la_publication": "YouTube SEULEMENT : PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; commentaire. AUCUN appel Buffer : Nazik publie elle-même Instagram et TikTok (avec sa musique) — noter instagram et tiktok « manuel (Nazik) » dans published.json.",
+   "a_faire_a_la_publication": "YouTube SEULEMENT : titre = short_title (règles SEO du 2026-11-13), description = build/description_short.txt (python3 engine/seo.py episodes/028-too-much-water short), tags de meta_en.json ; PUT videos?part=status avec les 5 champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; notify_subscribers true ; commentaire ; ajout à la playlist du thème (meta_en.json → theme, POST playlistItems). AUCUN appel Buffer : noter instagram et tiktok « manuel (Nazik) » dans published.json (avec \"theme\").",
    "urls": {
-    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/9fa97a72fe4ed4c037008e94a96c8095d5f15a31/ep028/video_short.mp4",
-    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/9fa97a72fe4ed4c037008e94a96c8095d5f15a31/ep028/short_cover.jpg",
-    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/9fa97a72fe4ed4c037008e94a96c8095d5f15a31/ep028/short_cover_yt.jpg"
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/c44125ed6ba254080879e9750c075bf3e6672a03/ep028/what-happens-if-you-drink-too-much-water.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/c44125ed6ba254080879e9750c075bf3e6672a03/ep028/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/c44125ed6ba254080879e9750c075bf3e6672a03/ep028/short_cover_yt.jpg"
    },
    "note": "Version SANS musique (demande de Nazik 2026-11-12 : elle ajoute sa propre musique).",
-   "instagram": "manuel"
+   "instagram": "manuel",
+   "note_quiz": "En attente de la décision de Nazik (2026-11-13) : publier tel quel (défaut), ajouter une carte quiz au début (nouveau rendu, sans Runway), ou annuler."
   },
   {
    "episode": "025",
