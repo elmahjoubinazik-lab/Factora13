@@ -36,7 +36,6 @@
   ],
   "transcript_label": "The 7 riddles (answers in the video, no spoilers here):",
   "related": [
-    "GF8MF99uW1Q",
     "ln1wl1AVVi4",
     "0kQmb0qDEqg",
     "fFmJRDgvxIQ"
@@ -71,10 +70,14 @@
     "factora riddles"
   ],
   "comment": "What's your score out of 7? 🧠 And which riddle got you? 👇",
-  "sources_text": "Cognitive Reflection Test (Shane Frederick, Journal of Economic Perspectives, 2005) for the bat-and-ball and lily-pad riddles; the birthday problem (probability theory: 50.7% at 23 people); the Monty Hall problem (Marilyn vos Savant, Parade magazine, 1990); circumference = 2πr.",
+  "sources_text": "Cognitive Reflection Test (Shane Frederick, Journal of Economic Perspectives, 2005); the birthday problem (probability theory); the Monty Hall problem (Marilyn vos Savant, Parade magazine, 1990); geometry of the circle.",
   "ai_generated": false,
   "thumb_lines": [
     "7 RIDDLES",
     "60 SECONDS EACH"
-  ]
+  ],
+  "urls": {
+    "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/150f8be126da65bd2324a3685bd171e1648bb9a7/ep032/test-your-logic-7-riddles-60-seconds-each-can-you-get-7-7.mp4",
+    "miniature": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/150f8be126da65bd2324a3685bd171e1648bb9a7/ep032/miniature.png"
+  }
 }

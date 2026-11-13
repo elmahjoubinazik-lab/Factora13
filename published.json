@@ -604,6 +604,22 @@
    "note": "Énigme du jour #1 (dessins maison, sans IA), demandée par Nazik le 2026-11-13 pour minuit ; mise en ligne en privé, publication programmée 2026-11-14 00:00 heure suisse. Réponse (2, DOWN) dans le Short du lendemain.",
    "playlist_added": "brain",
    "publish_at": "2026-11-13T23:00:00Z (minuit, heure suisse)"
+  },
+  {
+   "episode": "032",
+   "topic": "Test Your Logic: 7 Riddles, 60 Seconds Each. Can You Get 7/7?",
+   "dir": "episodes/032-seven-riddles",
+   "format": "long_enigmes",
+   "date": "2026-11-13",
+   "long_id": "xYOuqO5MLak",
+   "short_id": null,
+   "status": "private",
+   "thumbnail_set": true,
+   "ai_generated": false,
+   "theme": "brain",
+   "note": "Vidéo longue de test demandée par Nazik (format « 7 énigmes, 60 s de réflexion chacune », script validé par elle) ; 11 min 58 ; mise en ligne en privé le 13, publication programmée sam 14 à 18h30 New York.",
+   "playlist_added": "brain",
+   "publish_at": "NON programmé : en attente de la confirmation de Nazik (sam 14 à 18h30 New York proposé)"
   }
  ]
 }
