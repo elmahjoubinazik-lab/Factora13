@@ -47,7 +47,12 @@
   "tiktok_text": "You drop a heavy rock from a boat into a pool. Does the water level go up, down, or stay the same? 🚣\n\nComment 1, 2 or 3 — answer tomorrow 👇\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\n\n#riddle #brainteaser #physics #learnontiktok #factora",
   "instagram_text": "You drop a heavy rock from a boat into a pool. Does the water level go up, down, or stay the same? 🚣\n\nComment 1, 2 or 3 — answer tomorrow 👇\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\n\n#riddle #brainteaser #physics #learnoninstagram #factora",
   "x_text": "You're in a boat in a pool with a heavy rock. You drop it in the water. 🚣\n\nDoes the pool's water level:\n1) go up\n2) go down\n3) stay the same\n\nReply with your answer, answer tomorrow 👇\n\n#riddle #physics",
-  "x_reply": "Watch the riddle on YouTube 👇 https://youtube.com/shorts/<id>",
+  "x_reply": "Watch the riddle on YouTube 👇 https://youtube.com/shorts/GF8MF99uW1Q",
   "_hook_note": "hook_text vide exprès : la question est dessinée en néon par scenes.py dès l'image 1 (le bandeau du moteur, sur 3 lignes, cachait les réponses).",
-  "answer_sources": "Archimedes' principle (Encyclopaedia Britannica)"
+  "answer_sources": "Archimedes' principle (Encyclopaedia Britannica)",
+  "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/b8b1fe9058879363d667da0cbfe9bb7b3b5a9002/ep031/boat-and-rock-riddle-does-the-water-rise-or-fall.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/b8b1fe9058879363d667da0cbfe9bb7b3b5a9002/ep031/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/b8b1fe9058879363d667da0cbfe9bb7b3b5a9002/ep031/short_cover_yt.jpg"
+  }
 }
