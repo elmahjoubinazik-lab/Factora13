@@ -17,6 +17,8 @@ RECAP = [("A BAT + A BALL = $1.10", "THE BAT COSTS $1.00 MORE. THE BALL?"),
 HINTS = ["HINT: CHECK IT. DOES BAT + BALL REALLY = $1.10?", "HINT: THINK ONE DAY BACKWARD", "HINT: A ROPE LIT AT BOTH ENDS BURNS TWICE AS FAST",
          "HINT: COUNT THE OPENINGS", "HINT: LENGTH = 2 × PI × RADIUS", "HINT: COUNT THE PAIRS, NOT THE PEOPLE",
          "HINT: THE HOST ALWAYS REVEALS A GOAT"]
+VOTE = ["VOTE IN THE COMMENTS!", "COMMENT YOUR ANSWER!", "TYPE YOUR METHOD IN THE COMMENTS!", "COMMENT 1, 2 OR 3!",
+        "COMMENT 1, 2 OR 3!", "LOCK IN YOUR VOTE: 1, 2 OR 3!", "FINAL VOTE: 1, 2 OR 3!"]
 OPTIONS = {3: [("1", "FOUR"), ("2", "THREE"), ("3", "ZERO")], 4: [("1", "A HAIR"), ("2", "~6 INCHES"), ("3", "~1 MILE")],
            5: [("1", "23"), ("2", "183"), ("3", "366")], 6: [("1", "STAY"), ("2", "SWITCH"), ("3", "NO DIFFERENCE")]}
 
@@ -103,7 +105,7 @@ def ill_1(ctx, t, a=1.0):
     card(ctx, "BAT = BALL + $1.00", CX + 330 * U, H * 0.70, CYAN, a)
 
 def ans_1(ctx, t, d, a=1.0):
-    s1, s2, s3 = ST("r1_a", 1), ST("r1_a", 2), ST("r1_a", 3)
+    s1, s2 = ST("r1_a", 1), ST("r1_a", 2); s3 = s2 + 1.8
     if t < s2:
         big_answer(ctx, t, "10¢ ?", CORAL, prog(t, 1.0, 1.6), size=170)
         if t > s1:
@@ -183,8 +185,8 @@ def ill_3(ctx, t, a=1.0):
 
 def ans_3(ctx, t, d, a=1.0):
     # minuterie animée : 0 → 30 min (corde A des 2 bouts, B d'un bout) puis 30 → 45 (B des 2 bouts)
-    s1, s3, s4 = ST("r3_a", 1), ST("r3_a", 3), ST("r3_a", 4)
-    m = 0.0 if t < s1 else (30 * clamp((t - s1) / max(1.0, s3 - s1)) if t < s3 + 0.5 else 30 + 15 * clamp((t - s3 - 0.5) / max(1.0, s4 + 4.0 - s3)))
+    s1, s3, s4 = 1.2, ST("r3_a", 2), ST("r3_a", 3)
+    m = 0.0 if t < s1 else (30 * clamp((t - s1) / max(1.0, s3 - s1)) if t < s3 else 30 + 15 * clamp((t - s3) / max(1.0, s4 - s3)))
     a_l = a_r = min(0.5, m / 60)
     b_l = min(0.5, m / 60) if m <= 30 else 0.5 + (m - 30) / 15 * 0.25
     b_r = 0.0 if m <= 30 else (m - 30) / 15 * 0.25
@@ -236,7 +238,7 @@ def ill_4(ctx, t, a=1.0):
 def ans_4(ctx, t, d, a=1.0):
     s1, s2, s3 = ST("r4_a", 1), ST("r4_a", 2), ST("r4_a", 3)
     big_answer(ctx, t, "3 HOLES", GREEN, prog(t, 1.0, 1.6), y=H * 0.17, size=120)
-    k = prog(t, s3 + 2.0, s3 + 4.0)
+    k = prog(t, s3 + 0.5, s3 + 2.3)
     if k < 1: tshirt(ctx, CX - 330 * U * k, H * 0.52, 0.55 * (1 - 0.3 * k), 1 - k, t, rings=prog(t, s1, s1 + 1.0))
     if k > 0: three_holes(ctx, CX, H * 0.52, 0.8, k, t)
     if t > s2 and k < 0.5:
@@ -272,15 +274,15 @@ def mouse(ctx, x, y, s, a=1.0):
     ctx.move_to(x - 40 * S, y); ctx.curve_to(x - 80 * S, y - 10 * S, x - 90 * S, y + 25 * S, x - 120 * S, y + 10 * S); ctx.set_line_width(3 * S); rgba(ctx, PINK, a); ctx.stroke()
 
 def ans_5(ctx, t, d, a=1.0):
-    s1, s3 = ST("r5_a", 1), ST("r5_a", 3)
+    s1, s2m, s3b = ST("r5_a", 1), ST("r5_a", 2), ST("r5_a", 3)
     big_answer(ctx, t, "≈ 6 INCHES", GREEN, prog(t, 1.0, 1.6), y=H * 0.15, size=110)
     gap = 40 * U * prog(t, 1.5, 3.5)
     ill_5(ctx, t, 0.9, gap)
     if t > s1:
         card(ctx, "RISE = 3 FT ÷ (2 × PI) ≈ 5.7 IN", CX, H * 0.75, GOLD, prog(t, s1, s1 + 0.6), 40)
-    if t > s3:
-        mouse(ctx, CX, H * 0.50 - 260 * U - 20 * U, 0.6, prog(t, s3, s3 + 0.7))
-        kb = prog(t, s3 + 2.5, s3 + 3.1)
+    if t > s2m:
+        mouse(ctx, CX, H * 0.50 - 260 * U - 20 * U, 0.6, prog(t, s2m, s2m + 0.7))
+        kb = prog(t, s3b, s3b + 0.6)
         ball(ctx, CX + 650 * U, H * 0.63, 80 * U, kb)
         if kb > 0:
             neon_path(ctx, lambda c: c.arc(CX + 650 * U, H * 0.63, 80 * U + 40 * U, 0, 2 * math.pi), GOLD, 4 * U, kb)
@@ -313,12 +315,11 @@ def ill_6(ctx, t, a=1.0):
 
 def ans_6(ctx, t, d, a=1.0):
     big_answer(ctx, t, "JUST 23", GREEN, prog(t, 1.2, 1.8), y=H * 0.17, size=120)
-    s2, s3 = ST("r6_a", 2), ST("r6_a", 3)
-    crowd(ctx, 23, t, 0.9, match=t > s2)
-    if t > s2: card(ctx, "23 PEOPLE = 253 PAIRS", CX - 560 * U, H * 0.72, GOLD, prog(t, s2, s2 + 0.6), 40)
-    if t > s3:
-        card(ctx, "23 → 50.7%", CX + 200 * U, H * 0.72, GREEN, prog(t, s3, s3 + 0.6), 40)
-        card(ctx, "70 → 99.9%", CX + 600 * U, H * 0.72, CYAN, prog(t, s3 + 4.0, s3 + 4.6), 40)
+    sp, s2, s3 = ST("r6_a", 1) + 3.5, ST("r6_a", 2), ST("r6_a", 3)
+    crowd(ctx, 23, t, 0.9, match=t > sp)
+    if t > sp: card(ctx, "23 PEOPLE = 253 PAIRS", CX - 560 * U, H * 0.72, GOLD, prog(t, sp, sp + 0.6), 40)
+    if t > s2: card(ctx, "23 → 50.7%", CX + 200 * U, H * 0.72, GREEN, prog(t, s2, s2 + 0.6), 40)
+    if t > s3: card(ctx, "70 → 99.9%", CX + 600 * U, H * 0.72, CYAN, prog(t, s3, s3 + 0.6), 40)
 
 # ---------- 7. les trois portes ----------
 def goat(ctx, x, y, s, a=1.0):
@@ -355,10 +356,10 @@ def door(ctx, x, y, n, a=1.0, open_k=0.0, content=None, hl=None):
 
 def ill_7(ctx, t, a=1.0):
     for n, x in ((1, CX - 330 * U), (2, CX), (3, CX + 330 * U)):
-        s2 = ST("r7_q", 2)
-        ok = prog(t, s2 + 2.2, s2 + 3.6) if n == 3 else 0.0
+        s2 = ST("r7_q", 3)
+        ok = prog(t, s2 + 2.4, s2 + 3.8) if n == 3 else 0.0
         door(ctx, x, H * 0.52, n, a, ok, "goat" if n == 3 else None, GOLD if n == 1 and t > s2 else None)
-    if t > ST("r7_q", 2): card(ctx, "YOUR PICK", CX - 330 * U, H * 0.25, GOLD, prog(t, ST("r7_q", 2), ST("r7_q", 2) + 0.5), 36)
+    if t > ST("r7_q", 3): card(ctx, "YOUR PICK", CX - 330 * U, H * 0.25, GOLD, prog(t, ST("r7_q", 3), ST("r7_q", 3) + 0.5), 36)
 
 def ans_7(ctx, t, d, a=1.0):
     big_answer(ctx, t, "SWITCH!", GREEN, prog(t, 1.2, 1.8), y=H * 0.15, size=120)
@@ -367,15 +368,16 @@ def ans_7(ctx, t, d, a=1.0):
     if t < s2:
         for n, x in ((1, CX - 330 * U), (2, CX), (3, CX + 330 * U)):
             door(ctx, x, H * 0.50, n, 1.0, 0.0, None, GOLD if n == 1 else None)
-        card(ctx, "YOUR DOOR: 1/3", CX - 330 * U, H * 0.75, GOLD, prog(t, s1 + 1.0, s1 + 1.5), 36)
-        card(ctx, "THE OTHER TWO: 2/3", CX + 165 * U, H * 0.75 - 0 * U, GREEN, prog(t, s1 + 4.0, s1 + 4.5), 36)
+        card(ctx, "YOUR DOOR: 1/3", CX - 330 * U, H * 0.75, GOLD, prog(t, s1 + 0.5, s1 + 1.0), 36)
+        card(ctx, "THE OTHER TWO: 2/3", CX + 165 * U, H * 0.75 - 0 * U, GREEN, prog(t, s1 + 2.5, s1 + 3.0), 36)
     else:
         rows = [("CAR BEHIND 1", "STAY WINS", GOLD), ("CAR BEHIND 2", "SWITCH WINS", GREEN), ("CAR BEHIND 3", "SWITCH WINS", GREEN)]
         for j, (l, r, col) in enumerate(rows):
             k = prog(t, s2 + j * 1.2, s2 + 0.6 + j * 1.2)
             card(ctx, l, CX - 300 * U, H * (0.34 + 0.12 * j), WHITE, k, 40)
             card(ctx, r, CX + 300 * U, H * (0.34 + 0.12 * j), col, k, 40)
-        if t > s3: card(ctx, "STAY: 1/3   SWITCH: 2/3", CX, H * 0.73, GREEN, prog(t, s3, s3 + 0.6), 44)
+        if t > s2 + 4.0 and t < s3: card(ctx, "STAY: 1/3   SWITCH: 2/3", CX, H * 0.73, GREEN, prog(t, s2 + 4.0, s2 + 4.6), 44)
+        if t >= s3: card(ctx, "1990: THOUSANDS OF READERS SAID IT WAS WRONG", CX, H * 0.73, CORAL, prog(t, s3, s3 + 0.6), 38)
 
 ILL = [ill_1, ill_2, ill_3, ill_4, ill_5, ill_6, ill_7]
 ANS = [ans_1, ans_2, ans_3, ans_4, ans_5, ans_6, ans_7]
@@ -409,16 +411,28 @@ def mk_t(i):
         neon_path(ctx, lambda c: c.arc(x, y, r, -math.pi / 2, -math.pi / 2 + 2 * math.pi * frac), col, 11 * U)
         pulse = 1 + 0.06 * math.exp(-((left % 1.0) - 0.98) ** 2 * 400) if left > 0 else 1
         ctx.save(); ctx.translate(x, y); ctx.scale(pulse, pulse); neon_text(ctx, str(int(math.ceil(left))), 0, 0, 170 * U, col, 1.0, WHITE, fill=0.35); ctx.restore()
+        vk = 0.85 + 0.15 * math.sin(t * 4)
+        font(ctx, 36 * U); vw = ctx.text_extents(VOTE[i]).width + 60 * U
+        xb = min(x, W - vw / 2 - 30 * U)        # le bandeau reste entièrement dans l'image
+        rrect(ctx, xb - vw / 2, H * 0.19 - 34 * U, vw, 68 * U, 34 * U); rgba(ctx, GOLD, vk); ctx.fill()
+        text(ctx, VOTE[i], xb, H * 0.19, 36 * U, (0.03, 0.02, 0.08), 1.0)
         text(ctx, "PAUSE THE VIDEO", x, y + r + 70 * U, 40 * U, WHITE, 0.9)
         text(ctx, "IF YOU NEED MORE TIME", x, y + r + 118 * U, 32 * U, (0.8, 0.8, 0.9), 0.9)
         if t >= start + 30:   # indice à mi-temps
-            card(ctx, HINTS[i], CX, H * 0.11 + 70 * U, CYAN, prog(t, start + 30, start + 30.6), 38)
+            card(ctx, HINTS[i], CX - 330 * U, H * 0.11 + 70 * U, CYAN, prog(t, start + 30, start + 30.6), 34)
     return sc
 
 def mk_a(i):
     def sc(ctx, t, d):
         bg(ctx, t, i); header(ctx, i)
         ANS[i](ctx, t, d)
+        if i in (0, 1, 2):
+            sl = ST(f"r{i + 1}_a", len(_TL[f"r{i + 1}_a"]["sents"]) - 1); kp = prog(t, sl, sl + 0.4)
+            if kp:
+                ctx.save(); ctx.translate(W - 200 * U, H * 0.22); sc_ = 1 + 0.3 * (1 - kp); ctx.scale(sc_, sc_)
+                glow(ctx, 0, 0, 120 * U, GOLD, 0.5 * kp); circle(ctx, 0, 0, 80 * U, GOLD, kp)
+                text(ctx, "+1", 0, -8 * U, 64 * U, (0.03, 0.02, 0.08), kp); text(ctx, "POINT", 0, 40 * U, 22 * U, (0.03, 0.02, 0.08), kp)
+                ctx.restore()
         if i in OPTIONS and i != 6:
             good = {3: 1, 4: 1, 5: 0}[i]
             s1 = ST(f"r{i + 1}_a", 1)
@@ -428,20 +442,30 @@ def mk_a(i):
 def sc_intro(ctx, t, d):
     neon_bg(ctx, t, tint=PURPLE)
     k = prog(t, 0.0, 0.6)
-    neon_text(ctx, "7 RIDDLES", CX, H * 0.22, 190 * U, GOLD, k, CORAL, fill=0.35)
-    neon_text(ctx, "60 SECONDS EACH", CX, H * 0.38, 86 * U, CYAN, prog(t, 0.6, 1.2), PURPLE, fill=0.25)
+    neon_text(ctx, "THE 7/7 CHALLENGE", CX, H * 0.20, 150 * U, GOLD, k, CORAL, fill=0.35)
+    neon_text(ctx, "7 RIDDLES · 60 SECONDS EACH", CX, H * 0.36, 66 * U, CYAN, prog(t, ST("intro", 1), ST("intro", 1) + 0.6), PURPLE, fill=0.25)
     # vignettes des 7 énigmes qui apparaissent une à une
     for j in range(7):
-        kk = prog(t, 2.0 + j * 0.45, 2.5 + j * 0.45)
+        kk = prog(t, 1.0 + j * 0.35, 1.5 + j * 0.35)
         x = CX + (j - 3) * 230 * U; y = H * 0.62
         circle(ctx, x, y, 90 * U * kk, mix(TINT[j], NAVY, 0.6), kk)
         neon_path(ctx, lambda c, x=x, kk=kk: c.arc(x, y, 90 * U * max(kk, 0.01), 0, 2 * math.pi), TINT[j], 4 * U, kk)
         neon_text(ctx, str(j + 1), x, y, 90 * U, WHITE, kk, TINT[j], fill=0.3)
-    text(ctx, "KEEP SCORE!", CX, H * 0.78, 44 * U, GOLD, prog(t, 6.5, 7.0))
+    text(ctx, "GRAB A PEN · COMMENT YOUR SCORE!", CX, H * 0.76, 44 * U, GOLD, prog(t, ST("intro", 2), ST("intro", 2) + 0.6))
 
+SCALE = [("0–2", "BRAIN WARMING UP", CYAN), ("3–4", "SOLID LOGIC", GREEN), ("5–6", "SHARP MIND", GOLD), ("7/7", "GENIUS LEVEL", PINK)]
 def sc_outro(ctx, t, d):
     neon_bg(ctx, t, tint=GOLD)
-    cta(ctx, t, d, "HOW MANY DID YOU GET?", "COMMENT YOUR SCORE OUT OF 7")
+    s1, s2 = ST("outro", 1), ST("outro", 2)
+    if t < s2:
+        neon_text(ctx, "COUNT YOUR POINTS!", CX, H * 0.14, 90 * U, GOLD, prog(t, 0.0, 0.5), CORAL, fill=0.3)
+        for j, (sc_, lab, col) in enumerate(SCALE):
+            k = prog(t, s1 + j * 2.3, s1 + j * 2.3 + 0.5)
+            y = H * (0.30 + 0.13 * j)
+            card(ctx, sc_, CX - 380 * U, y, col, k, 66)
+            card(ctx, lab, CX + 170 * U, y, col, k, 66)
+    else:
+        cta(ctx, t - s2, d - s2, "WHAT'S YOUR SCORE?", "COMMENT YOUR SCORE /7")
 
 SCENES = {"intro": sc_intro, "outro": sc_outro}
 for _i in range(7):
@@ -458,7 +482,7 @@ def thumbnail(c):
         c.move_to(x, y); c.set_source_rgb(*col); c.show_text(s_)
     tx("7 RIDDLES", 50, 190, 150, GOLD)
     tx("60 SECONDS EACH", 55, 290, 70, CYAN)
-    tx("CAN YOU SOLVE THEM?", 55, 640, 66, WHITE)
+    tx("TEST YOUR LOGIC: CAN YOU GET 7/7?", 55, 640, 58, WHITE)
     for n, x in ((1, 830), (2, 990), (3, 1150)):
         c.rectangle(x - 70, 250, 140, 220); c.set_source_rgba(*mix([CYAN, PINK, PURPLE][n - 1], NAVY, 0.4), 1); c.fill()
         c.rectangle(x - 70, 250, 140, 220); c.set_line_width(6); c.set_source_rgb(*[CYAN, PINK, PURPLE][n - 1]); c.stroke()

@@ -1,6 +1,6 @@
 {
   "format": "long_enigmes",
-  "title": "Can You Solve These 7 Riddles? (60 Seconds Each) 🧠",
+  "title": "Test Your Logic: 7 Riddles, 60 Seconds Each. Can You Get 7/7? 🧠",
   "theme": "brain",
   "music": "mystery",
   "maxrate_k": 850,
@@ -12,7 +12,7 @@
     "traitement_doux": true,
     "code_langue": "en-us"
   },
-  "seo_intro": "Can you solve these 7 riddles? Brain teasers and logic puzzles with answers: you get 60 seconds to think about each one.\nThe bat and the ball, the lily pads, the burning ropes, the T-shirt holes, the rope around the Earth, the birthday paradox and the Monty Hall problem. Keep score and comment your result out of 7!",
+  "seo_intro": "Test your logic with 7 riddles: can you get 7/7? Brain teasers and logic puzzles with answers, with 60 seconds to think about each one.\nThe bat and the ball, the lily pads, the burning ropes, the T-shirt holes, the rope around the Earth, the birthday paradox and the Monty Hall problem. Vote in the comments, keep score, and tell us your result out of 7!",
   "chapters": {
     "intro": "Intro",
     "r1_q": "Riddle 1: The bat and the ball",
@@ -43,17 +43,21 @@
   ],
   "hashtags": [
     "#riddles",
+    "#logictest",
     "#brainteasers",
-    "#logicpuzzles",
     "#canyousolveit"
   ],
   "tags": [
+    "test your logic",
+    "logic test",
+    "brain test",
+    "7/7 challenge",
     "riddles with answers",
     "brain teasers",
     "logic puzzles",
     "can you solve these riddles",
     "7 riddles",
-    "riddles that will test your brain",
+    "riddles to test your brain",
     "bat and ball riddle",
     "lily pad riddle",
     "burning rope puzzle",
@@ -64,10 +68,9 @@
     "factora official",
     "factoraofficiel",
     "factora quiz",
-    "factora science",
     "factora riddles"
   ],
-  "comment": "How many did you get right? Comment your score out of 7 👇",
+  "comment": "What's your score out of 7? 🧠 And which riddle got you? 👇",
   "sources_text": "Cognitive Reflection Test (Shane Frederick, Journal of Economic Perspectives, 2005) for the bat-and-ball and lily-pad riddles; the birthday problem (probability theory: 50.7% at 23 people); the Monty Hall problem (Marilyn vos Savant, Parade magazine, 1990); circumference = 2πr.",
   "ai_generated": false,
   "thumb_lines": [
