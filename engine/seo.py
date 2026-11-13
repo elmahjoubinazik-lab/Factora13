@@ -49,12 +49,14 @@ if rel:
         url = f"https://www.youtube.com/watch?v={r}" + (f"&list={rp['id']}" if rp else "")
         out.append(f"• {titles.get(r, 'Watch next')}: {url}")
     out.append("")
+if meta.get("yesterday"):   # série « Can you solve it? » : lien vers l'énigme de la veille
+    out += [f"Yesterday's riddle: https://youtube.com/shorts/{meta['yesterday']}", ""]
 out += ["Full transcript:", transcript, ""]
 src = meta.get("sources_text") or meta.get("sources")   # sources_text : sources nommées (plus lisibles que des URL)
 if src:
     out.append("Sources: " + (src if isinstance(src, str) else "; ".join(src))); out.append("")
 out.append("Think fast. Learn something amazing.")
-out.append("Created with AI tools. Synthetic voice." if meta.get("ai_generated") else "Synthetic voice, original illustrations.")
+if meta.get("ai_generated"): out.append("Created with AI tools. Synthetic voice.")   # sinon : aucune mention (décision de Nazik, 2026-11-13)
 tags = meta.get("hashtags", [])
 assert 3 <= len(tags) <= 5, "hashtags : 3 à 5 (règle de Nazik)"
 out += ["", " ".join(t if t.startswith("#") else "#" + t for t in tags)]

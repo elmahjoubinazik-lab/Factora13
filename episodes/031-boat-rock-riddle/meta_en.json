@@ -1,0 +1,53 @@
+{
+  "format": "short_seul",
+  "series": "Can you solve it? #1",
+  "hook_text": " ",
+  "theme": "brain",
+  "music": "mystery",
+  "voix": {
+    "melange": {
+      "af_heart": 1.0
+    },
+    "vitesse": 1.12,
+    "traitement_doux": true,
+    "code_langue": "en-us"
+  },
+  "short_title": "Boat and rock riddle: does the water rise or fall? 🚣",
+  "seo_intro": "Boat and rock riddle: you drop a heavy rock from a boat into a swimming pool. Does the water level go up, go down, or stay the same?\nA classic physics brain teaser about buoyancy. Comment 1, 2 or 3: the answer is in tomorrow's video.",
+  "related": [
+    "ln1wl1AVVi4",
+    "0kQmb0qDEqg",
+    "fFmJRDgvxIQ"
+  ],
+  "hashtags": [
+    "#riddle",
+    "#physicsriddle",
+    "#brainteaser",
+    "#canyousolveit"
+  ],
+  "tags": [
+    "boat and rock riddle",
+    "rock thrown out of a boat water level",
+    "does the water level rise or fall",
+    "physics riddle",
+    "buoyancy puzzle",
+    "brain teaser",
+    "riddles with answers",
+    "can you solve it",
+    "factora",
+    "factora official",
+    "factoraofficiel",
+    "factora shorts",
+    "factora quiz",
+    "factora science"
+  ],
+  "comment": "Up, down or the same? 🚣 Comment 1, 2 or 3 — the answer drops tomorrow 👇",
+  "answer": "2 — the water level goes DOWN. In the boat, the rock pushes away its own WEIGHT in water; at the bottom of the pool it only pushes away its own VOLUME. A rock is about 2.5 times denser than water, so it displaces less water once it sinks, and the level drops slightly (Archimedes' principle).",
+  "sources_text": "Archimedes' principle (Encyclopaedia Britannica)",
+  "ai_generated": false,
+  "tiktok_text": "You drop a heavy rock from a boat into a pool. Does the water level go up, down, or stay the same? 🚣\n\nComment 1, 2 or 3 — answer tomorrow 👇\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\n\n#riddle #brainteaser #physics #learnontiktok #factora",
+  "instagram_text": "You drop a heavy rock from a boat into a pool. Does the water level go up, down, or stay the same? 🚣\n\nComment 1, 2 or 3 — answer tomorrow 👇\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\n\n#riddle #brainteaser #physics #learnoninstagram #factora",
+  "x_text": "You're in a boat in a pool with a heavy rock. You drop it in the water. 🚣\n\nDoes the pool's water level:\n1) go up\n2) go down\n3) stay the same\n\nReply with your answer, answer tomorrow 👇\n\n#riddle #physics",
+  "x_reply": "Watch the riddle on YouTube 👇 https://youtube.com/shorts/<id>",
+  "_hook_note": "hook_text vide exprès : la question est dessinée en néon par scenes.py dès l'image 1 (le bandeau du moteur, sur 3 lignes, cachait les réponses)."
+}

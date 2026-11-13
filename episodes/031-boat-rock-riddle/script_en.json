@@ -1,0 +1,7 @@
+[
+ {"scene": "hook", "text": ["You're in a boat in a swimming pool, holding a heavy rock."]},
+ {"scene": "drop", "text": ["You drop the rock into the water."]},
+ {"scene": "ask", "text": ["Does the water level of the pool go up, go down, or stay the same?"]},
+ {"scene": "options", "text": ["One: up. Two: down. Three: the same."]},
+ {"scene": "outro", "text": ["Think carefully. Comment one, two, or three.", "The answer is in tomorrow's video. Subscribe so you don't miss it."]}
+]
