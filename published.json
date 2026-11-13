@@ -613,14 +613,15 @@
    "date": "2026-11-13",
    "long_id": "VeSojmrDnlo",
    "short_id": null,
-   "status": "private",
+   "status": "public",
    "thumbnail_set": true,
    "ai_generated": false,
    "theme": "brain",
    "note": "Vidéo longue de test (format « 7 énigmes », script validé par Nazik), 15 s de réflexion par énigme à sa demande ; 6 min 58 ; en privé le 13, publication par Nazik (ou programmation sur sa confirmation).",
    "playlist_added": "brain",
-   "publish_at": "NON programmé : en attente de la confirmation de Nazik (sam 14 à 18h30 New York proposé)",
-   "ancienne_version_privee": "xYOuqO5MLak (version 60 s, jamais publique) — retirée de la playlist ; à supprimer dans Studio si Nazik le souhaite"
+   "publish_at": "publiée le 2026-11-13 à 21h01 heure suisse (15h01 New York), à la demande de Nazik",
+   "ancienne_version_privee": "xYOuqO5MLak (version 60 s, jamais publique) — retirée de la playlist ; à supprimer dans Studio si Nazik le souhaite",
+   "comment_id": "UgwxnAqY32YZMa9mTdF4AaABAg"
   }
  ]
 }
