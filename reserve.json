@@ -2,22 +2,6 @@
  "_note": "Shorts déjà produits et hébergés, en réserve (demande de Nazik, 2026-11-10). Le jour où leur sujet est choisi, NE PAS les refaire : publier directement avec ces URLs et les textes de meta_en.json (étapes 6, 6 bis, 6 ter), puis retirer l'entrée d'ici.",
  "reserve": [
   {
-   "episode": "028",
-   "dir": "episodes/028-too-much-water",
-   "topic_starts_with": "[SHORT] What happens if you drink too much water?",
-   "prevu": "jeu 19 nov à 23h47 (exécution automatique), YouTube SEULEMENT, EN PRIVÉ (Nazik la passe en public) — version quiz",
-   "ai_generated": true,
-   "a_faire_a_la_publication": "YouTube SEULEMENT, EN PRIVÉ (règle du 2026-11-13) : titre = short_title, description = build/description_short.txt (python3 engine/seo.py episodes/028-too-much-water short), tags de meta_en.json ; PUT videos?part=status avec privacyStatus private + les 4 autres champs + containsSyntheticMedia=true ; miniature YouTube = cover_yt ; ajout à la playlist du thème (why) ; PAS de commentaire par l'API (le donner à Nazik) ; livrer le fichier nommé comme le titre et l'affiche à Nazik ; AUCUN appel Buffer.",
-   "urls": {
-    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/b6cd98f5e778f5505a9a35734e3d3cebfab328e8/ep028/what-happens-if-you-drink-too-much-water.mp4",
-    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/b6cd98f5e778f5505a9a35734e3d3cebfab328e8/ep028/short_cover.jpg",
-    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/b6cd98f5e778f5505a9a35734e3d3cebfab328e8/ep028/short_cover_yt.jpg"
-   },
-   "note": "Version SANS musique (demande de Nazik 2026-11-12 : elle ajoute sa propre musique).",
-   "instagram": "manuel",
-   "note_quiz": "Version quiz faite le 2026-11-13 à la demande de Nazik (carte quiz au début, révélation, affiche quiz) ; URLs mises à jour après le nouveau rendu."
-  },
-  {
    "episode": "025",
    "dir": "episodes/025-whos-lying-3",
    "topic_starts_with": "[WL-CASE] Who's Lying? #3",
