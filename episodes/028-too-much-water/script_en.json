@@ -1,7 +1,7 @@
 [
- {"scene": "hook", "text": ["Think more water is always healthy?", "Your kidneys have a speed limit."]},
- {"scene": "kidneys", "text": ["About a quart an hour.", "Drink much faster, and the extra water stays in your blood."]},
- {"scene": "cells", "text": ["It dilutes your sodium, and your cells swell, even in your brain."]},
- {"scene": "danger", "text": ["Headache, nausea, confusion. In rare cases, it's deadly."]},
- {"scene": "outro", "text": ["So sip when you're thirsty.", "And send this to someone who chugs water like it's a contest."]}
+ {"scene": "hook", "text": ["Can drinking too much water hurt you?", "One: never. Two: only dirty water. Three: yes, if you drink it too fast.", "Comment your answer."]},
+ {"scene": "kidneys", "text": ["Your kidneys have a speed limit.", "About a quart an hour."]},
+ {"scene": "cells", "text": ["Drink much faster, and the extra water dilutes your sodium.", "Your cells swell, even in your brain."]},
+ {"scene": "danger", "text": ["Headache, nausea, confusion. In rare cases, it's deadly.", "So the answer is three."]},
+ {"scene": "outro", "text": ["Sip when you're thirsty.", "Did you get it right? Send this to someone who chugs water."]}
 ]
