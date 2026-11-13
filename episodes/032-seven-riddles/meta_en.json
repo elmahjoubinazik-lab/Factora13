@@ -1,6 +1,6 @@
 {
   "format": "long_enigmes",
-  "title": "Test Your Logic: 7 Riddles, 60 Seconds Each. Can You Get 7/7? 🧠",
+  "title": "Test Your Logic: 7 Riddles, 15 Seconds Each. Can You Get 7/7? 🧠",
   "theme": "brain",
   "music": "mystery",
   "maxrate_k": 850,
@@ -12,7 +12,7 @@
     "traitement_doux": true,
     "code_langue": "en-us"
   },
-  "seo_intro": "Test your logic with 7 riddles: can you get 7/7? Brain teasers and logic puzzles with answers, with 60 seconds to think about each one.\nThe bat and the ball, the lily pads, the burning ropes, the T-shirt holes, the rope around the Earth, the birthday paradox and the Monty Hall problem. Vote in the comments, keep score, and tell us your result out of 7!",
+  "seo_intro": "Test your logic with 7 riddles: can you get 7/7? Brain teasers and logic puzzles with answers, with 15 seconds to think about each one.\nThe bat and the ball, the lily pads, the burning ropes, the T-shirt holes, the rope around the Earth, the birthday paradox and the Monty Hall problem. Vote in the comments, keep score, and tell us your result out of 7!",
   "chapters": {
     "intro": "Intro",
     "r1_q": "Riddle 1: The bat and the ball",

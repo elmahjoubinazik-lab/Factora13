@@ -3,7 +3,7 @@
   "scene": "intro",
   "text": [
    "Can you solve all seven? This is the seven out of seven challenge.",
-   "Seven riddles to test your logic. Sixty seconds for each one.",
+   "Seven riddles to test your logic. Fifteen seconds for each one.",
    "Grab a pen, write down your answers, and comment your score at the end. Let's see who gets seven out of seven."
   ]
  },
@@ -19,9 +19,9 @@
  {
   "scene": "r1_t",
   "text": [
-   "Sixty seconds. Write your answer, or vote in the comments. Go!"
+   "Fifteen seconds. Pause the video if you need more time. Write your answer, or vote in the comments. Go!"
   ],
-  "pause": 60
+  "pause": 15
  },
  {
   "scene": "r1_a",
@@ -44,9 +44,9 @@
  {
   "scene": "r2_t",
   "text": [
-   "Sixty seconds. Comment your answer before time runs out. Go!"
+   "Fifteen seconds. Pause the video if you need more time. Comment your answer before time runs out. Go!"
   ],
-  "pause": 60
+  "pause": 15
  },
  {
   "scene": "r2_a",
@@ -69,9 +69,9 @@
  {
   "scene": "r3_t",
   "text": [
-   "Sixty seconds. Think it through, then type your method in the comments. Go!"
+   "Fifteen seconds. Pause the video if you need more time. Think it through, then type your method in the comments. Go!"
   ],
-  "pause": 60
+  "pause": 15
  },
  {
   "scene": "r3_a",
@@ -95,9 +95,9 @@
  {
   "scene": "r4_t",
   "text": [
-   "Sixty seconds. Vote now: comment one, two, or three. Go!"
+   "Fifteen seconds. Pause the video if you need more time. Vote now: comment one, two, or three. Go!"
   ],
-  "pause": 60
+  "pause": 15
  },
  {
   "scene": "r4_a",
@@ -121,9 +121,9 @@
  {
   "scene": "r5_t",
   "text": [
-   "Sixty seconds. Vote: one, two, or three. Go!"
+   "Fifteen seconds. Pause the video if you need more time. Vote: one, two, or three. Go!"
   ],
-  "pause": 60
+  "pause": 15
  },
  {
   "scene": "r5_a",
@@ -145,9 +145,9 @@
  {
   "scene": "r6_t",
   "text": [
-   "Sixty seconds. Lock in your vote in the comments. Go!"
+   "Fifteen seconds. Pause the video if you need more time. Lock in your vote in the comments. Go!"
   ],
-  "pause": 60
+  "pause": 15
  },
  {
   "scene": "r6_a",
@@ -172,9 +172,9 @@
  {
   "scene": "r7_t",
   "text": [
-   "Last sixty seconds. Final vote: one, two, or three. Go!"
+   "Last fifteen seconds. Pause the video if you need more time. Final vote: one, two, or three. Go!"
   ],
-  "pause": 60
+  "pause": 15
  },
  {
   "scene": "r7_a",

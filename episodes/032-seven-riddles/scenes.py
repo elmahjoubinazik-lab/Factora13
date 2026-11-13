@@ -1,4 +1,4 @@
-# Episode 032 (vidéo longue 16:9) - "Can You Solve These 7 Riddles? (60 Seconds Each)"
+# Episode 032 (vidéo longue 16:9) - "Test Your Logic: 7 Riddles, 15 Seconds Each" (15 s de réflexion depuis la demande de Nazik du 2026-11-13)
 # Demande de Nazik (2026-11-13) : vidéo longue d'énigmes avec 1 minute de réflexion entre chaque énigme (format « 7 riddles »,
 # énigmes classiques du domaine public, textes et dessins 100 % originaux, style néon sobre, sans images d'IA).
 # Scènes : intro, r{i}_q (énigme), r{i}_t (chrono 60 s + indice à 30 s), r{i}_a (réponse expliquée), outro.
@@ -397,7 +397,8 @@ def mk_q(i):
 def mk_t(i):
     def sc(ctx, t, d):
         bg(ctx, t, i); header(ctx, i)
-        start = max(0.0, d - 60.3); left = 60.0 if t < start else max(0.0, 60.0 - (t - start))
+        DUR = 15.0   # temps de réflexion (Nazik, 2026-11-13 : 60 s trop long → 15 s + « pause the video »)
+        start = max(0.0, d - DUR - 0.3); left = DUR if t < start else max(0.0, DUR - (t - start))
         # rappel de l'énigme (à gauche) + chrono (à droite)
         neon_text(ctx, RECAP[i][0], CX - 300 * U, H * 0.24, 42 * U, WHITE, 1.0, TINT[i], fill=0.2)
         neon_text(ctx, RECAP[i][1], CX - 300 * U, H * 0.31, 40 * U, GOLD, 1.0, TINT[i], fill=0.2)
@@ -405,7 +406,7 @@ def mk_t(i):
         ILL[i](ctx, 20.0 + t * 0.2, 0.75); ctx.restore()
         if i in OPTIONS: options_row(ctx, t, OPTIONS[i], H * 0.755, 0.9, cx=CX - 330 * U, sc=0.8)
         x, y, r = CX + 560 * U, H * 0.45, 190 * U
-        frac = left / 60.0; col = GREEN if left > 30 else (GOLD if left > 10 else CORAL)
+        frac = left / DUR; col = GREEN if left > 8 else (GOLD if left > 3 else CORAL)
         glow(ctx, x, y, r * 1.6, col, 0.35)
         ctx.new_path(); ctx.arc(x, y, r, 0, 2 * math.pi); ctx.set_line_width(22 * U); rgba(ctx, (0.2, 0.2, 0.3), 0.6); ctx.stroke()
         neon_path(ctx, lambda c: c.arc(x, y, r, -math.pi / 2, -math.pi / 2 + 2 * math.pi * frac), col, 11 * U)
@@ -418,8 +419,8 @@ def mk_t(i):
         text(ctx, VOTE[i], xb, H * 0.19, 36 * U, (0.03, 0.02, 0.08), 1.0)
         text(ctx, "PAUSE THE VIDEO", x, y + r + 70 * U, 40 * U, WHITE, 0.9)
         text(ctx, "IF YOU NEED MORE TIME", x, y + r + 118 * U, 32 * U, (0.8, 0.8, 0.9), 0.9)
-        if t >= start + 30:   # indice à mi-temps
-            card(ctx, HINTS[i], CX - 330 * U, H * 0.11 + 70 * U, CYAN, prog(t, start + 30, start + 30.6), 34)
+        if t >= start + DUR / 2:   # indice à mi-temps
+            card(ctx, HINTS[i], CX - 330 * U, H * 0.11 + 70 * U, CYAN, prog(t, start + DUR / 2, start + DUR / 2 + 0.5), 34)
     return sc
 
 def mk_a(i):
@@ -443,7 +444,7 @@ def sc_intro(ctx, t, d):
     neon_bg(ctx, t, tint=PURPLE)
     k = prog(t, 0.0, 0.6)
     neon_text(ctx, "THE 7/7 CHALLENGE", CX, H * 0.20, 150 * U, GOLD, k, CORAL, fill=0.35)
-    neon_text(ctx, "7 RIDDLES · 60 SECONDS EACH", CX, H * 0.36, 66 * U, CYAN, prog(t, ST("intro", 1), ST("intro", 1) + 0.6), PURPLE, fill=0.25)
+    neon_text(ctx, "7 RIDDLES · 15 SECONDS EACH", CX, H * 0.36, 66 * U, CYAN, prog(t, ST("intro", 1), ST("intro", 1) + 0.6), PURPLE, fill=0.25)
     # vignettes des 7 énigmes qui apparaissent une à une
     for j in range(7):
         kk = prog(t, 1.0 + j * 0.35, 1.5 + j * 0.35)
@@ -481,7 +482,7 @@ def thumbnail(c):
         c.move_to(x + 6, y + 6); c.set_source_rgba(0, 0, 0, 0.75); c.show_text(s_)
         c.move_to(x, y); c.set_source_rgb(*col); c.show_text(s_)
     tx("7 RIDDLES", 50, 190, 150, GOLD)
-    tx("60 SECONDS EACH", 55, 290, 70, CYAN)
+    tx("15 SECONDS EACH", 55, 290, 70, CYAN)
     tx("TEST YOUR LOGIC: CAN YOU GET 7/7?", 55, 640, 58, WHITE)
     for n, x in ((1, 830), (2, 990), (3, 1150)):
         c.rectangle(x - 70, 250, 140, 220); c.set_source_rgba(*mix([CYAN, PINK, PURPLE][n - 1], NAVY, 0.4), 1); c.fill()
@@ -490,4 +491,4 @@ def thumbnail(c):
         c.move_to(x - 26, 395); c.set_source_rgb(1, 1, 1); c.show_text(str(n) if n != 2 else "?")
     c.arc(1180, 130, 70, 0, 2 * math.pi); c.set_source_rgb(*CORAL); c.fill()
     c.select_font_face("Inter", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); c.set_font_size(48)
-    c.move_to(1142, 147); c.set_source_rgb(1, 1, 1); c.show_text("60s")
+    c.move_to(1142, 147); c.set_source_rgb(1, 1, 1); c.show_text("15s")
