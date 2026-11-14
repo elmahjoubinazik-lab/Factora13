@@ -15,11 +15,11 @@ def pill(ctx, s, y, col, a=1.0, size=44):
 
 def sc_intro(ctx, t, d):
     neon_bg(ctx, t, tint=PURPLE)
-    k = prog(t, 0.0, 0.4)
+    k = 1.0   # titre visible dès la 1re image (la 1re seconde décide si le spectateur reste)
     neon_text(ctx, "TEST YOUR", CX, H * 0.15, 130 * U, WHITE, k, PURPLE, fill=0.3)
     neon_text(ctx, "LOGIC", CX, H * 0.23, 200 * U, GOLD, k, CORAL, fill=0.35)
     for j in range(7):   # les 7 énigmes en pastilles (4 + 3)
-        kk = prog(t, 0.3 + j * 0.2, 0.7 + j * 0.2)
+        kk = 0.35 + 0.65 * prog(t, 0.1 + j * 0.15, 0.4 + j * 0.15)
         row, col_ = (0, j) if j < 4 else (1, j - 4)
         n = 4 if row == 0 else 3
         x = CX + (col_ - (n - 1) / 2) * 250 * U; y = H * (0.37 + 0.105 * row)
