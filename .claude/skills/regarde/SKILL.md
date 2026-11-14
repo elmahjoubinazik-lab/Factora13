@@ -88,6 +88,9 @@ Terminer en indiquant le dossier où sont la vidéo, la transcription et les pla
 - « Sign in to confirm » / « login required » / vidéo Instagram ou TikTok refusée : se connecter au site dans le
   navigateur, puis relancer ; sous Windows, fermer Chrome avant (il verrouille ses cookies) ou utiliser
   `REGARDE_BROWSER=firefox` (ou `edge`).
+- « Sign in to confirm you're not a bot » depuis un serveur cloud (Claude Code sur le web) : YouTube bloque les
+  serveurs ; ne pas contourner ce contrôle. Lancer le skill sur l'ordinateur de l'utilisatrice (sa connexion passe),
+  ou lui demander le fichier vidéo.
 - Un outil installé par winget reste introuvable : fermer et rouvrir le terminal / Claude Code (PATH mis à jour).
 - Pas de transcription (vidéo sans parole, ou whisper.cpp impossible à installer) : faire l'analyse avec les images
   seules et le signaler.
