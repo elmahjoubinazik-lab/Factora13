@@ -1,0 +1,48 @@
+[
+ {
+  "scene": "intro",
+  "text": [
+   "Test your logic. Seven riddles, fifteen seconds each. Can you get them all?"
+  ]
+ },
+ {
+  "scene": "r1_q",
+  "text": [
+   "Riddle one.",
+   "A bat and a ball cost one dollar and ten cents in total.",
+   "The bat costs one dollar more than the ball.",
+   "How much does the ball cost?"
+  ]
+ },
+ {
+  "scene": "r1_t",
+  "text": [
+   "Fifteen seconds. Pause the video if you need more time. Comment your answer. Go!"
+  ],
+  "pause": 15
+ },
+ {
+  "scene": "r1_a",
+  "text": [
+   "Time's up! Did you say ten cents?",
+   "Then the bat would cost one dollar and ten cents, and together, one dollar and twenty cents.",
+   "The answer is five cents: five cents plus one dollar and five cents makes exactly one dollar and ten cents."
+  ]
+ },
+ {
+  "scene": "r7_q",
+  "text": [
+   "Now riddle seven, the one that fooled even mathematicians.",
+   "Three doors: a car behind one, goats behind the other two.",
+   "You pick door one. The host, who knows where the car is, opens door three: a goat.",
+   "Do you stay, or switch to door two?"
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "Comment stay or switch!",
+   "The answer, and five more riddles, are in the full video on our YouTube channel, Factora."
+  ]
+ }
+]

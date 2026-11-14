@@ -682,6 +682,7 @@ _FD = max(0.01, float(_mm.get("fade", 0.3)))   # durée du fondu au noir entre s
 _MUSIC = {"mystery": music_mystery, "upbeat": music_upbeat, "hype": music_hype, "westcoast": music_westcoast, "dramatic": music_dramatic}
 mus = np.zeros(len(vo), np.float32) if _MOOD == "none" else _MUSIC.get(_MOOD, music)(len(vo) / SR)
 if _SFX: mus = mus + sfx_track(len(vo) / SR, _SFX)
+if len(mus) < len(vo): mus = np.pad(mus, (0, len(vo) - len(mus)))   # arrondi int(total*sr) : 1 échantillon de moins possible
 mixd = vo * 0.95 + mus[:len(vo)]
 mixd /= max(1.0, np.max(np.abs(mixd)) / 0.97)
 sf.write(WD + f"/audio_{MODE}.wav", mixd, SR)

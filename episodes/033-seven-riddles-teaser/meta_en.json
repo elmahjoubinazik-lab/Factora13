@@ -1,0 +1,21 @@
+{
+  "format": "short_seul",
+  "hook_text": " ",
+  "_hook_note": "hook_text vide exprès : le titre est dessiné par scenes.py dès l'image 1.",
+  "music": "mystery",
+  "voix": {
+    "melange": {
+      "af_heart": 1.0
+    },
+    "vitesse": 1.08,
+    "traitement_doux": true,
+    "code_langue": "en-us"
+  },
+  "short_title": "Test your logic: can you solve these riddles? 🧠",
+  "theme": "brain",
+  "ai_generated": false,
+  "full_video": "https://youtu.be/VeSojmrDnlo",
+  "comment": "Stay or switch? 🚪 Comment your answer 👇",
+  "tiktok_text": "Test your logic: can you solve these riddles? 🧠 The bat and the ball… and the 3 doors that fooled mathematicians.\n\nStay or switch? Comment your answer 👇\n\nThe answer + 5 more riddles: full video on YouTube @factoraofficiel\nThink fast. Learn something amazing.\n\n#riddles #brainteasers #logictest #montyhall #learnontiktok #factora",
+  "instagram_text": "Test your logic: can you solve these riddles? 🧠 The bat and the ball… and the 3 doors that fooled mathematicians.\n\nStay or switch? Comment your answer 👇\n\nThe answer + 5 more riddles: full video on YouTube, Factora (link in bio)\nThink fast. Learn something amazing.\n\n#riddles #brainteasers #logicpuzzles #montyhall #learnoninstagram #factora"
+}
