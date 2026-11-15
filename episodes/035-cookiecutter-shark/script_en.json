@@ -1,0 +1,42 @@
+[
+ {
+  "scene": "hook",
+  "text": [
+   "Perfect circles, cut into whales.",
+   "For years, no one knew what made them."
+  ]
+ },
+ {
+  "scene": "ask",
+  "text": [
+   "One: a giant shark. Two: a parasite. Three: a fish shorter than your arm."
+  ],
+  "pause": 1.8
+ },
+ {
+  "scene": "reveal",
+  "text": [
+   "It's number three: the cookiecutter shark."
+  ]
+ },
+ {
+  "scene": "bite",
+  "text": [
+   "It latches on with suction-cup lips, sinks in its teeth, then spins its whole body to carve out a round plug."
+  ]
+ },
+ {
+  "scene": "sub",
+  "text": [
+   "It even bit the rubber sonar domes of U.S. Navy submarines."
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "And its belly glows in the dark.",
+   "Did you get it right?"
+  ],
+  "pause": 1.6
+ }
+]

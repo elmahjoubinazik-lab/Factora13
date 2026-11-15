@@ -579,7 +579,7 @@ def music_hype(total, sr=SR, bpm=140):
     return out * fade * 0.30   # ~12 dB sous la voix
 
 def sfx_track(total, events, sr=SR):
-    """Bruitages : thunder (coup de tonnerre), heartbeat (battements qui accélèrent, dur), hit (impact grave)."""
+    """Bruitages : thunder (coup de tonnerre), heartbeat (battements qui accélèrent, dur), riser, whoosh, ping (sonar), shimmer (scintillement), hit (impact grave)."""
     n = int(total * sr); out = np.zeros(n, np.float32); rng = np.random.default_rng(11)
     for ev in events:
         i0 = int(ev["t"] * sr); kind = ev["type"]
@@ -608,6 +608,18 @@ def sfx_track(total, events, sr=SR):
             x = np.convolve(x, np.ones(6) / 6, mode="same") - np.convolve(x, np.ones(40) / 40, mode="same")
             env = np.sin(np.pi * np.clip(tl / dur, 0, 1)) ** 2
             seg = (x / (np.max(np.abs(x)) + 1e-9) * env * 0.55 * float(ev.get("vol", 1.0))).astype(np.float32)
+        elif kind == "ping":   # « ping » de sonar (ép. 035) : sinus aigu, décroissance lente + 2 échos
+            L = int(2.2 * sr); tl = np.arange(L) / sr; seg = np.zeros(L, np.float32)
+            for dl, amp in ((0.0, 1.0), (0.55, 0.35), (1.1, 0.15)):
+                j = int(dl * sr); m = L - j
+                seg[j:] += (amp * np.sin(2 * np.pi * 1180 * tl[:m]) * np.exp(-tl[:m] / 0.32) * np.minimum(1, tl[:m] / 0.005)).astype(np.float32)
+            seg *= 0.35 * float(ev.get("vol", 1.0))
+        elif kind == "shimmer":   # scintillement doux (lueur, bioluminescence) : notes aiguës qui s'égrènent
+            L = int(1.8 * sr); tl = np.arange(L) / sr; seg = np.zeros(L, np.float32)
+            for i, f in enumerate((1568, 2093, 2637, 3136, 2349)):
+                j = int(i * 0.16 * sr); m = L - j
+                seg[j:] += (np.sin(2 * np.pi * f * tl[:m]) * np.exp(-tl[:m] / 0.45)).astype(np.float32)
+            seg *= 0.10 * float(ev.get("vol", 1.0))
         else:  # hit
             L = int(1.5 * sr); seg = (np.sin(2 * np.pi * 45 * np.arange(L) / sr) * np.exp(-np.arange(L) / (0.35 * sr))).astype(np.float32)
         j1 = min(n, i0 + len(seg))

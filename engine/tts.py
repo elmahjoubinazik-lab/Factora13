@@ -48,7 +48,40 @@ def el_segment(text, speed):
     al = json.load(open(cj))
     pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", f"{cd}/{key}.mp3", "-f", "f32le", "-ac", "1", "-ar", str(SR), "-"],
                          capture_output=True, check=True).stdout
-    return np.frombuffer(pcm, dtype=np.float32).copy(), list(zip(al["character_start_times_seconds"], al["character_end_times_seconds"]))
+    a = np.frombuffer(pcm, dtype=np.float32).copy()
+    times = list(zip(al["character_start_times_seconds"], al["character_end_times_seconds"]))
+    return squeeze(a, times, float(V.get("max_pause", 0.28)))
+
+def squeeze(a, times, gap):
+    """Raccourcit les silences internes trop longs (> gap s) et le silence de début/fin (règle « aucun silence inutile »
+    du master prompt, 2026-11-15) ; les horodatages des caractères sont recalés sur l'audio raccourci."""
+    hop = int(SR * 0.01); n = len(a) // hop
+    rms = np.sqrt(np.mean(a[:n * hop].reshape(n, hop) ** 2, axis=1)) if n else np.zeros(0)
+    quiet = rms < 10 ** (-40 / 20)
+    cuts, i = [], 0
+    while i < n:
+        if quiet[i]:
+            j = i
+            while j < n and quiet[j]: j += 1
+            r0, r1 = i * hop / SR, j * hop / SR
+            if i == 0: cuts.append((0.0, max(0.0, r1 - 0.06)))                    # début : 60 ms max
+            elif j >= n: cuts.append((r0 + 0.10, len(a) / SR))                    # fin : 100 ms max
+            elif r1 - r0 > gap: cuts.append((r0 + gap / 2, r1 - gap / 2))          # milieu : gap max
+            i = j
+        else: i += 1
+    cuts = [(c0, c1) for c0, c1 in cuts if c1 - c0 > 0.01]
+    if not cuts: return a, times
+    keep, prev = [], 0
+    for c0, c1 in cuts:
+        keep.append(a[prev:int(c0 * SR)]); prev = int(c1 * SR)
+    keep.append(a[prev:])
+    def remap(x):
+        sh = 0.0
+        for c0, c1 in cuts:
+            if x >= c1: sh += c1 - c0
+            elif x > c0: sh += x - c0
+        return max(0.0, x - sh)
+    return np.concatenate(keep), [(remap(s), remap(e)) for s, e in times]
 
 out, t, timeline = [sil(0.1)], 0.1, []   # voix dès 0,1 s (avant : 0,4 s de silence au début = balayages)
 if PROVIDER == "elevenlabs":

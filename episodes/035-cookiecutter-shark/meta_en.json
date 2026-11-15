@@ -1,0 +1,138 @@
+{
+  "format": "short_seul",
+  "hook_text": " ",
+  "theme": "why",
+  "music": "mystery",
+  "fade": 0.06,
+  "voix": {
+    "provider": "elevenlabs",
+    "voice_id": "cgSgspJ2msm6clMCkdW9",
+    "voice_name": "Jessica",
+    "model": "eleven_v4",
+    "el_speed": 1.15
+  },
+  "short_title": "What makes these perfect circles on whales? 🐋",
+  "title_options": [
+    "What makes these perfect circles on whales? 🐋",
+    "Perfect round holes in whales: who did it? 🦈",
+    "This tiny shark cuts circles out of whales 🦈"
+  ],
+  "seo_intro": "What makes the perfect round scars on whales? A giant shark, a parasite, or something smaller?\nThe culprit is the cookiecutter shark, a deep-sea shark about 20 inches long that latches on with suction-cup lips, bites, and spins to carve out a round plug.",
+  "related": [
+    "VeSojmrDnlo",
+    "6lrfoOrFutU"
+  ],
+  "hashtags": [
+    "#cookiecuttershark",
+    "#whales",
+    "#oceanscience",
+    "#deepsea"
+  ],
+  "tags": [
+    "cookiecutter shark",
+    "cookie cutter shark",
+    "round scars on whales",
+    "circles on whales",
+    "what makes holes in whales",
+    "whale bite marks",
+    "cookiecutter shark bite",
+    "cookiecutter shark submarine",
+    "bioluminescent shark",
+    "deep sea creatures",
+    "ocean facts",
+    "marine biology",
+    "factora",
+    "factora official",
+    "factoraofficiel",
+    "factora shorts",
+    "factora quiz",
+    "factora science"
+  ],
+  "comment": "1, 2 or 3: what did you guess before the answer? 🦈",
+  "ai_generated": true,
+  "sources": [
+    "Florida Museum of Natural History — Isistius brasiliensis (cookiecutter shark): https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/isistius-brasiliensis/",
+    "Jones, E. C. (1971). Isistius brasiliensis, a squaloid shark, the probable cause of crater wounds on fishes and cetaceans. Fishery Bulletin 69(4): 791–798 (NOAA)",
+    "Encyclopaedia Britannica — cookiecutter shark: https://www.britannica.com/animal/cookiecutter-shark",
+    "U.S. Navy submarine sonar dome damage (1970s): Johnson, C. S. (1978), Sea creatures and the problem of equipment damage, U.S. Naval Institute Proceedings"
+  ],
+  "sources_text": "Florida Museum of Natural History (Isistius brasiliensis); Jones (1971), Fishery Bulletin, NOAA; Encyclopaedia Britannica; Johnson (1978), U.S. Naval Institute Proceedings.",
+  "sfx": [
+    {
+      "scene": "hook",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "ask",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "reveal",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "bite",
+      "at": 0.0,
+      "type": "whoosh",
+      "vol": 0.6
+    },
+    {
+      "scene": "sub",
+      "at": 0.3,
+      "type": "ping"
+    },
+    {
+      "scene": "outro",
+      "at": 0.2,
+      "type": "shimmer"
+    }
+  ],
+  "finish": "photo",
+  "clips": [
+    {
+      "name": "hook",
+      "file": "hook.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "reveal",
+      "file": "reveal.mp4",
+      "from": 0.0,
+      "to": 3.0
+    },
+    {
+      "name": "outro",
+      "file": "glow.mp4",
+      "from": 0.0,
+      "to": 2.6
+    }
+  ],
+  "tiktok_text": "Perfect round circles cut into whales: what makes them? 🐋 A giant shark, a parasite... or a fish shorter than your arm? It's the cookiecutter shark: it latches on with suction-cup lips, bites, and spins to carve out a round plug. It even bit U.S. Navy submarines, and its belly glows in the dark.\n\nDid you guess it? Send this to an ocean lover 🌊\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#sciencetok #didyouknow #learnontiktok #factora #cookiecuttershark #oceanlife",
+  "instagram_text": "Perfect round circles cut into whales: what makes them? 🐋 A giant shark, a parasite... or a fish shorter than your arm? It's the cookiecutter shark: it latches on with suction-cup lips, bites, and spins to carve out a round plug. It even bit U.S. Navy submarines, and its belly glows in the dark.\n\nDid you guess it? Send this to an ocean lover 🌊\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#science #didyouknow #learnoninstagram #factora #cookiecuttershark #oceanlife",
+  "facebook_text": "Perfect round circles cut into whales: what makes them? 🐋 A giant shark, a parasite... or a fish shorter than your arm? It's the cookiecutter shark: it latches on with suction-cup lips, bites, and spins to carve out a round plug. It even bit U.S. Navy submarines, and its belly glows in the dark.\n\nDid you guess it? Tag an ocean lover 🌊\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#cookiecuttershark #whales #oceanscience",
+  "x_text": "Perfect round circles cut into whales 🐋 What made them?\n\n1) a giant shark\n2) a parasite\n3) a fish shorter than your arm\n\nReply with your guess 👇\n\n#ocean #sharks",
+  "x_reply": "The answer (it even bit U.S. Navy submarines) 👇 https://youtube.com/shorts/jhy3htfqeZk",
+  "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/61bb5f0f6d997c2819118d5a2522818ae104e4cd/ep035/what-makes-these-perfect-circles-on-whales.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/61bb5f0f6d997c2819118d5a2522818ae104e4cd/ep035/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/61bb5f0f6d997c2819118d5a2522818ae104e4cd/ep035/short_cover_yt.jpg"
+  },
+  "runway": {
+    "credits_used_approx": 260,
+    "images": [
+      "1b3216a2-90d8-484d-9d7f-3c6a4c22c219",
+      "8f58e6ca-63b1-4cbd-84ad-d7159d99d8cc",
+      "05943d08-523b-4980-8af4-2da1095953a2",
+      "d959abd7-23bd-4971-b4b7-2122c925737f"
+    ],
+    "clips": [
+      "a1706e7c-c36a-4ea3-a744-4838f895c77a",
+      "e7b2fb3c-6a24-42f2-9b5b-ecbe52a51489",
+      "4bad7ba3-a8da-4219-9f81-067b15bda7b5"
+    ]
+  }
+}
