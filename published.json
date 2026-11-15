@@ -647,7 +647,7 @@
       "date": "2026-11-16",
       "format": "short_seul",
       "long_id": null,
-      "short_id": "jhy3htfqeZk",
+      "short_id": "z4if0KZS7DE",
       "status": "private",
       "thumbnail_set": true,
       "theme": "why",
@@ -655,7 +655,8 @@
       "voice": "ElevenLabs Jessica (eleven_v4)",
       "tiktok": "manuel (Nazik)",
       "instagram": "manuel (Nazik)",
-      "note": "Sujet de Nazik (2026-11-15), visuels Runway à sa demande, 1re vidéo avec la voix ElevenLabs ; Nazik la passe en public"
+      "note": "Sujet de Nazik (2026-11-15) ; 100 % images Runway (« N'utilise que les images générées par Runway ») ; voix ElevenLabs Jessica ; musique originale générée par Runway ; version finale z4if0KZS7DE (la 1re version privée jhy3htfqeZk, avec schéma dessiné et sans musique audible, est à supprimer — accord de Nazik demandé)",
+      "remplace_prive": "jhy3htfqeZk"
     }
   ]
 }

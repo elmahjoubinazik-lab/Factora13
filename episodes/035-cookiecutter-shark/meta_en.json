@@ -2,7 +2,7 @@
   "format": "short_seul",
   "hook_text": " ",
   "theme": "why",
-  "music": "mystery",
+  "music": "none",
   "fade": 0.06,
   "voix": {
     "provider": "elevenlabs",
@@ -108,7 +108,7 @@
       "name": "bite",
       "file": "bite.mp4",
       "from": 0.0,
-      "to": 5.0
+      "to": 2.5
     },
     {
       "name": "outro",
@@ -121,24 +121,29 @@
   "instagram_text": "Perfect round circles cut into whales: what makes them? 🐋 A giant shark, a parasite... or a fish shorter than your arm? It's the cookiecutter shark: it latches on with suction-cup lips, bites, and spins to carve out a round plug. It even bit U.S. Navy submarines, and its belly glows in the dark.\n\nDid you guess it? Send this to an ocean lover 🌊\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#science #didyouknow #learnoninstagram #factora #cookiecuttershark #oceanlife",
   "facebook_text": "Perfect round circles cut into whales: what makes them? 🐋 A giant shark, a parasite... or a fish shorter than your arm? It's the cookiecutter shark: it latches on with suction-cup lips, bites, and spins to carve out a round plug. It even bit U.S. Navy submarines, and its belly glows in the dark.\n\nDid you guess it? Tag an ocean lover 🌊\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#cookiecuttershark #whales #oceanscience",
   "x_text": "Perfect round circles cut into whales 🐋 What made them?\n\n1) a giant shark\n2) a parasite\n3) a fish shorter than your arm\n\nReply with your guess 👇\n\n#ocean #sharks",
-  "x_reply": "The answer (it even bit U.S. Navy submarines) 👇 https://youtube.com/shorts/jhy3htfqeZk",
+  "x_reply": "The answer (it even bit U.S. Navy submarines) 👇 https://youtube.com/shorts/z4if0KZS7DE",
   "urls": {
-    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/61bb5f0f6d997c2819118d5a2522818ae104e4cd/ep035/what-makes-these-perfect-circles-on-whales.mp4",
-    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/61bb5f0f6d997c2819118d5a2522818ae104e4cd/ep035/short_cover.jpg",
-    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/61bb5f0f6d997c2819118d5a2522818ae104e4cd/ep035/short_cover_yt.jpg"
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3ff174139279e5216de2826df1b359d5b3aa33be/ep035/what-makes-these-perfect-circles-on-whales.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3ff174139279e5216de2826df1b359d5b3aa33be/ep035/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3ff174139279e5216de2826df1b359d5b3aa33be/ep035/short_cover_yt.jpg"
   },
   "runway": {
-    "credits_used_approx": 260,
+    "credits_used_approx": 353,
     "images": [
       "1b3216a2-90d8-484d-9d7f-3c6a4c22c219",
       "8f58e6ca-63b1-4cbd-84ad-d7159d99d8cc",
       "05943d08-523b-4980-8af4-2da1095953a2",
-      "d959abd7-23bd-4971-b4b7-2122c925737f"
+      "d959abd7-23bd-4971-b4b7-2122c925737f",
+      "ceb6d61f-2d31-4374-b978-fc1d9e0c720d"
     ],
     "clips": [
       "a1706e7c-c36a-4ea3-a744-4838f895c77a",
       "e7b2fb3c-6a24-42f2-9b5b-ecbe52a51489",
-      "4bad7ba3-a8da-4219-9f81-067b15bda7b5"
-    ]
-  }
+      "4bad7ba3-a8da-4219-9f81-067b15bda7b5",
+      "badd0a60-de4f-4b59-856a-3f901f7b5f4e"
+    ],
+    "music": "d6ab475b-ca87-4027-a5fc-ac98504e4b2e"
+  },
+  "music_file": "rw/music.mp3",
+  "music_gain_db": -15
 }

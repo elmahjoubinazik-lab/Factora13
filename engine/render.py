@@ -693,6 +693,18 @@ SFX_TIMES = [(e["t"], e["type"]) for e in _SFX]
 _FD = max(0.01, float(_mm.get("fade", 0.3)))   # durée du fondu au noir entre scènes (meta « fade » ; 0.06 ≈ cut sec)
 _MUSIC = {"mystery": music_mystery, "upbeat": music_upbeat, "hype": music_hype, "westcoast": music_westcoast, "dramatic": music_dramatic}
 mus = np.zeros(len(vo), np.float32) if _MOOD == "none" else _MUSIC.get(_MOOD, music)(len(vo) / SR)
+if _mm.get("music_file"):   # musique ORIGINALE générée (ex. Runway, ép. 035 : la nappe « mystery » était inaudible sur téléphone)
+    _pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", os.path.join(WD, _mm["music_file"]), "-f", "f32le", "-ac", "1", "-ar", str(SR), "-"],
+                          capture_output=True, check=True).stdout
+    _m = np.frombuffer(_pcm, dtype=np.float32).copy()[:len(vo)]; _m = np.pad(_m, (0, len(vo) - len(_m)))
+    _act = np.abs(vo) > 0.02
+    _vr = np.sqrt(np.mean(vo[_act] ** 2)) if _act.any() else 0.1
+    _m *= _vr * 10 ** (float(_mm.get("music_gain_db", -15)) / 20) / (np.sqrt(np.mean(_m ** 2)) + 1e-9)
+    _env = np.convolve(np.abs(vo), np.ones(int(0.25 * SR)) / int(0.25 * SR), mode="same")   # baisse sous la voix (−4 dB)
+    _m *= (1 - 0.37 * np.clip(_env / (_vr * 0.5 + 1e-9), 0, 1)).astype(np.float32)
+    _tt = np.arange(len(_m)) / SR; _T = len(_m) / SR
+    _m *= np.clip(_tt / 0.3, 0, 1) * np.clip((_T - _tt) / 1.2, 0, 1)
+    mus = _m.astype(np.float32)
 if _SFX: mus = mus + sfx_track(len(vo) / SR, _SFX)
 if len(mus) < len(vo): mus = np.pad(mus, (0, len(vo) - len(mus)))   # arrondi int(total*sr) : 1 échantillon de moins possible
 mixd = vo * 0.95 + mus[:len(vo)]
