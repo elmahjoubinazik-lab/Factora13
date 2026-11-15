@@ -200,9 +200,8 @@ def reveal_ov(ctx, t, d):
     pill(ctx, "ABOUT 20 INCHES LONG", CX, H * 0.615, GOLD, 50, prog(t, 0.5, 0.8))
 sc_reveal = clip_scene("reveal", reveal_ov, top_scrim=0.26)
 
-def sc_bite(ctx, t, d):
-    paint(ctx, load_img(RW + "/key_reveal.png"), zoom=1.15)
-    rgba(ctx, (0.01, 0.02, 0.06), 0.80); ctx.paint()
+def bite_ov(ctx, t, d):
+    """Scène Runway (le requin accroché à la peau de la baleine) + les 3 étapes en texte, calées sur la voix."""
     s0, e0 = ST("bite", 0), EN("bite", 0); L = e0 - s0
     t1, t2 = s0 + 0.33 * L, s0 + 0.50 * L            # « sinks in its teeth », « then spins… »
     step = 0 if t < t1 else (1 if t < t2 else 2)
@@ -210,35 +209,7 @@ def sc_bite(ctx, t, d):
         x = CX + (i - 1) * 330 * U
         pill(ctx, s_, x, H * 0.115, col if i <= step else (0.35, 0.35, 0.45), 48)
         if i < 2: text(ctx, "→", x + 168 * U, H * 0.115, 52 * U, WHITE, 0.8)
-    text(ctx, "SIMPLIFIED DIAGRAM", CX, H * 0.165, 34 * U, (0.75, 0.80, 0.92), 0.85)
-    y0, y1 = H * 0.24, H * 0.64
-    rrect(ctx, W * 0.04, y0, W * 0.92, y1 - y0, 60 * U)
-    g = cairo.LinearGradient(0, y0, 0, y1); g.add_color_stop_rgba(0, 0.16, 0.30, 0.52, 0.95); g.add_color_stop_rgba(1, 0.30, 0.46, 0.66, 0.95); ctx.set_source(g); ctx.fill()
-    for k in range(9):
-        ctx.new_path(); yy = y0 + (y1 - y0) * (k + 0.5) / 9; ctx.move_to(W * 0.06, yy); ctx.curve_to(W * 0.35, yy - 12 * U, W * 0.65, yy + 12 * U, W * 0.94, yy)
-        ctx.set_line_width(2 * U); rgba(ctx, WHITE, 0.08); ctx.stroke()
-    text(ctx, "WHALE SKIN", W * 0.80, y1 - 40 * U, 34 * U, WHITE, 0.6)
-    P = (W * 0.27, H * 0.47); sc = 1.9; S = sc * U
-    done = prog(t, e0 - 1.0, e0 - 0.2); r_cut = 74 * U
-    if t >= t2:
-        kc = prog(t, t2, e0 - 1.0)
-        neon_path(ctx, lambda c: c.arc(P[0], P[1], r_cut, -math.pi / 2, -math.pi / 2 + 2 * math.pi * kc), GOLD, 8 * U)
-    if done:
-        circle(ctx, P[0], P[1], r_cut, (0.05, 0.07, 0.16), done); neon_path(ctx, lambda c: c.arc(P[0], P[1], r_cut, 0, 2 * math.pi), GOLD, 8 * U, done)
-    if t < t1:
-        for i in range(3):
-            ph = ((t * 1.6 + i / 3) % 1.0)
-            neon_path(ctx, lambda c, ph=ph: c.arc(P[0], P[1], (30 + 120 * ph) * U, 0, 2 * math.pi), CYAN, 5 * U, 1 - ph)
-    roll = 1.0
-    if t >= t2 and not done: roll = 0.25 + 0.75 * abs(math.cos((t - t2) * 5.0))
-    away = ease(done) * 260 * U
-    shark(ctx, P[0] + 150 * S + away, P[1] - 22 * S - away * 0.6, sc, 1.0, t, roll=roll, teeth=prog(t, t1, t1 + 0.3))
-    if t >= t2 and not done:
-        ang = (t - t2) * 4.0; cxr, cyr = P[0] + 150 * S, P[1] - 22 * S
-        neon_path(ctx, lambda c: c.arc(cxr, cyr, 140 * U, ang, ang + 4.6), GOLD, 7 * U)
-    if done:
-        circle(ctx, P[0] + away * 0.55, P[1] - away * 0.35, r_cut * 0.8, (0.30, 0.46, 0.66), done)
-        neon_path(ctx, lambda c: c.arc(P[0] + away * 0.55, P[1] - away * 0.35, r_cut * 0.8, 0, 2 * math.pi), WHITE, 4 * U, done)
+sc_bite = clip_scene("bite", bite_ov, top_scrim=0.22)
 
 BITES = [(0.36, 0.53), (0.49, 0.49), (0.62, 0.53), (0.675, 0.60)]   # morsures rondes visibles sur le dôme (image key_sub)
 def sc_sub(ctx, t, d):
