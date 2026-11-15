@@ -1,0 +1,7 @@
+[
+ {"scene": "hook", "text": ["How many holes does a T-shirt have?", "One: four. Two: three. Three: zero."]},
+ {"scene": "openings", "text": ["It has four openings: the collar, the bottom, and two sleeves.", "But an opening is not a hole."]},
+ {"scene": "morph", "text": ["Stretch it without tearing. Pull the bottom wide and flatten it.", "The collar and the sleeves become three holes."]},
+ {"scene": "rule", "text": ["Holes equal openings minus one. Four minus one: three."]},
+ {"scene": "outro", "text": ["Did you get it right? More riddles like this in our full video.", "Send this to a friend and ask them:"]}
+]

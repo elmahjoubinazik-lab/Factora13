@@ -1,0 +1,92 @@
+{
+  "format": "short_seul",
+  "series": "The Holes Debate #3",
+  "hook_text": " ",
+  "theme": "brain",
+  "music": "mystery",
+  "voix": {
+    "melange": {
+      "af_heart": 1.0
+    },
+    "vitesse": 1.12,
+    "traitement_doux": true,
+    "code_langue": "en-us"
+  },
+  "short_title": "How many holes does a T-shirt have? 👕",
+  "seo_intro": "How many holes does a T-shirt have? Four, three or zero?\nA T-shirt has four openings but only three holes: stretch it without tearing and it flattens into a shape with exactly three holes (in topology, holes = openings minus one).",
+  "related": [
+    "VeSojmrDnlo",
+    "ln1wl1AVVi4",
+    "0kQmb0qDEqg"
+  ],
+  "hashtags": [
+    "#riddle",
+    "#topology",
+    "#math",
+    "#canyousolveit"
+  ],
+  "tags": [
+    "how many holes does a t-shirt have",
+    "how many holes in a t shirt",
+    "t-shirt holes riddle",
+    "holes debate",
+    "how many holes does a straw have",
+    "how many holes in pants",
+    "topology riddle",
+    "math riddle",
+    "brain teaser",
+    "riddles with answers",
+    "can you solve it",
+    "factora",
+    "factora official",
+    "factoraofficiel",
+    "factora shorts",
+    "factora quiz",
+    "factora science"
+  ],
+  "comment": "Four, three or zero: what did you say? 👕 Tag the friend who said four 👇",
+  "answer": "2 — THREE holes. A T-shirt has 4 openings (collar, bottom, 2 sleeves). Stretch it without tearing: pull the bottom opening wide and flatten it, the collar and the 2 sleeves become 3 holes. For a one-piece tube-like object, holes = openings - 1 (straw 2-1 = 1, pants 3-1 = 2, T-shirt 4-1 = 3).",
+  "ai_generated": false,
+  "sources": [
+    "https://en.wikipedia.org/wiki/Genus_(mathematics)",
+    "https://en.wikipedia.org/wiki/Pair_of_pants_(mathematics)",
+    "https://en.wikipedia.org/wiki/Betti_number"
+  ],
+  "sfx": [
+    {
+      "scene": "hook",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "openings",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "morph",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "rule",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "outro",
+      "at": 0.0,
+      "type": "whoosh"
+    }
+  ],
+  "tiktok_text": "How many holes does a T-shirt have? 👕 Four openings... but only THREE holes. Stretch it without tearing: pull the bottom wide, flatten it, and the collar and the two sleeves become three holes (holes = openings − 1).\n\nDid you get it right? Send this to the friend who said four 😏\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\n\n#riddle #topology #brainteaser #learnontiktok #factora",
+  "instagram_text": "How many holes does a T-shirt have? 👕 Four openings... but only THREE holes. Stretch it without tearing: pull the bottom wide, flatten it, and the collar and the two sleeves become three holes (holes = openings − 1).\n\nDid you get it right? Send this to the friend who said four 😏\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\n\n#riddle #topology #brainteaser #learnoninstagram #factora",
+  "facebook_text": "How many holes does a T-shirt have? 👕 Four openings... but only THREE holes. Stretch it without tearing: pull the bottom wide, flatten it, and the collar and the two sleeves become three holes (holes = openings − 1).\n\nDid you get it right? Tag the friend who said four 😏\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\n\n#riddle #topology #brainteaser",
+  "x_text": "How many holes does a T-shirt have? 👕\n\n1) four\n2) three\n3) zero\n\nHint: a straw has 2 openings but only 1 hole. Reply with your answer 👇\n\n#riddle #math",
+  "x_reply": "The answer (with the animation) on YouTube 👇 https://youtube.com/shorts/6lrfoOrFutU",
+  "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/0432300c6931204ed4981dbdf33f37f136951af8/ep034/how-many-holes-does-a-t-shirt-have.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/0432300c6931204ed4981dbdf33f37f136951af8/ep034/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/0432300c6931204ed4981dbdf33f37f136951af8/ep034/short_cover_yt.jpg"
+  }
+}
