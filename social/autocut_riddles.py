@@ -165,3 +165,55 @@ pill(c, "COMMENT YOUR SCORE /5", XC, H * 0.71, GOLD, 60)
 text(c, "MORE RIDDLES ON YOUTUBE: FACTORA", XC, H * 0.765, 40 * U, WHITE, 0.92)
 save(s, "7_answers")
 print("OK", OUT)
+
+# ---------- couverture (demande de Nazik, 2026-11-15) : un grand « 5/5 » au centre, les 5 énigmes en icônes autour,
+# sans aucune réponse ; titre et éléments entre 14 % et 86 % de la hauteur (recadrage 3:4 de la grille du profil TikTok)
+def mini_clock(c, x, y, r, col):
+    glow(c, x, y, r * 1.6, col, 0.3); circle(c, x, y, r, (0.05, 0.06, 0.16))
+    neon_path(c, lambda cc: cc.arc(x, y, r, 0, 2 * math.pi), col, 6 * U)
+    for k in range(4):
+        a_ = k * math.pi / 2; c.new_path(); c.move_to(x + r * 0.72 * math.sin(a_), y - r * 0.72 * math.cos(a_))
+        c.line_to(x + r * 0.9 * math.sin(a_), y - r * 0.9 * math.cos(a_)); c.set_line_width(6 * U); rgba(c, WHITE, 0.9); c.stroke()
+    for ang, ln, wd, cl in ((97.5, 0.55, 12, GOLD), (90.0, 0.82, 7, PINK)):
+        a_ = math.radians(ang); c.new_path(); c.move_to(x, y); c.line_to(x + r * ln * math.sin(a_), y - r * ln * math.cos(a_))
+        c.set_line_cap(cairo.LINE_CAP_ROUND); c.set_line_width(wd * U); rgba(c, cl); c.stroke()
+    circle(c, x, y, 9 * U, WHITE)
+
+def mini_tag(c, x, y, s, col):
+    def p(cc):
+        cc.move_to(x - s, y - s * 0.55); cc.line_to(x + s * 0.55, y - s * 0.55); cc.line_to(x + s, y)
+        cc.line_to(x + s * 0.55, y + s * 0.55); cc.line_to(x - s, y + s * 0.55); cc.close_path()
+    glow(c, x, y, s * 1.6, col, 0.3); c.new_path(); p(c); rgba(c, mix(col, NAVY, 0.55)); c.fill(); neon_path(c, p, col, 5 * U)
+    text(c, "$", x - s * 0.2, y, s * 0.9, WHITE)
+
+def qcircle(c, x, y, r, col, s_="?"):
+    glow(c, x, y, r * 1.5, col, 0.3); circle(c, x, y, r, mix(col, NAVY, 0.6))
+    neon_path(c, lambda cc: cc.arc(x, y, r, 0, 2 * math.pi), col, 5 * U)
+    neon_text(c, s_, x, y, r * 1.05, WHITE, 1.0, col, fill=0.35)
+
+s = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H); c = cairo.Context(s)
+neon_bg(c, 2.0, tint=PURPLE)
+glow(c, CX, H * 0.45, 900 * U, GOLD, 0.10)
+nfit(c, "CAN YOU", CX, H * 0.175, 150 * U, W * 0.86, WHITE, PURPLE, fill=0.3)
+nfit(c, "SOLVE ALL 5?", CX, H * 0.25, 170 * U, W * 0.88, GOLD, CORAL, fill=0.35)
+cx_, cy_, R = CX, H * 0.455, 255 * U
+glow(c, cx_, cy_, R * 1.7, CYAN, 0.35)
+circle(c, cx_, cy_, R, (0.05, 0.04, 0.14))
+neon_path(c, lambda cc: cc.arc(cx_, cy_, R, 0, 2 * math.pi), CYAN, 12 * U)
+neon_text(c, "5/5", cx_, cy_ - 10 * U, 230 * U, WHITE, 1.0, CYAN, fill=0.4)
+text(c, "OR LESS?", cx_, cy_ + 135 * U, 46 * U, GOLD)
+D = 400 * U   # les 5 énigmes en icônes autour du cercle (sans réponse)
+for k, ang in enumerate((-150, -30, 15, 165, 90)):
+    x = cx_ + D * math.cos(math.radians(ang)); y = cy_ + D * math.sin(math.radians(ang)) * (0.80 if ang == 90 else 0.92)
+    if k == 0: gear(c, x, y, 82 * U, PINK, 0.3)
+    elif k == 1: mini_clock(c, x, y, 82 * U, CYAN)
+    elif k == 2: mini_tag(c, x, y, 85 * U, GOLD)
+    elif k == 3: qcircle(c, x, y, 78 * U, GREEN)
+    else: sun(c, x, y, 62 * U, 0.4)
+pill(c, "PAUSE ON EACH ONE", CX, H * 0.722, CYAN, 66)
+mascot(c, CX - 300 * U, H * 0.80, 180 * U, 1.0, 0.2)
+neon_text(c, "FACTORA", CX + 110 * U, H * 0.80, 90 * U, GOLD, 1.0, CORAL, fill=0.3)
+save(s, "0_cover")
+subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", f"{OUT}/0_cover.jpg", "-vf", "crop=1080:1440:0:240,scale=270:360",
+                f"{OUT}/0_cover_grille.png"], check=True)   # aperçu de la vignette de la grille du profil (3:4)
+print("OK couverture")
