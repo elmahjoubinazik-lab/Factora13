@@ -1,0 +1,46 @@
+[
+ {
+  "scene": "hook",
+  "text": [
+   "In lab tests, bacteria on this dragonfly wing get ripped apart.",
+   "How?"
+  ]
+ },
+ {
+  "scene": "ask",
+  "text": [
+   "One: poison.",
+   "Two: tiny pillars.",
+   "Three: static electricity."
+  ],
+  "pause": 1.8
+ },
+ {
+  "scene": "reveal",
+  "text": [
+   "Number two!",
+   "Zoom in, and the wing is a forest of tiny pillars."
+  ]
+ },
+ {
+  "scene": "twist",
+  "text": [
+   "But they don't simply stab.",
+   "Bacteria get stuck, and when they try to move, they can tear open."
+  ]
+ },
+ {
+  "scene": "lab",
+  "text": [
+   "Scientists are copying it to make germ-killing surfaces."
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "No poison. Just physics.",
+   "Did you get it right?"
+  ],
+  "pause": 1.6
+ }
+]

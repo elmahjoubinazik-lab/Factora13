@@ -1,0 +1,149 @@
+{
+  "format": "short_seul",
+  "hook_text": " ",
+  "theme": "why",
+  "music": "none",
+  "music_file": "rw/music.mp3",
+  "music_gain_db": -15,
+  "fade": 0.06,
+  "finish": "photo",
+  "ai_generated": true,
+  "voix": {
+    "provider": "elevenlabs",
+    "voice_id": "cgSgspJ2msm6clMCkdW9",
+    "voice_name": "Jessica",
+    "model": "eleven_v4",
+    "el_speed": 1.2
+  },
+  "short_title": "Why Do Bacteria Die on Dragonfly Wings? 😱",
+  "title_options": [
+    "Why Do Bacteria Die on Dragonfly Wings? 😱",
+    "Dragonfly Wings Rip Bacteria Apart, Without Poison 🔬",
+    "How Do Dragonfly Wings Kill Germs? 1, 2 or 3? 🦠"
+  ],
+  "comment": "1, 2 or 3: what was your guess? 🦠",
+  "clips": [
+    {
+      "name": "hook",
+      "file": "hook.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "reveal",
+      "file": "reveal.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "twist",
+      "file": "twist.mp4",
+      "from": 0.0,
+      "to": 5.0
+    }
+  ],
+  "sfx": [
+    {
+      "scene": "hook",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "ask",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "reveal",
+      "at": 0.0,
+      "type": "ping"
+    },
+    {
+      "scene": "reveal",
+      "at": 1.0,
+      "type": "shimmer",
+      "vol": 0.6
+    },
+    {
+      "scene": "twist",
+      "at": 0.0,
+      "type": "whoosh",
+      "vol": 0.6
+    },
+    {
+      "scene": "lab",
+      "at": 0.0,
+      "type": "whoosh",
+      "vol": 0.5
+    },
+    {
+      "scene": "outro",
+      "at": 0.2,
+      "type": "shimmer"
+    }
+  ],
+  "seo_intro": "Why do bacteria die on dragonfly wings? Poison, tiny pillars, or static electricity?\nIn lab tests, the wings of some dragonflies kill bacteria with no chemicals at all: their surface is covered in nanoscale pillars, and bacteria that stick to them can tear open when they try to move.",
+  "hashtags": [
+    "#dragonfly",
+    "#bacteria",
+    "#biomimicry",
+    "#science"
+  ],
+  "tags": [
+    "why do bacteria die on dragonfly wings",
+    "dragonfly wings kill bacteria",
+    "dragonfly wing bacteria",
+    "dragonfly wing nanopillars",
+    "antibacterial surface",
+    "nanopillars bacteria",
+    "black silicon bacteria",
+    "biomimicry",
+    "dragonfly facts",
+    "insect facts",
+    "how do dragonfly wings kill germs",
+    "nature antibacterial",
+    "science quiz",
+    "factora",
+    "factora official",
+    "factoraofficiel",
+    "factora shorts",
+    "factora quiz",
+    "factora science"
+  ],
+  "related": [
+    "z4if0KZS7DE",
+    "VeSojmrDnlo"
+  ],
+  "sources": [
+    "Ivanova, E. P. et al. (2013). Bactericidal activity of black silicon. Nature Communications 4, 2838 (dragonfly Diplacodes bipunctata wings and black silicon)",
+    "Bandara, C. D. et al. (2017). Bactericidal Effects of Natural Nanotopography of Dragonfly Wing on Escherichia coli. ACS Applied Materials & Interfaces 9(8): 6746–6760",
+    "ScienceAlert — Dragonfly wings can rip apart bacteria without antibiotics: https://www.sciencealert.com/dragonfly-wings-can-rip-apart-bacteria-without-antibiotics"
+  ],
+  "sources_text": "Ivanova et al. (2013), Nature Communications; Bandara et al. (2017), ACS Applied Materials & Interfaces; ScienceAlert.",
+  "tiktok_text": "Why do bacteria die on dragonfly wings? 🦠 In lab tests, bacteria that land on some dragonfly wings get ripped apart. Poison, tiny pillars, or static electricity? It's the pillars: the wing is covered in nanoscale pillars, and bacteria that stick to them can tear open when they try to move. No poison. Just physics.\n\nDid you guess it? Send this to a germaphobe 🦠\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#sciencetok #didyouknow #learnontiktok #factora #dragonfly #biomimicry",
+  "instagram_text": "Why do bacteria die on dragonfly wings? 🦠 In lab tests, bacteria that land on some dragonfly wings get ripped apart. Poison, tiny pillars, or static electricity? It's the pillars: the wing is covered in nanoscale pillars, and bacteria that stick to them can tear open when they try to move. No poison. Just physics.\n\nDid you guess it? Send this to a germaphobe 🦠\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#science #didyouknow #learnoninstagram #factora #dragonfly #biomimicry",
+  "facebook_text": "Why do bacteria die on dragonfly wings? 🦠 In lab tests, bacteria that land on some dragonfly wings get ripped apart. Poison, tiny pillars, or static electricity? It's the pillars: the wing is covered in nanoscale pillars, and bacteria that stick to them can tear open when they try to move. No poison. Just physics.\n\nDid you guess it? Tag a germaphobe 🦠\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#dragonfly #bacteria #biomimicry",
+  "x_text": "Bacteria that land on some dragonfly wings get ripped apart 🦠 How?\n\n1) poison\n2) tiny pillars\n3) static electricity\n\nReply with your guess 👇\n\n#science #dragonfly",
+  "runway": {
+    "credits_used_approx": 293,
+    "images": [
+      "956f2a50-351c-41a1-bbcc-caafd43d06b3",
+      "eb516734-e265-4585-9c8f-33b169220a2b",
+      "16adf6a5-878f-4cb0-a3b0-997465902438 (non utilisée)",
+      "af95c752-095a-482c-8f18-522fd5d0877d",
+      "d748d13a-d58e-4889-8050-cf3ecffbd950"
+    ],
+    "clips": [
+      "95d4720e-3c5e-4c63-a0f0-3fc4f1b1ccc3",
+      "a7cbf223-b706-4b79-8405-2d9becf1ee63",
+      "2559ef5c-f497-4dec-8402-9992bc596850"
+    ],
+    "music": "203571cc-fa1f-4cd5-9b48-b963d87e5e90"
+  },
+  "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/5bf7a86ce895da24d8c7f76fdcb4ad05ab82c2d1/ep036/why-do-bacteria-die-on-dragonfly-wings.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/5bf7a86ce895da24d8c7f76fdcb4ad05ab82c2d1/ep036/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/5bf7a86ce895da24d8c7f76fdcb4ad05ab82c2d1/ep036/short_cover_yt.jpg"
+  },
+  "x_reply": "The answer (no poison, just physics) 👇 https://youtube.com/shorts/9whDtTMckd4"
+}

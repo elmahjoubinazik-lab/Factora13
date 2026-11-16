@@ -705,7 +705,9 @@ if _mm.get("music_file"):   # musique ORIGINALE générée (ex. Runway, ép. 035
     _tt = np.arange(len(_m)) / SR; _T = len(_m) / SR
     _m *= np.clip(_tt / 0.3, 0, 1) * np.clip((_T - _tt) / 1.2, 0, 1)
     mus = _m.astype(np.float32)
-if _SFX: mus = mus + sfx_track(len(vo) / SR, _SFX)
+if _SFX:   # longueurs alignées sur la voix (int(total*sr) peut donner 1 échantillon de moins que la musique externe)
+    _s = sfx_track(len(vo) / SR, _SFX); _s = np.pad(_s, (0, max(0, len(vo) - len(_s))))[:len(vo)]
+    mus = np.pad(mus, (0, max(0, len(vo) - len(mus))))[:len(vo)] + _s
 if len(mus) < len(vo): mus = np.pad(mus, (0, len(vo) - len(mus)))   # arrondi int(total*sr) : 1 échantillon de moins possible
 mixd = vo * 0.95 + mus[:len(vo)]
 mixd /= max(1.0, np.max(np.abs(mixd)) / 0.97)
