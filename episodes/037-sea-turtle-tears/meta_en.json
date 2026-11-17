@@ -127,7 +127,7 @@
   "instagram_text": "Why do sea turtles cry? 🐢 It's not sadness and it's not pain. Turtles take in a lot of salt (a leatherback's jellyfish meals are mostly salty seawater), and their kidneys can't get rid of it all. So glands next to their eyes pump it out, in tears almost twice as salty as the ocean. Scientists estimate a feeding leatherback can cry about two gallons an hour. Not sadness. Survival.\n\nDid you guess it? Send this to a turtle lover 🐢\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#science #didyouknow #learnoninstagram #factora #seaturtle #animalfacts",
   "facebook_text": "Why do sea turtles cry? 🐢 It's not sadness and it's not pain. Turtles take in a lot of salt (a leatherback's jellyfish meals are mostly salty seawater), and their kidneys can't get rid of it all. So glands next to their eyes pump it out, in tears almost twice as salty as the ocean. Scientists estimate a feeding leatherback can cry about two gallons an hour. Not sadness. Survival.\n\nDid you guess it? Tag a turtle lover 🐢\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#seaturtle #leatherback #animalfacts",
   "x_text": "This giant sea turtle is crying 🐢 Why?\n\n1) it's sad\n2) it's in pain\n3) too much salt\n\nReply with your guess 👇\n\n#seaturtle #science",
-  "publication": "manuelle par Nazik (demande du 2026-11-17 : « je posterai moi-même ») — pas d'upload YouTube par l'API",
+  "publication": "YouTube : mise en ligne en privé par l'API, publication programmée le 2026-11-17 à 23h55 heure suisse (demande de Nazik), sans case « contenu synthétique » (décision de Nazik), mention IA dans la description ; réseaux : Nazik",
   "runway": {
     "credits_used_approx": 333,
     "images": [
@@ -143,5 +143,11 @@
       "a252bbb0-8926-40bc-b813-7d6baf796fed (1re prise de l'accroche, non utilisée : la caméra tournait et l'espèce changeait)"
     ],
     "music": "db50a7ce-13d4-49d2-bae3-be547e964e24"
-  }
+  },
+  "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/bde97e4d1b3ff75af76c395004b861436c592fb2/ep037/why-do-sea-turtles-cry-it-s-not-sadness.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/bde97e4d1b3ff75af76c395004b861436c592fb2/ep037/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/bde97e4d1b3ff75af76c395004b861436c592fb2/ep037/short_cover_yt.jpg"
+  },
+  "x_reply": "The answer (not sadness: survival) 👇 https://youtube.com/shorts/CGwnpS4_ATs"
 }

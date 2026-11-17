@@ -709,16 +709,18 @@
    "date": "2026-11-17",
    "format": "short_seul",
    "long_id": null,
-   "short_id": null,
-   "status": "manuel (Nazik)",
-   "thumbnail_set": false,
+   "short_id": "CGwnpS4_ATs",
+   "status": "programmee",
+   "thumbnail_set": true,
    "theme": "why",
    "ai_generated": true,
    "voice": "ElevenLabs Jessica (eleven_v4)",
-   "youtube": "manuel (Nazik)",
+   "youtube": "API, programmée 23h55 (Suisse)",
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
-   "note": "Sujet proposé par Nazik (piste ChatGPT, 2026-11-17), dossier validé ; Nazik publie elle-même partout, y compris YouTube (« je posterai moi-même ») : pas d'upload par l'API. Même formule que 035/036."
+   "note": "Sujet proposé par Nazik (piste ChatGPT, 2026-11-17), dossier validé ; Finalement mise en ligne par l'API en privé, programmée ce soir 23h55 à la demande de Nazik ; sans case « contenu synthétique » (décision de Nazik : mention dans la description seulement) — test de son hypothèse sur la mention IA. Même formule que 035/036.",
+   "publish_at": "2026-11-17T22:55:00Z",
+   "contains_synthetic_media": false
   }
  ]
 }
