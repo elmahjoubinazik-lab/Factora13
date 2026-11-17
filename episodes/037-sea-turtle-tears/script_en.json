@@ -1,0 +1,46 @@
+[
+ {
+  "scene": "hook",
+  "text": [
+   "This giant sea turtle is crying.",
+   "Why?"
+  ]
+ },
+ {
+  "scene": "ask",
+  "text": [
+   "One: it's sad.",
+   "Two: it's in pain.",
+   "Three: too much salt."
+  ],
+  "pause": 1.8
+ },
+ {
+  "scene": "reveal",
+  "text": [
+   "Number three!",
+   "It eats jellyfish: mostly salty seawater."
+  ]
+ },
+ {
+  "scene": "twist",
+  "text": [
+   "Its kidneys can't get rid of all that salt.",
+   "So glands by its eyes pump it out, in tears almost twice as salty as the ocean."
+  ]
+ },
+ {
+  "scene": "fact",
+  "text": [
+   "A feeding leatherback can cry an estimated two gallons an hour."
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "Not sadness. Survival.",
+   "Did you get it right?"
+  ],
+  "pause": 1.4
+ }
+]

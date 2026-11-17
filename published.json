@@ -694,6 +694,24 @@
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
    "note": "Sujet proposé par Nazik (piste ChatGPT, 2026-11-16), dossier en 10 points validé avec le titre n° 1 ; même formule que la baleine (100 % Runway, Jessica, musique Runway, quiz) : seul le sujet change, pour comparer."
+  },
+  {
+   "episode": "037",
+   "topic": "Why do sea turtles cry? (salt glands)",
+   "dir": "episodes/037-sea-turtle-tears",
+   "date": "2026-11-17",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": null,
+   "status": "manuel (Nazik)",
+   "thumbnail_set": false,
+   "theme": "why",
+   "ai_generated": true,
+   "voice": "ElevenLabs Jessica (eleven_v4)",
+   "youtube": "manuel (Nazik)",
+   "tiktok": "manuel (Nazik)",
+   "instagram": "manuel (Nazik)",
+   "note": "Sujet proposé par Nazik (piste ChatGPT, 2026-11-17), dossier validé ; Nazik publie elle-même partout, y compris YouTube (« je posterai moi-même ») : pas d'upload par l'API. Même formule que 035/036."
   }
  ]
 }

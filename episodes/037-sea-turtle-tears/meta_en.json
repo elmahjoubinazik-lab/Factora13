@@ -1,0 +1,147 @@
+{
+  "format": "short_seul",
+  "hook_text": " ",
+  "theme": "why",
+  "music": "none",
+  "music_file": "rw/music.mp3",
+  "music_gain_db": -15,
+  "fade": 0.06,
+  "finish": "photo",
+  "ai_generated": true,
+  "voix": {
+    "provider": "elevenlabs",
+    "voice_id": "cgSgspJ2msm6clMCkdW9",
+    "voice_name": "Jessica",
+    "model": "eleven_v4",
+    "el_speed": 1.2
+  },
+  "short_title": "Why Do Sea Turtles Cry? It's Not Sadness 😱",
+  "title_options": [
+    "Why Do Sea Turtles Cry? It's Not Sadness 😱",
+    "Why Is This Sea Turtle Crying? 1, 2 or 3? 🐢",
+    "Sea Turtles Cry Salt: Up to 2 Gallons an Hour 🐢"
+  ],
+  "comment": "1, 2 or 3: what was your guess? 🐢",
+  "clips": [
+    {
+      "name": "hook",
+      "file": "hook.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "reveal",
+      "file": "reveal.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "twist",
+      "file": "twist.mp4",
+      "from": 0.0,
+      "to": 5.0,
+      "dur": 5.95
+    }
+  ],
+  "sfx": [
+    {
+      "scene": "hook",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "ask",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "reveal",
+      "at": 0.0,
+      "type": "ping"
+    },
+    {
+      "scene": "twist",
+      "at": 0.0,
+      "type": "whoosh",
+      "vol": 0.6
+    },
+    {
+      "scene": "twist",
+      "at": 3.0,
+      "type": "shimmer",
+      "vol": 0.6
+    },
+    {
+      "scene": "fact",
+      "at": 0.25,
+      "type": "hit",
+      "vol": 0.7
+    },
+    {
+      "scene": "outro",
+      "at": 0.2,
+      "type": "shimmer"
+    }
+  ],
+  "seo_intro": "Why do sea turtles cry? Is it sadness, pain, or too much salt?\nSea turtles cry to get rid of excess salt: their kidneys can't remove it all, so salt glands next to their eyes push it out in tears almost twice as salty as seawater.",
+  "hashtags": [
+    "#seaturtle",
+    "#leatherback",
+    "#animalfacts",
+    "#oceanscience"
+  ],
+  "tags": [
+    "why do sea turtles cry",
+    "sea turtle crying",
+    "sea turtle tears",
+    "why do turtles cry",
+    "leatherback sea turtle",
+    "leatherback turtle crying",
+    "sea turtle salt glands",
+    "turtle salt tears",
+    "do turtles cry when laying eggs",
+    "sea turtle facts",
+    "ocean animals facts",
+    "animal facts",
+    "marine biology",
+    "factora",
+    "factora official",
+    "factoraofficiel",
+    "factora shorts",
+    "factora quiz",
+    "factora science"
+  ],
+  "related": [
+    "z4if0KZS7DE",
+    "9whDtTMckd4"
+  ],
+  "sources": [
+    "Davenport, J. et al. (2017). Crying a river: how much salt-laden jelly can a leatherback turtle really eat? Journal of Experimental Biology 220(9): 1737",
+    "Hudson, D. M. & Lutz, P. L. (1986). Salt gland function in the leatherback sea turtle, Dermochelys coriacea. Copeia",
+    "NOAA Office of Response and Restoration — Oil and Sea Turtles, chapter 2 (sea turtle salt glands)",
+    "BBC Science Focus — Why do sea turtles cry when they lay eggs?: https://www.sciencefocus.com/nature/why-do-sea-turtles-cry-when-they-lay-eggs/",
+    "Olive Ridley Project — Why do sea turtles cry?: https://oliveridleyproject.org/ufaqs/why-do-sea-turtles-cry"
+  ],
+  "sources_text": "Davenport et al. (2017), Journal of Experimental Biology; Hudson & Lutz (1986), Copeia; NOAA; BBC Science Focus; Olive Ridley Project.",
+  "tiktok_text": "Why do sea turtles cry? 🐢 It's not sadness and it's not pain. Turtles take in a lot of salt (a leatherback's jellyfish meals are mostly salty seawater), and their kidneys can't get rid of it all. So glands next to their eyes pump it out, in tears almost twice as salty as the ocean. Scientists estimate a feeding leatherback can cry about two gallons an hour. Not sadness. Survival.\n\nDid you guess it? Send this to a turtle lover 🐢\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#sciencetok #didyouknow #learnontiktok #factora #seaturtle #animalfacts",
+  "instagram_text": "Why do sea turtles cry? 🐢 It's not sadness and it's not pain. Turtles take in a lot of salt (a leatherback's jellyfish meals are mostly salty seawater), and their kidneys can't get rid of it all. So glands next to their eyes pump it out, in tears almost twice as salty as the ocean. Scientists estimate a feeding leatherback can cry about two gallons an hour. Not sadness. Survival.\n\nDid you guess it? Send this to a turtle lover 🐢\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#science #didyouknow #learnoninstagram #factora #seaturtle #animalfacts",
+  "facebook_text": "Why do sea turtles cry? 🐢 It's not sadness and it's not pain. Turtles take in a lot of salt (a leatherback's jellyfish meals are mostly salty seawater), and their kidneys can't get rid of it all. So glands next to their eyes pump it out, in tears almost twice as salty as the ocean. Scientists estimate a feeding leatherback can cry about two gallons an hour. Not sadness. Survival.\n\nDid you guess it? Tag a turtle lover 🐢\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#seaturtle #leatherback #animalfacts",
+  "x_text": "This giant sea turtle is crying 🐢 Why?\n\n1) it's sad\n2) it's in pain\n3) too much salt\n\nReply with your guess 👇\n\n#seaturtle #science",
+  "publication": "manuelle par Nazik (demande du 2026-11-17 : « je posterai moi-même ») — pas d'upload YouTube par l'API",
+  "runway": {
+    "credits_used_approx": 333,
+    "images": [
+      "52d4aa8a-cdb9-4eb4-9183-a13582d605fd",
+      "15d6cc60-e022-459e-bdf4-3538af272067",
+      "5780e77c-1a9b-4dea-93f9-b584f6a6af2a",
+      "1a394b45-c8e5-4743-83f6-b28fc5af4fa8"
+    ],
+    "clips": [
+      "aed9e5ac-81d3-4298-8ceb-7f969db7b763",
+      "e7875f67-400f-46c3-a188-180c8648bfa7",
+      "8c8b1a22-911b-4c6e-8729-9d18832ff8dc",
+      "a252bbb0-8926-40bc-b813-7d6baf796fed (1re prise de l'accroche, non utilisée : la caméra tournait et l'espèce changeait)"
+    ],
+    "music": "db50a7ce-13d4-49d2-bae3-be547e964e24"
+  }
+}
