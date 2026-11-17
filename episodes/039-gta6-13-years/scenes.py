@@ -98,7 +98,7 @@ def sc_outro(ctx, t, d):
             pill(ctx, "COMMENT YES OR NO", CX, H * 0.19, GOLD, 52, prog(t, 0.6, 0.9))
     else:
         rgba(ctx, (0.02, 0.0, 0.05), 0.45 * prog(t, c0, c0 + 0.4)); ctx.paint()
-        cta(ctx, t - c0, d - c0, "SUBSCRIBE FOR MORE GTA 6", "THE PHENOMENON OF 2026")
+        cta(ctx, t - c0, d - c0, "SUBSCRIBE FOR MORE", "INCREDIBLE FACTS")
 
 SHORT_SCENES = ["hook", "r1", "r2", "r3", "twist", "outro"]
 SCENES = dict(hook=sc_hook, r1=sc_r1, r2=sc_r2, r3=sc_r3, twist=sc_twist, outro=sc_outro)
@@ -109,8 +109,7 @@ def cover(ctx):
     scrim(ctx, 0.40, 0.85)
     glow(ctx, CX, H * 0.235, 520 * U, PINK, 0.35)
     neon_text(ctx, "GTA 6", CX, H * 0.235, 330 * U, WHITE, 1.0, PINK, fill=0.55)
-    poster_text(ctx, "WHY DID IT", CX, H * 0.335, 130 * U, WHITE, W * 0.90)
-    poster_text(ctx, "TAKE 13 YEARS?", CX, H * 0.40, 130 * U, GOLD, W * 0.90)
-    rrect(ctx, CX - 470 * U, H * 0.80 - 60 * U, 940 * U, 120 * U, 60 * U); rgba(ctx, GOLD, 1); ctx.fill()
-    rrect(ctx, CX - 470 * U, H * 0.80 - 60 * U, 940 * U, 120 * U, 60 * U); ctx.set_line_width(7 * U); rgba(ctx, (0.01, 0.01, 0.02), 1); ctx.stroke()
-    text(ctx, "2013 → 2026", CX, H * 0.80, 74 * U, (0.02, 0.03, 0.06))
+    poster_text(ctx, "WHY 13 YEARS?", CX, H * 0.345, 150 * U, GOLD, W * 0.92)   # comme dans la vidéo (plus percutant)
+    rrect(ctx, CX - 470 * U, H * 0.47 - 60 * U, 940 * U, 120 * U, 60 * U); rgba(ctx, GOLD, 1); ctx.fill()
+    rrect(ctx, CX - 470 * U, H * 0.47 - 60 * U, 940 * U, 120 * U, 60 * U); ctx.set_line_width(7 * U); rgba(ctx, (0.01, 0.01, 0.02), 1); ctx.stroke()
+    text(ctx, "2013 → 2026", CX, H * 0.47, 74 * U, (0.02, 0.03, 0.06))

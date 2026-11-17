@@ -92,9 +92,18 @@ sc_f4 = clip_scene("f4", f4_ov, top_scrim=0.32)
 def f5_ov(ctx, t, d):
     fact_tag(ctx, 5, t)
     big(ctx, "2022 LEAK", H * 0.13, 170, WHITE, GREEN, t, 0.2)
-    poster_text(ctx, "≈ 90 CLIPS OF EARLY FOOTAGE", CX, H * 0.2, 72 * U, GOLD, W * 0.9)
-    if t > ST("f5", 1): pill(ctx, "ROCKSTAR KEPT GOING", CX, H * 0.26, GREEN, 46, prog(t, ST("f5", 1), ST("f5", 1) + 0.3))
-sc_f5 = clip_scene("f5", f5_ov, top_scrim=0.32)
+    poster_text(ctx, "≈ 90 CLIPS OF GTA 6 LEAKED", CX, H * 0.2, 76 * U, GOLD, W * 0.9)
+    s1 = ST("f5", 1)
+    if t > s1:   # le détail étonnant (GameSpot, PC Gamer) : ado en liberté sous caution, chambre d'hôtel, clé TV de streaming
+        pill(ctx, "TEEN HACKER, ON BAIL", CX, H * 0.26, GREEN, 46, prog(t, s1, s1 + 0.3))
+        pill(ctx, "IN A HOTEL ROOM, WITH A TV STICK", CX, H * 0.32, GOLD, 42, prog(t, s1 + 1.2, s1 + 1.5))
+def sc_f5(ctx, t, d):
+    """1re phrase sur le clip du hacker (vitesse normale), puis la chambre d'hôtel et sa clé TV (le détail étonnant)."""
+    s1 = ST("f5", 1) - 0.05
+    if t < s1: paint(ctx, frame("f5", t))
+    else: paint(ctx, load_img(RW + "/key_hotel.png"), zoom=1.04 + 0.02 * (t - s1))
+    scrim(ctx, 0.36)
+    f5_ov(ctx, t, d)
 
 def sc_outro(ctx, t, d):
     """Retour sur la ville de la 1re image, « NOV 19 », puis le CTA d'abonnement GTA 6."""
@@ -107,7 +116,7 @@ def sc_outro(ctx, t, d):
             poster_text(ctx, "RELEASE DAY", CX, H * 0.21, 96 * U, GOLD, W * 0.88)
     else:
         rgba(ctx, (0.02, 0.0, 0.05), 0.45 * prog(t, c0, c0 + 0.4)); ctx.paint()
-        cta(ctx, t - c0, d - c0, "SUBSCRIBE FOR MORE GTA 6", "THE PHENOMENON OF 2026")
+        cta(ctx, t - c0, d - c0, "SUBSCRIBE FOR MORE", "INCREDIBLE FACTS")
 
 SHORT_SCENES = ["hook", "f1", "f2", "f3", "f4", "f5", "outro"]
 SCENES = dict(hook=sc_hook, f1=sc_f1, f2=sc_f2, f3=sc_f3, f4=sc_f4, f5=sc_f5, outro=sc_outro)
@@ -120,6 +129,6 @@ def cover(ctx):
     neon_text(ctx, "GTA 6", CX, H * 0.235, 330 * U, WHITE, 1.0, PINK, fill=0.55)
     poster_text(ctx, "5 FACTS YOU", CX, H * 0.335, 130 * U, GOLD, W * 0.90)
     poster_text(ctx, "DON'T KNOW", CX, H * 0.40, 130 * U, WHITE, W * 0.90)
-    rrect(ctx, CX - 470 * U, H * 0.80 - 60 * U, 940 * U, 120 * U, 60 * U); rgba(ctx, GOLD, 1); ctx.fill()
-    rrect(ctx, CX - 470 * U, H * 0.80 - 60 * U, 940 * U, 120 * U, 60 * U); ctx.set_line_width(7 * U); rgba(ctx, (0.01, 0.01, 0.02), 1); ctx.stroke()
-    text(ctx, "NUMBER 5 IS WILD", CX, H * 0.80, 70 * U, (0.02, 0.03, 0.06))
+    rrect(ctx, CX - 470 * U, H * 0.50 - 60 * U, 940 * U, 120 * U, 60 * U); rgba(ctx, GOLD, 1); ctx.fill()
+    rrect(ctx, CX - 470 * U, H * 0.50 - 60 * U, 940 * U, 120 * U, 60 * U); ctx.set_line_width(7 * U); rgba(ctx, (0.01, 0.01, 0.02), 1); ctx.stroke()
+    text(ctx, "NUMBER 5 IS WILD", CX, H * 0.50, 70 * U, (0.02, 0.03, 0.06))
