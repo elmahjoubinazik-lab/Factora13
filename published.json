@@ -686,14 +686,21 @@
    "format": "short_seul",
    "long_id": null,
    "short_id": "9whDtTMckd4",
-   "status": "private",
+   "status": "public",
    "thumbnail_set": true,
    "theme": "why",
    "ai_generated": true,
    "voice": "ElevenLabs Jessica (eleven_v4)",
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
-   "note": "Sujet proposé par Nazik (piste ChatGPT, 2026-11-16), dossier en 10 points validé avec le titre n° 1 ; même formule que la baleine (100 % Runway, Jessica, musique Runway, quiz) : seul le sujet change, pour comparer."
+   "note": "Sujet proposé par Nazik (piste ChatGPT, 2026-11-16), dossier en 10 points validé avec le titre n° 1 ; même formule que la baleine (100 % Runway, Jessica, musique Runway, quiz) : seul le sujet change, pour comparer.",
+   "stats": [
+    {
+     "date": "2026-11-17",
+     "vues": "≈ 10 (chiffre donné par Nazik)",
+     "note": "échec ; hypothèse de Nazik : la mention IA (non prouvée : la baleine 035 avait la même mention et a fait 959 vues en 10 h 45). Autres pistes : sujet rendu viral 3 jours avant par une grosse chaîne, mystère invisible à l'image 1."
+    }
+   ]
   },
   {
    "episode": "037",
