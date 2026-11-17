@@ -1,0 +1,147 @@
+{
+  "format": "short_seul",
+  "hook_text": " ",
+  "music": "none",
+  "music_file": "rw/music.mp3",
+  "music_gain_db": -15,
+  "fade": 0.06,
+  "finish": "photo",
+  "ai_generated": true,
+  "theme": "gta6",
+  "voix": {
+    "provider": "elevenlabs",
+    "voice_id": "cgSgspJ2msm6clMCkdW9",
+    "voice_name": "Jessica",
+    "model": "eleven_v4",
+    "el_speed": 1.2
+  },
+  "short_title": "GTA 6: 5 Facts Most Players Don't Know 🤯",
+  "title_options": [
+    "GTA 6: 5 Facts Most Players Don't Know 🤯",
+    "GTA 6: 5 Crazy Facts Before Release Day 🔥",
+    "GTA 6 Facts You Didn't Know (Number 5 Is Wild) 🤯"
+  ],
+  "comment": "Which GTA 6 fact surprised you most: 1, 2, 3, 4 or 5? 🎮",
+  "sfx": [
+    {
+      "scene": "hook",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "f1",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "f2",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "f3",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "f4",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "f5",
+      "at": 0.0,
+      "type": "hit",
+      "vol": 0.8
+    },
+    {
+      "scene": "outro",
+      "at": 0.0,
+      "type": "ping"
+    }
+  ],
+  "clips": [
+    {
+      "name": "hook",
+      "file": "city.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "f4",
+      "file": "leonida.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "f5",
+      "file": "hacker.mp4",
+      "from": 0.0,
+      "to": 5.0
+    }
+  ],
+  "seo_intro": "GTA 6 (GTA6) facts most players don't know, before the November 19, 2026 release.\nThe first GTA 6 trailer set a 24-hour YouTube record, the game arrives 13 years after GTA 5 (230M+ copies sold), it's set in Leonida, home of Vice City, and 90 clips of early footage leaked in 2022.",
+  "hashtags": [
+    "#GTA6",
+    "#GTAVI",
+    "#GTA6News",
+    "#Gaming"
+  ],
+  "tags": [
+    "gta 6",
+    "gta6",
+    "gta vi",
+    "grand theft auto 6",
+    "grand theft auto vi",
+    "gta 6 release date",
+    "gta 6 november 19",
+    "gta 6 2026",
+    "gta 6 news",
+    "gta 6 facts",
+    "gta 6 trailer record",
+    "gta 6 leak",
+    "gta 6 vice city",
+    "gta 6 leonida",
+    "gta 5 sales",
+    "factora",
+    "factora official",
+    "factoraofficiel",
+    "factora shorts"
+  ],
+  "sources": [
+    "Guinness World Records / Push Square — GTA 6 trailer: 90,421,491 YouTube views in 24 hours (Dec 2023)",
+    "Game Developer — GTA V surpasses 230 million sales (Take-Two, May 2026)",
+    "GameSpot / NME — Rockstar confirms the September 2022 leak (90 videos), work to continue as planned",
+    "Tom's Guide / ESPN — GTA 6 delayed to May 26, 2026, then to November 19, 2026"
+  ],
+  "sources_text": "Guinness World Records; Take-Two (via Game Developer); Rockstar Games statements (via GameSpot, NME); Tom's Guide; ESPN.",
+  "related": [],
+  "disclaimer": "Factora is not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive. Grand Theft Auto and GTA are trademarks of Take-Two Interactive. All visuals are original.",
+  "tiktok_text": "GTA 6 drops November 19 🎮 Here are 5 GTA 6 facts most players don't know: its first trailer hit 90 million YouTube views in a single day (a world record), it arrives 13 years after GTA 5, GTA 5 has sold over 230 million copies, Vice City is back in Leonida (a fictional Florida), and in 2022 a hacker leaked about 90 clips of early footage.\n\nWhich fact surprised you? Follow for more GTA 6 🔥\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice. Not affiliated with Rockstar Games.\n\n#GTA6 #GTAVI #gaming #gamingnews #factora",
+  "instagram_text": "GTA 6 drops November 19 🎮 Here are 5 GTA 6 facts most players don't know: its first trailer hit 90 million YouTube views in a single day (a world record), it arrives 13 years after GTA 5, GTA 5 has sold over 230 million copies, Vice City is back in Leonida (a fictional Florida), and in 2022 a hacker leaked about 90 clips of early footage.\n\nWhich fact surprised you? Follow for more GTA 6 🔥\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice. Not affiliated with Rockstar Games.\n\n#GTA6 #GTAVI #gaming #gamer #factora",
+  "facebook_text": "GTA 6 drops November 19 🎮 Here are 5 GTA 6 facts most players don't know: its first trailer hit 90 million YouTube views in a single day (a world record), it arrives 13 years after GTA 5, GTA 5 has sold over 230 million copies, Vice City is back in Leonida (a fictional Florida), and in 2022 a hacker leaked about 90 clips of early footage.\n\nWhich fact surprised you? Tag a GTA fan 🎮\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice. Not affiliated with Rockstar Games.\n\n#GTA6 #GTAVI #Gaming",
+  "x_text": "GTA 6 drops November 19 🎮\n\nIts first trailer hit 90 million YouTube views in a single day. A world record.\n\nWhich GTA 6 fact surprises you most? 👇\n\n#GTA6 #GTAVI",
+  "x_reply": "5 GTA 6 facts most players don't know 👇 https://youtube.com/shorts/gMrL3G3f74s",
+  "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/84d7334020675c29c5464166341f1abc0d1148ee/ep038/gta-6-5-facts-most-players-don-t-know.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/84d7334020675c29c5464166341f1abc0d1148ee/ep038/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/84d7334020675c29c5464166341f1abc0d1148ee/ep038/short_cover_yt.jpg"
+  },
+  "runway": {
+    "images": [
+      "ed9f2500-971c-437a-8bb4-743e7e0430e7",
+      "e7e95f6f-69bd-496d-b1ee-9eabaaf2925f",
+      "9189711d-87a7-4e2f-947e-e1e8fec27106",
+      "b6d91c5a-d32a-435d-913c-a530e400a454",
+      "b0bf6b7a-758a-4fa4-9c89-b1fb47824e35",
+      "79e6a147-0820-4eb2-bff6-0efe061f6853"
+    ],
+    "clips": [
+      "91dc3c55-3e5a-4421-b61f-605a909020e3",
+      "3488c65a-8604-425c-8bb9-bf0ee509caa3",
+      "310e49ba-b54f-41a7-84c1-146c0fa5daec"
+    ],
+    "music": "ea8a740e-99b0-4ffc-a18a-22fc339193bf"
+  },
+  "category_id": "20"
+}

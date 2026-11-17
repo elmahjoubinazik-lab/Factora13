@@ -1,0 +1,44 @@
+[
+ {
+  "scene": "hook",
+  "text": [
+   "GTA 5 came out in 2013.",
+   "GTA 6? November 2026.",
+   "Why thirteen years?"
+  ]
+ },
+ {
+  "scene": "r1",
+  "text": [
+   "Here's what we know.",
+   "Rockstar built Red Dead Redemption 2 in between. It came out in 2018."
+  ]
+ },
+ {
+  "scene": "r2",
+  "text": [
+   "GTA 5 never stopped selling: over two hundred thirty million copies."
+  ]
+ },
+ {
+  "scene": "r3",
+  "text": [
+   "And Rockstar delayed GTA 6 twice, officially to reach the quality players expect."
+  ]
+ },
+ {
+  "scene": "twist",
+  "text": [
+   "What about the huge 2022 leak?",
+   "Rockstar said it would have no long-term effect on development."
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "Was it worth the wait? Comment yes or no.",
+   "And subscribe for more GTA 6, the phenomenon of 2026!"
+  ],
+  "pause": 1.0
+ }
+]

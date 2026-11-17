@@ -1,0 +1,144 @@
+{
+  "format": "short_seul",
+  "hook_text": " ",
+  "music": "none",
+  "music_file": "rw/music.mp3",
+  "music_gain_db": -15,
+  "fade": 0.06,
+  "finish": "photo",
+  "ai_generated": true,
+  "theme": "gta6",
+  "voix": {
+    "provider": "elevenlabs",
+    "voice_id": "cgSgspJ2msm6clMCkdW9",
+    "voice_name": "Jessica",
+    "model": "eleven_v4",
+    "el_speed": 1.2
+  },
+  "short_title": "GTA 6: Why Did It Take 13 Years? 😱",
+  "title_options": [
+    "GTA 6: Why Did It Take 13 Years? 😱",
+    "Why GTA 6 Took 13 Years to Come Out 😱",
+    "GTA 6 Took 13 Years. Here's Why ⏳"
+  ],
+  "comment": "Was GTA 6 worth the 13-year wait? Yes or no 👇",
+  "sfx": [
+    {
+      "scene": "hook",
+      "at": 0.0,
+      "type": "hit"
+    },
+    {
+      "scene": "r1",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "r2",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "r3",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "twist",
+      "at": 0.0,
+      "type": "hit",
+      "vol": 0.8
+    },
+    {
+      "scene": "outro",
+      "at": 0.0,
+      "type": "ping"
+    }
+  ],
+  "clips": [
+    {
+      "name": "hook",
+      "file": "hourglass.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "r1",
+      "file": "cowboy.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "twist",
+      "file": "hacker.mp4",
+      "from": 0.0,
+      "to": 5.0
+    }
+  ],
+  "seo_intro": "Why did GTA 6 (GTA6) take 13 years? GTA 5 came out in 2013, and GTA 6 releases November 19, 2026.\nHere's what we know: Red Dead Redemption 2 came out in between (2018), GTA 5 kept selling (230M+ copies), Rockstar officially delayed GTA 6 twice for quality, and the 2022 leak had no long-term effect on development.",
+  "hashtags": [
+    "#GTA6",
+    "#GTAVI",
+    "#GTA6News",
+    "#Gaming"
+  ],
+  "tags": [
+    "gta 6",
+    "gta6",
+    "gta vi",
+    "grand theft auto 6",
+    "grand theft auto vi",
+    "gta 6 release date",
+    "gta 6 november 19",
+    "gta 6 2026",
+    "gta 6 news",
+    "why did gta 6 take so long",
+    "gta 6 13 years",
+    "gta 6 delay",
+    "gta 6 delayed",
+    "gta 6 leak",
+    "red dead redemption 2",
+    "gta 5 sales",
+    "factora",
+    "factora official",
+    "factoraofficiel",
+    "factora shorts"
+  ],
+  "sources": [
+    "Tom's Guide / ESPN — GTA 6 delayed to May 26, 2026, then to November 19, 2026 (Rockstar: more time for quality)",
+    "Game Developer — GTA V surpasses 230 million sales (Take-Two, May 2026)",
+    "GameSpot / NME — Rockstar statement on the September 2022 leak: no long-term effect on development",
+    "Red Dead Redemption 2 release: October 26, 2018"
+  ],
+  "sources_text": "Rockstar Games statements (via Tom's Guide, ESPN, GameSpot, NME); Take-Two (via Game Developer).",
+  "related": [
+    "gMrL3G3f74s"
+  ],
+  "disclaimer": "Factora is not affiliated with, endorsed by, or sponsored by Rockstar Games or Take-Two Interactive. Grand Theft Auto and GTA are trademarks of Take-Two Interactive. All visuals are original.",
+  "tiktok_text": "Why did GTA 6 take 13 years? ⏳ GTA 5 came out in 2013, GTA 6 drops November 19, 2026. Here's what we know: Rockstar made Red Dead Redemption 2 in between, GTA 5 kept selling (230M+ copies), and Rockstar officially delayed GTA 6 twice for quality. And the 2022 leak? Rockstar said it had no long-term effect on development.\n\nWas it worth the wait? Comment yes or no 👇 Follow for more GTA 6 🔥\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice. Not affiliated with Rockstar Games.\n\n#GTA6 #GTAVI #gaming #gamingnews #factora",
+  "instagram_text": "Why did GTA 6 take 13 years? ⏳ GTA 5 came out in 2013, GTA 6 drops November 19, 2026. Here's what we know: Rockstar made Red Dead Redemption 2 in between, GTA 5 kept selling (230M+ copies), and Rockstar officially delayed GTA 6 twice for quality. And the 2022 leak? Rockstar said it had no long-term effect on development.\n\nWas it worth the wait? Comment yes or no 👇 Follow for more GTA 6 🔥\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice. Not affiliated with Rockstar Games.\n\n#GTA6 #GTAVI #gaming #gamer #factora",
+  "facebook_text": "Why did GTA 6 take 13 years? ⏳ GTA 5 came out in 2013, GTA 6 drops November 19, 2026. Here's what we know: Rockstar made Red Dead Redemption 2 in between, GTA 5 kept selling (230M+ copies), and Rockstar officially delayed GTA 6 twice for quality. And the 2022 leak? Rockstar said it had no long-term effect on development.\n\nWas it worth the wait? Yes or no 👇\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice. Not affiliated with Rockstar Games.\n\n#GTA6 #GTAVI #Gaming",
+  "x_text": "GTA 5: 2013.\nGTA 6: November 19, 2026. ⏳\n\nWhy did it take 13 years? Was it worth the wait? 👇\n\n#GTA6 #GTAVI",
+  "x_reply": "Why GTA 6 took 13 years 👇 https://youtube.com/shorts/-oonHbHlp50",
+  "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a5a4e97cf1f799c512181296a621d1324ff6c73a/ep039/gta-6-why-did-it-take-13-years.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a5a4e97cf1f799c512181296a621d1324ff6c73a/ep039/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a5a4e97cf1f799c512181296a621d1324ff6c73a/ep039/short_cover_yt.jpg"
+  },
+  "runway": {
+    "images": [
+      "511100d0-649d-40f4-97c3-34f42b0a8a6b",
+      "f9f5a829-437e-4665-8769-2092203c84ed",
+      "2be931f5-b27f-4be2-a929-2654b424e39d",
+      "(partagées avec 038 : ville, calendrier, hacker)"
+    ],
+    "clips": [
+      "658a59a2-5cde-45fc-b01c-5fba7e74d6dd",
+      "1abf76d9-5471-4bd4-b5b9-c3cbcec78c4c",
+      "(hacker partagé avec 038)"
+    ],
+    "music": "2790b7ad-0b93-4385-8bd7-11b2189f15b2",
+    "credits_used_approx_both": 510
+  },
+  "category_id": "20"
+}

@@ -64,6 +64,7 @@ if src:
     out.append("Sources: " + (src if isinstance(src, str) else "; ".join(src))); out.append("")
 out.append("Think fast. Learn something amazing.")
 if meta.get("ai_generated"): out.append("Created with AI tools. Synthetic voice.")   # sinon : aucune mention (décision de Nazik, 2026-11-13)
+if meta.get("disclaimer"): out.append(meta["disclaimer"])   # ex. sujets de marques tierces (GTA 6, 2026-11-17) : « Not affiliated with … »
 tags = meta.get("hashtags", [])
 assert 3 <= len(tags) <= 5, "hashtags : 3 à 5 (règle de Nazik)"
 out += ["", " ".join(t if t.startswith("#") else "#" + t for t in tags)]
