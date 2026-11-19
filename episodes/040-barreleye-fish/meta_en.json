@@ -1,0 +1,145 @@
+{
+  "format": "short_seul",
+  "hook_text": " ",
+  "theme": "animal_mysteries",
+  "series": "Animal Mystery #1",
+  "music": "none",
+  "music_file": "rw/music.mp3",
+  "music_gain_db": -15,
+  "fade": 0.06,
+  "finish": "photo",
+  "ai_generated": true,
+  "voix": {
+    "provider": "elevenlabs",
+    "voice_id": "cgSgspJ2msm6clMCkdW9",
+    "voice_name": "Jessica",
+    "model": "eleven_v4",
+    "el_speed": 1.2
+  },
+  "short_title": "The Fish With a See-Through Head 😱 | Animal Mystery #1",
+  "title_options": [
+    "The Fish With a See-Through Head 😱 | Animal Mystery #1",
+    "Barreleye Fish: Those Aren't Its Eyes 😱",
+    "A Fish That Looks Through Its Own Head 👀"
+  ],
+  "comment": "1, 2 or 3: what was your guess? 🐟",
+  "sfx": [
+    {
+      "scene": "hook",
+      "at": 0.0,
+      "type": "ping"
+    },
+    {
+      "scene": "ask",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "reveal",
+      "at": 0.0,
+      "type": "hit",
+      "vol": 0.7
+    },
+    {
+      "scene": "twist",
+      "at": 0.0,
+      "type": "shimmer",
+      "vol": 0.6
+    },
+    {
+      "scene": "fact",
+      "at": 0.0,
+      "type": "whoosh",
+      "vol": 0.6
+    },
+    {
+      "scene": "outro",
+      "at": 0.0,
+      "type": "ping"
+    }
+  ],
+  "seo_intro": "What are the two dots on the barreleye fish's face? Fake eyes, nostrils, or glowing lights?\nThe barreleye fish (Macropinna microstoma) has a see-through head: the dots are its nostrils, and its real eyes are the glowing green domes inside its transparent head, which can rotate to look up.",
+  "hashtags": [
+    "#barreleyefish",
+    "#deepsea",
+    "#animalfacts",
+    "#oceanlife"
+  ],
+  "tags": [
+    "barreleye fish",
+    "fish with transparent head",
+    "see through head fish",
+    "fish with see through head",
+    "barreleye fish eyes",
+    "macropinna microstoma",
+    "deep sea creatures",
+    "weird deep sea fish",
+    "deep sea fish",
+    "animal mystery",
+    "animal mysteries",
+    "ocean facts",
+    "animal facts",
+    "factora",
+    "factora official",
+    "factoraofficiel",
+    "factora shorts",
+    "factora quiz",
+    "factora science"
+  ],
+  "related": [
+    "z4if0KZS7DE",
+    "CGwnpS4_ATs"
+  ],
+  "sources": [
+    "Robison, B. H. & Reisenbichler, K. R. (2008). Macropinna microstoma and the Paradox of Its Tubular Eyes. Copeia 2008(4): 780–784 (MBARI)",
+    "FishBase — Macropinna microstoma (Barreleye): https://fishbase.se/summary/2704",
+    "Live Science — Barreleye fish: the deep-sea weirdo with rotating eyes and a see-through head",
+    "NBC News — Strange fish has a see-through head (2009)"
+  ],
+  "sources_text": "Robison & Reisenbichler (2008), Copeia (MBARI); FishBase; Live Science; NBC News.",
+  "tiktok_text": "Two thousand feet deep lives a fish with a see-through head 🐟 And those two dots on its face aren't its eyes. Fake eyes, nostrils, or glowing lights? They're nostrils! Its real eyes are the two green domes inside its transparent head, and they can rotate to look straight up through its own head at prey above. Nets used to crush that fragile head, so it was only filmed alive in the 2000s.\n\nDid you guess it? Send this to someone who loves weird animals 🐟 Follow for Animal Mystery #2 🔥\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#sciencetok #didyouknow #learnontiktok #factora #deepsea #barreleyefish",
+  "instagram_text": "Animal Mystery #1 🐟\n\nTwo thousand feet deep lives a fish with a see-through head. And those two dots on its face? They aren't its eyes 👀\n\n1️⃣ Fake eyes, to scare predators?\n2️⃣ Nostrils?\n3️⃣ Glowing lights?\n\nAnswer: 2, nostrils! The barreleye fish's real eyes are the two glowing green domes inside its transparent head. And they can rotate, so it can look straight up through its own head at prey above.\n\nNets used to crush that fragile head, so scientists only filmed it alive in the 2000s.\n\nDid you guess it? Comment 1, 2 or 3 👇\nSend this to someone who loves weird animals 🐟\n\nFollow for Animal Mystery #2 🔥\nFull videos on YouTube: Factora (link in bio)\n\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#science #didyouknow #learnoninstagram #deepsea #barreleyefish",
+  "facebook_text": "Two thousand feet deep lives a fish with a see-through head 🐟 And those two dots on its face aren't its eyes. Fake eyes, nostrils, or glowing lights? They're nostrils! Its real eyes are the two green domes inside its transparent head, and they can rotate to look straight up through its own head at prey above. Nets used to crush that fragile head, so it was only filmed alive in the 2000s.\n\nDid you guess it? Tag someone who loves weird animals 🐟\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#barreleyefish #deepsea #animalfacts",
+  "x_text": "Two thousand feet deep lives a fish with a see-through head 🐟\n\nThose two dots on its face aren't its eyes. What are they?\n1) fake eyes\n2) nostrils\n3) glowing lights\n\nReply with your guess 👇\n\n#deepsea #animalfacts",
+  "clips": [
+    {
+      "name": "hook",
+      "file": "hook.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "reveal",
+      "file": "reveal.mp4",
+      "from": 0.0,
+      "to": 5.0
+    },
+    {
+      "name": "twist",
+      "file": "twist.mp4",
+      "from": 0.0,
+      "to": 5.0
+    }
+  ],
+  "runway": {
+    "credits_used_approx": 273,
+    "images": [
+      "444529e4-2a18-4e0d-869f-420e79ab29ed",
+      "c3c6a55f-1df7-4304-a5c8-b3269cdeb66f",
+      "c32987b4-33f2-4237-a5ad-9ac212b3c7a6",
+      "66a726db-6301-48f2-9621-1cff208c3a33"
+    ],
+    "clips": [
+      "e70b094e-b055-4dfd-954b-71882e0a49e0",
+      "6eb07454-af05-4998-b436-1de00639b259",
+      "6de894da-5776-451a-b075-ee82126761a0"
+    ],
+    "music": "fe6a5972-a502-4124-86e2-37290e312a1e"
+  },
+  "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a82e964e3a42b147d37cedb8c73c8f966e1c70e8/ep040/the-fish-with-a-see-through-head-animal-mystery.mp4",
+    "cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a82e964e3a42b147d37cedb8c73c8f966e1c70e8/ep040/short_cover.jpg",
+    "cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/a82e964e3a42b147d37cedb8c73c8f966e1c70e8/ep040/short_cover_yt.jpg"
+  },
+  "x_reply": "The answer, in 35 seconds 👇 https://youtube.com/shorts/SF4PIpsKBJk"
+}

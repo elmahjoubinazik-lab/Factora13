@@ -1,0 +1,47 @@
+[
+ {
+  "scene": "hook",
+  "text": [
+   "Two thousand feet deep lives a fish with a see-through head.",
+   "And those aren't its eyes."
+  ]
+ },
+ {
+  "scene": "ask",
+  "text": [
+   "One: fake eyes.",
+   "Two: nostrils.",
+   "Three: glowing lights."
+  ],
+  "pause": 1.8
+ },
+ {
+  "scene": "reveal",
+  "text": [
+   "Number two: nostrils!",
+   "Its real eyes are the green domes inside its clear head."
+  ]
+ },
+ {
+  "scene": "twist",
+  "text": [
+   "And they can rotate,",
+   "to look straight up through its own head, at prey above."
+  ]
+ },
+ {
+  "scene": "fact",
+  "text": [
+   "Nets used to crush that fragile head.",
+   "So it was only filmed alive in the two-thousands."
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "Did you get it right?",
+   "Subscribe for Animal Mystery number two!"
+  ],
+  "pause": 0.5
+ }
+]
