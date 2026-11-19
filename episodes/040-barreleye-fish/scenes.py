@@ -81,7 +81,9 @@ def sc_ask(ctx, t, d):
 def reveal_ov(ctx, t, d):
     option_card(ctx, "2", "IT'S NUMBER 2!", CYAN, H * 0.095, 1.0, good=True)
     poster_text(ctx, "NOSTRILS!", CX, H * 0.17, 140 * U, CYAN, W * 0.90)
-    pill(ctx, "REAL EYES: THE GREEN DOMES", CX, H * 0.24, GREEN, 44, prog(t, ST("reveal", 1), ST("reveal", 1) + 0.3))
+    s1, s2 = ST("reveal", 1), ST("reveal", 2)   # le nom de l'animal, à l'oral ET à l'écran (remarque de Nazik, 2026-11-19)
+    pill(ctx, "THE BARRELEYE FISH", CX, H * 0.24, GOLD, 50, prog(t, s1, s1 + 0.3))
+    pill(ctx, "REAL EYES: THE GREEN DOMES", CX, H * 0.30, GREEN, 42, prog(t, s2, s2 + 0.3))
 sc_reveal = clip_scene("reveal", reveal_ov, top_scrim=0.28)
 
 def twist_ov(ctx, t, d):
