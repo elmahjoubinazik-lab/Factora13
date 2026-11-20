@@ -1,0 +1,47 @@
+[
+ {
+  "scene": "hook",
+  "text": [
+   "You can see this frog's heart.",
+   "But when it sleeps, its red blood vanishes. Where does it go?"
+  ]
+ },
+ {
+  "scene": "ask",
+  "text": [
+   "One: its heart stops.",
+   "Two: its blood turns clear.",
+   "Three: it hides in the liver."
+  ],
+  "pause": 1.8
+ },
+ {
+  "scene": "reveal",
+  "text": [
+   "Number three: the liver!",
+   "This is the glass frog.",
+   "Nearly ninety percent of its red blood cells pack in there."
+  ]
+ },
+ {
+  "scene": "twist",
+  "text": [
+   "And the liver is coated with tiny mirrors, so predators can barely spot it."
+  ]
+ },
+ {
+  "scene": "fact",
+  "text": [
+   "Packed that tight, our blood could clot.",
+   "Theirs doesn't."
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "Did you get it right?",
+   "Subscribe for Animal Mystery number three!"
+  ],
+  "pause": 0.5
+ }
+]

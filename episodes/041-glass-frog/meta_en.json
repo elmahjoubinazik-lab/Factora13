@@ -1,0 +1,109 @@
+{
+  "format": "short_seul",
+  "theme": "animal_mysteries",
+  "music": "none",
+  "music_file": "rw/music.mp3",
+  "music_gain_db": -15,
+  "voix": {
+    "provider": "elevenlabs",
+    "voice_id": "cgSgspJ2msm6clMCkdW9",
+    "voice_name": "Jessica",
+    "model": "eleven_v4",
+    "el_speed": 1.2
+  },
+  "sfx": [
+    {
+      "scene": "hook",
+      "at": 0.0,
+      "type": "ping"
+    },
+    {
+      "scene": "ask",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "reveal",
+      "at": 0.0,
+      "type": "hit",
+      "vol": 0.7
+    },
+    {
+      "scene": "twist",
+      "at": 0.0,
+      "type": "shimmer",
+      "vol": 0.6
+    },
+    {
+      "scene": "fact",
+      "at": 0.0,
+      "type": "whoosh",
+      "vol": 0.6
+    },
+    {
+      "scene": "outro",
+      "at": 0.0,
+      "type": "ping"
+    }
+  ],
+  "hook_text": " ",
+  "series": "Animal Mystery #2",
+  "fade": 0.12,
+  "ai_generated": false,
+  "disclaimer": "Original illustrations. Synthetic voice and AI-generated music.",
+  "short_title": "Glass Frog: Where Does Its Blood Go? 😱 | Animal Mystery #2",
+  "title_options": [
+    "Glass Frog: Where Does Its Blood Go? 😱 | Animal Mystery #2",
+    "Glass Frog Hides Its Blood While It Sleeps 😱 | Animal Mystery #2",
+    "Glass Frog: You Can See Its Heart 😱 | Animal Mystery #2"
+  ],
+  "comment": "1, 2 or 3: what was your guess? 🐸",
+  "seo_intro": "Where does a glass frog's blood go when it sleeps? Does its heart stop, does its blood turn clear, or does it hide in the liver?\nWhen a glass frog sleeps, it packs nearly 90% of its red blood cells into its mirror-coated liver, which makes it 2 to 3 times more see-through and much harder for predators to spot.",
+  "hashtags": [
+    "#glassfrog",
+    "#animalfacts",
+    "#frogs",
+    "#wildlife"
+  ],
+  "tags": [
+    "glass frog",
+    "glass frog blood",
+    "glass frog transparent",
+    "transparent frog",
+    "see through frog",
+    "glass frog liver",
+    "why are glass frogs transparent",
+    "glass frog sleeping",
+    "frog you can see its heart",
+    "glass frog facts",
+    "hyalinobatrachium",
+    "animal mystery",
+    "animal mysteries",
+    "animal facts",
+    "rainforest animals",
+    "weird animals",
+    "factora",
+    "factora official",
+    "factoraofficiel",
+    "factora shorts",
+    "factora quiz",
+    "factora science"
+  ],
+  "related": [
+    "z4if0KZS7DE",
+    "lqu_8GSDGPc",
+    "CGwnpS4_ATs"
+  ],
+  "sources": [
+    "Taboada, C., Delia, J. et al. (2022). Glassfrogs conceal blood in their liver to maintain transparency. Science 378(6626): 1315–1320",
+    "Duke University (Pratt School of Engineering) — Glassfrogs Hide Red Blood Cells in Their Liver to Become Transparent (2022)",
+    "American Museum of Natural History — Glassfrogs Achieve Transparency By Packing Red Blood Cells Into Mirror-Coated Liver (2022)",
+    "NIH / NIBIB — Let's clear things up: how do glassfrogs achieve transparency?"
+  ],
+  "sources_text": "Taboada, Delia et al. (2022), Science; Duke University; American Museum of Natural History; NIH (NIBIB).",
+  "answer": "3 — the liver: asleep, the glass frog packs about 89% of its red blood cells into its mirror-coated liver (2–3× more transparent), without clotting.",
+  "tiktok_text": "You can see this frog's heart 🐸 But when it sleeps, its red blood vanishes. Where does it go? Its heart stops, its blood turns clear, or it hides in the liver? It's the liver! The glass frog packs nearly 90% of its red blood cells into its liver, which is coated with tiny mirrors, so predators can barely spot it. Packed that tight, our blood could clot. Theirs doesn't.\n\nDid you guess it? Send this to someone who loves weird animals 🐸 Follow for Animal Mystery #3 🔥\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#sciencetok #didyouknow #learnontiktok #factora #glassfrog #animalfacts",
+  "instagram_text": "Animal Mystery #2 🐸\n\nYou can see this frog's heart. But when it sleeps, its red blood vanishes. Where does it go? 👀\n\n1️⃣ Its heart stops?\n2️⃣ Its blood turns clear?\n3️⃣ It hides in the liver?\n\nAnswer: 3, the liver! The glass frog packs nearly 90% of its red blood cells into its liver while it sleeps. The liver is coated with tiny mirrors, so the frog becomes 2 to 3 times more see-through, and predators can barely spot it on its leaf.\n\nAnd here's the strangest part: packed that tight, our blood could clot. Theirs doesn't, and scientists are studying how.\n\nDid you guess it? Comment 1, 2 or 3 👇\nSend this to someone who loves weird animals 🐸\n\nFollow for Animal Mystery #3 🔥\nFull videos on YouTube: Factora (link in bio)\n\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#science #didyouknow #learnoninstagram #glassfrog #animalfacts",
+  "facebook_text": "You can see this frog's heart 🐸 But when it sleeps, its red blood vanishes. Where does it go? Its heart stops, its blood turns clear, or it hides in the liver? It's the liver! The glass frog packs nearly 90% of its red blood cells into its liver, which is coated with tiny mirrors, so predators can barely spot it. Packed that tight, our blood could clot. Theirs doesn't, and scientists are studying how.\n\nDid you guess it? Tag someone who loves weird animals 🐸\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#glassfrog #animalfacts #frogs",
+  "x_text": "You can see this frog's heart 🐸\n\nBut when it sleeps, its red blood vanishes. Where does it go?\n1) its heart stops\n2) its blood turns clear\n3) it hides in the liver\n\nReply with your guess 👇\n\n#glassfrog #animalfacts"
+}
