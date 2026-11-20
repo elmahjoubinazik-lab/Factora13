@@ -860,6 +860,21 @@
      "rang": "8 sur 10"
     }
    ]
+  },
+  {
+   "episode": "041",
+   "topic": "Animal Mystery #2: where does a glass frog's blood go? (test en dessins maison)",
+   "dir": "episodes/041-glass-frog",
+   "date": "2026-11-20",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": "Ua75A6wCIoU",
+   "status": "private",
+   "thumbnail_set": true,
+   "playlist": "animal_mysteries",
+   "tiktok": "manuel (Nazik)",
+   "instagram": "manuel (Nazik)",
+   "note": "Test décidé avec Nazik le 2026-11-20 : même formule que l'Animal Mystery #1 mais en DESSINS MAISON au lieu d'images IA (seule variable changée ; critère : ≥ 300 vues en 24 h). Mise en ligne en privé par l'API le 2026-11-21 à 00h55 heure suisse (18h55 New York), une seule version ; Nazik la passe en public."
   }
  ]
 }
