@@ -632,18 +632,25 @@
    "date": "2026-11-15",
    "format": "short_seul",
    "long_id": null,
-   "short_id": "6lrfoOrFutU",
+   "short_id": "zDL-HO0zpyg",
    "status": "public",
    "thumbnail_set": true,
    "theme": "brain",
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
-   "note": "Demandé par Nazik le 2026-11-15 (votes sur TikTok) ; Nazik le passe en public",
+   "note": "Demandé par Nazik le 2026-11-15 (votes sur TikTok) ; Nazik le passe en public Remise en ligne par Nazik elle-même sous l'id zDL-HO0zpyg ; l'ancienne version 6lrfoOrFutU (mise en ligne par l'API) a été supprimée (constaté le 2026-11-20).",
    "stats": [
     {
      "date": "2026-11-16",
      "age": "14 h 44",
      "vues": 717,
+     "jaime": 4,
+     "commentaires": 0
+    },
+    {
+     "date": "2026-11-20",
+     "source": "API YouTube, ~17h40 heure suisse",
+     "vues": 724,
      "jaime": 4,
      "commentaires": 0
     }
@@ -675,6 +682,13 @@
      "jaime": 25,
      "commentaires": 1,
      "rang": "1 sur 10"
+    },
+    {
+     "date": "2026-11-20",
+     "source": "API YouTube, ~17h40 heure suisse",
+     "vues": 1001,
+     "jaime": 27,
+     "commentaires": 1
     }
    ]
   },
@@ -699,6 +713,13 @@
      "date": "2026-11-17",
      "vues": "≈ 10 (chiffre donné par Nazik)",
      "note": "échec ; hypothèse de Nazik : la mention IA (non prouvée : la baleine 035 avait la même mention et a fait 959 vues en 10 h 45). Autres pistes : sujet rendu viral 3 jours avant par une grosse chaîne, mystère invisible à l'image 1."
+    },
+    {
+     "date": "2026-11-20",
+     "source": "API YouTube, ~17h40 heure suisse",
+     "vues": 26,
+     "jaime": 2,
+     "commentaires": 0
     }
    ]
   },
@@ -729,6 +750,13 @@
      "jaime": 5,
      "commentaires": 0,
      "note": "sans case « contenu synthétique » (test de Nazik), mention IA dans la description"
+    },
+    {
+     "date": "2026-11-20",
+     "source": "API YouTube, ~17h40 heure suisse",
+     "vues": 383,
+     "jaime": 5,
+     "commentaires": 0
     }
    ]
   },
@@ -739,7 +767,7 @@
    "date": "2026-11-17",
    "format": "short_seul",
    "long_id": null,
-   "short_id": "TLF5059jNBE",
+   "short_id": "gqEJhevJf80",
    "status": "public",
    "thumbnail_set": true,
    "theme": "gta6",
@@ -749,7 +777,7 @@
    "category": "20 (Gaming)",
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
-   "note": "Demande de Nazik (2026-11-17) : 2 Shorts GTA 6 de 35–45 s, mot-clé GTA6, CTA fort. Images 100 % originales (aucun visuel officiel). Programmation automatique (publishAt) refusée par le contrôle de sécurité de la session : Nazik programme elle-même (prévu : mer. 18/11 23h55).",
+   "note": "Demande de Nazik (2026-11-17) : 2 Shorts GTA 6 de 35–45 s, mot-clé GTA6, CTA fort. Images 100 % originales (aucun visuel officiel). Programmation automatique (publishAt) refusée par le contrôle de sécurité de la session : Nazik programme elle-même (prévu : mer. 18/11 23h55). Remise en ligne par Nazik elle-même sous l'id gqEJhevJf80 ; l'ancienne version TLF5059jNBE (mise en ligne par l'API) a été supprimée (constaté le 2026-11-20).",
    "ancienne_version_privee": "gMrL3G3f74s et pTkVd5PiBcg (versions privées intermédiaires, jamais publiées ; suppression soumise à Nazik)",
    "titre_youtube": "GTA 6 Drops Nov 19: 5 Facts You Missed 🤯 (titre changé par Nazik)",
    "stats": [
@@ -761,6 +789,13 @@
      "jaime": 1,
      "commentaires": 0,
      "rang": "8 sur 10"
+    },
+    {
+     "date": "2026-11-20",
+     "source": "API YouTube, ~17h40 heure suisse",
+     "vues": 8,
+     "jaime": 1,
+     "commentaires": 0
     }
    ]
   },
@@ -771,8 +806,8 @@
    "date": "2026-11-17",
    "format": "short_seul",
    "long_id": null,
-   "short_id": "l8bI7kni3tE",
-   "status": "private",
+   "short_id": "aVuBHY_QaJQ",
+   "status": "public",
    "thumbnail_set": true,
    "theme": "gta6",
    "ai_generated": true,
@@ -781,8 +816,17 @@
    "category": "20 (Gaming)",
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
-   "note": "Voir 038. Programmation à faire par Nazik dans Studio (prévu : jeu. 19/11, jour de la sortie, 23h55).",
-   "ancienne_version_privee": "-oonHbHlp50 (version privée intermédiaire, jamais publiée ; suppression soumise à Nazik)"
+   "note": "Voir 038. Programmation à faire par Nazik dans Studio (prévu : jeu. 19/11, jour de la sortie, 23h55). Remise en ligne par Nazik elle-même sous l'id aVuBHY_QaJQ ; l'ancienne version l8bI7kni3tE (mise en ligne par l'API) a été supprimée (constaté le 2026-11-20).",
+   "ancienne_version_privee": "-oonHbHlp50 (version privée intermédiaire, jamais publiée ; suppression soumise à Nazik)",
+   "stats": [
+    {
+     "date": "2026-11-20",
+     "source": "API YouTube, ~17h40 heure suisse",
+     "vues": 14,
+     "jaime": 0,
+     "commentaires": 0
+    }
+   ]
   },
   {
    "episode": "040",
@@ -803,7 +847,19 @@
    "note": "1er épisode de la série « Animal Mysteries » (proposée le 2026-11-19 pour donner une raison de s'abonner) ; playlist PLbaMDKrBQgiE créée (avec la baleine et la tortue). Publiée partout par Nazik dans la nuit du 19 au 20/11.",
    "thumbnail_set": true,
    "titre_youtube": "Barreleye Fish: The See-Through Head 😱 | Animal Mystery #1",
-   "ancienne_version_privee": "SF4PIpsKBJk (sans le nom du poisson ; jamais publiée ; suppression soumise à Nazik)"
+   "ancienne_version_privee": "SF4PIpsKBJk (sans le nom du poisson ; jamais publiée ; suppression soumise à Nazik)",
+   "stats": [
+    {
+     "date": "2026-11-20",
+     "source": "API YouTube, ~17h40 heure suisse",
+     "vues": 7,
+     "jaime": 0,
+     "commentaires": 0,
+     "age": "17 h 32",
+     "pct_regarde": 144.2,
+     "rang": "8 sur 10"
+    }
+   ]
   }
  ]
 }
