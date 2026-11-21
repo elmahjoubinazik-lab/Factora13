@@ -1,0 +1,8 @@
+[
+ {"scene": "hook", "text": ["Why does a zebra have stripes?"]},
+ {"scene": "ask", "text": ["One: to hide from lions.", "Two: to confuse biting flies.", "Three: to stay cool."], "pause": 1.5},
+ {"scene": "reveal", "text": ["Number two! Studies point to biting flies.", "They struggle to land on stripes."]},
+ {"scene": "twist", "text": ["Horses wearing striped coats got far fewer landings!"]},
+ {"scene": "fact", "text": ["And under all those stripes, a zebra's skin is black."]},
+ {"scene": "outro", "text": ["Did you get it right?", "Subscribe for Animal Mystery number four!"], "pause": 0.5}
+]

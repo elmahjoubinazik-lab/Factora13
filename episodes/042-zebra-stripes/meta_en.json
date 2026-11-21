@@ -1,0 +1,109 @@
+{
+  "format": "short_seul",
+  "theme": "animal_mysteries",
+  "music": "none",
+  "music_file": "rw/music.mp3",
+  "music_gain_db": -15,
+  "voix": {
+    "provider": "elevenlabs",
+    "voice_id": "cgSgspJ2msm6clMCkdW9",
+    "voice_name": "Jessica",
+    "model": "eleven_v4",
+    "el_speed": 1.2
+  },
+  "sfx": [
+    {
+      "scene": "hook",
+      "at": 0.0,
+      "type": "ping"
+    },
+    {
+      "scene": "ask",
+      "at": 0.0,
+      "type": "whoosh"
+    },
+    {
+      "scene": "reveal",
+      "at": 0.0,
+      "type": "hit",
+      "vol": 0.7
+    },
+    {
+      "scene": "twist",
+      "at": 0.0,
+      "type": "shimmer",
+      "vol": 0.6
+    },
+    {
+      "scene": "fact",
+      "at": 0.0,
+      "type": "whoosh",
+      "vol": 0.6
+    },
+    {
+      "scene": "outro",
+      "at": 0.0,
+      "type": "ping"
+    }
+  ],
+  "fade": 0.12,
+  "disclaimer": "Original illustrations. Synthetic voice and AI-generated music.",
+  "hook_text": " ",
+  "series": "Animal Mystery #3",
+  "ai_generated": false,
+  "short_title": "Why Do Zebras Have Stripes? 😱 | Animal Mystery #3",
+  "title_options": [
+    "Why Do Zebras Have Stripes? 😱 | Animal Mystery #3",
+    "Zebra Stripes: The Real Reason 😱 | Animal Mystery #3",
+    "What Are Zebra Stripes For? 😱 | Animal Mystery #3"
+  ],
+  "comment": "1, 2 or 3: what was your guess? 🦓",
+  "seo_intro": "Why do zebras have stripes? To hide from lions, to confuse biting flies, or to stay cool?\nStudies point to biting flies: horseflies struggle to land on zebra stripes, and horses wearing striped coats got far fewer fly landings. Under the stripes, a zebra's skin is black.",
+  "hashtags": [
+    "#zebra",
+    "#zebrastripes",
+    "#animalfacts",
+    "#wildlife"
+  ],
+  "tags": [
+    "why do zebras have stripes",
+    "zebra stripes",
+    "why are zebras striped",
+    "zebra stripes flies",
+    "zebra stripes purpose",
+    "zebra stripes explained",
+    "zebra facts",
+    "zebra skin color",
+    "are zebras black or white",
+    "horseflies zebra",
+    "zebra stripes science",
+    "animal mystery",
+    "animal mysteries",
+    "animal facts",
+    "safari animals",
+    "african animals",
+    "factora",
+    "factora official",
+    "factoraofficiel",
+    "factora shorts",
+    "factora quiz",
+    "factora science"
+  ],
+  "related": [
+    "Ua75A6wCIoU",
+    "lqu_8GSDGPc",
+    "z4if0KZS7DE"
+  ],
+  "sources": [
+    "Caro, T. et al. (2019). Benefits of zebra stripes: Behaviour of tabanid flies around zebras and horses. PLOS ONE 14(2): e0210831",
+    "Caro, T. et al. (2014). The function of zebra stripes. Nature Communications 5: 3535",
+    "UC Davis — How Zebra Stripes Disrupt Flies' Flight Patterns (2019)",
+    "University of Bristol — research summary of Caro et al. (2019)"
+  ],
+  "sources_text": "Caro et al. (2019), PLOS ONE; Caro et al. (2014), Nature Communications; UC Davis; University of Bristol.",
+  "answer": "2 — biting flies: horseflies approach zebras but fail to slow down and land on the stripes; horses in striped coats got far fewer landings (Caro et al. 2019). Zebra skin is black.",
+  "tiktok_text": "Why does a zebra have stripes? 🦓 To hide from lions, to confuse biting flies, or to stay cool? Studies point to biting flies! Horseflies struggle to land on stripes: they come in too fast and fly off. Scientists even put striped coats on horses, and they got far fewer landings. And under all those stripes, a zebra's skin is black.\n\nDid you guess it? Send this to someone who loves safari animals 🦓 Follow for Animal Mystery #4 🔥\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#sciencetok #didyouknow #learnontiktok #factora #zebra #animalfacts",
+  "instagram_text": "Animal Mystery #3 🦓\n\nWhy does a zebra have stripes? 🤔\n\n1️⃣ To hide from lions?\n2️⃣ To confuse biting flies?\n3️⃣ To stay cool?\n\nAnswer: 2, biting flies! Studies show horseflies are just as attracted to zebras as to horses, but they struggle to land on the stripes: they come in too fast, fail to slow down, and fly off.\n\nIn one experiment in the UK, scientists put striped coats on horses, and the flies landed far less often on the striped parts.\n\nAnd here's a bonus: under all those stripes, a zebra's skin is black.\n\nDid you guess it? Comment 1, 2 or 3 👇\nSend this to someone who loves safari animals 🦓\n\nFollow for Animal Mystery #4 🔥\nFull videos on YouTube: Factora (link in bio)\n\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#science #didyouknow #learnoninstagram #zebra #animalfacts",
+  "facebook_text": "Why does a zebra have stripes? 🦓 To hide from lions, to confuse biting flies, or to stay cool? Studies point to biting flies! Horseflies struggle to land on stripes: they come in too fast and fly off. Scientists even put striped coats on horses, and they got far fewer landings. And under all those stripes, a zebra's skin is black.\n\nDid you guess it? Tag someone who loves safari animals 🦓\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#zebra #animalfacts #wildlife",
+  "x_text": "Why does a zebra have stripes? 🦓\n\n1) to hide from lions\n2) to confuse biting flies\n3) to stay cool\n\nReply with your guess 👇\n\n#zebra #animalfacts"
+}
