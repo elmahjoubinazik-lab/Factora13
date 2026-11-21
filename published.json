@@ -916,6 +916,30 @@
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
    "note": "Choix de Nazik (2026-11-21) : dessin réaliste fait maison + musique safari mystérieuse (Runway). Par rapport à l'ép. 041, deux changements : question + 3 réponses dès l'image 1, 29 s au lieu de 37. « Publié direct sur YouTube » à sa demande : mise en ligne en privé, miniature posée après le traitement (shortsAspectRatio présent), playlist, puis passage en public le 2026-11-21 vers 11h17 heure suisse (05h17 New York) ; commentaire publié par l'API (à épingler par Nazik)."
+  },
+  {
+   "episode": "043",
+   "topic": "How Do Wombats Poop Cubes? (Animal Mystery, format « un seul mystère », sans quiz)",
+   "dir": "episodes/043-wombat-cubes",
+   "date": "2026-11-21",
+   "format": "short_seul",
+   "langue": "en",
+   "long_id": null,
+   "short_id": "O_yDL-awTao",
+   "status": "private",
+   "thumbnail_set": false,
+   "theme": "animal_mysteries",
+   "playlist_item": "ajouté (animal_mysteries)",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3d0283cdd3e6ff881c98509a9a59911e9278174f/ep043/how-do-wombats-poop-cubes.mp4",
+    "short_cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3d0283cdd3e6ff881c98509a9a59911e9278174f/ep043/short_cover.jpg",
+    "short_cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3d0283cdd3e6ff881c98509a9a59911e9278174f/ep043/short_cover_yt.jpg"
+   },
+   "tiktok": "manuel (Nazik)",
+   "instagram": "manuel (Nazik)",
+   "facebook": "manuel (Nazik)",
+   "x": "manuel (Nazik)",
+   "note": "Brief de Nazik : voix imposée à débit naturel, dessins maison, sous-titres mot pour mot, pas de quiz, pas d'écran noir ; CTA texte « Follow Factora for more animal mysteries. » sur les 2,5 dernières s. Publication demandée par Nazik le 2026-11-21 : en public tout de suite avec la miniature 16:9."
   }
  ]
 }
