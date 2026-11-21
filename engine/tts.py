@@ -8,7 +8,7 @@ Deux moteurs (config.json → voix, surchargé par meta_<langue>.json → voix) 
   Réglages : "voice_id", "model" (défaut eleven_v4), "el_speed" (0,7–1,2), "voice_settings" (facultatif). Cache dans
   build/el_cache/ : relancer tts.py ne recoûte pas de crédits tant que le texte et les réglages ne changent pas.
 """
-import sys, os, json, hashlib, base64, subprocess, urllib.request, numpy as np, soundfile as sf
+import sys, os, re, json, hashlib, base64, subprocess, urllib.request, numpy as np, soundfile as sf
 EP = sys.argv[1].rstrip("/"); WD = EP + "/build"; os.makedirs(WD, exist_ok=True)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CFG = json.load(open(ROOT + "/config.json", encoding="utf-8"))
@@ -93,7 +93,10 @@ if PROVIDER == "elevenlabs":
         for txt in seg["text"]:   # repères de phrase à partir de l'horodatage des caractères
             i0 = text.index(txt, pos); i1 = i0 + len(txt) - 1; pos = i1 + 1
             st = times[min(i0, len(times) - 1)][0]; en = times[min(i1, len(times) - 1)][1]
-            sents.append({"text": txt, "start": t + st, "end": t + en})
+            # horodatage de chaque mot (sous-titres synchronisés mot pour mot, ép. 043) : [mot, début, fin]
+            words = [[m.group(), t + times[min(i0 + m.start(), len(times) - 1)][0], t + times[min(i0 + m.end() - 1, len(times) - 1)][1]]
+                     for m in re.finditer(r"\S+", txt)]
+            sents.append({"text": txt, "start": t + st, "end": t + en, "words": words})
         out.append(a); t += len(a) / SR
         extra = float(seg.get("pause", 0))   # silence volontaire (chronomètre des énigmes)
         out.append(sil(0.25 + extra)); t += 0.25 + extra

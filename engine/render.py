@@ -296,7 +296,33 @@ if MODE == "thumb":   # miniature 1280x720 dessinée par thumbnail(ctx) de l'ép
     surf.write_to_png(WD + "/miniature.png"); print("OK", WD + "/miniature.png"); sys.exit(0)
 
 # ---------- sous-titres (style « Shorts » : gros texte contouré, mot prononcé surligné en or) ----------
+# Réglages des sous-titres par épisode (meta, ép. 043 : laisser libres le bas et le bord droit de l'interface Shorts) :
+# « cap_y » (centre vertical, fraction de H), « cap_cx » (centre horizontal, fraction de W), « cap_maxw » (largeur max,
+# fraction de W), « cap_size » (taille en U), « cap_words » / « cap_chars » (taille des groupes quand la voix fournit
+# l'horodatage de chaque mot : le mot surligné suit alors exactement la voix).
+try:
+    _cm = json.load(open(EP + f"/meta_{LANG}.json", encoding="utf-8")) if os.path.exists(EP + f"/meta_{LANG}.json") else {}
+except Exception:
+    _cm = {}
+CAP_Y = float(_cm.get("cap_y", 0.73 if VERT else 0.86)); CAP_CX = float(_cm.get("cap_cx", 0.5)); CAP_MAXW = float(_cm.get("cap_maxw", 0.88))
+CAP_SIZE = float(_cm.get("cap_size", 76 if VERT else 58)); CAP_WORDS = int(_cm.get("cap_words", 4 if VERT else 6)); CAP_CHARS = int(_cm.get("cap_chars", 99))
+
+def chunks_words(sent):
+    """Groupes de mots calés sur l'horodatage réel de chaque mot → [(début, fin, texte, [(début_mot, fin_mot)…])]."""
+    ws, groups, cur = sent["words"], [], []
+    for w in ws:
+        if cur and (len(cur) >= CAP_WORDS or len(" ".join(x[0] for x in cur + [w])) > CAP_CHARS): groups.append(cur); cur = []
+        cur.append(w)
+        if w[0][-1] in ".?!,;:": groups.append(cur); cur = []
+    if cur: groups.append(cur)
+    out = []
+    for i, g in enumerate(groups):
+        end = groups[i + 1][0][1] if i + 1 < len(groups) else g[-1][2] + 0.35
+        out.append((g[0][1], end, " ".join(x[0] for x in g), [(x[1], x[2]) for x in g]))
+    return out
+
 def chunks(sent):
+    if sent.get("words"): return chunks_words(sent)
     words = sent["text"].split()
     n = 4 if VERT else 6
     groups = [words[i:i + n] for i in range(0, len(words), n)]
@@ -311,29 +337,33 @@ def cap_font(ctx, size):
     ctx.select_font_face("Inter ExtraBold", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD)
     ctx.set_font_size(size)
 
-def draw_caption(ctx, s, k=1.0):
-    """s = texte du groupe, k = avancement (0..1) dans le groupe → mot actif surligné."""
-    size = (76 if VERT else 58) * U
-    cap_font(ctx, size)
+def draw_caption(ctx, s, k=1.0, act=None):
+    """s = texte du groupe, k = avancement (0..1) dans le groupe → mot actif surligné (act = indice du mot prononcé,
+    quand l'horodatage par mot est connu). Jamais plus de 2 lignes : la taille baisse si nécessaire."""
+    size = CAP_SIZE * U
     words = s.split()
-    # mot actif : proportionnel à la longueur des mots
-    lens = [len(w) + 1 for w in words]; acc, act = 0, len(words) - 1
-    for i, L in enumerate(lens):
-        acc += L
-        if k * sum(lens) < acc: act = i; break
-    maxw = W * 0.88
-    lines, cur = [], []
-    for i, w in enumerate(words):
-        test = " ".join(words[j] for j in cur + [i])
-        if cur and ctx.text_extents(test).width > maxw: lines.append(cur); cur = [i]
-        else: cur.append(i)
-    lines.append(cur)
+    if act is None:   # mot actif : proportionnel à la longueur des mots
+        lens = [len(w) + 1 for w in words]; acc, act = 0, len(words) - 1
+        for i, L in enumerate(lens):
+            acc += L
+            if k * sum(lens) < acc: act = i; break
+    maxw = W * CAP_MAXW
+    while True:
+        cap_font(ctx, size)
+        lines, cur = [], []
+        for i, w in enumerate(words):
+            test = " ".join(words[j] for j in cur + [i])
+            if cur and ctx.text_extents(test).width > maxw: lines.append(cur); cur = [i]
+            else: cur.append(i)
+        lines.append(cur)
+        if len(lines) <= 2 and all(ctx.text_extents(" ".join(words[j] for j in l)).width <= maxw for l in lines) or size < 40 * U: break
+        size *= 0.93
     lh = size * 1.2
-    y0 = (H * 0.86 if not VERT else H * 0.73) - lh * (len(lines) - 1) / 2
+    y0 = H * CAP_Y - lh * (len(lines) - 1) / 2
     sp = ctx.text_extents("a a").x_advance - 2 * ctx.text_extents("a").x_advance
     for li, idxs in enumerate(lines):
         wid = [ctx.text_extents(words[i]).x_advance for i in idxs]
-        x = CX - (sum(wid) + sp * (len(idxs) - 1)) / 2
+        x = W * CAP_CX - (sum(wid) + sp * (len(idxs) - 1)) / 2
         y = y0 + li * lh + size * 0.35
         for i, wd in zip(idxs, wid):
             on = (i == act)
@@ -360,7 +390,9 @@ for i, s in enumerate(segs):
     a, b = (0.0 if i == 0 else s["start"]), s["end"]
     pieces.append(voice[int(a * SR):int(b * SR)])
     off = t0 - a
-    caps = [(x + off, y + off, txt) for sent in s["sents"] for (x, y, txt) in chunks(sent)]
+    caps = [(c[0] + off, c[1] + off, c[2], [(u + off, v + off) for u, v in c[3]] if len(c) > 3 else None)
+            for sent in s["sents"] for c in chunks(sent)]
+    caps = [(c[0], min(c[1], caps[j + 1][0]) if j + 1 < len(caps) else c[1], c[2], c[3]) for j, c in enumerate(caps)]   # jamais 2 sous-titres à la fois
     plan.append(dict(scene=s["scene"], start=t0, end=t0 + (b - a), caps=caps))
     t0 += b - a
 # vidéo longue : la conclusion dure au moins 20 s (durée minimale de l'écran de fin YouTube)
@@ -690,6 +722,8 @@ try:
 except Exception:
     pass
 SFX_TIMES = [(e["t"], e["type"]) for e in _SFX]
+_NOFADE = float(_mm.get("fade", 0.3)) == 0
+_CAM = float(_mm.get("cam", 1.0))   # meta « cam » = 0 : pas de zoom/panoramique automatique (les scènes gèrent leur caméra)
 _FD = max(0.01, float(_mm.get("fade", 0.3)))   # durée du fondu au noir entre scènes (meta « fade » ; 0.06 ≈ cut sec)
 _MUSIC = {"mystery": music_mystery, "upbeat": music_upbeat, "hype": music_hype, "westcoast": music_westcoast, "dramatic": music_dramatic}
 mus = np.zeros(len(vo), np.float32) if _MOOD == "none" else _MUSIC.get(_MOOD, music)(len(vo) / SR)
@@ -725,6 +759,8 @@ if MODE == "short": FINISH += ",unsharp=5:5:0.5:5:5:0.0"
 # séquences filmées (clips générés par IA, meta « finish » = "photo") : finition légère, sinon la peau devient orange
 if _mm.get("finish") == "photo":
     FINISH = "eq=saturation=1.12:contrast=1.04,vibrance=intensity=0.18,vignette=angle=PI/5" + (",unsharp=5:5:0.6:5:5:0.0" if MODE == "short" else "")   # Short rendu nativement en 1440×2560, sans grain, léger piqué (demande de Nazik 2026-11-08)
+if MODE == "short" and _mm.get("out_size"):   # ex. "1080x1920" : export à la taille demandée (rendu interne 1440×2560)
+    FINISH += ",scale=%s:flags=lanczos" % _mm["out_size"].replace("x", ":")
 class _N:
     def write(self, b): pass
     def close(self): pass
@@ -746,15 +782,18 @@ for f in (STILLS or range(nf)):
     # on y montre la scène d'accroche déjà bien avancée (illustration complète) + l'accroche écrite.
     if MODE == "short" and seg is plan[0] and TNOW < 2.0 / FPS: lt = min(d * 0.6, 2.4)
     # mouvement de caméra (zoom lent + léger panoramique, sens alterné d'une scène à l'autre)
-    si = plan.index(seg); z = 1 + 0.045 * ease(lt / d); px = (1 if si % 2 else -1) * 14 * U * (lt / d - 0.5)
+    si = plan.index(seg); z = 1 + 0.045 * _CAM * ease(lt / d); px = _CAM * (1 if si % 2 else -1) * 14 * U * (lt / d - 0.5)
     ctx.save(); ctx.translate(CX + px, CY); ctx.scale(z, z); ctx.translate(-CX, -CY)
     SCENES[seg["scene"]](ctx, lt, d)
     ctx.restore()
-    for (a, b, s) in seg["caps"]:
-        if a <= TNOW < b: draw_caption(ctx, s, (TNOW - a) / max(b - a, 1e-6)); break
+    for (a, b, s, wt) in seg["caps"]:
+        if a <= TNOW < b:
+            act = None if wt is None else max([0] + [i for i, (u, v) in enumerate(wt) if u <= TNOW + 0.02])
+            draw_caption(ctx, s, (TNOW - a) / max(b - a, 1e-6), act); break
     # fondu entre scènes
     fade = min(clamp(lt / _FD), clamp((d - lt) / _FD)) if seg is not plan[0] or lt > _FD else clamp(lt / _FD)
     if MODE == "short" and seg is plan[0]: fade = clamp((d - lt) / _FD)   # Short : pas d'écran noir au départ
+    if _NOFADE: fade = 1.0   # meta « fade » = 0 : coupes franches, jamais d'image noire (ni entre les scènes ni à la fin)
     if MODE == "short": draw_hook(ctx, 1 - prog(TNOW, 2.6, 3.2))
     if fade < 1: ctx.set_source_rgba(0, 0, 0, 1 - fade); ctx.paint()
     surf.flush()

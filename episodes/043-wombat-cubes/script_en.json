@@ -1,0 +1,5 @@
+[
+ {"scene": "hook", "text": ["This animal poops cubes.", "How?"]},
+ {"scene": "explain", "text": ["Scientists found the cubes already forming inside a wombat's intestine.", "Its gut wall has stiffer and softer regions.", "As the gut contracts, that uneven stretch helps shape the corners."]},
+ {"scene": "close", "text": ["So the cubes form inside, before they come out.", "A soft tube making corners.", "Nature is weird."], "pause": 1.0}
+]

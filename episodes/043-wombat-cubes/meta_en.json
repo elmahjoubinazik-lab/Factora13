@@ -1,0 +1,44 @@
+{
+  "format": "short_seul",
+  "theme": "animal_mysteries",
+  "voix": {
+    "provider": "elevenlabs",
+    "voice_id": "cgSgspJ2msm6clMCkdW9",
+    "voice_name": "Jessica",
+    "model": "eleven_v4",
+    "el_speed": 1.0,
+    "max_pause": 0.45
+  },
+  "hook_text": " ",
+  "fade": 0,
+  "cam": 0,
+  "out_size": "1080x1920",
+  "finish": "photo",
+  "cap_y": 0.705,
+  "cap_cx": 0.46,
+  "cap_maxw": 0.74,
+  "cap_size": 74,
+  "cap_words": 3,
+  "cap_chars": 18,
+  "ai_generated": false,
+  "music": "none",
+  "music_file": "rw/music.mp3",
+  "music_gain_db": -17,
+  "runway_music_task": "3ecfd238-e953-4938-b624-f712f0f9128f",
+  "short_title": "How Do Wombats Poop Cubes?",
+  "title": "How Do Wombats Poop Cubes?",
+  "series": "Animal Mystery",
+  "description_short": "How do wombats poop cubes? Scientists found the cube shapes already forming inside the intestine of the common wombat (Vombatus ursinus), not at the exit.\n\nThe gut wall has stiffer and softer regions. As the intestine contracts, that uneven stretch helps shape the corners, so the roughly cube-shaped droppings (with rounded corners) form before they come out.\n\nSource: Yang et al. (2021), \"Intestines of non-uniform stiffness mold the corners of wombat feces\", Soft Matter 17: 475–488. DOI: 10.1039/D0SM01230K\nPaper (PDF): https://hu.gatech.edu/wp-content/uploads/2021/01/Hu21-wombat.pdf\n\nOriginal illustrations (simplified diagrams, not footage from the study). Synthetic voice and AI-generated music.\nThink fast. Learn something amazing.\n\n#wombat #animalfacts #science",
+  "disclaimer": "Original illustrations. Synthetic voice and AI-generated music.",
+  "hashtags": [
+    "#wombat",
+    "#animalfacts",
+    "#science"
+  ],
+  "sources": [
+    "Yang et al. (2021), Intestines of non-uniform stiffness mold the corners of wombat feces, Soft Matter 17: 475-488, DOI 10.1039/D0SM01230K — https://hu.gatech.edu/wp-content/uploads/2021/01/Hu21-wombat.pdf",
+    "PubMed 33289747 (abstract): alternating stiff and soft regions; corners from faster contraction of stiff regions and slower movement at the centre of soft regions",
+    "University of Tasmania news, 2021-01-28: cubes form within the last ~17% of the intestine; two stiff and two more flexible regions around the circumference"
+  ],
+  "status": "produit, non publié (brief de Nazik 2026-11-21 : ne rien publier)"
+}
