@@ -851,4 +851,17 @@ SHORT_SCENES = ["hook", "explain", "close"]
 SCENES = dict(hook=sc_hook, explain=sc_explain, close=sc_close)
 
 def cover(ctx):
-    master(ctx, 0.9)
+    """Affiche (TikTok / Instagram / Facebook ; cover.py en tire la miniature YouTube 16:9) : l'anomalie en très grand,
+    la question, le nom de l'animal sans la réponse ; tout l'essentiel entre 14 % et 86 % de la hauteur (grilles 3:4)."""
+    K = cam_at(PC, (W * 0.47, H * 0.535), 12.5)
+    nature(ctx, 0.9, K, WOMBAT_KW)
+    g = cairo.LinearGradient(0, 0, 0, H * 0.42); g.add_color_stop_rgba(0, 0.01, 0.01, 0.04, 0.70); g.add_color_stop_rgba(1, 0, 0, 0, 0)
+    ctx.set_source(g); ctx.rectangle(0, 0, W, H * 0.42); ctx.fill()
+    poster_text(ctx, "CUBE-SHAPED", W * 0.47, H * 0.220, 150 * U, WHITE, W * 0.88)
+    poster_text(ctx, "POOP?", W * 0.47, H * 0.306, 200 * U, GOLD, W * 0.80)
+    red_arrow(ctx, W * 0.80, H * 0.348, W * 0.665, H * 0.447, bend=-0.30, width=24)
+    font(ctx, 66 * U); txt = "A WOMBAT MADE THESE"; w_ = ctx.text_extents(txt).width + 80 * U; h_ = 120 * U
+    y_ = H * 0.775
+    glow(ctx, W * 0.47, y_, w_ * 0.6, GOLD, 0.30)
+    rrect(ctx, W * 0.47 - w_ / 2, y_ - h_ / 2, w_, h_, h_ / 2); rgba(ctx, GOLD, 0.97); ctx.fill()
+    text(ctx, txt, W * 0.47, y_, 66 * U, DARK)
