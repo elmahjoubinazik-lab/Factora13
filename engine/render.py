@@ -307,9 +307,10 @@ except Exception:
 CAP_Y = float(_cm.get("cap_y", 0.73 if VERT else 0.86)); CAP_CX = float(_cm.get("cap_cx", 0.5)); CAP_MAXW = float(_cm.get("cap_maxw", 0.88))
 CAP_SIZE = float(_cm.get("cap_size", 76 if VERT else 58)); CAP_WORDS = int(_cm.get("cap_words", 4 if VERT else 6)); CAP_CHARS = int(_cm.get("cap_chars", 99))
 
+CAP_REPL = _cm.get("cap_replace", {})   # ex. {"Saint": "St."} : la voix lit « Saint », le sous-titre écrit « St. » (ép. 044c)
 def chunks_words(sent):
     """Groupes de mots calés sur l'horodatage réel de chaque mot → [(début, fin, texte, [(début_mot, fin_mot)…])]."""
-    ws, groups, cur = sent["words"], [], []
+    ws, groups, cur = [[CAP_REPL.get(w[0], w[0]), w[1], w[2]] for w in sent["words"]], [], []
     for w in ws:
         if cur and (len(cur) >= CAP_WORDS or len(" ".join(x[0] for x in cur + [w])) > CAP_CHARS): groups.append(cur); cur = []
         cur.append(w)

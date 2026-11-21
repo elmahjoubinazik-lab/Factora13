@@ -1,0 +1,55 @@
+{
+  "format": "short_seul",
+  "theme": "why",
+  "voix": {
+    "provider": "elevenlabs",
+    "voice_id": "cgSgspJ2msm6clMCkdW9",
+    "voice_name": "Jessica",
+    "model": "eleven_v4",
+    "el_speed": 1.0,
+    "max_pause": 0.5
+  },
+  "hook_text": " ",
+  "fade": 0,
+  "cam": 0,
+  "out_size": "1080x1920",
+  "finish": "photo",
+  "cap_y": 0.712,
+  "cap_cx": 0.46,
+  "cap_maxw": 0.74,
+  "cap_size": 72,
+  "cap_words": 3,
+  "cap_chars": 18,
+  "cap_hold_last": true,
+  "cap_replace": {
+    "Saint": "St."
+  },
+  "music": "none",
+  "music_file": "rw/music.mp3",
+  "music_gain_db": -17,
+  "ai_generated": true,
+  "clips": [
+    {
+      "name": "question",
+      "file": "p1.mp4",
+      "from": 0.3,
+      "to": 3.68
+    }
+  ],
+  "runway_music_task": "0ec4f933-3c89-4f61-a496-b2473344c876",
+  "title": "Why Doesn't Your Stomach Digest Itself?",
+  "short_title": "Why Doesn't Your Stomach Digest Itself?",
+  "description_short": "Why doesn't your stomach digest itself? Mucus is only part of the answer. Surface cells release bicarbonate into the mucus gel, which neutralizes acid close to the stomach wall and keeps the cell surface much less acidic than the contents above. The gel also slows acid down, and other defenses help too, including tightly joined cells and surface repair.\n\nThe historical example: in 1822, Alexis St. Martin survived an accidental gunshot wound that left an opening (a fistula) into his stomach. Army surgeon William Beaumont later studied digestion through it, for example with food tied to a string. The experiments were real but ethically troubling, and they revealed digestion, not the modern explanation of the mucus-bicarbonate barrier.\n\nSimplified and historical illustrations: not real medical images and not a portrait. The acid (+) and bicarbonate (−) symbols are a teaching convention.\n\nSources:\nhttps://pubmed.ncbi.nlm.nih.gov/3279766/\nhttps://pubmed.ncbi.nlm.nih.gov/7865639/\nhttps://becker.wustl.edu/news/william-beaumonts-momentous-and-unethical-experiments/\n\nCreated with AI tools (one animated shot made from our own illustration). Synthetic voice and AI-generated music.\nThink fast. Learn something amazing.\n\n#stomach #humanbody #science",
+  "hashtags": [
+    "#stomach",
+    "#humanbody",
+    "#science"
+  ],
+  "sources": [
+    "Shorrock & Rees (1988), Overview of gastroduodenal mucosal protection, Am J Med 84(2A):25-34 — PMID 3279766 (mucus-bicarbonate barrier, pH gradient, cell surface ~pH 7)",
+    "PMID 7865639 — fourni par le brief, contenu non vérifié (page PubMed inaccessible depuis l'environnement)",
+    "Allen & Flemström (2005), Am J Physiol Cell Physiol, PMID 15591243 — vérification (bicarbonate dans le gel de mucus, pH presque neutre à la surface)",
+    "Becker Medical Library (WashU), William Beaumont's momentous and unethical experiments — 1822, fistule, aliments au fil, éthique"
+  ],
+  "status": "révision du Short estomac (brief 2026-11-22), non publiée"
+}

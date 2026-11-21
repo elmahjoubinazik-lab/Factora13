@@ -1,0 +1,8 @@
+[
+ {"scene": "hist", "text": ["A man once survived with an opening into his stomach.", "Doctors studied digestion through it."], "pause": 0.5},
+ {"scene": "question", "text": ["But why didn't his stomach digest itself?"], "pause": 0.5},
+ {"scene": "mucus", "text": ["Mucus is only part of the answer.", "Surface cells release bicarbonate into that mucus."], "pause": 0.15},
+ {"scene": "neutral", "text": ["It neutralizes acid close to the stomach wall, helping keep the cell surface much less acidic than the contents above."], "pause": 0.4},
+ {"scene": "slow", "text": ["The mucus also helps slow acid from reaching the cells.", "Other defenses help too, including tightly joined cells and surface repair."], "pause": 0.6},
+ {"scene": "name", "text": ["That patient's name was Alexis Saint Martin.", "The experiments were real, but ethically troubling.", "His story revealed digestion, not the modern explanation of this protective barrier."], "pause": 0.1}
+]
