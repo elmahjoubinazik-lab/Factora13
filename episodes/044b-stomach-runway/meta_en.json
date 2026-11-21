@@ -1,0 +1,71 @@
+{
+  "format": "short_seul",
+  "theme": "why",
+  "voix": {
+    "provider": "elevenlabs",
+    "voice_id": "cgSgspJ2msm6clMCkdW9",
+    "voice_name": "Jessica",
+    "model": "eleven_v4",
+    "el_speed": 1.0,
+    "max_pause": 0.5
+  },
+  "hook_text": " ",
+  "fade": 0,
+  "cam": 0,
+  "out_size": "1080x1920",
+  "finish": "photo",
+  "cap_y": 0.705,
+  "cap_cx": 0.46,
+  "cap_maxw": 0.74,
+  "cap_size": 74,
+  "cap_words": 3,
+  "cap_chars": 18,
+  "music": "none",
+  "music_file": "rw/music.mp3",
+  "music_gain_db": -17,
+  "ai_generated": true,
+  "cap_hold_last": true,
+  "title": "Why Doesn't Your Stomach Digest Itself?",
+  "short_title": "Why Doesn't Your Stomach Digest Itself?",
+  "description_short": "Why doesn't your stomach digest itself? Its inner lining produces a protective layer of mucus. That barrier helps shield the stomach wall from its own digestive juices, while food gets mixed and broken down.\n\nThis is a simplified illustration: the mucus barrier is one part of the stomach's protection, not the full list of its defenses, and the animation is not real medical imagery.\n\nSources:\nCleveland Clinic, Stomach: https://my.clevelandclinic.org/health/body/21758-stomach\nCleveland Clinic, Mucosa: https://my.clevelandclinic.org/health/body/23930-mucosa\n\nOriginal illustrations. Synthetic voice and AI-generated music.\nThink fast. Learn something amazing.\n\n#stomach #humanbody #science",
+  "disclaimer": "Created with AI tools (animation from original illustrations). Synthetic voice and AI-generated music.",
+  "hashtags": [
+    "#stomach",
+    "#humanbody",
+    "#science"
+  ],
+  "comment": "Did you know your stomach protects itself with mucus? 🫃",
+  "sources": [
+    "Cleveland Clinic — Stomach: https://my.clevelandclinic.org/health/body/21758-stomach",
+    "Cleveland Clinic — Mucosa: https://my.clevelandclinic.org/health/body/23930-mucosa (mucus = gel-like secretion of epithelial cells; in the stomach, the mucosa shields tissue from stomach acid)",
+    "Britannica — Human digestive system, gastric mucosa (mucus layer protects against the stomach's own protein-digesting enzymes) — vérification, non citée dans la description"
+  ],
+  "music_note": "musique réutilisée de l'ép. 043 (même fond original discret), aucune nouvelle génération",
+  "status": "version Runway (brief de Nazik 2026-11-21), non publiée",
+  "clips": [
+    {
+      "name": "hook",
+      "file": "p1.mp4",
+      "from": 0.0,
+      "to": 4.96
+    },
+    {
+      "name": "barrier",
+      "file": "p2.mp4",
+      "from": 0.0,
+      "to": 9.96
+    },
+    {
+      "name": "mix",
+      "file": "p3.mp4",
+      "from": 0.0,
+      "to": 9.96,
+      "dur": 11.39
+    }
+  ],
+  "runway_tasks": {
+    "p1": "2fb4170e-4161-4b42-86f5-1aac531d740c",
+    "p2": "78d1d68d-77cc-4d29-b048-cf176fe38203",
+    "p3": "bc1f708d-f226-40fb-9ad0-6b51858b707c"
+  }
+}

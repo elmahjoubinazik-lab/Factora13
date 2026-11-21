@@ -1,0 +1,6 @@
+[
+ {"scene": "hook", "text": ["Your stomach digests food.", "So why doesn't it digest itself?"], "pause": 0.3},
+ {"scene": "barrier", "text": ["Its inner lining produces a protective layer of mucus.", "That barrier helps shield the stomach wall from its own digestive juices."], "pause": 0.25},
+ {"scene": "mix", "text": ["The food gets mixed and broken down, while the lining stays protected."], "pause": 0.4},
+ {"scene": "close", "text": ["But this protection can fail.", "Your stomach isn't indestructible.", "It's defended."], "pause": 0.15}
+]

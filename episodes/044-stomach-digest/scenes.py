@@ -205,14 +205,15 @@ def org_pt(p): return (ORG_C[0] + p[0] * ORG_S, ORG_C[1] + p[1] * ORG_S)
 def stomach(ctx, T, mk=0.35):
     wall, mu = 46.0, 12.0
     ctx.save(); ctx.translate(*ORG_C); ctx.scale(ORG_S, ORG_S)
-    for tube in (ESO, DUO):   # œsophage, duodénum (tubes)
+    # œsophage et duodénum (tubes), qui s'effacent en transparence vers leurs extrémités (aucun bloc de couleur)
+    for tube, grad in ((ESO, (0, -478, 0, -405)), (DUO, (-610, 0, -515, 0))):
         pts = catmull_open(tube, 10)
+        ctx.push_group()
         poly_path(ctx, pts, False); ctx.set_line_width(86); ctx.set_line_cap(cairo.LINE_CAP_ROUND); rgba(ctx, TIS, 1); ctx.stroke()
         poly_path(ctx, pts, False); ctx.set_line_width(40); rgba(ctx, (0.30, 0.08, 0.16), 1); ctx.stroke()
-    g = cairo.LinearGradient(0, -480, 0, -400); g.add_color_stop_rgba(0, 0.07, 0.05, 0.17, 1); g.add_color_stop_rgba(1, 0.07, 0.05, 0.17, 0)
-    ctx.set_source(g); ctx.rectangle(-120, -520, 160, 120); ctx.fill()                       # haut de l'œsophage fondu dans le fond
-    g = cairo.LinearGradient(-620, 0, -520, 0); g.add_color_stop_rgba(0, 0.05, 0.04, 0.13, 1); g.add_color_stop_rgba(1, 0.05, 0.04, 0.13, 0)
-    ctx.set_source(g); ctx.rectangle(-640, 40, 140, 120); ctx.fill()
+        pat = ctx.pop_group()
+        m = cairo.LinearGradient(*grad); m.add_color_stop_rgba(0, 0, 0, 0, 0); m.add_color_stop_rgba(1, 0, 0, 0, 1)
+        ctx.set_source(pat); ctx.mask(m)
     neon_path(ctx, lambda c: poly_path(c, STOM), (1.0, 0.45, 0.55), 5.0, 0.55)
     ctx.save(); poly_path(ctx, STOM); ctx.clip()
     ctx.set_source_rgb(0.16, 0.05, 0.12); ctx.paint()
