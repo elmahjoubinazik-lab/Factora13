@@ -26,7 +26,7 @@ def measure(path):
         if red[i:i + 20].mean() > 0.85: mus = i; break
     return {"muc": (muc_top + muc_bot) / 2 / h, "muc_top": muc_top / h, "muc_bot": muc_bot / h, "mus": (mus / h) if mus else None}
 out = {}
-for scene in sorted(os.listdir(B)):
+for scene in ("barrier", "mix"):                                 # plans en coupe (le plan 1 montre l'estomac entier)
     d = os.path.join(B, scene)
     if not os.path.isdir(d): continue
     rows = [measure(os.path.join(d, f)) for f in sorted(os.listdir(d)) if f.endswith(".jpg")]

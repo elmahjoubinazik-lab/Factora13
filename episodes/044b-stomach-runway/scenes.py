@@ -55,7 +55,8 @@ def layer_y(clip, key, t):
     return v[i]
 
 T_ZOOM0 = WT("itself") - 0.05
-T_CTA = END_T - 2.5
+T_CTA = END_T - 2.3          # le cadre du schéma est assez bas à partir de là (mesuré : haut du cadre ≥ 0,206 H)
+T_MIX0 = _TL["mix"]["start"]
 LAB_X = W * 0.34
 def overlays(ctx, T, clip, tl):
     tag(ctx, "Simplified illustration")
@@ -65,17 +66,24 @@ def overlays(ctx, T, clip, tl):
         ctx.set_source(g); ctx.rectangle(0, 0, W, H * 0.25); ctx.fill()
         ctx.push_group(); poster_text(ctx, "WHY NOT", W * 0.46, H * 0.140, 146 * U, WHITE, W * 0.80); poster_text(ctx, "ITSELF?", W * 0.46, H * 0.203, 146 * U, GOLD, W * 0.80)
         ctx.pop_group_to_source(); ctx.paint_with_alpha(ka)
-    if clip in ("barrier", "mix"):                       # légendes posées sur les couches suivies
+    if clip in ("barrier", "mix"):                       # légendes posées sur les couches suivies (jamais sur les sous-titres)
         k1 = prog(T, WT("mucus") - 0.05, WT("mucus") + 0.30); k2 = prog(T, WT("stomach", 1) - 0.05, WT("stomach", 1) + 0.30)
-        ym = layer_y(clip, "muc", tl); ys = layer_y(clip, "mus", tl)
-        if ym is not None: label2(ctx, "MUCUS BARRIER", "made by the lining", LAB_X, H * ym, CYAN, k1)
-        if ys is not None: label2(ctx, "STOMACH WALL", "living tissue", LAB_X, H * ys, (1.0, 0.62, 0.70), k2)
+        if clip == "mix":   # pendant le brassage, les légendes s'effacent (centre d'attention : les aliments) ; retour sur « defended »
+            vis = 1 - prog(T, T_MIX0, T_MIX0 + 0.4) + prog(T, WT("defended") - 0.9, WT("defended") - 0.5)
+            k1 *= clamp(vis); k2 *= clamp(vis)
+        ym = layer_y(clip, "muc", tl); mb = layer_y(clip, "muc_bot", tl); mu = layer_y(clip, "mus", tl)
+        if ym is not None and ym <= 0.625:
+            label2(ctx, "MUCUS BARRIER", "made by the lining", LAB_X, H * ym, CYAN, k1)
+        if ym is not None and mb is not None and mu is not None:
+            yw = max(mb + 0.035, min(0.645, (mb + mu) / 2))   # dans les cellules (tissu vivant), au-dessus de la zone des sous-titres
+            if yw > 0.65: yw = -1.0
+            if yw >= ym + 0.072 and yw > 0: label2(ctx, "STOMACH WALL", "living tissue", LAB_X, H * yw, (1.0, 0.62, 0.70), k2)
     kc = prog(T, T_CTA, T_CTA + 0.35)                    # fin : petit nom + CTA texte (sans bouton)
     if kc > 0:
         font(ctx, 44 * U); txt = "FACTORA"; w_ = ctx.text_extents(txt).width + 56 * U
-        rrect(ctx, W * 0.46 - w_ / 2, H * 0.127 - 32 * U, w_, 64 * U, 32 * U); rgba(ctx, (0, 0, 0), 0.45 * kc); ctx.fill()
-        text(ctx, txt, W * 0.46, H * 0.127, 44 * U, GOLD, kc)
-        cta_lines(ctx, ("Follow Factora for more", "body mysteries."), W * 0.46, (H * 0.168, H * 0.200), 54, kc)
+        rrect(ctx, W * 0.46 - w_ / 2, H * 0.118 - 32 * U, w_, 64 * U, 32 * U); rgba(ctx, (0, 0, 0), 0.45 * kc); ctx.fill()
+        text(ctx, txt, W * 0.46, H * 0.118, 44 * U, GOLD, kc)
+        cta_lines(ctx, ("Follow Factora for more", "body mysteries."), W * 0.46, (H * 0.150, H * 0.179), 52, kc)
 
 def _abs(scene, t): return (0.0 if scene == _FIRST else _TL[scene]["start"]) + t
 def _scene(scene, clip, off=0.0):
