@@ -942,7 +942,17 @@
    "note": "Brief de Nazik : voix imposée à débit naturel, dessins maison, sous-titres mot pour mot, pas de quiz, pas d'écran noir ; CTA texte « Follow Factora for more animal mysteries. » sur les 2,5 dernières s. Publication demandée par Nazik le 2026-11-21 : en public tout de suite avec la miniature 16:9.",
    "public_date": "2026-11-21",
    "comment_id": "UgxzBKfMzg7iYwDtwKx4AaABAg",
-   "thumbnail_note": "short_cover_yt.jpg posée APRÈS processingStatus=succeeded ; réponse avec shortsAspectRatio + maxres (règle ép. 041)"
+   "thumbnail_note": "short_cover_yt.jpg posée APRÈS processingStatus=succeeded ; réponse avec shortsAspectRatio + maxres (règle ép. 041)",
+   "stats": {
+    "2026-11-21 (2 h 03, Studio)": {
+     "vues": 822,
+     "j_aime": 9,
+     "commentaires": 1,
+     "classement": "1 sur 10",
+     "abonnes_chaine": 23,
+     "note": "pourcentage moyen regardé pas encore calculé ; le commentaire est celui de la chaîne"
+    }
+   }
   }
  ]
 }
