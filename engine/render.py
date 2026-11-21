@@ -401,6 +401,9 @@ if MODE == "long" and plan[-1]["end"] - plan[-1]["start"] < 20:
     pieces.append(np.zeros(int(extra * SR), np.float32)); plan[-1]["end"] += extra; t0 += extra
 TOTAL = t0 + 0.6
 vo = np.concatenate(pieces + [np.zeros(int(0.6 * SR), np.float32)])
+# meta « cap_hold_last » : le dernier sous-titre reste affiché jusqu'à la dernière image (fin sans image vide, ép. 044)
+if _cm.get("cap_hold_last") and plan and plan[-1]["caps"]:
+    _c = plan[-1]["caps"][-1]; plan[-1]["caps"][-1] = (_c[0], TOTAL + 1.0, _c[2], _c[3])
 
 # Short : accroche écrite en grand dès la première image (meta « hook_text », sinon short_title sans emoji ni #shorts)
 HOOK, HOOK_Y = "", 0.16   # hook_y (meta) : hauteur du bandeau d'accroche, en fraction de H
