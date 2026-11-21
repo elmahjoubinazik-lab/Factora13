@@ -874,7 +874,7 @@
    "playlist": "animal_mysteries",
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
-   "note": "Test décidé avec Nazik le 2026-11-20 : même formule que l'Animal Mystery #1 mais en DESSINS MAISON au lieu d'images IA (seule variable changée ; critère : ≥ 300 vues en 24 h). Mise en ligne en privé par l'API le 2026-11-21 à 00h55 heure suisse (18h55 New York), une seule version ; Nazik la passe en public."
+   "note": "Test décidé avec Nazik le 2026-11-20 : même formule que l'Animal Mystery #1 mais en DESSINS MAISON au lieu d'images IA (seule variable changée ; critère : ≥ 300 vues en 24 h). Mise en ligne en privé par l'API le 2026-11-21 à 00h55 heure suisse (18h55 New York), une seule version ; Nazik la passe en public. Miniature : le 1er envoi (pendant le traitement) n'a pas tenu, YouTube montrait une image du milieu avec la réponse ; renvoyée après le traitement (2026-11-21, ~01h05 heure suisse), cette fois avec la version verticale (shortsAspectRatio)."
   }
  ]
 }
