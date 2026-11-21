@@ -858,6 +858,14 @@
      "age": "17 h 32",
      "pct_regarde": 144.2,
      "rang": "8 sur 10"
+    },
+    {
+     "date": "2026-11-21",
+     "age": "1 j 10 h",
+     "source": "Studio (capture de Nazik)",
+     "vues": 6,
+     "jaime": 0,
+     "commentaires": 0
     }
    ]
   },
@@ -869,12 +877,29 @@
    "format": "short_seul",
    "long_id": null,
    "short_id": "Ua75A6wCIoU",
-   "status": "private",
+   "status": "public",
    "thumbnail_set": true,
    "playlist": "animal_mysteries",
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
-   "note": "Test décidé avec Nazik le 2026-11-20 : même formule que l'Animal Mystery #1 mais en DESSINS MAISON au lieu d'images IA (seule variable changée ; critère : ≥ 300 vues en 24 h). Mise en ligne en privé par l'API le 2026-11-21 à 00h55 heure suisse (18h55 New York), une seule version ; Nazik la passe en public. Miniature : le 1er envoi (pendant le traitement) n'a pas tenu, YouTube montrait une image du milieu avec la réponse ; renvoyée après le traitement (2026-11-21, ~01h05 heure suisse), cette fois avec la version verticale (shortsAspectRatio)."
+   "note": "Test décidé avec Nazik le 2026-11-20 : même formule que l'Animal Mystery #1 mais en DESSINS MAISON au lieu d'images IA (seule variable changée ; critère : ≥ 300 vues en 24 h). Mise en ligne en privé par l'API le 2026-11-21 à 00h55 heure suisse (18h55 New York), une seule version ; Nazik la passe en public. Miniature : le 1er envoi (pendant le traitement) n'a pas tenu, YouTube montrait une image du milieu avec la réponse ; renvoyée après le traitement (2026-11-21, ~01h05 heure suisse), cette fois avec la version verticale (shortsAspectRatio).",
+   "stats": [
+    {
+     "date": "2026-11-21",
+     "age": "9 h 18",
+     "source": "Studio (capture de Nazik)",
+     "vues": 263,
+     "jaime": 3,
+     "commentaires": 0,
+     "rang": "4 sur 10",
+     "pct_regarde": 56.5,
+     "ont_continue": 49.5,
+     "ont_balaye": 50.5,
+     "flux_shorts_pct": 95.1,
+     "recherche_pct": 4.9,
+     "note": "Test dessins maison vs images IA : 263 vues en 9 h contre 6 pour le poisson-tonneau (IA, même formule) à 1 j 10 h. Courbe : forte montée la 1re heure puis plateau. Abonnés : 20 (+1)."
+    }
+   ]
   }
  ]
 }
