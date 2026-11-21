@@ -900,6 +900,22 @@
      "note": "Test dessins maison vs images IA : 263 vues en 9 h contre 6 pour le poisson-tonneau (IA, même formule) à 1 j 10 h. Courbe : forte montée la 1re heure puis plateau. Abonnés : 20 (+1)."
     }
    ]
+  },
+  {
+   "episode": "042",
+   "topic": "Animal Mystery #3: why do zebras have stripes? (dessin réaliste, musique safari)",
+   "dir": "episodes/042-zebra-stripes",
+   "date": "2026-11-21",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": "x8_eKyAnFrw",
+   "status": "public",
+   "thumbnail_set": true,
+   "playlist": "animal_mysteries",
+   "comment_id": "Ugz2PMdiSIc1dXfP0tB4AaABAg",
+   "tiktok": "manuel (Nazik)",
+   "instagram": "manuel (Nazik)",
+   "note": "Choix de Nazik (2026-11-21) : dessin réaliste fait maison + musique safari mystérieuse (Runway). Par rapport à l'ép. 041, deux changements : question + 3 réponses dès l'image 1, 29 s au lieu de 37. « Publié direct sur YouTube » à sa demande : mise en ligne en privé, miniature posée après le traitement (shortsAspectRatio présent), playlist, puis passage en public le 2026-11-21 vers 11h17 heure suisse (05h17 New York) ; commentaire publié par l'API (à épingler par Nazik)."
   }
  ]
 }
