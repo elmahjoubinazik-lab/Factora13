@@ -820,6 +820,24 @@ def master(ctx, T):
         w_ = ctx.text_extents(txt).width + 60 * U
         rrect(ctx, W * 0.46 - w_ / 2, H * 0.155 - 34 * U, w_, 68 * U, 34 * U); ctx.fill(); ctx.restore()
         text(ctx, txt, W * 0.46, H * 0.155, 46 * U, GOLD, kf)
+    # CTA visuel (retouche demandée par Nazik, 2026-11-21) : texte seul, sans bouton, sur le dernier plan des cubes,
+    # pendant les ~2,5 dernières secondes ; entre le nom FACTORA et le haut des cubes ; la vidéo n'est pas prolongée.
+    kc = prog(T, T_CTA, T_CTA + 0.35)
+    if kc > 0:
+        cta_lines(ctx, ("Follow Factora for more", "animal mysteries."), W * 0.46, (H * 0.197, H * 0.229), 54, kc)
+
+T_CTA = max(T_END1, _TLL[-1]["end"] + 0.6 - 2.5)       # fin de la vidéo = fin de la voix + 0,6 s (render.py)
+def cta_lines(ctx, lines, x, ys, size, a):
+    """Texte contouré comme les sous-titres (contraste sur fond clair ou sombre) ; 1re ligne blanche, 2e or."""
+    sz = size * U; maxw = W * 0.74
+    cap_font(ctx, sz)
+    widest = max(ctx.text_extents(l).width for l in lines)
+    if widest > maxw: sz *= maxw / widest; cap_font(ctx, sz)
+    for l, y, col in zip(lines, ys, (WHITE, GOLD)):
+        e = ctx.text_extents(l); x0 = x - e.width / 2 - e.x_bearing; y0 = y + sz * 0.35
+        ctx.move_to(x0 + 3 * U, y0 + 5 * U); ctx.text_path(l); rgba(ctx, (0, 0, 0), 0.45 * a); ctx.fill()
+        ctx.move_to(x0, y0); ctx.text_path(l); ctx.set_line_width(sz * 0.16); ctx.set_line_join(cairo.LINE_JOIN_ROUND)
+        rgba(ctx, (0.01, 0.02, 0.06), a); ctx.stroke_preserve(); rgba(ctx, col, a); ctx.fill()
 
 def _abs_t(scene, t):
     if TNOW < 2.0 / FPS: return 0.9      # 2 premières images (vignettes) : le gros plan + l'accroche écrite
