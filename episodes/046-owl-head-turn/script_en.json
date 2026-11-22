@@ -1,7 +1,7 @@
 [
  {"scene": "hook", "text": ["This owl can turn its head two hundred seventy degrees.", "A human neck twisted that far could tear its arteries."]},
- {"scene": "eyes", "text": ["Its eyes are long tubes, locked in place.", "It can't roll them, so it turns its head."]},
+ {"scene": "eyes", "text": ["The reason: its eyes can't move.", "They're long tubes, locked inside its skull.", "So to look around, it turns its whole head."]},
  {"scene": "bones", "text": ["It has fourteen neck bones.", "You have seven."]},
- {"scene": "blood", "text": ["Its neck arteries run through extra-wide channels, with small blood reservoirs.", "So its brain keeps getting blood mid-twist."]},
- {"scene": "close", "text": ["But no owl spins all the way around.", "Three-quarters is the limit."], "pause": 0.6}
+ {"scene": "blood", "text": ["Its arteries have room to slide, and extra blood waits at the base of its skull."]},
+ {"scene": "close", "text": ["An owl can't move its eyes.", "So it moves its head."], "pause": 0.6}
 ]

@@ -3,7 +3,7 @@ exec(open("engine/photo.py", encoding="utf-8").read())   # poster_text (aucune i
 # Stratégie 30 jours validée par Nazik le 2026-11-22, semaine 1 = test de l'IMAGE 1 : l'animal EN ACTION en plein cadre
 # dès la 1re image (la tête de la chouette déjà en train de tourner), au plus 3 mots à l'écran pendant la 1re seconde
 # (« 270° » + petite pastille « ANIMAL MYSTERY ») ; dessins 100 % faits ici ; un nouveau plan toutes les ~5 s ;
-# fin = la tête revient à la pose de l'image 1 (boucle) ; CTA texte « Follow Factora for more animal mysteries. ».
+# fin = « An owl can't move its eyes. So it moves its head. » puis la tête revient à la pose de l'image 1 (boucle) ; CTA texte « Follow Factora for more animal mysteries. ».
 # Faits (Johns Hopkins, étude de 2013 sur des chouettes harfang, rayées et grands-ducs d'Amérique : NPR 2013-01-31,
 # ScienceDaily 2013-01-31, Smithsonian) : rotation de la tête jusqu'à ≈ 270° ; 14 vertèbres cervicales (humain : 7) ;
 # les trous des vertèbres où passe l'artère vertébrale sont ≈ 10 fois plus larges que l'artère (coussin d'air, l'artère
@@ -543,7 +543,7 @@ def eyes_diagram(ctx, T, tt):
                 px, py = lerp(rx_, fx_, u) + side * nx * hw * 1.08, lerp(ry_, fy_, u) + side * ny * hw * 1.08
                 rrect(ctx, px - 10 * U, py - 16 * U, 20 * U, 32 * U, 6 * U); rgba(ctx, BONE, 0.55 + 0.45 * k_lock); ctx.fill()
         if k_lock > 0:
-            lx = cx + sd * W * 0.235; ly = cy - H * 0.03
+            lx = cx + sd * W * 0.118; ly = cy + H * 0.100
             ctx.save(); ctx.translate(lx, ly); s_ = 0.6 + 0.4 * ease(k_lock) + 0.12 * math.sin(math.pi * k_lock); ctx.scale(s_, s_)
             glow(ctx, 0, 0, 70 * U, GOLD, 0.35 * k_lock); lock_icon(ctx, 0, 0, 52 * U, k_lock); ctx.restore()
     label_box(ctx, "TUBE-SHAPED EYES", cx, H * 0.165, GOLD, 50, 1.0, k_tube)
@@ -761,10 +761,8 @@ T_C0 = SENT("eyes", 0) - 0.10                        # yeux en tubes
 T_C1 = WT("turns") - 0.40                            # « so it turns its head » : retour à la chouette
 T_D0 = SENT("bones", 0) - 0.10                       # 14 contre 7
 T_E0 = SENT("blood", 0) - 0.10                       # vertèbre en coupe
-T_E1 = WT("with") - 0.10                             # réservoirs
+T_E1 = WT("extra") - 0.10                            # réserves de sang
 T_F0 = SENT("close", 0) - 0.10                       # fin : la limite de 270°
-T_AROUND = WT("around")
-T_LIMIT = WT("limit")
 T_CTA = END_T - 2.5
 D2R = math.pi / 180.0
 
@@ -775,13 +773,14 @@ def th_hook(T):
     return th * D2R
 
 def th_final(T):
-    t1 = T_F0 + 0.25; t2 = T_AROUND + 0.15
-    if T < t1: return 0.0
-    if T < t2: return 282 * D2R * ease((T - t1) / (t2 - t1))                 # tente de dépasser…
-    th = 270 + 12 * math.exp(-(T - t2) * 6) * math.cos((T - t2) * 16)        # … et revient à la butée
-    t3 = END_T - 1.25
-    if T > t3: th = lerp(270, 30, ease((T - t3) / 1.05))                     # retour à la pose de l'image 1 (boucle)
-    return th * D2R
+    """Fin : face à nous (yeux verrouillés), puis la tête tourne (« So it moves its head »), puis revient à la pose de
+    l'image 1 (θ = 20°) sur les dernières images : la vidéo boucle naturellement."""
+    t_m = WT("moves") - 0.05
+    if T < t_m: return 0.0
+    if T < t_m + 0.9: return 150 * D2R * ease((T - t_m) / 0.9)
+    t3 = END_T - 0.95
+    if T < t3: return 150 * D2R
+    return lerp(150, 20, ease((T - t3) / 0.9)) * D2R
 
 def master(ctx, T):
     if T < T_B0:                                       # A — la tête tourne (image 1)
@@ -796,7 +795,7 @@ def master(ctx, T):
         tag(ctx, "Simplified illustration")
         pill(ctx, "HUMAN NECK", W * 0.46, H * 0.590, CYAN, 46, 1.0, prog(T, T_B0, T_B0 + 0.3))
     elif T < T_C1:                                     # C — yeux en tubes, fixés
-        eyes_diagram(ctx, T, {"tubes": WT("tubes"), "locked": WT("locked"), "roll": WT("roll")})
+        eyes_diagram(ctx, T, {"tubes": WT("tubes"), "locked": WT("locked"), "roll": WT("move", 0)})
         tag(ctx, "Simplified illustration")
     elif T < T_D0:                                     # C' — donc elle tourne la tête
         th = 160 * D2R * ease((T - T_C1) / max(0.3, T_D0 - T_C1 - 0.2))
@@ -806,24 +805,23 @@ def master(ctx, T):
         bones_diagram(ctx, T)
         tag(ctx, "Simplified illustration")
     elif T < T_E1:                                     # E1 — trous 10× plus larges que l'artère
-        vertebra_xs(ctx, T, WT("extra-wide"))
+        vertebra_xs(ctx, T, WT("room"))
         tag(ctx, "Simplified illustration")
     elif T < T_F0:                                     # E2–E3 — réservoirs, puis le sang arrive au cerveau pendant la torsion
-        k_res = prog(T, WT("reservoirs") - 0.25, WT("reservoirs") + 0.35)
-        k_flow = prog(T, WT("so") - 0.10, WT("so") + 0.35)
-        tw = 200 * D2R * prog(T, WT("mid-twist") - 0.30, WT("mid-twist") + 0.50)
+        k_res = prog(T, WT("blood") - 0.25, WT("blood") + 0.35)
+        k_flow = prog(T, WT("base") - 0.10, WT("base") + 0.35)
+        tw = 200 * D2R * prog(T, WT("base"), WT("base") + 0.90)
         blood_side(ctx, T, max(k_res, 0.0), k_flow, tw)
         tag(ctx, "Simplified illustration")
-    else:                                              # F — la limite : trois quarts de tour
+    else:                                              # F — « An owl can't move its eyes. So it moves its head. »
         th = th_final(T)
-        kx = prog(T, T_AROUND - 0.05, T_AROUND + 0.25)
-        ra = 1.0 - prog(T, END_T - 1.3, END_T - 1.0) * 0.0
-        owl_scene(ctx, T, th, blink=max(0, 1 - abs(T - (T_LIMIT + 0.5)) / 0.10), ring=(min(th, 270 * D2R), ra, True, kx))
-        if kx > 0:
-            px, py = ring_pt(1.75 * math.pi)
-            red_x(ctx, px - 36 * U, py - 70 * U, 52 * U, 1.0, kx)
-        kl = prog(T, T_LIMIT - 0.75, T_LIMIT - 0.45) * (1 - prog(T, END_T - 1.4, END_T - 1.1))
-        pill(ctx, "MAX 270°", W * 0.46, H * 0.555, GOLD, 60, 1.0, kl)
+        owl_scene(ctx, T, th, ring=(th, 1.0, False, 0) if th > 0.03 else None)
+        kl = prog(T, WT("move", 1) - 0.15, WT("move", 1) + 0.20) * (1 - prog(T, WT("moves") - 0.10, WT("moves") + 0.20))
+        if kl > 0:                                     # yeux verrouillés
+            for sd in (-1, 1):
+                ex, ey, ez = V(0.40 * sd, 0.04, th)
+                ctx.save(); ctx.translate(ex, ey - RX * 0.36); s_ = 0.6 + 0.4 * ease(kl) + 0.12 * math.sin(math.pi * kl); ctx.scale(s_, s_)
+                glow(ctx, 0, 0, 95 * U, GOLD, 0.45 * kl); lock_icon(ctx, 0, 0, 66 * U, kl); ctx.restore()
         tag(ctx, "Illustration")
         kc = prog(T, T_CTA, T_CTA + 0.35)
         if kc > 0:
