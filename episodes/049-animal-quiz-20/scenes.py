@@ -440,11 +440,37 @@ def _scene(name):
 SCENES = {sg["scene"]: _scene(sg["scene"]) for sg in _TLL}
 SHORT_SCENES = [sg["scene"] for sg in _TLL]
 
+def medal(ctx, x, y, r, label="GENIUS", rot=0.0):
+    """Médaille d'or « GENIUS » (la récompense du défi 15/20) : rubans, disque doré, étoile, texte."""
+    ctx.save(); ctx.translate(x, y); ctx.rotate(rot)
+    for sx, col in ((-1, (0.10, 0.55, 1.0)), (1, (0.95, 0.25, 0.55))):   # rubans
+        ctx.new_path(); ctx.move_to(sx * r * 0.20, r * 0.55); ctx.line_to(sx * r * 0.62, r * 1.75)
+        ctx.line_to(sx * r * 0.40, r * 1.55); ctx.line_to(sx * r * 0.22, r * 1.85); ctx.line_to(sx * r * -0.12, r * 0.65); ctx.close_path()
+        rgba(ctx, col, 1); ctx.fill_preserve(); ctx.set_line_width(r * 0.04); rgba(ctx, (0.02, 0.02, 0.08), 0.9); ctx.stroke()
+    glow(ctx, 0, 0, r * 2.2, GOLD, 0.45)
+    g = cairo.RadialGradient(-r * 0.3, -r * 0.35, r * 0.1, 0, 0, r)
+    g.add_color_stop_rgb(0, 1.0, 0.95, 0.60); g.add_color_stop_rgb(0.55, 1.0, 0.78, 0.18); g.add_color_stop_rgb(1, 0.80, 0.50, 0.05)
+    ctx.arc(0, 0, r, 0, 2 * math.pi); ctx.set_source(g); ctx.fill_preserve()
+    ctx.set_line_width(r * 0.07); rgba(ctx, (0.55, 0.32, 0.02), 1); ctx.stroke()
+    ctx.arc(0, 0, r * 0.80, 0, 2 * math.pi); ctx.set_line_width(r * 0.035); rgba(ctx, (1.0, 0.95, 0.65), 0.9); ctx.stroke()
+    ctx.new_path()
+    for k in range(10):   # étoile
+        a = -math.pi / 2 + k * math.pi / 5; rr = r * (0.36 if k % 2 == 0 else 0.15)
+        (ctx.move_to if k == 0 else ctx.line_to)(rr * math.cos(a), -r * 0.20 + rr * math.sin(a))
+    ctx.close_path(); rgba(ctx, (0.55, 0.32, 0.02), 1); ctx.fill()
+    font(ctx, r * 0.30); w_ = ctx.text_extents(label).width
+    fs = r * 0.30 * min(1.0, r * 1.35 / max(w_, 1))
+    text(ctx, label, 0, r * 0.38, fs, (0.40, 0.20, 0.0))
+    ctx.restore()
+
 def cover(ctx):
-    """Affiche : la chouette en grand, « ANIMAL QUIZ », « 20 QUESTIONS », bandeau « CAN YOU GET 15/20? » (zone sûre 14–86 %)."""
+    """Affiche (demande de Nazik, 2026-11-22 : annoncer la récompense pour donner envie de relever le défi) :
+    « ANIMAL QUIZ », la chouette, la médaille « GENIUS », « GET 15/20 » / « = YOU'RE A GENIUS », bandeau « 20 QUESTIONS · PROVE IT! »
+    (zone sûre 14–86 % de la hauteur)."""
     background(ctx, 1.0)
-    owl_sprite(ctx, W * 0.5, H * 0.492, H * 0.385, {"happy": 1.0})
-    poster_text(ctx, "ANIMAL", W * 0.5, H * 0.185, 170 * U, WHITE, W * 0.84)
-    poster_text(ctx, "QUIZ", W * 0.5, H * 0.262, 190 * U, GOLD, W * 0.84)
-    pill(ctx, "20 QUESTIONS", W * 0.5, H * 0.715, CYAN, 66, 1.0, 1.0)
-    pill(ctx, "CAN YOU GET 15/20?", W * 0.5, H * 0.80, GOLD, 62, 1.0, 1.0)
+    owl_sprite(ctx, W * 0.43, H * 0.445, H * 0.315, {"happy": 1.0})
+    medal(ctx, W * 0.765, H * 0.505, 118 * U, "GENIUS", 0.16)
+    poster_text(ctx, "ANIMAL QUIZ", W * 0.5, H * 0.185, 150 * U, WHITE, W * 0.88)
+    poster_text(ctx, "GET 15/20", W * 0.5, H * 0.668, 150 * U, WHITE, W * 0.86)
+    poster_text(ctx, "= YOU'RE A GENIUS", W * 0.5, H * 0.742, 96 * U, GOLD, W * 0.88)
+    pill(ctx, "20 QUESTIONS · PROVE IT!", W * 0.5, H * 0.815, CYAN, 54, 1.0, 1.0)

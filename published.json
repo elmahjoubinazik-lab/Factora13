@@ -1129,9 +1129,9 @@
    "theme": "animal_mysteries",
    "test": "S1-quiz-format",
    "urls": {
-    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/8ea2fb900b91e6f302667cba6c6f7bf3e0b05bb6/ep049/animal-quiz-15-20-makes-you-a-genius.mp4",
-    "short_cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/8ea2fb900b91e6f302667cba6c6f7bf3e0b05bb6/ep049/short_cover.jpg",
-    "short_cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/8ea2fb900b91e6f302667cba6c6f7bf3e0b05bb6/ep049/short_cover_yt.jpg"
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/64040d55bdfb715ec81477462d04fa9bde21a75a/ep049/animal-quiz-15-20-makes-you-a-genius.mp4",
+    "short_cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/64040d55bdfb715ec81477462d04fa9bde21a75a/ep049/short_cover.jpg",
+    "short_cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/64040d55bdfb715ec81477462d04fa9bde21a75a/ep049/short_cover_yt.jpg"
    },
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
@@ -1139,7 +1139,7 @@
    "x": "manuel (Nazik)",
    "note": "Exception à la pause des vidéos longues demandée par Nazik (2026-11-22) : test du format quiz de 20 questions en Short (2 min 34). Voix Kokoro (ElevenLabs épuisé). Nazik passe la vidéo en public ce soir.",
    "duree_s": 154.5,
-   "thumbnail_note": "short_cover_yt.jpg posée après le traitement (shortsAspectRatio et maxres présents)",
+   "thumbnail_note": "affiche « GET 15/20 = YOU'RE A GENIUS » avec médaille (demande de Nazik : annoncer la récompense) posée sur tsOISKXBrcw le 22/11",
    "playlist_item": "ajouté (animal_mysteries)",
    "comment": "à publier par Nazik après le passage en public (vidéo privée : pas d'API)",
    "version": "v2 retenue : chouette Runway au style du logo, fond nébuleuse, voix féminine (Nazik : « remets la voix féminine »)",
