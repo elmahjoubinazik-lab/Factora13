@@ -1080,7 +1080,7 @@
    "long_id": null,
    "short_id": "Sm25YbgZm1c",
    "status": "programmé",
-   "thumbnail_set": false,
+   "thumbnail_set": true,
    "theme": "animal_mysteries",
    "test": "S1-image1",
    "urls": {
@@ -1101,7 +1101,8 @@
    "title_test": [
     "One Borrowed Knife Saved a Whale Shark 🦈",
     "A Whale Shark Stayed to Be Cut Free 🦈"
-   ]
+   ],
+   "thumbnail_note": "short_cover_yt.jpg posée après le traitement (shortsAspectRatio et maxres présents)"
   }
  ]
 }
