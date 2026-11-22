@@ -1143,10 +1143,6 @@
    "playlist_item": "ajouté (animal_mysteries)",
    "comment": "publié par Nazik",
    "version": "v2 retenue : chouette Runway au style du logo, fond nébuleuse, voix féminine (Nazik : « remets la voix féminine »)",
-   "anciennes_versions_privees": [
-    "_XwniJqHEME (v1, chouette vectorielle)",
-    "WJjQ-l5Yiek (v3, voix masculine Puck, écartée)"
-   ],
    "public_date": "2026-11-22 (vers 22h45 heure suisse, par Nazik)",
    "stats": [
     {
@@ -1157,7 +1153,8 @@
      "jaime": 0,
      "commentaires": 1
     }
-   ]
+   ],
+   "versions_supprimees": "_XwniJqHEME (v1) et WJjQ-l5Yiek (v3, voix Puck) : privées, jamais publiques, supprimées le 2026-11-22 à la demande de Nazik"
   }
  ]
 }
