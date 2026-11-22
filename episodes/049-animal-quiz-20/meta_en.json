@@ -12,7 +12,7 @@
  "voix": {
   "provider": "kokoro",
   "melange": {
-   "af_heart": 1.0
+   "am_puck": 1.0
   },
   "vitesse": 1.05,
   "traitement_doux": true,
@@ -21,21 +21,21 @@
  "ai_generated": true,
  "series": "Factora Quiz #1",
  "test": "S1-quiz-format",
- "voix_note": "ElevenLabs épuisé le 2026-11-22 (23 crédits restants sur 10 000) : repli Kokoro (règle du CLAUDE.md)",
+ "voix_note": "Voix masculine Puck (Kokoro am_puck) choisie par Nazik le 2026-11-22 pour la chouette ; ElevenLabs épuisé ce mois-ci",
  "sfx": [
   {
    "scene": "q01",
-   "at": 2.135,
+   "at": 2.071,
    "type": "tick"
   },
   {
    "scene": "q01",
-   "at": 3.135,
+   "at": 3.071,
    "type": "tick"
   },
   {
    "scene": "q01",
-   "at": 4.135,
+   "at": 4.071,
    "type": "tick"
   },
   {
@@ -45,17 +45,17 @@
   },
   {
    "scene": "q02",
-   "at": 2.093,
+   "at": 1.965,
    "type": "tick"
   },
   {
    "scene": "q02",
-   "at": 3.093,
+   "at": 2.965,
    "type": "tick"
   },
   {
    "scene": "q02",
-   "at": 4.093,
+   "at": 3.965,
    "type": "tick"
   },
   {
@@ -65,17 +65,17 @@
   },
   {
    "scene": "q03",
-   "at": 2.007,
+   "at": 1.986,
    "type": "tick"
   },
   {
    "scene": "q03",
-   "at": 3.007,
+   "at": 2.986,
    "type": "tick"
   },
   {
    "scene": "q03",
-   "at": 4.007,
+   "at": 3.986,
    "type": "tick"
   },
   {
@@ -85,17 +85,17 @@
   },
   {
    "scene": "q04",
-   "at": 2.135,
+   "at": 2.029,
    "type": "tick"
   },
   {
    "scene": "q04",
-   "at": 3.135,
+   "at": 3.029,
    "type": "tick"
   },
   {
    "scene": "q04",
-   "at": 4.135,
+   "at": 4.029,
    "type": "tick"
   },
   {
@@ -125,17 +125,17 @@
   },
   {
    "scene": "q06",
-   "at": 2.071,
+   "at": 1.965,
    "type": "tick"
   },
   {
    "scene": "q06",
-   "at": 3.071,
+   "at": 2.965,
    "type": "tick"
   },
   {
    "scene": "q06",
-   "at": 4.071,
+   "at": 3.965,
    "type": "tick"
   },
   {
@@ -145,17 +145,17 @@
   },
   {
    "scene": "q07",
-   "at": 3.266,
+   "at": 3.415,
    "type": "tick"
   },
   {
    "scene": "q07",
-   "at": 4.266,
+   "at": 4.415,
    "type": "tick"
   },
   {
    "scene": "q07",
-   "at": 5.266,
+   "at": 5.415,
    "type": "tick"
   },
   {
@@ -185,17 +185,17 @@
   },
   {
    "scene": "q09",
-   "at": 1.922,
+   "at": 1.858,
    "type": "tick"
   },
   {
    "scene": "q09",
-   "at": 2.922,
+   "at": 2.858,
    "type": "tick"
   },
   {
    "scene": "q09",
-   "at": 3.922,
+   "at": 3.858,
    "type": "tick"
   },
   {
@@ -205,17 +205,17 @@
   },
   {
    "scene": "q10",
-   "at": 1.965,
+   "at": 1.901,
    "type": "tick"
   },
   {
    "scene": "q10",
-   "at": 2.965,
+   "at": 2.901,
    "type": "tick"
   },
   {
    "scene": "q10",
-   "at": 3.965,
+   "at": 3.901,
    "type": "tick"
   },
   {
@@ -225,17 +225,17 @@
   },
   {
    "scene": "q11",
-   "at": 2.007,
+   "at": 1.879,
    "type": "tick"
   },
   {
    "scene": "q11",
-   "at": 3.007,
+   "at": 2.879,
    "type": "tick"
   },
   {
    "scene": "q11",
-   "at": 4.007,
+   "at": 3.879,
    "type": "tick"
   },
   {
@@ -245,17 +245,17 @@
   },
   {
    "scene": "q12",
-   "at": 2.199,
+   "at": 2.135,
    "type": "tick"
   },
   {
    "scene": "q12",
-   "at": 3.199,
+   "at": 3.135,
    "type": "tick"
   },
   {
    "scene": "q12",
-   "at": 4.199,
+   "at": 4.135,
    "type": "tick"
   },
   {
@@ -265,17 +265,17 @@
   },
   {
    "scene": "q13",
-   "at": 2.05,
+   "at": 1.965,
    "type": "tick"
   },
   {
    "scene": "q13",
-   "at": 3.05,
+   "at": 2.965,
    "type": "tick"
   },
   {
    "scene": "q13",
-   "at": 4.05,
+   "at": 3.965,
    "type": "tick"
   },
   {
@@ -305,17 +305,17 @@
   },
   {
    "scene": "q15",
-   "at": 2.071,
+   "at": 1.943,
    "type": "tick"
   },
   {
    "scene": "q15",
-   "at": 3.071,
+   "at": 2.943,
    "type": "tick"
   },
   {
    "scene": "q15",
-   "at": 4.071,
+   "at": 3.943,
    "type": "tick"
   },
   {
@@ -325,17 +325,17 @@
   },
   {
    "scene": "q16",
-   "at": 2.69,
+   "at": 2.797,
    "type": "tick"
   },
   {
    "scene": "q16",
-   "at": 3.69,
+   "at": 3.797,
    "type": "tick"
   },
   {
    "scene": "q16",
-   "at": 4.69,
+   "at": 4.797,
    "type": "tick"
   },
   {
@@ -345,17 +345,17 @@
   },
   {
    "scene": "q17",
-   "at": 2.946,
+   "at": 3.01,
    "type": "tick"
   },
   {
    "scene": "q17",
-   "at": 3.946,
+   "at": 4.01,
    "type": "tick"
   },
   {
    "scene": "q17",
-   "at": 4.946,
+   "at": 5.01,
    "type": "tick"
   },
   {
@@ -385,17 +385,17 @@
   },
   {
    "scene": "q19",
-   "at": 2.562,
+   "at": 2.583,
    "type": "tick"
   },
   {
    "scene": "q19",
-   "at": 3.562,
+   "at": 3.583,
    "type": "tick"
   },
   {
    "scene": "q19",
-   "at": 4.562,
+   "at": 4.583,
    "type": "tick"
   },
   {
@@ -405,17 +405,17 @@
   },
   {
    "scene": "q20",
-   "at": 2.541,
+   "at": 2.37,
    "type": "tick"
   },
   {
    "scene": "q20",
-   "at": 3.541,
+   "at": 3.37,
    "type": "tick"
   },
   {
    "scene": "q20",
-   "at": 4.541,
+   "at": 4.37,
    "type": "tick"
   },
   {
