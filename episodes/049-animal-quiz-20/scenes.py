@@ -73,18 +73,68 @@ def pause_icon(ctx, x, y, h, col, a=1.0):
 # ---------------------------------------------------------------- fond
 _RS = random.Random(49)
 _STARS = [(_RS.random(), _RS.random(), _RS.uniform(1.5, 4.0), _RS.random() * 6.28) for _ in range(90)]
+NEB = os.path.join(EP, "build", "rw", "nebula.png")   # fond Runway dans le style de la bannière YouTube (v2)
 def background(ctx, T):
-    vgrad(ctx, (0.07, 0.04, 0.22), (0.01, 0.02, 0.09))
-    glow(ctx, W * 0.70, H * 0.26, W * 0.75, (0.20, 0.55, 1.0), 0.16)
-    glow(ctx, W * 0.30, H * 0.70, W * 0.85, (0.62, 0.25, 1.0), 0.14)
-    for sx, sy, sr, ph in _STARS:
-        circle(ctx, sx * W, sy * H, sr * U, WHITE, 0.25 + 0.25 * math.sin(T * 1.3 + ph))
+    if os.path.exists(NEB):
+        paint(ctx, load_img(NEB), 0.5, 0.5, 1.0 + 0.04 * clamp(T / 160.0))
+        ctx.rectangle(0, 0, W, H); rgba(ctx, (0.01, 0.01, 0.06), 0.18); ctx.fill()
+    else:
+        vgrad(ctx, (0.07, 0.04, 0.22), (0.01, 0.02, 0.09))
+    for sx, sy, sr, ph in _STARS[:50]:
+        circle(ctx, sx * W, sy * H, sr * U * 0.8, WHITE, 0.15 + 0.25 * math.sin(T * 1.3 + ph))
 
 def header(ctx, T):
     poster_text(ctx, "ANIMAL QUIZ", W * 0.47, H * 0.083, 92 * U, GOLD, W * 0.80)
     text(ctx, "FACTORA QUIZ #1  ·  20 QUESTIONS", W * 0.47, H * 0.118, 27 * U, (0.80, 0.88, 1.0), 0.85)
 
-# ---------------------------------------------------------------- la chouette Factora
+# ---------------------------------------------------------------- la chouette Factora, v2 : images Runway dans le style du logo
+# (demande de Nazik, 2026-11-22 : « le même graphisme que le logo et la bannière YouTube », Runway autorisé en partie).
+# base = pose de référence ; talk / blink = mêmes images, bec ouvert / yeux fermés (superposés seulement sur la zone du bec
+# ou des yeux, bords adoucis) ; happy = pose de joie (ailes levées) pour les réponses et la fin. Voir prep_owl.py.
+OWLD = os.path.join(EP, "build", "rw", "owl")
+_OS = {}
+def _rgba_surf(arr):
+    a = arr[..., 3:4].astype(np.float32) / 255.0; h, w = arr.shape[:2]
+    buf = np.empty((h, w, 4), np.uint8)
+    buf[..., 0] = (arr[..., 2] * a[..., 0]).astype(np.uint8); buf[..., 1] = (arr[..., 1] * a[..., 0]).astype(np.uint8)
+    buf[..., 2] = (arr[..., 0] * a[..., 0]).astype(np.uint8); buf[..., 3] = arr[..., 3]
+    return cairo.ImageSurface.create_for_data(memoryview(buf), cairo.FORMAT_ARGB32, w, h, w * 4), buf
+def owl_sprites():
+    if _OS: return _OS
+    reg = _json.load(open(os.path.join(OWLD, "regions.json")))
+    for n in ("base", "happy"):
+        _OS[n] = _rgba_surf(np.asarray(_PImg.open(os.path.join(OWLD, n + "_rgba.png")).convert("RGBA")))
+    for n, grow in (("talk", 26), ("blink", 22)):
+        if n not in reg: continue
+        x0, y0, x1, y1 = reg[n]; x0 -= grow; y0 -= grow; x1 += grow; y1 += grow
+        im = np.asarray(_PImg.open(os.path.join(OWLD, n + "_crop.png")).convert("RGB"))[y0:y1, x0:x1]
+        hh, ww = im.shape[:2]; yy, xx = np.mgrid[0:hh, 0:ww]
+        d = np.minimum.reduce([xx, yy, ww - 1 - xx, hh - 1 - yy]).astype(np.float32)
+        al = (np.clip(d / grow, 0, 1) * 255).astype(np.uint8)
+        _OS[n] = _rgba_surf(np.dstack([im, al])) + ((x0, y0),)
+    return _OS
+
+def owl_sprite(ctx, x, y, h, st):
+    """Chouette Factora (images Runway) centrée en (x, y), hauteur h. st : talk, blink, happy (0–1), tilt, spin, squash."""
+    sp = owl_sprites(); b = sp["base"][0]; sw, sh = b.get_width(), b.get_height(); sc = h / sh
+    sq = st.get("squash", 0.0); fx = math.cos(st.get("spin", 0.0)); fx = math.copysign(max(0.04, abs(fx)), fx)
+    ctx.save(); ctx.translate(x, y)
+    g = cairo.RadialGradient(0, h * 0.05, 0, 0, h * 0.05, h * 0.62)   # halo sombre : détache la chouette de la nébuleuse
+    g.add_color_stop_rgba(0, 0.01, 0.01, 0.06, 0.55); g.add_color_stop_rgba(1, 0.01, 0.01, 0.06, 0)
+    ctx.set_source(g); ctx.arc(0, h * 0.05, h * 0.62, 0, 2 * math.pi); ctx.fill()
+    ctx.rotate(st.get("tilt", 0.0)); ctx.scale(sc * fx * (1 + 0.05 * sq), sc * (1 - 0.05 * sq)); ctx.translate(-sw / 2, -sh / 2)
+    hap = clamp(st.get("happy", 0.0))
+    if hap < 1:
+        ctx.set_source_surface(b, 0, 0); ctx.get_source().set_filter(cairo.FILTER_GOOD); ctx.paint_with_alpha(1 - hap)
+        for n, k in (("talk", clamp((st.get("talk", 0.0) - 0.35) / 0.30)), ("blink", st.get("blink", 0.0))):
+            if k > 0 and n in sp:
+                s_, _, (ox_, oy_) = sp[n]
+                ctx.set_source_surface(s_, ox_, oy_); ctx.get_source().set_filter(cairo.FILTER_GOOD); ctx.paint_with_alpha(k * (1 - hap))
+    if hap > 0:
+        ctx.set_source_surface(sp["happy"][0], 0, 0); ctx.get_source().set_filter(cairo.FILTER_GOOD); ctx.paint_with_alpha(hap)
+    ctx.restore()
+
+# (ancienne chouette vectorielle, v1 — gardée pour mémoire, plus utilisée)
 BODY_T, BODY_B = (0.20, 0.24, 0.78), (0.45, 0.16, 0.70)
 HEAD_T, HEAD_B = (0.20, 0.42, 1.00), (0.33, 0.22, 0.85)
 WING_T, WING_B = (0.25, 0.75, 1.00), (0.20, 0.30, 0.85)
@@ -213,18 +263,19 @@ def owl_state(T, i, ph):
             st["look"] = (-0.75, 0.75)
             st["wing"] = prog(T, d["qs"], d["qs"] + 0.30) - prog(T, d["qs"] + 1.4, d["qs"] + 1.8)
         elif ph == "timer":
-            st["look"] = (-0.15, 0.95); st["tilt"] = 0.10 * math.sin(2 * math.pi * 0.55 * (T - d["qe"]))
+            st["look"] = (-0.15, 0.95); st["tilt"] = 0.06 * math.sin(2 * math.pi * 0.55 * (T - d["qe"]))
         elif ph == "answer":
             k = lin(T, d["a_s"], d["a_s"] + 0.35)
             st["look"] = (0.0, 0.0); st["wide"] = 1.0 - prog(T, d["a_s"] + 0.6, d["a_s"] + 1.2)
             st["hop"] = math.sin(math.pi * k) if k < 1 else 0.0; st["squash"] = -0.8 * math.sin(math.pi * k) if k < 1 else 0.0
             st["wing2"] = math.sin(math.pi * k) if k < 1 else 0.0
+            st["happy"] = prog(T, d["a_s"] - 0.02, d["a_s"] + 0.10) - prog(T, d["a_s"] + 0.95, d["a_s"] + 1.10)
             if i == 6:   # question 7 : « The owl! That's me. » → la tête fait un tour
                 st["spin"] = 2 * math.pi * ease(lin(T, d["a_s"] + 0.25, d["a_s"] + 1.45)); st["blink"] = 0.0
     if ph == "outro":
         u = T - T_OUT
         st["hop"] = 0.5 * abs(math.sin(math.pi * 1.6 * u)); st["wing"] = 0.5 + 0.5 * math.sin(2 * math.pi * 0.8 * u); st["wing2"] = st["wing"]
-        st["look"] = (0.0, 0.0)
+        st["look"] = (0.0, 0.0); st["happy"] = 1.0
     return st
 
 # ---------------------------------------------------------------- état du quiz
@@ -360,8 +411,8 @@ def outro_card(ctx, T):
     pill(ctx, "COMMENT YOUR SCORE!", cx, H * 0.745, GOLD, 40, kc, kc)
 
 # ---------------------------------------------------------------- image complète
-OWL_INTRO = (0.50, 0.335, 1.30)
-OWL_QUIZ = (0.675, 0.212, 0.84)
+OWL_INTRO = (0.50, 0.400, 0.400)   # x, y du centre, hauteur (fractions de W, H, H)
+OWL_QUIZ = (0.675, 0.262, 0.250)
 def master(ctx, T):
     background(ctx, T)
     i, ph = phase(T)
@@ -375,9 +426,8 @@ def master(ctx, T):
     st = owl_state(T, i, ph)
     if ph == "intro":
         k0 = lin(T, 0.0, 0.35); st["hop"] = math.sin(math.pi * k0) * 0.6 if T > 0.1 else 0.0; st["look"] = (0.0, 0.0)
-    R = 200 * U * os_ / 1.333 * 1.333 * 0.75
-    py = H * oy - st.get("hop", 0.0) * 34 * U * os_ + 6 * U * math.sin(T * 2 * math.pi * 0.6)
-    owl(ctx, W * ox, py, R, st)
+    py = H * oy - st.get("hop", 0.0) * 120 * U * os_ + 6 * U * math.sin(T * 2 * math.pi * 0.6)
+    owl_sprite(ctx, W * ox, py, H * os_, st)
     if ph == "intro": intro_texts(ctx, T)
     if ph == "outro":
         kf = lin(T, OUT[1]["start"] + 1.2, OUT[1]["start"] + 1.5)
@@ -393,9 +443,8 @@ SHORT_SCENES = [sg["scene"] for sg in _TLL]
 def cover(ctx):
     """Affiche : la chouette en grand, « ANIMAL QUIZ », « 20 QUESTIONS », bandeau « CAN YOU GET 15/20? » (zone sûre 14–86 %)."""
     background(ctx, 1.0)
+    owl_sprite(ctx, W * 0.5, H * 0.492, H * 0.385, {"happy": 1.0})
     poster_text(ctx, "ANIMAL", W * 0.5, H * 0.185, 170 * U, WHITE, W * 0.84)
     poster_text(ctx, "QUIZ", W * 0.5, H * 0.262, 190 * U, GOLD, W * 0.84)
-    st = {"T": 0.0, "look": (0.0, 0.0), "wide": 0.6, "wing": 0.55, "wing2": 0.55}
-    owl(ctx, W * 0.5, H * 0.42, 200 * U * 1.05 * 0.75 * 1.25, st)
     pill(ctx, "20 QUESTIONS", W * 0.5, H * 0.715, CYAN, 66, 1.0, 1.0)
     pill(ctx, "CAN YOU GET 15/20?", W * 0.5, H * 0.80, GOLD, 62, 1.0, 1.0)

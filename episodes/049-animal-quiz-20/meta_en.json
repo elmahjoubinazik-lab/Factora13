@@ -18,7 +18,7 @@
   "traitement_doux": true,
   "code_langue": "en-us"
  },
- "ai_generated": false,
+ "ai_generated": true,
  "series": "Factora Quiz #1",
  "test": "S1-quiz-format",
  "voix_note": "ElevenLabs épuisé le 2026-11-22 (23 crédits restants sur 10 000) : repli Kokoro (règle du CLAUDE.md)",
@@ -468,7 +468,7 @@
   "outro"
  ],
  "sources_text": "Encyclopaedia Britannica (giraffe, cheetah, kangaroo, whale shark, octopus, bats, owls, crows, hummingbirds, flamingos, ants, bees, platypus, cattle, elephant); Polar Bears International (black skin under the fur); Yang et al., Soft Matter, 2021 (wombat cube-shaped feces); Henneberg, Lambert & Leigh, 1997 (koala and human fingerprints); MBARI (barreleye fish with a transparent head)",
- "disclaimer": "Synthetic voice, AI-generated music, original illustrations.",
+ "disclaimer": "Owl mascot and space background created with AI tools from the Factora logo. AI-generated music.",
  "comment": "What was your score out of 20? Be honest 🦉👇",
  "tags": [
   "animal quiz",
@@ -489,8 +489,20 @@
   "factora quiz",
   "factora science"
  ],
- "tiktok_text": "20 animal questions, 3 seconds each 🦉 Score 15/20 or more and you're an animal genius. Need more time? Just pause.\n\nWhat was your score? Comment it 👇\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nSynthetic voice, AI-generated music, original illustrations.\n\n#animalquiz #animaltrivia #quiz #learnontiktok #factora",
- "instagram_text": "20 animal questions, 3 seconds each 🦉 Score 15/20 or more and you're an animal genius. Need more time? Just pause.\n\nWhat was your score? Comment it 👇\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nSynthetic voice, AI-generated music, original illustrations.\n\n#animalquiz #animaltrivia #quiz #learnoninstagram",
- "facebook_text": "20 animal questions, 3 seconds each 🦉 Score 15/20 or more and you're an animal genius. Need more time? Just pause.\n\nWhat was your score? Comment it 👇\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nSynthetic voice, AI-generated music, original illustrations.\n\n#animalquiz #animaltrivia",
- "x_text": "Animal quiz 🦉 20 questions, 3 seconds each.\n\nWhat's the tallest animal on Earth? Which animal poops cubes?\n\nScore 15/20 and you're a genius. What's your score? 👇\n\n#animalquiz #trivia"
+ "tiktok_text": "20 animal questions, 3 seconds each 🦉 Score 15/20 or more and you're an animal genius. Need more time? Just pause.\n\nWhat was your score? Comment it 👇\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nOwl mascot and space background created with AI tools from the Factora logo. Synthetic voice, AI-generated music.\n\n#animalquiz #animaltrivia #quiz #learnontiktok #factora",
+ "instagram_text": "20 animal questions, 3 seconds each 🦉 Score 15/20 or more and you're an animal genius. Need more time? Just pause.\n\nWhat was your score? Comment it 👇\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nOwl mascot and space background created with AI tools from the Factora logo. Synthetic voice, AI-generated music.\n\n#animalquiz #animaltrivia #quiz #learnoninstagram",
+ "facebook_text": "20 animal questions, 3 seconds each 🦉 Score 15/20 or more and you're an animal genius. Need more time? Just pause.\n\nWhat was your score? Comment it 👇\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nOwl mascot and space background created with AI tools from the Factora logo. Synthetic voice, AI-generated music.\n\n#animalquiz #animaltrivia",
+ "x_text": "Animal quiz 🦉 20 questions, 3 seconds each.\n\nWhat's the tallest animal on Earth? Which animal poops cubes?\n\nScore 15/20 and you're a genius. What's your score? 👇\n\n#animalquiz #trivia",
+ "runway_owl": {
+  "base": "db853173-595f-49c4-8240-b4ae8a8c5872",
+  "talk": "786b8336-6e39-4cfb-ad6b-6257475391e8",
+  "blink": "adc80bcd-3ef5-4bda-aa8b-281887df0da1",
+  "happy": "052f2f98-8e1f-4c18-87e3-b9a6866c5f13",
+  "wing_non_utilisee": "895e223c-5f41-4ef9-8d35-5d1905f8f818",
+  "cutouts": [
+   "478d829b-044e-4fea-8fe0-b94565226739",
+   "791a20c1-ed1f-44c4-8cf3-54822d0e9c5c"
+  ],
+  "nebula": "4fcf6d76-08cb-47d8-a837-e84e8d632fa3"
+ }
 }
