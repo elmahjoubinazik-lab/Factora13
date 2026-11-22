@@ -52,6 +52,18 @@ def still(ctx, name, t, d, z0=1.0, z1=1.08, fx=0.5, fy=0.5):
 def lerp(a, b, k): return a + (b - a) * k
 
 # ---------------------------------------------------------------- scènes (temps local t, absolu T = S0 + t)
+T_R0 = WT("came") - 0.05                      # début du sauvetage (le plongeur arrive)
+T_R1 = WT("later") - 0.10                     # « Thirty minutes later » : le chronomètre s'arrête à 30:00
+def rescue_clock(ctx, T):
+    """Chronomètre du sauvetage (durée de toute l'intervention, pas une immobilité de 30 min) ; 0 → 30:00."""
+    if T < T_R0 or T > WT("free", 1) + 0.2: return
+    k = prog(T, T_R0, T_R1)
+    secs = int(round(1800 * (k ** 1.15)))
+    a = 1.0 - prog(T, WT("way") + 0.3, WT("free", 1))
+    glow(ctx, W * 0.46, H * 0.60, 150 * U, GOLD, 0.28 * a)
+    text(ctx, "RESCUE", W * 0.46, H * 0.555, 40 * U, WHITE, 0.9 * a)
+    ctx.push_group(); poster_text(ctx, f"{secs // 60:02d}:{secs % 60:02d}", W * 0.46, H * 0.615, 120 * U, GOLD); ctx.pop_group_to_source(); ctx.paint_with_alpha(a)
+
 def ov_hook(ctx, t, d):
     scrim(ctx, 0.26, 0.55)
     poster_text(ctx, "TRAPPED", W * 0.46, H * 0.145, 190 * U, CORAL, W * 0.80)
@@ -59,31 +71,33 @@ def ov_hook(ctx, t, d):
 _hook = clip_scene("hook", ov_hook, push=0.03, punch=0.0, cover_t=0.4)
 
 def sc_wound(ctx, t, d):
-    still(ctx, "key_wound.png", t, d, 1.02, 1.12, 0.45, 0.42)
     T = S0("wound") + t
-    scrim(ctx, 0.20, 0.45)
-    pill(ctx, "AS THICK AS A LEG", W * 0.46, H * 0.120, GOLD, 50, 1.0, prog(T, WT("rope") - 0.1, WT("rope") + 0.3))
-    tag(ctx, y=0.175)
+    if T < WT("she", 0) - 0.12:                  # la nageoire entaillée
+        still(ctx, "key_wound.png", t, d, 1.02, 1.12, 0.45, 0.42)
+        scrim(ctx, 0.20, 0.45)
+        pill(ctx, "AS THICK AS A LEG", W * 0.46, H * 0.120, GOLD, 50, 1.0, prog(T, WT("rope") - 0.1, WT("rope") + 0.3))
+        tag(ctx, y=0.175)
+    else:                                         # « She couldn't free herself. »
+        still(ctx, "key_hook.png", t, d, 1.15, 1.30, 0.52, 0.56)
+        tag(ctx)
 
-def _stuck(ctx, t, d):
-    still(ctx, "key_hook.png", t, d, 1.15, 1.32, 0.52, 0.56)
-    tag(ctx)
-
-def ov_cut(ctx, t, d): tag(ctx)
+def ov_cut(ctx, t, d): rescue_clock(ctx, S0("cut") + t); tag(ctx)
 _cut = clip_scene("cut", ov_cut, push=0.04, punch=0.0)
 
-def ov_stay(ctx, t, d):
-    T = S0("stay") + t
-    k = prog(T, WT("stayed") - 0.1, WT("minutes") + 0.4)
-    if k > 0:
-        glow(ctx, W * 0.46, H * 0.62, 140 * U, GOLD, 0.30)
-        poster_text(ctx, f"{int(round(30 * k))} MIN", W * 0.46, H * 0.62, 120 * U, GOLD)
-    tag(ctx)
+def ov_stay(ctx, t, d): rescue_clock(ctx, S0("stay") + t); tag(ctx)
 _stay = clip_scene("stay", ov_stay, push=0.06, punch=0.0)
+
+def ov_snap(ctx, t, d):
+    T = S0("snap") + t
+    rescue_clock(ctx, T)
+    kb = prog(T, WT("gave") - 0.1, WT("way") + 0.5)
+    if kb > 0: glow(ctx, W * 0.50, H * 0.42, W * 0.9 * ease(kb), (1.0, 1.0, 0.95), 0.40 * (1 - 0.5 * kb))
+    tag(ctx)
+_snap = clip_scene("snap", ov_snap, push=0.05, punch=0.0)
 
 def ov_free(ctx, t, d):
     T = S0("free") + t
-    kb = prog(T, WT("free") - 0.15, WT("free") + 0.8)
+    kb = prog(T, WT("free", 1) - 0.15, WT("free", 1) + 0.8)
     if kb > 0: glow(ctx, W * 0.50, H * 0.25, W * 0.9 * ease(kb), (0.9, 1.0, 1.0), 0.30 * (1 - 0.6 * kb))
     tag(ctx)
 _free = clip_scene("free", ov_free, push=0.03, punch=0.0)
@@ -99,8 +113,8 @@ def sc_count(ctx, t, d):
         cta_lines(ctx, ("Follow Factora for more", "animal mysteries."), W * 0.46, (H * 0.205, H * 0.237), 54, kc)
     tag(ctx, y=0.290 if kc > 0 else 0.175)
 
-SCENES = dict(hook=_hook, wound=sc_wound, stuck=_stuck, cut=_cut, stay=_stay, free=_free, count=sc_count)
-SHORT_SCENES = ["hook", "wound", "stuck", "cut", "stay", "free", "count"]
+SCENES = dict(hook=_hook, wound=sc_wound, cut=_cut, stay=_stay, snap=_snap, free=_free, count=sc_count)
+SHORT_SCENES = ["hook", "wound", "cut", "stay", "snap", "free", "count"]
 
 def cover(ctx):
     """Miniature : l'image de l'accroche, « TRAPPED », le bandeau « SHE DIDN'T SWIM AWAY », la mention « Illustration »."""
