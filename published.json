@@ -963,8 +963,8 @@
    "langue": "en",
    "long_id": null,
    "short_id": "Z81hQPpo0zw",
-   "status": "private",
-   "thumbnail_set": false,
+   "status": "public",
+   "thumbnail_set": true,
    "theme": "why",
    "playlist_item": "ajouté (why)",
    "urls": {
@@ -976,7 +976,9 @@
    "instagram": "manuel (Nazik)",
    "facebook": "manuel (Nazik)",
    "x": "manuel (Nazik)",
-   "note": "Publication publique demandée par Nazik le 2026-11-22. Mention IA dans la description seulement (pas à l'écran, demande de Nazik) ; pas de containsSyntheticMedia (décision du 2026-11-17)."
+   "note": "Publication publique demandée par Nazik le 2026-11-22. Mention IA dans la description seulement (pas à l'écran, demande de Nazik) ; pas de containsSyntheticMedia (décision du 2026-11-17).",
+   "public_date": "2026-11-22",
+   "thumbnail_note": "short_cover_yt.jpg posée après processingStatus=succeeded ; réponse avec shortsAspectRatio + maxres"
   }
  ]
 }
