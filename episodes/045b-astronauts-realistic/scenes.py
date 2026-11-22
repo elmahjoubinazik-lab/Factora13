@@ -271,7 +271,7 @@ T_BONES = WT("it's") if WT("it's") < 1e8 else WT("not") - 0.25
 T_BACK = _TL["back"]["start"]; T_END0 = _TL["end"]["start"]; T_CTA = END_T - 2.5
 def master(ctx, T):
     space_bg(ctx, T, earth=False)
-    tagx = "AI illustration"
+    tagx = "Illustration"
     if T < T_KELLY:                                            # 1. accroche : même astronaute, EARTH / SPACE
         ext = 0.93 * ease(prog(T, WT("taller") - 0.1, WT("taller") + 0.7))
         compare(ctx, T, ext)
@@ -283,7 +283,7 @@ def master(ctx, T):
     elif T < T_WHY:                                            # 2. Scott Kelly (illustration)
         kelly_shot(ctx, T, T_KELLY)
     elif T < T_NASA:                                           # 3. colonne : charge sur Terre → moins de charge en microgravité
-        tagx = "Simplified AI illustration"
+        tagx = "Simplified illustration"
         t_mg = WT("microgravity"); t_un = WT("unloaded"); t_st = WT("straighten")
         arrows = 1 - prog(T, t_un - 0.1, t_un + 0.6)
         m = ease(prog(T, t_st - 0.1, t_st + 1.6))
@@ -294,7 +294,7 @@ def master(ctx, T):
         k3 = prog(T, WT("three") - 0.05, WT("three") + 0.3)
         if k3 > 0: pill_txt(ctx, "UP TO 3%", (WIN_R[0] + WIN_R[1]) / 2, H * 0.203, CYAN, 50, k3, fill=True)
     elif T < T_BACK:                                           # 5. pas une croissance des os
-        tagx = "Simplified AI illustration"
+        tagx = "Simplified illustration"
         gv = prog(T, WT("bones") - 0.4, WT("bones"))
         spine_panel(ctx, T, 1.0, 0.0, "MICROGRAVITY", glow_v=gv, show_ref=1.0)
         kb = prog(T, WT("growth") - 0.1, WT("growth") + 0.3)
