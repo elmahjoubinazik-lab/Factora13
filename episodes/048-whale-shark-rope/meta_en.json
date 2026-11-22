@@ -28,7 +28,7 @@
   }
  },
  "theme": "animal_mysteries",
- "ai_generated": false,
+ "ai_generated": true,
  "series": "Animal Mystery",
  "test": "S1-image1",
  "title": "One Borrowed Knife Saved a Whale Shark 🦈",
@@ -58,7 +58,7 @@
   "Hawaii DLNR, Sharks: fins & swimming — https://dlnr.hawaii.gov/sharks/?p=327",
   "Save Our Seas Foundation, Whale shark (IUCN Endangered since 2016) — https://saveourseas.com/worldofsharks/species/whale-shark"
  ],
- "disclaimer": "Original illustrations based on news reports (no footage from the rescue is used). Synthetic voice and AI-generated music.",
+ "disclaimer": "Illustration: AI-generated images, not footage of the actual rescue. Synthetic voice and AI-generated music.",
  "runway_music_task": "617eda20-cd45-476a-8d12-6604df62e560",
  "comment": "Would you have jumped in to help? 🦈",
  "tags": [
@@ -82,9 +82,46 @@
   "factora shorts",
   "factora science"
  ],
- "tiktok_text": "Off Waikiki, divers found a young whale shark, the biggest fish on Earth, trapped in a rope that was cutting into her fins 🦈 Sharks can't swim backward, so she couldn't free herself. A diver borrowed a knife from a nearby boat, and she stayed right there at the surface for the 30 minutes it took to cut her free.\n\nWould you have jumped in to help? 👇\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nOriginal illustrations based on news reports. Synthetic voice and AI-generated music.\n\n#whaleshark #ocean #animalrescue #sciencetok #learnontiktok #factora",
- "instagram_text": "Off Waikiki, divers found a young whale shark, the biggest fish on Earth, trapped in a rope that was cutting into her fins 🦈 Sharks can't swim backward, so she couldn't free herself. A diver borrowed a knife from a nearby boat, and she stayed right there at the surface for the 30 minutes it took to cut her free.\n\nWould you have jumped in to help? 👇\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nOriginal illustrations based on news reports. Synthetic voice and AI-generated music.\n\n#whaleshark #ocean #animalrescue #science #learnoninstagram",
- "facebook_text": "Off Waikiki, divers found a young whale shark, the biggest fish on Earth, trapped in a rope that was cutting into her fins 🦈 Sharks can't swim backward, so she couldn't free herself. A diver borrowed a knife from a nearby boat, and she stayed right there at the surface for the 30 minutes it took to cut her free.\n\nWould you have jumped in to help? 👇\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nOriginal illustrations based on news reports. Synthetic voice and AI-generated music.\n\n#whaleshark #ocean #animalrescue",
+ "tiktok_text": "Off Waikiki, divers found a young whale shark, the biggest fish on Earth, trapped in a rope that was cutting into her fins 🦈 Sharks can't swim backward, so she couldn't free herself. A diver borrowed a knife from a nearby boat, and she stayed right there at the surface for the 30 minutes it took to cut her free.\n\nWould you have jumped in to help? 👇\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nIllustration: AI-generated images, not footage of the actual rescue. Synthetic voice and AI-generated music.\n\n#whaleshark #ocean #animalrescue #sciencetok #learnontiktok #factora",
+ "instagram_text": "Off Waikiki, divers found a young whale shark, the biggest fish on Earth, trapped in a rope that was cutting into her fins 🦈 Sharks can't swim backward, so she couldn't free herself. A diver borrowed a knife from a nearby boat, and she stayed right there at the surface for the 30 minutes it took to cut her free.\n\nWould you have jumped in to help? 👇\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nIllustration: AI-generated images, not footage of the actual rescue. Synthetic voice and AI-generated music.\n\n#whaleshark #ocean #animalrescue #science #learnoninstagram",
+ "facebook_text": "Off Waikiki, divers found a young whale shark, the biggest fish on Earth, trapped in a rope that was cutting into her fins 🦈 Sharks can't swim backward, so she couldn't free herself. A diver borrowed a knife from a nearby boat, and she stayed right there at the surface for the 30 minutes it took to cut her free.\n\nWould you have jumped in to help? 👇\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nIllustration: AI-generated images, not footage of the actual rescue. Synthetic voice and AI-generated music.\n\n#whaleshark #ocean #animalrescue",
  "x_text": "A rope was cutting into a young whale shark's fins off Waikiki 🦈\n\nA diver borrowed a knife. She stayed at the surface for the 30 minutes it took to cut her free.\n\nWould you have jumped in? 👇\n\n#whaleshark #animalrescue",
- "x_reply": "Full video on YouTube 👇 {LIEN}"
+ "x_reply": "Full video on YouTube 👇 {LIEN}",
+ "clips": [
+  {
+   "name": "hook",
+   "file": "hook.mp4",
+   "from": 0.0,
+   "to": 2.7
+  },
+  {
+   "name": "cut",
+   "file": "cut.mp4",
+   "from": 0.0,
+   "to": 5.0
+  },
+  {
+   "name": "stay",
+   "file": "eye.mp4",
+   "from": 0.0,
+   "to": 5.0
+  },
+  {
+   "name": "free",
+   "file": "free.mp4",
+   "from": 0.0,
+   "to": 4.4
+  }
+ ],
+ "runway_clips": {
+  "key_hook": "7eb1d0cf-dbb4-4974-81c5-825984b3b5b8",
+  "key_wound": "20a57d53-fbcb-436c-b1dc-45b084f0f91a",
+  "key_cut": "8c829e5c-734d-4f67-8d53-86a0997152f6",
+  "key_eye": "0805466d-337d-462a-a283-a76519f03cc7",
+  "key_free": "3496ea95-62e7-4986-aff2-a02c90af2d53",
+  "hook": "1b62030a-4aa8-4c14-99f4-99b3c1bfeaae",
+  "cut": "b57dadfd-1af7-45b4-9e91-5d5bd7f00fbb",
+  "stay": "23ca3bfb-aa04-47a4-9e79-4fa88e134287",
+  "free": "34b12881-57a8-4b19-b964-19582d0aff12"
+ }
 }

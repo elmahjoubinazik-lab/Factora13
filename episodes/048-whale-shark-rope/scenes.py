@@ -65,8 +65,9 @@ def sc_wound(ctx, t, d):
     pill(ctx, "AS THICK AS A LEG", W * 0.46, H * 0.120, GOLD, 50, 1.0, prog(T, WT("rope") - 0.1, WT("rope") + 0.3))
     tag(ctx, y=0.175)
 
-def ov_stuck(ctx, t, d): tag(ctx)
-_stuck = clip_scene("stuck", ov_stuck, push=0.05, punch=0.0)
+def _stuck(ctx, t, d):
+    still(ctx, "key_hook.png", t, d, 1.15, 1.32, 0.52, 0.56)
+    tag(ctx)
 
 def ov_cut(ctx, t, d): tag(ctx)
 _cut = clip_scene("cut", ov_cut, push=0.04, punch=0.0)
