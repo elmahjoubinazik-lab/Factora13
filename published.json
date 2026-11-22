@@ -1114,7 +1114,7 @@
    "long_id": null,
    "short_id": "tsOISKXBrcw",
    "status": "private",
-   "thumbnail_set": false,
+   "thumbnail_set": true,
    "theme": "animal_mysteries",
    "test": "S1-quiz-format",
    "urls": {
@@ -1128,7 +1128,7 @@
    "x": "manuel (Nazik)",
    "note": "Exception à la pause des vidéos longues demandée par Nazik (2026-11-22) : test du format quiz de 20 questions en Short (2 min 34). Voix Kokoro (ElevenLabs épuisé). Nazik passe la vidéo en public ce soir.",
    "duree_s": 154.5,
-   "thumbnail_note": "short_cover_yt.jpg posée après le traitement (shortsAspectRatio et maxres présents)",
+   "thumbnail_note": "short_cover_yt.jpg (v2) posée après le traitement (shortsAspectRatio et maxres présents)",
    "playlist_item": "ajouté (animal_mysteries)",
    "comment": "à publier par Nazik après le passage en public (vidéo privée : pas d'API)",
    "ancienne_version_privee": "_XwniJqHEME (v1, chouette vectorielle, jamais publique, 0 vue : laissée en privé, à supprimer si Nazik le confirme)",
