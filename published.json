@@ -1051,8 +1051,8 @@
    "langue": "en",
    "long_id": null,
    "short_id": "14Nf9GaRO70",
-   "status": "private",
-   "thumbnail_set": false,
+   "status": "programmé",
+   "thumbnail_set": true,
    "theme": "animal_mysteries",
    "playlist_item": "ajouté (animal_mysteries)",
    "test": "S1-image1",
@@ -1065,7 +1065,10 @@
    "instagram": "manuel (Nazik)",
    "facebook": "manuel (Nazik)",
    "x": "manuel (Nazik)",
-   "note": "Texte révisé (leçon explicite) et titre n° 1 choisis par Nazik ; miniature dessinée (yeux verrouillés). Nazik : « La chouette, poste-la cette nuit » (2026-11-22) → sortie programmée à 18 h 30 New York (00 h 30 en Suisse)."
+   "note": "Texte révisé (leçon explicite) et titre n° 1 choisis par Nazik ; miniature dessinée (yeux verrouillés). Nazik : « La chouette, poste-la cette nuit » (2026-11-22) → sortie programmée à 18 h 30 New York (00 h 30 en Suisse).",
+   "publish_at": "2026-11-22T23:30:00Z (18 h 30 New York, 00 h 30 Suisse)",
+   "thumbnail_note": "short_cover_yt.jpg posée après le traitement (shortsAspectRatio et maxres présents)",
+   "comment": "à publier par l'API juste après la sortie (rappel programmé à 23:40 UTC)"
   }
  ]
 }
