@@ -1041,6 +1041,31 @@
    "public_date": "2026-11-22",
    "comment_id": "UgwxtIuTGAotQ-73V2t4AaABAg",
    "thumbnail_note": "short_cover_yt.jpg posée après le traitement (shortsAspectRatio et maxres présents)"
+  },
+  {
+   "episode": "046",
+   "topic": "Owls Can't Move Their Eyes (chouette : la tête tourne de 270°, semaine 1 de la stratégie)",
+   "dir": "episodes/046-owl-head-turn",
+   "date": "2026-11-22",
+   "format": "short_seul",
+   "langue": "en",
+   "long_id": null,
+   "short_id": "14Nf9GaRO70",
+   "status": "private",
+   "thumbnail_set": false,
+   "theme": "animal_mysteries",
+   "playlist_item": "ajouté (animal_mysteries)",
+   "test": "S1-image1",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/9a752e56ce21e46ada2fc9b90fbf6f7db505abef/ep046/owls-can-t-move-their-eyes.mp4",
+    "short_cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/9a752e56ce21e46ada2fc9b90fbf6f7db505abef/ep046/short_cover.jpg",
+    "short_cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/9a752e56ce21e46ada2fc9b90fbf6f7db505abef/ep046/short_cover_yt.jpg"
+   },
+   "tiktok": "manuel (Nazik)",
+   "instagram": "manuel (Nazik)",
+   "facebook": "manuel (Nazik)",
+   "x": "manuel (Nazik)",
+   "note": "Texte révisé (leçon explicite) et titre n° 1 choisis par Nazik ; miniature dessinée (yeux verrouillés). Nazik : « La chouette, poste-la cette nuit » (2026-11-22) → sortie programmée à 18 h 30 New York (00 h 30 en Suisse)."
   }
  ]
 }

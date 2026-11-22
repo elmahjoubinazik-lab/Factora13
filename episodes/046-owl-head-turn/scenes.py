@@ -846,5 +846,30 @@ SHORT_SCENES = ["hook", "eyes", "bones", "blood", "close"]
 SCENES = dict(hook=sc_hook, eyes=sc_eyes, bones=sc_bones, blood=sc_blood, close=sc_close)
 
 def cover(ctx):
-    """Affiche = l'image 1 (règle de la semaine 1 : la miniature YouTube est l'image 1), sans sous-titre."""
-    master(ctx, T_COVER)
+    """Miniature / affiche (2026-11-22, titre « Owls Can't Move Their Eyes ») : la chouette de face, des cadenas sur les deux
+    yeux, la question qui donne envie de voir la suite ; tout l'essentiel entre 14 % et 86 % de la hauteur."""
+    T = 0.9
+    night_bg(ctx, T)
+    sc, ox, oy = 0.82, W * 0.46, H * 0.69
+    ctx.save(); ctx.translate(ox, oy); ctx.scale(sc, sc); ctx.translate(-ox, -oy)
+    owl_body(ctx, T)
+    ctx.restore()
+    branch(ctx, T)
+    ctx.save(); ctx.translate(ox, oy); ctx.scale(sc, sc); ctx.translate(-ox, -oy)
+    owl_head(ctx, T, 0.0)
+    for sd in (-1, 1):
+        ex, ey, ez = V(0.40 * sd, 0.04, 0.0)
+        ctx.save(); ctx.translate(ex, ey - RX * 0.38); glow(ctx, 0, 0, 120 * U, GOLD, 0.55); lock_icon(ctx, 0, 0, 84 * U, 1.0); ctx.restore()
+    ctx.restore()
+    foreground(ctx, T)
+    g = cairo.LinearGradient(0, 0, 0, H * 0.30); g.add_color_stop_rgba(0, 0.01, 0.01, 0.04, 0.70); g.add_color_stop_rgba(1, 0, 0, 0, 0)
+    ctx.set_source(g); ctx.rectangle(0, 0, W, H * 0.30); ctx.fill()
+    poster_text(ctx, "ITS EYES", W * 0.46, H * 0.165, 150 * U, WHITE, W * 0.84)
+    poster_text(ctx, "CAN'T MOVE", W * 0.46, H * 0.228, 150 * U, GOLD, W * 0.84)
+    txt = "HOW DOES IT LOOK AROUND?"; fs = 58 * U; font(ctx, fs)
+    if ctx.text_extents(txt).width > W * 0.74: fs *= W * 0.74 / ctx.text_extents(txt).width; font(ctx, fs)
+    w_ = ctx.text_extents(txt).width + 80 * U; h_ = fs * 1.9
+    y_ = H * 0.775
+    glow(ctx, W * 0.46, y_, w_ * 0.6, GOLD, 0.30)
+    rrect(ctx, W * 0.46 - w_ / 2, y_ - h_ / 2, w_, h_, h_ / 2); rgba(ctx, GOLD, 0.97); ctx.fill()
+    text(ctx, txt, W * 0.46, y_, fs, DARK)
