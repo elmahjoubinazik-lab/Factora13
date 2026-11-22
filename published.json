@@ -1112,27 +1112,30 @@
    "format": "short_seul",
    "langue": "en",
    "long_id": null,
-   "short_id": "tsOISKXBrcw",
+   "short_id": "WJjQ-l5Yiek",
    "status": "private",
-   "thumbnail_set": true,
+   "thumbnail_set": false,
    "theme": "animal_mysteries",
    "test": "S1-quiz-format",
    "urls": {
-    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/8ea2fb900b91e6f302667cba6c6f7bf3e0b05bb6/ep049/animal-quiz-15-20-makes-you-a-genius.mp4",
-    "short_cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/8ea2fb900b91e6f302667cba6c6f7bf3e0b05bb6/ep049/short_cover.jpg",
-    "short_cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/8ea2fb900b91e6f302667cba6c6f7bf3e0b05bb6/ep049/short_cover_yt.jpg"
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/74145a2f7e312a672959e763f160e2ae3a5cc2b9/ep049/animal-quiz-15-20-makes-you-a-genius.mp4",
+    "short_cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/74145a2f7e312a672959e763f160e2ae3a5cc2b9/ep049/short_cover.jpg",
+    "short_cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/74145a2f7e312a672959e763f160e2ae3a5cc2b9/ep049/short_cover_yt.jpg"
    },
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
    "facebook": "manuel (Nazik)",
    "x": "manuel (Nazik)",
    "note": "Exception à la pause des vidéos longues demandée par Nazik (2026-11-22) : test du format quiz de 20 questions en Short (2 min 34). Voix Kokoro (ElevenLabs épuisé). Nazik passe la vidéo en public ce soir.",
-   "duree_s": 154.5,
+   "duree_s": 151.0,
    "thumbnail_note": "short_cover_yt.jpg (v2) posée après le traitement (shortsAspectRatio et maxres présents)",
    "playlist_item": "ajouté (animal_mysteries)",
    "comment": "à publier par Nazik après le passage en public (vidéo privée : pas d'API)",
-   "ancienne_version_privee": "_XwniJqHEME (v1, chouette vectorielle, jamais publique, 0 vue : laissée en privé, à supprimer si Nazik le confirme)",
-   "version": "v2 : chouette Runway au style du logo, fond nébuleuse de la bannière, finition couleurs légère"
+   "version": "v3 : chouette Runway au style du logo, fond nébuleuse, voix masculine Puck (choix de Nazik)",
+   "anciennes_versions_privees": [
+    "_XwniJqHEME (v1, chouette vectorielle, voix féminine)",
+    "tsOISKXBrcw (v2, chouette Runway, voix féminine)"
+   ]
   }
  ]
 }
