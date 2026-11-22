@@ -1040,7 +1040,18 @@
    "note": "Sujet proposé par Nazik le 2026-11-22 (photo d'un chemin forestier : feuilles de hêtre et de chêne). Titre choisi : n° 1. Miniature dessinée (feuille mordue + « WHO ATE THIS LEAF? »). Publication demandée « maintenant » le 2026-11-22.",
    "public_date": "2026-11-22",
    "comment_id": "UgwxtIuTGAotQ-73V2t4AaABAg",
-   "thumbnail_note": "short_cover_yt.jpg posée après le traitement (shortsAspectRatio et maxres présents)"
+   "thumbnail_note": "short_cover_yt.jpg posée après le traitement (shortsAspectRatio et maxres présents)",
+   "stats": [
+    {
+     "date": "2026-11-22",
+     "age": "6 h 30",
+     "source": "API YouTube (~22h20 heure suisse)",
+     "vues": 379,
+     "jaime": 11,
+     "commentaires": 1,
+     "note": "encore en hausse ; taux de j'aime 2,9 % (wombat : 0,7 %)"
+    }
+   ]
   },
   {
    "episode": "046",
