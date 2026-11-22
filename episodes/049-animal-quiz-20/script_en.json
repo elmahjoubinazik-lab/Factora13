@@ -1,0 +1,277 @@
+[
+ {
+  "scene": "intro",
+  "text": [
+   "Twenty animal questions!",
+   "Get fifteen or more, and you're a genius.",
+   "Three seconds each. Need more time? Just pause."
+  ]
+ },
+ {
+  "scene": "q01",
+  "text": [
+   "What's the tallest animal on Earth?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a01",
+  "text": [
+   "The giraffe!"
+  ]
+ },
+ {
+  "scene": "q02",
+  "text": [
+   "What's the fastest land animal?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a02",
+  "text": [
+   "The cheetah!"
+  ]
+ },
+ {
+  "scene": "q03",
+  "text": [
+   "What's a baby kangaroo called?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a03",
+  "text": [
+   "A joey!"
+  ]
+ },
+ {
+  "scene": "q04",
+  "text": [
+   "What's the biggest fish in the ocean?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a04",
+  "text": [
+   "The whale shark!"
+  ]
+ },
+ {
+  "scene": "q05",
+  "text": [
+   "How many hearts does an octopus have?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a05",
+  "text": [
+   "Three!"
+  ]
+ },
+ {
+  "scene": "q06",
+  "text": [
+   "Which mammal can truly fly?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a06",
+  "text": [
+   "The bat!"
+  ]
+ },
+ {
+  "scene": "q07",
+  "text": [
+   "Which bird can turn its head two hundred seventy degrees?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a07",
+  "text": [
+   "The owl! That's me."
+  ]
+ },
+ {
+  "scene": "q08",
+  "text": [
+   "What color is a polar bear's skin?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a08",
+  "text": [
+   "Black!"
+  ]
+ },
+ {
+  "scene": "q09",
+  "text": [
+   "Which animal poops cubes?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a09",
+  "text": [
+   "The wombat!"
+  ]
+ },
+ {
+  "scene": "q10",
+  "text": [
+   "What's a group of crows called?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a10",
+  "text": [
+   "A murder!"
+  ]
+ },
+ {
+  "scene": "q11",
+  "text": [
+   "Which bird can fly backward?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a11",
+  "text": [
+   "The hummingbird!"
+  ]
+ },
+ {
+  "scene": "q12",
+  "text": [
+   "What color are baby flamingos?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a12",
+  "text": [
+   "Gray!"
+  ]
+ },
+ {
+  "scene": "q13",
+  "text": [
+   "Which continent has no ants?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a13",
+  "text": [
+   "Antarctica!"
+  ]
+ },
+ {
+  "scene": "q14",
+  "text": [
+   "How many eyes does a bee have?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a14",
+  "text": [
+   "Five!"
+  ]
+ },
+ {
+  "scene": "q15",
+  "text": [
+   "Name a mammal that lays eggs."
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a15",
+  "text": [
+   "The platypus!"
+  ]
+ },
+ {
+  "scene": "q16",
+  "text": [
+   "How many stomach compartments does a cow have?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a16",
+  "text": [
+   "Four!"
+  ]
+ },
+ {
+  "scene": "q17",
+  "text": [
+   "Which animal has fingerprints almost like ours?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a17",
+  "text": [
+   "The koala!"
+  ]
+ },
+ {
+  "scene": "q18",
+  "text": [
+   "What's a group of flamingos called?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a18",
+  "text": [
+   "A flamboyance!"
+  ]
+ },
+ {
+  "scene": "q19",
+  "text": [
+   "Which mammal has the longest pregnancy?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a19",
+  "text": [
+   "The elephant! Nearly two years."
+  ]
+ },
+ {
+  "scene": "q20",
+  "text": [
+   "Which deep-sea fish has a see-through head?"
+  ],
+  "pause": 2.6
+ },
+ {
+  "scene": "a20",
+  "text": [
+   "The barreleye fish!"
+  ]
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "So, what's your score?",
+   "Comment it below, and follow Factora for more!"
+  ]
+ }
+]

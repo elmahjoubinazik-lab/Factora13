@@ -394,6 +394,7 @@ for i, s in enumerate(segs):
     caps = [(c[0] + off, c[1] + off, c[2], [(u + off, v + off) for u, v in c[3]] if len(c) > 3 else None)
             for sent in s["sents"] for c in chunks(sent)]
     caps = [(c[0], min(c[1], caps[j + 1][0]) if j + 1 < len(caps) else c[1], c[2], c[3]) for j, c in enumerate(caps)]   # jamais 2 sous-titres à la fois
+    if _cm.get("captions") is False: caps = []   # meta « captions » = false : pas de sous-titres (quiz : la question est déjà écrite en grand, ép. 049)
     plan.append(dict(scene=s["scene"], start=t0, end=t0 + (b - a), caps=caps))
     t0 += b - a
 # vidéo longue : la conclusion dure au moins 20 s (durée minimale de l'écran de fin YouTube)
@@ -615,7 +616,7 @@ def music_hype(total, sr=SR, bpm=140):
     return out * fade * 0.30   # ~12 dB sous la voix
 
 def sfx_track(total, events, sr=SR):
-    """Bruitages : thunder (coup de tonnerre), heartbeat (battements qui accélèrent, dur), riser, whoosh, ping (sonar), shimmer (scintillement), hit (impact grave)."""
+    """Bruitages : thunder (coup de tonnerre), heartbeat (battements qui accélèrent, dur), riser, whoosh, ping (sonar), shimmer (scintillement), tick (chrono), ding (bonne réponse), hit (impact grave)."""
     n = int(total * sr); out = np.zeros(n, np.float32); rng = np.random.default_rng(11)
     for ev in events:
         i0 = int(ev["t"] * sr); kind = ev["type"]
@@ -656,6 +657,16 @@ def sfx_track(total, events, sr=SR):
                 j = int(i * 0.16 * sr); m = L - j
                 seg[j:] += (np.sin(2 * np.pi * f * tl[:m]) * np.exp(-tl[:m] / 0.45)).astype(np.float32)
             seg *= 0.10 * float(ev.get("vol", 1.0))
+        elif kind == "tick":   # tic de chronomètre (ép. 049, quiz) : clic de bois bref et aigu
+            L = int(0.09 * sr); tl = np.arange(L) / sr
+            seg = ((np.sin(2 * np.pi * 1900 * tl) + 0.5 * np.sin(2 * np.pi * 3100 * tl)) * np.exp(-tl / 0.012) * np.minimum(1, tl / 0.001)).astype(np.float32)
+            seg *= 0.30 * float(ev.get("vol", 1.0))
+        elif kind == "ding":   # bonne réponse (ép. 049, quiz) : deux notes claires montantes
+            L = int(0.9 * sr); tl = np.arange(L) / sr; seg = np.zeros(L, np.float32)
+            for dl, f in ((0.0, 1318.5), (0.09, 1760.0)):
+                j = int(dl * sr); m = L - j
+                seg[j:] += (np.sin(2 * np.pi * f * tl[:m]) * np.exp(-tl[:m] / 0.22) * np.minimum(1, tl[:m] / 0.003)).astype(np.float32)
+            seg *= 0.22 * float(ev.get("vol", 1.0))
         else:  # hit
             L = int(1.5 * sr); seg = (np.sin(2 * np.pi * 45 * np.arange(L) / sr) * np.exp(-np.arange(L) / (0.35 * sr))).astype(np.float32)
         j1 = min(n, i0 + len(seg))

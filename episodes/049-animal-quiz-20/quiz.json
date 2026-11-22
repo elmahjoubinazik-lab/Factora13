@@ -1,0 +1,162 @@
+[
+ {
+  "n": 1,
+  "q": "What's the tallest animal on Earth?",
+  "a": "GIRAFFE",
+  "list": "Giraffe",
+  "q_icon": "📏",
+  "a_icon": "🦒"
+ },
+ {
+  "n": 2,
+  "q": "What's the fastest land animal?",
+  "a": "CHEETAH",
+  "list": "Cheetah",
+  "q_icon": "⚡",
+  "a_icon": "🐆"
+ },
+ {
+  "n": 3,
+  "q": "What's a baby kangaroo called?",
+  "a": "JOEY",
+  "list": "Joey",
+  "q_icon": "🦘",
+  "a_icon": "🦘"
+ },
+ {
+  "n": 4,
+  "q": "What's the biggest fish in the ocean?",
+  "a": "WHALE SHARK",
+  "list": "Whale shark",
+  "q_icon": "🌊",
+  "a_icon": "🦈"
+ },
+ {
+  "n": 5,
+  "q": "How many hearts does an octopus have?",
+  "a": "THREE",
+  "list": "Three",
+  "q_icon": "🐙",
+  "a_icon": "❤️"
+ },
+ {
+  "n": 6,
+  "q": "Which mammal can truly fly?",
+  "a": "BAT",
+  "list": "Bat",
+  "q_icon": "☁️",
+  "a_icon": "🦇"
+ },
+ {
+  "n": 7,
+  "q": "Which bird can turn its head 270°?",
+  "a": "OWL",
+  "list": "Owl",
+  "q_icon": "🔄",
+  "a_icon": "🦉"
+ },
+ {
+  "n": 8,
+  "q": "What color is a polar bear's skin?",
+  "a": "BLACK",
+  "list": "Black",
+  "q_icon": "❄️",
+  "a_icon": "🐻‍❄️"
+ },
+ {
+  "n": 9,
+  "q": "Which animal poops cubes?",
+  "a": "WOMBAT",
+  "list": "Wombat",
+  "q_icon": "🎲",
+  "a_icon": ""
+ },
+ {
+  "n": 10,
+  "q": "What's a group of crows called?",
+  "a": "A MURDER",
+  "list": "A murder",
+  "q_icon": "🐦",
+  "a_icon": "🐦‍⬛"
+ },
+ {
+  "n": 11,
+  "q": "Which bird can fly backward?",
+  "a": "HUMMINGBIRD",
+  "list": "Hummingbird",
+  "q_icon": "⏪",
+  "a_icon": "🌺"
+ },
+ {
+  "n": 12,
+  "q": "What color are baby flamingos?",
+  "a": "GRAY",
+  "list": "Gray",
+  "q_icon": "🦩",
+  "a_icon": "🐣"
+ },
+ {
+  "n": 13,
+  "q": "Which continent has no ants?",
+  "a": "ANTARCTICA",
+  "list": "Antarctica",
+  "q_icon": "🐜",
+  "a_icon": "🐧"
+ },
+ {
+  "n": 14,
+  "q": "How many eyes does a bee have?",
+  "a": "FIVE",
+  "list": "Five",
+  "q_icon": "🐝",
+  "a_icon": "👀"
+ },
+ {
+  "n": 15,
+  "q": "Name a mammal that lays eggs.",
+  "a": "PLATYPUS",
+  "list": "Platypus",
+  "q_icon": "🥚",
+  "a_icon": ""
+ },
+ {
+  "n": 16,
+  "q": "How many stomach compartments does a cow have?",
+  "a": "FOUR",
+  "list": "Four",
+  "q_icon": "🐄",
+  "a_icon": ""
+ },
+ {
+  "n": 17,
+  "q": "Which animal has fingerprints almost like ours?",
+  "a": "KOALA",
+  "list": "Koala",
+  "q_icon": "👆",
+  "a_icon": "🐨"
+ },
+ {
+  "n": 18,
+  "q": "What's a group of flamingos called?",
+  "a": "A FLAMBOYANCE",
+  "list": "A flamboyance",
+  "q_icon": "🦩",
+  "a_icon": "✨"
+ },
+ {
+  "n": 19,
+  "q": "Which mammal has the longest pregnancy?",
+  "a": "ELEPHANT",
+  "list": "Elephant",
+  "q_icon": "⏳",
+  "a_icon": "🐘"
+ },
+ {
+  "n": 20,
+  "q": "Which deep-sea fish has a see-through head?",
+  "a": "BARRELEYE",
+  "list": "Barreleye",
+  "q_icon": "🐟",
+  "a_icon": "👀"
+ }
+]
