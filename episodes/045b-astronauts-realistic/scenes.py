@@ -473,3 +473,19 @@ def spine_panel(ctx, T, m, arrows, state_lab, glow_v=0.0, show_ref=0.0):
     ctx.restore()
     rrect(ctx, x0, WY0, x1 - x0, wh, 40 * U); ctx.set_line_width(5 * U); rgba(ctx, (0.80, 0.90, 1.0), 0.5); ctx.stroke()
     pill_txt(ctx, state_lab, W * 0.22, WY0 + 52 * U, GOLD if state_lab == "EARTH" else CYAN, 34)
+
+
+def cover(ctx):
+    """Affiche réaliste (titre choisi par Nazik : « Astronauts Come Back Taller. But Why? ») : le sujet, pas la réponse
+    (ni colonne, ni flèche) ; titre et bandeau entre 14 % et 86 % de la hauteur."""
+    space_bg(ctx, 2.6, earth=False)
+    ctx.save(); ctx.translate(0, H * 0.080); compare(ctx, 2.6, 1.0); ctx.restore()
+    g = cairo.LinearGradient(0, 0, 0, H * 0.30); g.add_color_stop_rgba(0, 0.01, 0.01, 0.04, 0.65); g.add_color_stop_rgba(1, 0, 0, 0, 0)
+    ctx.set_source(g); ctx.rectangle(0, 0, W, H * 0.30); ctx.fill()
+    poster_text(ctx, "TALLER", W * 0.46, H * 0.198, 156 * U, WHITE, W * 0.86)
+    poster_text(ctx, "IN SPACE?", W * 0.46, H * 0.268, 156 * U, GOLD, W * 0.86)
+    font(ctx, 70 * U); txt = "BUT WHY?"; w_ = ctx.text_extents(txt).width + 90 * U; h_ = 124 * U
+    y_ = H * 0.805
+    glow(ctx, W * 0.46, y_, w_ * 0.7, GOLD, 0.35)
+    rrect(ctx, W * 0.46 - w_ / 2, y_ - h_ / 2, w_, h_, h_ / 2); rgba(ctx, GOLD, 0.97); ctx.fill()
+    text(ctx, txt, W * 0.46, y_, 70 * U, DARK)
