@@ -322,4 +322,17 @@ SHORT_SCENES = [s["scene"] for s in _TLL]
 SCENES = {s["scene"]: (lambda name: (lambda ctx, t, d: master(ctx, _abs_t(name, t))))(s["scene"]) for s in _TLL}
 
 def cover(ctx):
-    master(ctx, 2.6)
+    """Affiche : le même astronaute EARTH / SPACE, l'écart de taille désigné, la question ; tout entre 14 % et 86 % de H."""
+    space_bg(ctx, 2.6, earth=False)
+    ctx.save(); ctx.translate(0, H * 0.078); compare(ctx, 2.6, 1.0); ctx.restore()
+    g = cairo.LinearGradient(0, 0, 0, H * 0.30); g.add_color_stop_rgba(0, 0.01, 0.01, 0.04, 0.6); g.add_color_stop_rgba(1, 0, 0, 0, 0)
+    ctx.set_source(g); ctx.rectangle(0, 0, W, H * 0.30); ctx.fill()
+    poster_text(ctx, "TALLER", W * 0.46, H * 0.198, 150 * U, WHITE, W * 0.86)
+    poster_text(ctx, "IN SPACE?", W * 0.46, H * 0.266, 150 * U, GOLD, W * 0.86)
+    gy = head_y(1.0) + H * 0.078
+    red_arrow(ctx, W * 0.93, H * 0.232, WIN_R[1] - 60 * U, gy + 8 * U, bend=0.28, width=24)
+    font(ctx, 56 * U); txt = "WHAT HAPPENS TO THE SPINE?"; w_ = ctx.text_extents(txt).width + 70 * U; h_ = 110 * U
+    y_ = H * 0.805
+    glow(ctx, W * 0.46, y_, w_ * 0.6, GOLD, 0.30)
+    rrect(ctx, W * 0.46 - w_ / 2, y_ - h_ / 2, w_, h_, h_ / 2); rgba(ctx, GOLD, 0.97); ctx.fill()
+    text(ctx, txt, W * 0.46, y_, 56 * U, DARK)
