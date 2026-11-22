@@ -1079,7 +1079,7 @@
    "langue": "en",
    "long_id": null,
    "short_id": "Sm25YbgZm1c",
-   "status": "private (upload en cours de réglage)",
+   "status": "programmé",
    "thumbnail_set": false,
    "theme": "animal_mysteries",
    "test": "S1-image1",
@@ -1092,7 +1092,16 @@
    "instagram": "manuel (Nazik)",
    "facebook": "manuel (Nazik)",
    "x": "manuel (Nazik)",
-   "ai_generated": true
+   "ai_generated": true,
+   "publish_at": "2026-11-23T23:30:00Z (18 h 30 New York, mardi 00 h 30 Suisse)",
+   "playlist_item": "ajouté (animal_mysteries)",
+   "contains_synthetic_media": true,
+   "note": "Titre proposé par Nazik ; corrections d'Instinct appliquées. Nazik (2026-11-22) : « tu peux programmer toi-même à cette heure-là » → sortie programmée par l'API.",
+   "comment": "à publier par l'API juste après la sortie (rappel programmé à 23:40 UTC le 23/11)",
+   "title_test": [
+    "One Borrowed Knife Saved a Whale Shark 🦈",
+    "A Whale Shark Stayed to Be Cut Free 🦈"
+   ]
   }
  ]
 }
