@@ -1,0 +1,8 @@
+[
+ {"scene": "hook", "text": ["Go to space.", "Come back taller.", "Seriously."], "pause": 0.2},
+ {"scene": "kelly", "text": ["After nearly a year in orbit, Scott Kelly was reported to be about two inches taller."], "pause": 0.2},
+ {"scene": "why", "text": ["Why?", "In microgravity, the spine is unloaded.", "It can straighten and lengthen, temporarily increasing an astronaut's height."], "pause": 0.2},
+ {"scene": "nasa", "text": ["NASA says the increase can reach three percent.", "It's not a sudden growth spurt in the bones."], "pause": 0.2},
+ {"scene": "back", "text": ["Back on Earth, gravity loads the spine again, and astronauts return to their usual height."], "pause": 0.2},
+ {"scene": "end", "text": ["Space can make you taller.", "It just doesn't let you keep it."], "pause": 0.1}
+]

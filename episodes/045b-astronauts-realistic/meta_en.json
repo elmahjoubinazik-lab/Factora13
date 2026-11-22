@@ -1,0 +1,72 @@
+{
+  "format": "short_seul",
+  "theme": "why",
+  "voix": {
+    "provider": "elevenlabs",
+    "voice_id": "cgSgspJ2msm6clMCkdW9",
+    "voice_name": "Jessica",
+    "model": "eleven_v4",
+    "el_speed": 1.0,
+    "max_pause": 0.5
+  },
+  "hook_text": " ",
+  "fade": 0,
+  "cam": 0,
+  "out_size": "1080x1920",
+  "finish": "photo",
+  "cap_y": 0.712,
+  "cap_cx": 0.46,
+  "cap_maxw": 0.74,
+  "cap_size": 72,
+  "cap_words": 3,
+  "cap_chars": 18,
+  "cap_hold_last": true,
+  "music": "none",
+  "music_file": "rw/music.mp3",
+  "music_gain_db": -17,
+  "ai_generated": true,
+  "runway_music_task": "8cff32bf-5b7b-4d58-965e-3bd0fbbe2d73",
+  "title": "Why Do Astronauts Get Taller in Space?",
+  "short_title": "Why Do Astronauts Get Taller in Space?",
+  "description_short": "Why do astronauts get taller in space? In microgravity, the spine is unloaded. It can straighten and lengthen, temporarily increasing an astronaut's height. NASA says the increase can reach about 3 percent. It's not bone growth, and it doesn't last: back on Earth, gravity loads the spine again and astronauts return to their usual height.\n\nScott Kelly was reported to be about 2 inches taller after nearly a year on the International Space Station. That figure is a reported, approximate case, not a result guaranteed on every mission.\n\nSimplified illustrations: the astronaut is a drawing, not a portrait, and the height difference and spine are shown schematically.\n\nSources:\nhttps://www.nasa.gov/reference/risk-of-spaceflight-induced-bone-changes/\nhttps://www.nasa.gov/image-article/spinal-ultrasound-investigation/\nhttps://www.cnn.com/2016/03/02/us/astronaut-scott-kelly-back-on-earth\n\nOriginal illustrations. Synthetic voice and AI-generated music.\nThink fast. Learn something amazing.\n\n#astronaut #space #humanbody",
+  "hashtags": [
+    "#astronaut",
+    "#space",
+    "#humanbody"
+  ],
+  "comment": "Would you trade a few weeks of extra height for a trip to space? 🚀",
+  "sources": [
+    "NASA — Spinal Ultrasound investigation (astronauts can grow up to 3 percent taller in microgravity; temporary)",
+    "NASA — Risk of spaceflight-induced bone changes (listed by the brief; bone loss is a separate topic, not mixed in the video)",
+    "CNN, 3 March 2016 — Scott Kelly about 2 inches taller after nearly a year on the ISS, back to normal height within two days; other accounts ~1.5 in"
+  ],
+  "status": "version réaliste (images Runway), demandée par Nazik le 2026-11-22 ; même voix, même découpage ; non publiée",
+  "tiktok_text": "Why do astronauts get taller in space? 🚀 In microgravity, the spine is unloaded, so it can straighten and lengthen: up to about 3% taller, according to NASA. Scott Kelly was reported to be about 2 inches taller after nearly a year in orbit. Back on Earth, gravity loads the spine again and the extra height goes away.\n\nWould you trade a few weeks of extra height for a trip to space? 👇\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#astronaut #space #sciencetok #didyouknow #learnontiktok #factora",
+  "instagram_text": "Why do astronauts get taller in space? 🚀 In microgravity, the spine is unloaded, so it can straighten and lengthen: up to about 3% taller, according to NASA. Scott Kelly was reported to be about 2 inches taller after nearly a year in orbit. Back on Earth, gravity loads the spine again and the extra height goes away.\n\nWould you trade a few weeks of extra height for a trip to space? 👇\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#astronaut #space #science #didyouknow #learnoninstagram",
+  "facebook_text": "Why do astronauts get taller in space? 🚀 In microgravity, the spine is unloaded, so it can straighten and lengthen: up to about 3% taller, according to NASA. Scott Kelly was reported to be about 2 inches taller after nearly a year in orbit. Back on Earth, gravity loads the spine again and the extra height goes away.\n\nWould you trade a few weeks of extra height for a trip to space? 👇\n\n▶ More body mysteries on YouTube: https://www.youtube.com/@factoraofficiel\n\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#astronaut #space #humanbody",
+  "x_text": "Astronauts can come back from space taller 🚀\n\nIn microgravity the spine is unloaded, so it can straighten and lengthen: up to about 3%, says NASA. Then gravity takes it back.\n\nWatch 👇\nhttps://www.youtube.com/@factoraofficiel\n\n#space #astronaut",
+  "tags": [
+    "why do astronauts get taller in space",
+    "astronauts taller in space",
+    "do astronauts grow in space",
+    "spine in microgravity",
+    "scott kelly taller",
+    "astronaut height space",
+    "microgravity spine",
+    "space body facts",
+    "human body in space",
+    "nasa astronaut facts",
+    "factora",
+    "factora official",
+    "factoraofficiel",
+    "factora shorts",
+    "factora science"
+  ],
+  "runway_images": {
+    "astronaut": "f360a647-9d67-4e02-84b8-f36a68c6ea08",
+    "earth_bg": "b852d208-f599-48b1-9d84-3b7c3d46a63e",
+    "space_bg": "d67b6e0e-89d1-4631-99d4-1805e5881e4a",
+    "kelly": "5daba567-6dbf-40ac-9589-64e0a1cdf5ae",
+    "spine_earth": "9ee274be-62c6-42d0-ab7d-69c6aaf77744"
+  }
+}
