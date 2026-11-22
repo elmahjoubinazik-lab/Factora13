@@ -56,10 +56,10 @@ T_R0 = WT("came") - 0.05                      # début du sauvetage (le plongeur
 T_R1 = WT("later") - 0.10                     # « Thirty minutes later » : le chronomètre s'arrête à 30:00
 def rescue_clock(ctx, T):
     """Chronomètre du sauvetage (durée de toute l'intervention, pas une immobilité de 30 min) ; 0 → 30:00."""
-    if T < T_R0 or T > WT("free", 1) + 0.2: return
+    if T < T_R0 or T > WT("gave"): return
     k = prog(T, T_R0, T_R1)
     secs = int(round(1800 * (k ** 1.15)))
-    a = 1.0 - prog(T, WT("way") + 0.3, WT("free", 1))
+    a = 1.0 - prog(T, WT("rope", 1), WT("gave") - 0.05)   # disparaît avant la rupture : la corde qui cède reste bien visible
     glow(ctx, W * 0.46, H * 0.60, 150 * U, GOLD, 0.28 * a)
     text(ctx, "RESCUE", W * 0.46, H * 0.555, 40 * U, WHITE, 0.9 * a)
     ctx.push_group(); poster_text(ctx, f"{secs // 60:02d}:{secs % 60:02d}", W * 0.46, H * 0.615, 120 * U, GOLD); ctx.pop_group_to_source(); ctx.paint_with_alpha(a)
@@ -91,7 +91,7 @@ def ov_snap(ctx, t, d):
     T = S0("snap") + t
     rescue_clock(ctx, T)
     kb = prog(T, WT("gave") - 0.1, WT("way") + 0.5)
-    if kb > 0: glow(ctx, W * 0.50, H * 0.42, W * 0.9 * ease(kb), (1.0, 1.0, 0.95), 0.40 * (1 - 0.5 * kb))
+    if kb > 0: glow(ctx, W * 0.55, H * 0.72, W * 0.7 * ease(kb), (1.0, 1.0, 0.95), 0.35 * (1 - 0.6 * kb))
     tag(ctx)
 _snap = clip_scene("snap", ov_snap, push=0.05, punch=0.0)
 
