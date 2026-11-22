@@ -1013,6 +1013,31 @@
      "note": "commentaire = celui de la chaîne ; % « ont continué de regarder » pas encore fourni"
     }
    }
+  },
+  {
+   "episode": "047",
+   "topic": "Forests Eat Their Own Leaves (où vont les feuilles mortes ? sujet proposé par Nazik)",
+   "dir": "episodes/047-fallen-leaves",
+   "date": "2026-11-22",
+   "format": "short_seul",
+   "langue": "en",
+   "long_id": null,
+   "short_id": "zK_I8Y21A1o",
+   "status": "private",
+   "thumbnail_set": false,
+   "theme": "why",
+   "playlist_item": "ajouté (why)",
+   "test": "S1-image1",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/ad965f6ebe89f3e559d133505bf2026e9c1d8ea1/ep047/forests-eat-their-own-leaves.mp4",
+    "short_cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/ad965f6ebe89f3e559d133505bf2026e9c1d8ea1/ep047/short_cover.jpg",
+    "short_cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/ad965f6ebe89f3e559d133505bf2026e9c1d8ea1/ep047/short_cover_yt.jpg"
+   },
+   "tiktok": "manuel (Nazik)",
+   "instagram": "manuel (Nazik)",
+   "facebook": "manuel (Nazik)",
+   "x": "manuel (Nazik)",
+   "note": "Sujet proposé par Nazik le 2026-11-22 (photo d'un chemin forestier : feuilles de hêtre et de chêne). Titre choisi : n° 1. Miniature dessinée (feuille mordue + « WHO ATE THIS LEAF? »). Publication demandée « maintenant » le 2026-11-22."
   }
  ]
 }

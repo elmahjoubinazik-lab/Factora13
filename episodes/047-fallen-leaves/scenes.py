@@ -561,5 +561,30 @@ SHORT_SCENES = ["hook", "fungi", "worms", "tiny", "air", "close"]
 SCENES = dict(hook=sc_hook, fungi=sc_fungi, worms=sc_worms, tiny=sc_tiny, air=sc_air, close=sc_close)
 
 def cover(ctx):
-    """Affiche = l'image 1 (règle de la stratégie : la miniature YouTube est l'image 1)."""
-    master(ctx, T_COVER)
+    """Miniature / affiche (demande de Nazik, 2026-11-22 : « fais-moi la miniature ») : le tapis de feuilles de l'image 1,
+    une grande feuille de hêtre mordue au premier plan (l'indice, sans la réponse), la question et un bandeau d'action ;
+    tout l'essentiel entre 14 % et 86 % de la hauteur (grilles 3:4 d'Instagram et TikTok)."""
+    forest(ctx, T_COVER)
+    g = cairo.LinearGradient(0, 0, 0, H * 0.34); g.add_color_stop_rgba(0, 0.02, 0.01, 0.01, 0.65); g.add_color_stop_rgba(1, 0, 0, 0, 0)
+    ctx.set_source(g); ctx.rectangle(0, 0, W, H * 0.34); ctx.fill()
+    cx, cy, L, ang = W * 0.47, H * 0.515, H * 0.36, 0.30
+    glow(ctx, cx, cy, L * 0.75, (1.0, 0.75, 0.35), 0.45)
+    ctx.save(); ctx.translate(cx + 18 * U, cy + 26 * U); ctx.rotate(ang); ctx.scale(L * 1.04, L * 1.04); ctx.new_path(); leaf_path(ctx, "beech"); ctx.restore()
+    rgba(ctx, (0.04, 0.02, 0.01), 0.80); ctx.fill()                 # ombre portée : les morsures ressortent en sombre
+    ctx.push_group()
+    draw_leaf(ctx, cx, cy, L, ang, "beech", (0.90, 0.52, 0.20), 1.0, detail=True)
+    ctx.set_operator(cairo.OPERATOR_DEST_OUT)
+    ctx.save(); ctx.translate(cx, cy); ctx.rotate(ang)
+    for (bx, by, r) in ((0.24, -0.13, 0.115), (0.22, 0.10, 0.095), (-0.24, 0.22, 0.10)):
+        for j in range(4):
+            circle(ctx, bx * L + math.cos(j * 1.6) * r * L * 0.5, by * L + math.sin(j * 1.6) * r * L * 0.5, r * L * 0.55, WHITE, 1)
+    ctx.restore(); ctx.set_operator(cairo.OPERATOR_OVER)
+    ctx.pop_group_to_source(); ctx.paint()
+    poster_text(ctx, "WHERE'D", W * 0.47, H * 0.175, 165 * U, WHITE, W * 0.86)
+    poster_text(ctx, "THEY GO?", W * 0.47, H * 0.250, 175 * U, GOLD, W * 0.86)
+    red_arrow(ctx, W * 0.86, H * 0.36, W * 0.66, H * 0.445, bend=-0.30, width=24)
+    font(ctx, 66 * U); txt = "WHO ATE THIS LEAF?"; w_ = ctx.text_extents(txt).width + 80 * U; h_ = 120 * U
+    y_ = H * 0.775
+    glow(ctx, W * 0.47, y_, w_ * 0.6, GOLD, 0.30)
+    rrect(ctx, W * 0.47 - w_ / 2, y_ - h_ / 2, w_, h_, h_ / 2); rgba(ctx, GOLD, 0.97); ctx.fill()
+    text(ctx, txt, W * 0.47, y_, 66 * U, DARK)
