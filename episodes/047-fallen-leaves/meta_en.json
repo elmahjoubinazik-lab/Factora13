@@ -1,0 +1,82 @@
+{
+ "format": "short_seul",
+ "voix": {
+  "provider": "elevenlabs",
+  "voice_id": "cgSgspJ2msm6clMCkdW9",
+  "voice_name": "Jessica",
+  "model": "eleven_v4",
+  "el_speed": 1.0,
+  "max_pause": 0.45
+ },
+ "hook_text": " ",
+ "fade": 0,
+ "cam": 0,
+ "out_size": "1080x1920",
+ "finish": "photo",
+ "cap_y": 0.705,
+ "cap_cx": 0.46,
+ "cap_maxw": 0.74,
+ "cap_size": 74,
+ "cap_words": 3,
+ "cap_chars": 18,
+ "music": "none",
+ "music_file": "rw/music.mp3",
+ "music_gain_db": -17,
+ "theme": "why",
+ "ai_generated": false,
+ "series": "Nature Mystery",
+ "test": "S1-image1",
+ "title": "Forests Eat Their Own Leaves 🍂",
+ "short_title": "Forests Eat Their Own Leaves 🍂",
+ "title_options": [
+  "Forests Eat Their Own Leaves 🍂",
+  "Worms Drag Fallen Leaves Underground 🍂",
+  "Fallen Leaves Partly Turn Into Air 🍂"
+ ],
+ "hashtags": [
+  "#fallenleaves",
+  "#forest",
+  "#science"
+ ],
+ "seo_intro": "Where do fallen leaves go? They get eaten by the forest: fungi, earthworms, mites, springtails and bacteria break them down.\nMuch of each leaf's carbon returns to the air as carbon dioxide, and the rest becomes soil that feeds the trees, so the forest recycles its own leaves.",
+ "related": [
+  "O_yDL-awTao",
+  "Z81hQPpo0zw"
+ ],
+ "sources_text": "soil-ecology research on leaf-litter decomposition (fungi as the main decomposers; in a French beech forest, mineralization to CO2 was the main pathway, Ngao et al. 2005; the share varies between forests); Minnesota Forest Resources Council, \"Earthworms invade our forest floor\" (2016), on nightcrawlers pulling leaves into their burrows; Charles Darwin, The Formation of Vegetable Mould through the Action of Worms (1881)",
+ "sources": [
+  "Minnesota Forest Resources Council, Earthworms invade our forest floor (2016) — https://fmr.org/news/2016/09/18/earthworms-invade-our-forest-floor",
+  "Rubino et al. (2007), isotopic method for litter carbon fluxes: part of litter carbon stays in soil instead of being respired — https://eprints.keele.ac.uk/4826/",
+  "Ngao et al. (2005), French beech forest: mineralization (CO2) was the main pathway of litter decomposition (cited in litter-carbon reviews)",
+  "Charles Darwin (1881), The Formation of Vegetable Mould through the Action of Worms"
+ ],
+ "disclaimer": "Original illustrations (simplified diagrams). Synthetic voice and AI-generated music.",
+ "runway_music_task": "f29de7d9-a53b-474e-8263-5a89c7d83325",
+ "comment": "Which surprised you most: the worms, the fungi or the air? 🍂",
+ "tags": [
+  "where do fallen leaves go",
+  "what happens to fallen leaves",
+  "fallen leaves decompose",
+  "leaf decomposition",
+  "how leaves decompose",
+  "why don't forests fill up with leaves",
+  "earthworms drag leaves",
+  "fungi decompose leaves",
+  "leaf litter",
+  "forest floor",
+  "forest soil",
+  "nature mystery",
+  "nature facts",
+  "autumn leaves science",
+  "factora",
+  "factora official",
+  "factoraofficiel",
+  "factora shorts",
+  "factora science"
+ ],
+ "tiktok_text": "Where do fallen leaves go? 🍂 They get eaten. Fungi spread white threads through each leaf, earthworms drag leaves into their burrows at night, mites and springtails shred the rest and bacteria finish the job. Much of the leaves' carbon goes back into the air as CO₂, and the rest becomes soil that feeds the trees.\n\nWhich surprised you most: the worms, the fungi or the air? 👇\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#fallenleaves #forest #sciencetok #didyouknow #learnontiktok #factora",
+ "instagram_text": "Where do fallen leaves go? 🍂 They get eaten. Fungi spread white threads through each leaf, earthworms drag leaves into their burrows at night, mites and springtails shred the rest and bacteria finish the job. Much of the leaves' carbon goes back into the air as CO₂, and the rest becomes soil that feeds the trees.\n\nWhich surprised you most: the worms, the fungi or the air? 👇\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#fallenleaves #forest #science #didyouknow #learnoninstagram",
+ "facebook_text": "Where do fallen leaves go? 🍂 They get eaten. Fungi spread white threads through each leaf, earthworms drag leaves into their burrows at night, mites and springtails shred the rest and bacteria finish the job. Much of the leaves' carbon goes back into the air as CO₂, and the rest becomes soil that feeds the trees.\n\nWhich surprised you most: the worms, the fungi or the air? 👇\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#fallenleaves #forest #science",
+ "x_text": "Forests eat their own leaves 🍂\n\nFungi, earthworms, mites and bacteria break them down. Much of the carbon returns to the air as CO₂, the rest becomes soil that feeds the trees.\n\nWhich surprised you most? 👇\n\n#fallenleaves #forest",
+ "x_reply": "Full video on YouTube 👇 {LIEN}"
+}

@@ -1,0 +1,8 @@
+[
+ {"scene": "hook", "text": ["Every fall, the forest floor vanishes under leaves.", "Then the leaves vanish too.", "Where do they go?"]},
+ {"scene": "fungi", "text": ["They get eaten.", "Fungi spread white threads through each leaf and digest it."]},
+ {"scene": "worms", "text": ["At night, some earthworms drag leaves down into their burrows."]},
+ {"scene": "tiny", "text": ["Mites and springtails shred the rest.", "Bacteria finish the job."]},
+ {"scene": "air", "text": ["Much of each leaf's carbon ends up in the air, as carbon dioxide they breathe out."]},
+ {"scene": "close", "text": ["The rest becomes soil that feeds the trees.", "The forest eats its own leaves."], "pause": 0.6}
+]
