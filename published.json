@@ -951,6 +951,32 @@
      "classement": "1 sur 10",
      "abonnes_chaine": 23,
      "note": "pourcentage moyen regardé pas encore calculé ; le commentaire est celui de la chaîne"
+    },
+    "2026-11-22 (13 h 13, Studio)": {
+     "vues": 1012,
+     "vues_engagees": 495,
+     "pct_regarde": 71.6,
+     "ont_continue": 48.0,
+     "ont_balaye": 52.0,
+     "j_aime": 7,
+     "commentaires": 1,
+     "abonnes_gagnes": 2,
+     "abonnes_chaine": 21,
+     "sources": {
+      "flux_shorts": 94.3,
+      "recherche": 4.0,
+      "autres_fonctions_youtube": 1.4,
+      "externe_X": 0.2,
+      "navigation": 0.1
+     },
+     "recherches": {
+      "poop": 22.0,
+      "pooping": 9.8,
+      "beyblade": 4.9
+     },
+     "non_abonnes_pct_duree": 99.8,
+     "mobile_pct_duree": 71.4,
+     "note": "Courbe : ≈ 950 vues pendant les ~2 h 30 suivant la mise en ligne, puis plateau (≈ +60 en 10 h), comme la baleine 035 et le Short 041. Rétention pas encore calculée (jusqu'à 2 jours)."
     }
    }
   },
@@ -978,7 +1004,15 @@
    "x": "manuel (Nazik)",
    "note": "Publication publique demandée par Nazik le 2026-11-22. Mention IA dans la description seulement (pas à l'écran, demande de Nazik) ; pas de containsSyntheticMedia (décision du 2026-11-17).",
    "public_date": "2026-11-22",
-   "thumbnail_note": "short_cover_yt.jpg posée après processingStatus=succeeded ; réponse avec shortsAspectRatio + maxres"
+   "thumbnail_note": "short_cover_yt.jpg posée après processingStatus=succeeded ; réponse avec shortsAspectRatio + maxres",
+   "stats": {
+    "2026-11-22 (8 h 10, Studio)": {
+     "vues": 53,
+     "j_aime": 1,
+     "commentaires": 1,
+     "note": "commentaire = celui de la chaîne ; % « ont continué de regarder » pas encore fourni"
+    }
+   }
   }
  ]
 }
