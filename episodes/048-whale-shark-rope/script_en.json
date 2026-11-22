@@ -1,0 +1,57 @@
+[
+ {
+  "scene": "hook",
+  "text": [
+   "Off Waikiki, divers found the biggest fish on Earth trapped in a rope."
+  ]
+ },
+ {
+  "scene": "wound",
+  "text": [
+   "A young whale shark, the rope cutting into her fins."
+  ]
+ },
+ {
+  "scene": "stuck",
+  "text": [
+   "Sharks can't swim backward.",
+   "She couldn't free herself."
+  ]
+ },
+ {
+  "scene": "cut",
+  "text": [
+   "A diver borrowed a knife and started cutting."
+  ]
+ },
+ {
+  "scene": "stay",
+  "text": [
+   "She didn't swim away.",
+   "She stayed right there, at the surface, for thirty minutes."
+  ],
+  "pause": 0.2
+ },
+ {
+  "scene": "free",
+  "text": [
+   "Then the rope fell away.",
+   "She was free."
+  ],
+  "pause": 0.4
+ },
+ {
+  "scene": "count",
+  "text": [
+   "Whale sharks are endangered.",
+   "Every single one counts."
+  ]
+ },
+ {
+  "scene": "close",
+  "text": [
+   "The biggest fish in the sea, saved by one borrowed knife."
+  ],
+  "pause": 0.4
+ }
+]
