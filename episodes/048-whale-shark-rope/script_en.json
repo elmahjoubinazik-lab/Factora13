@@ -1,9 +1,9 @@
 [
- {"scene": "hook", "text": ["She's the biggest fish in the ocean.", "And she was trapped."]},
- {"scene": "wound", "text": ["Off Waikiki, a rope as thick as a leg was cutting into her fins."]},
- {"scene": "stuck", "text": ["Sharks can't swim backward.", "She couldn't get it off."]},
- {"scene": "cut", "text": ["Then a diver came, with a knife borrowed from a nearby boat."]},
- {"scene": "stay", "text": ["She didn't flee.", "She stayed.", "For thirty long minutes."], "pause": 0.3},
- {"scene": "free", "text": ["Until the rope fell away.", "And she was free."], "pause": 0.5},
- {"scene": "count", "text": ["Whale sharks are endangered.", "Every single one counts."], "pause": 0.4}
+ {"scene": "hook", "text": ["[softly] She's the biggest fish in the ocean.", "[sad] And she was trapped."]},
+ {"scene": "wound", "text": ["[sad] Off Waikiki, a rope as thick as a leg was cutting into her fins."]},
+ {"scene": "stuck", "text": ["Sharks can't swim backward.", "[softly] She couldn't get it off."]},
+ {"scene": "cut", "text": ["[hopeful] Then a diver came, with a knife borrowed from a nearby boat."]},
+ {"scene": "stay", "text": ["[softly] She didn't flee.", "[emotional] She stayed.", "[emotional] For thirty long minutes."], "pause": 0.3},
+ {"scene": "free", "text": ["[softly] Until the rope fell away...", "[relieved] And she was free."], "pause": 0.5},
+ {"scene": "count", "text": ["[gently] Whale sharks are endangered.", "[warmly] Every single one counts."], "pause": 0.4}
 ]

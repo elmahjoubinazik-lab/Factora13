@@ -19,12 +19,12 @@
   "voice_id": "cgSgspJ2msm6clMCkdW9",
   "voice_name": "Jessica",
   "model": "eleven_v4",
-  "el_speed": 0.97,
+  "el_speed": 0.95,
   "max_pause": 0.5,
   "voice_settings": {
-   "stability": 0.35,
+   "stability": 0.3,
    "similarity_boost": 0.8,
-   "style": 0.35
+   "style": 0.5
   }
  },
  "theme": "animal_mysteries",

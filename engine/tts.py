@@ -24,6 +24,7 @@ CLEAN = "highpass=f=70,acompressor=threshold=-20dB:ratio=2:attack=8:release=120,
 SCRIPT = EP + f"/script_{LANG}.json" if os.path.exists(EP + f"/script_{LANG}.json") else EP + "/script.json"
 script = json.load(open(SCRIPT, encoding="utf-8"))
 SR = 24000
+TAGRE = re.compile(r"\[[^\]]*\]\s*")   # indications de ton ElevenLabs (« [softly] ») : jamais lues ni sous-titrées
 def sil(s): return np.zeros(int(SR * s), dtype=np.float32)
 
 # ---------------------------------------------------------------- ElevenLabs
@@ -94,9 +95,13 @@ if PROVIDER == "elevenlabs":
             i0 = text.index(txt, pos); i1 = i0 + len(txt) - 1; pos = i1 + 1
             st = times[min(i0, len(times) - 1)][0]; en = times[min(i1, len(times) - 1)][1]
             # horodatage de chaque mot (sous-titres synchronisés mot pour mot, ép. 043) : [mot, début, fin]
+            # indications de ton entre crochets (« [softly] », « [hopeful] »… ép. 048, demande de Nazik : « la voix doit
+            # transmettre des émotions ») : envoyées à ElevenLabs, jamais affichées ni comptées comme des mots
+            tags = [(m.start(), m.end()) for m in TAGRE.finditer(txt)]
             words = [[m.group(), t + times[min(i0 + m.start(), len(times) - 1)][0], t + times[min(i0 + m.end() - 1, len(times) - 1)][1]]
-                     for m in re.finditer(r"\S+", txt)]
-            sents.append({"text": txt, "start": t + st, "end": t + en, "words": words})
+                     for m in re.finditer(r"\S+", txt) if not any(a <= m.start() < b for a, b in tags)]
+            if words: st = min(st, words[0][1] - t) if not tags else words[0][1] - t
+            sents.append({"text": TAGRE.sub("", txt).strip(), "start": t + st, "end": t + en, "words": words})
         out.append(a); t += len(a) / SR
         extra = float(seg.get("pause", 0))   # silence volontaire (chronomètre des énigmes)
         out.append(sil(0.25 + extra)); t += 0.25 + extra

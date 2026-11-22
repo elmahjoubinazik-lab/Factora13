@@ -24,7 +24,7 @@ for seg in script:
     if keep and seg["scene"] not in keep: continue
     for s in seg["text"]:
         if s not in seen: seen.add(s); words.append(s)
-transcript = " ".join(words)
+transcript = re.sub(r"\[[^\]]*\]\s*", "", " ".join(words))   # indications de ton ElevenLabs (« [softly] ») retirées
 # titres des vidéos de la chaîne (id → titre), d'après les meta des épisodes et published.json
 titles, vtheme = {}, {}   # vtheme : id → thème (playlist qui contient la vidéo ; published.json → theme, sinon meta.playlist)
 pub = json.load(open(os.path.join(ROOT, "published.json"), encoding="utf-8"))
