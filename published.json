@@ -1050,6 +1050,14 @@
      "jaime": 11,
      "commentaires": 1,
      "note": "encore en hausse ; taux de j'aime 2,9 % (wombat : 0,7 %)"
+    },
+    {
+     "date": "2026-11-24 (00 h 43 Suisse)",
+     "age": "≈ 33 h",
+     "source": "API YouTube",
+     "vues": 471,
+     "jaime": 12,
+     "commentaires": 1
     }
    ]
   },
@@ -1062,7 +1070,7 @@
    "langue": "en",
    "long_id": null,
    "short_id": "14Nf9GaRO70",
-   "status": "programmé",
+   "status": "public",
    "thumbnail_set": true,
    "theme": "animal_mysteries",
    "playlist_item": "ajouté (animal_mysteries)",
@@ -1079,7 +1087,19 @@
    "note": "Texte révisé (leçon explicite) et titre n° 1 choisis par Nazik ; miniature dessinée (yeux verrouillés). Nazik : « La chouette, poste-la cette nuit » (2026-11-22) → sortie programmée à 18 h 30 New York (00 h 30 en Suisse).",
    "publish_at": "2026-11-23T23:30:00Z (mardi 00 h 30 Suisse, lundi 18 h 30 New York) — créneau choisi par Nazik le 22/11 (avant : 2026-11-22T23:30:00Z)",
    "thumbnail_note": "short_cover_yt.jpg posée après le traitement (shortsAspectRatio et maxres présents)",
-   "comment": "à publier par l'API juste après la sortie (rappel programmé le 23/11 à 23:40 UTC)"
+   "comment": "publié par l'API le 2026-11-23 à 23:43 UTC (à épingler par Nazik)",
+   "public_date": "2026-11-23T23:30:00Z (mardi 00 h 30 Suisse, lundi 18 h 30 New York)",
+   "comment_id": "UgxNiUONpS3A59M8Uqh4AaABAg",
+   "stats": [
+    {
+     "date": "2026-11-23",
+     "age": "13 min",
+     "source": "API YouTube",
+     "vues": 9,
+     "jaime": 1,
+     "commentaires": 0
+    }
+   ]
   },
   {
    "episode": "048",
@@ -1150,6 +1170,14 @@
      "age": "quelques minutes",
      "source": "API YouTube",
      "vues": 8,
+     "jaime": 0,
+     "commentaires": 1
+    },
+    {
+     "date": "2026-11-24 (00 h 43 Suisse)",
+     "age": "≈ 1 j",
+     "source": "API YouTube",
+     "vues": 11,
      "jaime": 0,
      "commentaires": 1
     }
