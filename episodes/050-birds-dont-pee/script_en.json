@@ -1,0 +1,46 @@
+[
+ {
+  "scene": "hook",
+  "text": [
+   "You've never seen a bird pee. And you never will."
+  ]
+ },
+ {
+  "scene": "none",
+  "text": [
+   "Almost no bird does. Except the ostrich."
+  ]
+ },
+ {
+  "scene": "car",
+  "text": [
+   "See bird poop on a car? The white part is the pee."
+  ]
+ },
+ {
+  "scene": "inside",
+  "text": [
+   "Instead of watery urine, birds make uric acid, a white paste that leaves with the poop, through one exit."
+  ]
+ },
+ {
+  "scene": "fly",
+  "text": [
+   "No water wasted. No heavy bladder in flight."
+  ]
+ },
+ {
+  "scene": "egg",
+  "text": [
+   "Even in the egg, the chick keeps it as solid crystals, so it can't poison itself."
+  ]
+ },
+ {
+  "scene": "close",
+  "text": [
+   "So that white splat on your car? Bird pee.",
+   "And this pigeon? Still never peed."
+  ],
+  "pause": 0.5
+ }
+]

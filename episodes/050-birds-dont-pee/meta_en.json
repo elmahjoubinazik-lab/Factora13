@@ -1,0 +1,75 @@
+{
+ "format": "short_seul",
+ "hook_text": " ",
+ "fade": 0,
+ "cam": 0,
+ "out_size": "1080x1920",
+ "finish": "photo",
+ "cap_y": 0.705,
+ "cap_cx": 0.46,
+ "cap_maxw": 0.74,
+ "cap_size": 74,
+ "cap_words": 3,
+ "cap_chars": 18,
+ "music": "none",
+ "music_file": "rw/music.mp3",
+ "music_gain_db": -17,
+ "voix": {
+  "provider": "kokoro",
+  "melange": {
+   "af_heart": 1.0
+  },
+  "vitesse": 1.1,
+  "traitement_doux": true,
+  "code_langue": "en-us"
+ },
+ "theme": "animal_mysteries",
+ "ai_generated": false,
+ "series": "Animal Mystery",
+ "test": "S1-image1",
+ "voix_note": "ElevenLabs épuisé (23 crédits restants sur 10 000) : repli Kokoro af_heart (voix féminine, règle du CLAUDE.md)",
+ "runway_music_task": "fc63e708-101a-428a-a0c6-cc0d8c2f0bcc",
+ "title": "The White Part of Bird Poop Is Pee 🐦",
+ "short_title": "The White Part of Bird Poop Is Pee 🐦",
+ "title_options": [
+  "The White Part of Bird Poop Is Pee 🐦",
+  "Birds Never Pee. Here's Why 😳",
+  "You've Never Seen a Bird Pee 😳"
+ ],
+ "hashtags": [
+  "#birds",
+  "#animalfacts",
+  "#science"
+ ],
+ "seo_intro": "Why don't birds pee? Birds don't make watery urine: their waste leaves as uric acid, a white paste that comes out with the poop through one opening, the cloaca.\nThe white part of bird poop is the pee. It saves water and weight for flying, and the ostrich is a rare exception.",
+ "related": [
+  "14Nf9GaRO70",
+  "O_yDL-awTao",
+  "Sm25YbgZm1c"
+ ],
+ "sources_text": "Encyclopaedia Britannica (bird excretory system: uric acid, cloaca, no urinary bladder in most birds); Cornell Lab of Ornithology (why bird droppings are white); embryology of the bird egg (nitrogen waste stored as uric acid in the allantois); avian physiology literature on the ostrich, which expels urine separately",
+ "disclaimer": "Original illustrations (simplified diagrams). Synthetic voice and AI-generated music.",
+ "comment": "Did you know the white part was pee? 🐦👇",
+ "tags": [
+  "why don't birds pee",
+  "do birds pee",
+  "why is bird poop white",
+  "white part of bird poop",
+  "bird pee",
+  "uric acid birds",
+  "pigeon poop on car",
+  "bird poop on car",
+  "animal facts",
+  "weird animal facts",
+  "bird facts",
+  "factora",
+  "factora official",
+  "factoraofficiel",
+  "factora shorts",
+  "factora science"
+ ],
+ "tiktok_text": "You've never seen a bird pee 🐦 Birds don't make watery urine: their waste comes out as uric acid, a white paste, together with the poop through one single exit. So the white part of bird poop on your car? That's the pee. It saves water and weight for flying. The ostrich is a rare exception.\n\nDid you know the white part was pee? 👇\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#birds #animalfacts #sciencetok #didyouknow #learnontiktok #factora",
+ "instagram_text": "You've never seen a bird pee 🐦 Birds don't make watery urine: their waste comes out as uric acid, a white paste, together with the poop through one single exit. So the white part of bird poop on your car? That's the pee. It saves water and weight for flying. The ostrich is a rare exception.\n\nDid you know the white part was pee? 👇\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#birds #animalfacts #science #didyouknow #learnoninstagram",
+ "facebook_text": "You've never seen a bird pee 🐦 Birds don't make watery urine: their waste comes out as uric acid, a white paste, together with the poop through one single exit. So the white part of bird poop on your car? That's the pee. It saves water and weight for flying. The ostrich is a rare exception.\n\nDid you know the white part was pee? 👇\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#birds #animalfacts #science",
+ "x_text": "You've never seen a bird pee 🐦\n\nThe white part of bird poop on your car? That's the pee: uric acid, a paste that leaves with the poop through one exit.\n\nDid you know? 👇\n\n#birds #animalfacts"
+}
