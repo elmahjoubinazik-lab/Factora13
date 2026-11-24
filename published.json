@@ -1217,6 +1217,31 @@
     }
    ],
    "versions_supprimees": "_XwniJqHEME (v1) et WJjQ-l5Yiek (v3, voix Puck) : privées, jamais publiques, supprimées le 2026-11-22 à la demande de Nazik"
+  },
+  {
+   "episode": "050",
+   "topic": "Birds Never Pee. Here's Why (les oiseaux ne font pas pipi ; sujet choisi par Nazik d'après un Short à succès)",
+   "dir": "episodes/050-birds-dont-pee",
+   "date": "2026-11-24",
+   "format": "short_seul",
+   "langue": "en",
+   "long_id": null,
+   "short_id": null,
+   "status": "attente_youtube",
+   "thumbnail_set": false,
+   "theme": "animal_mysteries",
+   "test": "S1-image1",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/db68739b8978935bfa466211ab161ef79caffb9d/ep050/birds-never-pee-here-s-why.mp4",
+    "short_cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/db68739b8978935bfa466211ab161ef79caffb9d/ep050/short_cover.jpg",
+    "short_cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/db68739b8978935bfa466211ab161ef79caffb9d/ep050/short_cover_yt.jpg"
+   },
+   "tiktok": "manuel (Nazik)",
+   "instagram": "manuel (Nazik)",
+   "facebook": "manuel (Nazik)",
+   "x": "manuel (Nazik)",
+   "note": "Upload YouTube refusé 2 fois par Zapier (429 Too Many Requests) le 2026-11-24 vers 23h20 heure suisse ; aucune vidéo créée (vérifié). À réessayer.",
+   "voix": "Jessica (via Runway)"
   }
  ]
 }
