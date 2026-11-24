@@ -7,6 +7,8 @@ Deux moteurs (config.json → voix, surchargé par meta_<langue>.json → voix) 
   (meilleure intonation), horodatage caractère par caractère → débuts et fins de phrases exacts pour les sous-titres et ST().
   Réglages : "voice_id", "model" (défaut eleven_v4), "el_speed" (0,7–1,2), "voice_settings" (facultatif). Cache dans
   build/el_cache/ : relancer tts.py ne recoûte pas de crédits tant que le texte et les réglages ne changent pas.
+- "provider": "files" : voix déjà générée (ex. Jessica via Runway quand ElevenLabs est épuisé), une phrase par fichier
+  build/<files_dir>/<scène>_<n>.mp3 (sans horodatage par mot : sous-titres par groupes de mots).
 """
 import sys, os, re, json, hashlib, base64, subprocess, urllib.request, numpy as np, soundfile as sf
 EP = sys.argv[1].rstrip("/"); WD = EP + "/build"; os.makedirs(WD, exist_ok=True)
@@ -104,6 +106,24 @@ if PROVIDER == "elevenlabs":
             sents.append({"text": TAGRE.sub("", txt).strip(), "start": t + st, "end": t + en, "words": words})
         out.append(a); t += len(a) / SR
         extra = float(seg.get("pause", 0))   # silence volontaire (chronomètre des énigmes)
+        out.append(sil(0.25 + extra)); t += 0.25 + extra
+        timeline.append({"scene": seg["scene"], "start": s0, "end": t, "sents": sents})
+    POST = CLEAN
+elif PROVIDER == "files":
+    # Voix déjà générée ailleurs, une phrase par fichier (ép. 050, 2026-11-24 : abonnement ElevenLabs épuisé → la voix
+    # Jessica est générée par Runway avec le même identifiant de voix ; Nazik : « utilise la voix de Jessica »).
+    # Fichiers : build/<files_dir>/<scène>_<n° de phrase>.mp3 ; silences de début/fin coupés, longues pauses raccourcies.
+    fd = os.path.join(WD, V.get("files_dir", "rw/voice"))
+    for seg in script:
+        s0, sents = t, []
+        for j, txt in enumerate(seg["text"]):
+            f = f"{fd}/{seg['scene']}_{j}.mp3"
+            pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", f, "-f", "f32le", "-ac", "1", "-ar", str(SR), "-"], capture_output=True, check=True).stdout
+            a, _ = squeeze(np.frombuffer(pcm, dtype=np.float32).copy(), [], float(V.get("max_pause", 0.3)))
+            sents.append({"text": TAGRE.sub("", txt).strip(), "start": t, "end": t + len(a) / SR})
+            out.append(a); t += len(a) / SR
+            if j < len(seg["text"]) - 1: out.append(sil(0.15)); t += 0.15
+        extra = float(seg.get("pause", 0))
         out.append(sil(0.25 + extra)); t += 0.25 + extra
         timeline.append({"scene": seg["scene"], "start": s0, "end": t, "sents": sents})
     POST = CLEAN

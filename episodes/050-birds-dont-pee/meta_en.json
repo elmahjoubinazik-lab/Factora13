@@ -15,19 +15,16 @@
  "music_file": "rw/music.mp3",
  "music_gain_db": -17,
  "voix": {
-  "provider": "kokoro",
-  "melange": {
-   "af_heart": 1.0
-  },
-  "vitesse": 1.1,
-  "traitement_doux": true,
-  "code_langue": "en-us"
+  "provider": "files",
+  "files_dir": "rw/voice",
+  "voice_name": "Jessica (ElevenLabs cgSgspJ2msm6clMCkdW9, via Runway eleven_v4)",
+  "max_pause": 0.3
  },
  "theme": "animal_mysteries",
  "ai_generated": false,
  "series": "Animal Mystery",
  "test": "S1-image1",
- "voix_note": "ElevenLabs épuisé (23 crédits restants sur 10 000) : repli Kokoro af_heart (voix féminine, règle du CLAUDE.md)",
+ "voix_note": "Nazik (2026-11-24) : « utilise la voix de Jessica » ; abonnement ElevenLabs épuisé → même voix générée par Runway (eleven_v4, voiceId Jessica), une phrase par fichier",
  "runway_music_task": "fc63e708-101a-428a-a0c6-cc0d8c2f0bcc",
  "title": "The White Part of Bird Poop Is Pee 🐦",
  "short_title": "The White Part of Bird Poop Is Pee 🐦",
