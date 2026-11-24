@@ -1243,8 +1243,18 @@
    "note": "Upload Zapier refusé (429 ×3) le 24/11 ; mis en ligne à la main par Nazik dans Studio.",
    "voix": "Jessica (via Runway)",
    "public_date": "2026-11-24T22:57:01Z (23 h 57 Suisse, mise en ligne manuelle par Nazik dans Studio)",
-   "titre_youtube": "Birds Never Pee. Here's Why 😳 #facts #quiz  #science #brainteaser  #birds #animalfacts #science",
-   "comment": "publié par Nazik"
+   "titre_youtube": "Birds Never Pee. Here's Why 😳 (hashtags retirés du titre par Nazik)",
+   "comment": "publié par Nazik",
+   "stats": [
+    {
+     "date": "2026-11-25",
+     "age": "≈ 20 min",
+     "source": "API YouTube",
+     "vues": 30,
+     "jaime": 0,
+     "commentaires": 0
+    }
+   ]
   }
  ]
 }
