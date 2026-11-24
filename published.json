@@ -1058,6 +1058,14 @@
      "vues": 471,
      "jaime": 12,
      "commentaires": 1
+    },
+    {
+     "date": "2026-11-24",
+     "age": "≈ 46 h",
+     "source": "API YouTube",
+     "vues": 506,
+     "jaime": 13,
+     "commentaires": 1
     }
    ]
   },
@@ -1106,6 +1114,15 @@
      "vues": "≈ 400",
      "jaime": "19+",
      "note": "très bon départ : ≈ 400 vues et 19 j'aime en 1 h 07"
+    },
+    {
+     "date": "2026-11-24",
+     "age": "≈ 13 h",
+     "source": "API YouTube",
+     "vues": 1117,
+     "jaime": 24,
+     "commentaires": 1,
+     "note": "meilleur départ récent (titre affirmatif)"
     }
    ]
   },
@@ -1188,6 +1205,15 @@
      "vues": 11,
      "jaime": 0,
      "commentaires": 1
+    },
+    {
+     "date": "2026-11-24",
+     "age": "≈ 36 h",
+     "source": "API YouTube",
+     "vues": 11,
+     "jaime": 0,
+     "commentaires": 1,
+     "note": "format 2 min 34 très peu diffusé par le flux Shorts"
     }
    ],
    "versions_supprimees": "_XwniJqHEME (v1) et WJjQ-l5Yiek (v3, voix Puck) : privées, jamais publiques, supprimées le 2026-11-22 à la demande de Nazik"
