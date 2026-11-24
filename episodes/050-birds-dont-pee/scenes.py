@@ -244,7 +244,7 @@ def car_scene(ctx, T, k_splat, k_lab):
     if k_lab > 0:
         leader(ctx, W * 0.17, H * 0.475, sx - 150 * U, sy - 20 * U, WHITE, 1.0, k_lab)
         pill(ctx, "PEE", W * 0.17, H * 0.465, WHITE, 64, 1.0, k_lab)
-        kp = prog(T, WT("pee", 0) + 0.25, WT("pee", 0) + 0.6)
+        kp = prog(T, WT("white", 0) + 0.55, WT("white", 0) + 0.9)
         leader(ctx, W * 0.80, H * 0.475, sx + 40 * U, sy + 5 * U, (0.55, 0.60, 0.30), 1.0, kp)
         pill(ctx, "POOP", W * 0.80, H * 0.465, (0.45, 0.50, 0.25), 52, 1.0, kp, fg=WHITE)
 
@@ -417,7 +417,7 @@ def master(ctx, T):
         egg_scene(ctx, T, prog(T, T_F0 + 0.05, T_F0 + 0.6), prog(T, WT("crystals") - 0.6, WT("crystals") + 0.6))
     elif T < T_H0:                                       # G — « that white splat on your car? Bird pee. »
         car_scene(ctx, T, 1.0, 0.0)
-        pill(ctx, "BIRD PEE", W * 0.48, H * 0.62, WHITE, 76, 1.0, prog(T, WT("bird", 1) - 0.15, WT("bird", 1) + 0.2))
+        pill(ctx, "BIRD PEE", W * 0.48, H * 0.62, WHITE, 76, 1.0, prog(T, WT("bird", 3) - 0.15, WT("bird", 3) + 0.2))
         tag(ctx, "Illustration", 0.083)
     else:                                                # H — retour au pigeon de l'image 1
         pigeon_scene(ctx, T, ("STILL", "NEVER PEED"), 1.0)

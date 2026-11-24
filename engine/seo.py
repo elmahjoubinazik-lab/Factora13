@@ -18,6 +18,8 @@ keep = None
 if MODE == "short" and os.path.exists(EP + "/scenes.py"):
     m = re.search(r"SHORT_SCENES\s*=\s*\[([^\]]*)\]", open(EP + "/scenes.py", encoding="utf-8").read())
     if m: keep = re.findall(r"[\"']([\w-]+)[\"']", m.group(1))
+if keep is not None:   # liste calculée dans scenes.py (ex. [sg["scene"] for sg in _TLL]) : le motif ne trouve pas de vraies scènes
+    keep = [k for k in keep if any(seg["scene"] == k for seg in script)] or None
 if meta.get("transcript_scenes"): keep = meta["transcript_scenes"]   # ex. vidéo d'énigmes : les questions seulement (pas les réponses)
 seen, words = set(), []
 for seg in script:
