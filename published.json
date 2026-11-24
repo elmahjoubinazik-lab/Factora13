@@ -1226,8 +1226,8 @@
    "format": "short_seul",
    "langue": "en",
    "long_id": null,
-   "short_id": null,
-   "status": "manuel_studio (Nazik)",
+   "short_id": "4tlibpU_sgs",
+   "status": "public",
    "thumbnail_set": false,
    "theme": "animal_mysteries",
    "test": "S1-image1",
@@ -1236,12 +1236,15 @@
     "short_cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/db68739b8978935bfa466211ab161ef79caffb9d/ep050/short_cover.jpg",
     "short_cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/db68739b8978935bfa466211ab161ef79caffb9d/ep050/short_cover_yt.jpg"
    },
-   "tiktok": "manuel (Nazik)",
-   "instagram": "manuel (Nazik)",
-   "facebook": "manuel (Nazik)",
+   "tiktok": "publié (Nazik)",
+   "instagram": "publié (Nazik)",
+   "facebook": "publié (Nazik)",
    "x": "manuel (Nazik)",
-   "note": "Upload YouTube refusé 3 fois par Zapier (429) le 2026-11-24 ; Nazik demande une sortie à 23h55 heure suisse le 24/11 → fichiers (vidéo, miniature 16:9, description) envoyés pour une mise en ligne manuelle dans Studio. Renseigner short_id quand elle est en ligne.",
-   "voix": "Jessica (via Runway)"
+   "note": "Upload Zapier refusé (429 ×3) le 24/11 ; mis en ligne à la main par Nazik dans Studio.",
+   "voix": "Jessica (via Runway)",
+   "public_date": "2026-11-24T22:57:01Z (23 h 57 Suisse, mise en ligne manuelle par Nazik dans Studio)",
+   "titre_youtube": "Birds Never Pee. Here's Why 😳 #facts #quiz  #science #brainteaser  #birds #animalfacts #science",
+   "comment": "publié par Nazik"
   }
  ]
 }
