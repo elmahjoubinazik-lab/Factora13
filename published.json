@@ -1227,7 +1227,7 @@
    "langue": "en",
    "long_id": null,
    "short_id": null,
-   "status": "attente_youtube",
+   "status": "manuel_studio (Nazik)",
    "thumbnail_set": false,
    "theme": "animal_mysteries",
    "test": "S1-image1",
@@ -1240,7 +1240,7 @@
    "instagram": "manuel (Nazik)",
    "facebook": "manuel (Nazik)",
    "x": "manuel (Nazik)",
-   "note": "Upload YouTube refusé 2 fois par Zapier (429 Too Many Requests) le 2026-11-24 vers 23h20 heure suisse ; aucune vidéo créée (vérifié). À réessayer.",
+   "note": "Upload YouTube refusé 3 fois par Zapier (429) le 2026-11-24 ; Nazik demande une sortie à 23h55 heure suisse le 24/11 → fichiers (vidéo, miniature 16:9, description) envoyés pour une mise en ligne manuelle dans Studio. Renseigner short_id quand elle est en ligne.",
    "voix": "Jessica (via Runway)"
   }
  ]
