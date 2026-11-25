@@ -1255,6 +1255,24 @@
      "commentaires": 0
     }
    ]
+  },
+  {
+   "episode": "051",
+   "topic": "Without Food, Bigger People Last Longer (naufragés : qui survit le plus longtemps sans manger ; comparatif 20 lb / 100 lb de graisse)",
+   "dir": "episodes/051-survive-without-food",
+   "date": "2026-11-26",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": null,
+   "status": "upload_manuel_nazik",
+   "note": "Zapier upload_video : 2 erreurs 429 le 2026-11-26 (vérifié : aucun doublon créé) ; Nazik met en ligne depuis Studio",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/354e64c098a904d8ccaaf4a010e68ac3e287c3bd/ep051/without-food-bigger-people-last-longer.mp4",
+    "short_cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/354e64c098a904d8ccaaf4a010e68ac3e287c3bd/ep051/short_cover_yt.jpg"
+   },
+   "tiktok": "manuel (Nazik)",
+   "instagram": "manuel (Nazik)",
+   "test": "S1-image1"
   }
  ]
 }
