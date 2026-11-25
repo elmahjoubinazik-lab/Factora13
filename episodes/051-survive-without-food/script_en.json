@@ -1,0 +1,8 @@
+[
+ {"scene": "hook", "text": ["Two men are stranded. Water, but zero food. Who lasts longer?"]},
+ {"scene": "answer", "text": ["Usually, the bigger one."]},
+ {"scene": "fuel", "text": ["Body fat is stored food: one pound holds about thirty-five hundred calories, almost two days of energy."]},
+ {"scene": "muscle", "text": ["But the body also burns muscle, even the heart. Fat buys time, not forever."]},
+ {"scene": "record", "text": ["The record? A Scottish man fasted three hundred eighty-two days, with doctors watching, and lost two hundred seventy-six pounds."]},
+ {"scene": "close", "text": ["Fat isn't just weight. It's a backup tank."], "pause": 0.5}
+]
