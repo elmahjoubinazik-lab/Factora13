@@ -4,7 +4,9 @@ exec(open("engine/photo.py", encoding="utf-8").read())   # poster_text (aucune i
 # = les deux naufragés sur l'île (≥ 75 % de la largeur) + « WHO LASTS LONGER? » (3 mots) ; dessins 100 % faits ici,
 # personnages inventés traités avec respect (aucune moquerie) ; un plan toutes les ~4–6 s ; fin = retour à l'île.
 # Faits : avec de l'eau mais sans nourriture, la personne qui a le plus de réserves de graisse tient en général plus longtemps ;
-# 1 livre de graisse ≈ 3 500 kcal (approximation classique) ≈ près de 2 jours d'énergie au repos ; le corps consomme aussi
+# 1 livre de graisse ≈ 3 500 kcal (approximation classique) ; COMPARATIF (demande de Nazik, 2026-11-26) : un homme mince
+# ≈ 20 lb de graisse → ≈ 2 mois (grévistes de la faim de 1981 : ≈ 2 mois, Leiter & Marliss, JAMA 1982), un homme corpulent
+# peut en avoir 100 lb → de nombreux mois (chiffres arrondis, illustratifs) ; le corps consomme aussi
 # ses protéines (muscles, y compris le cœur), d'où une limite même avec beaucoup de graisse ; record médicalement suivi :
 # un Écossais, 382 jours de jeûne (1965–1966), de 456 à 180 livres (−276 lb), avec vitamines et suivi hospitalier
 # (Stewart & Fleming, Postgraduate Medical Journal, 1973). Aucun conseil médical ; mention « Never try this alone ».
@@ -191,7 +193,7 @@ def fat_block(ctx, x, y, w, h, k):
     text(ctx, "OF FAT", -w * 0.09, h * 0.02 + 105 * U, 58 * U, (0.55, 0.38, 0.08), 1.0)
     ctx.restore()
 
-def fuel_scene(ctx, T, k_fat, k_cal, k_days):
+def fuel_scene(ctx, T, k_fat, k_cal):
     vgrad(ctx, (0.10, 0.14, 0.30), (0.03, 0.05, 0.14))
     glow(ctx, W * 0.5, H * 0.30, W * 0.6, (1.0, 0.80, 0.30), 0.18)
     if k_fat > 0: fat_block(ctx, W * 0.48, H * 0.245, W * 0.80, H * 0.20, k_fat)
@@ -201,12 +203,48 @@ def fuel_scene(ctx, T, k_fat, k_cal, k_days):
         poster_text(ctx, f"{n:,}", W * 0.47, H * 0.445, 200 * U, GOLD, W * 0.86)
         poster_text(ctx, "CALORIES", W * 0.47, H * 0.522, 95 * U, WHITE, W * 0.80)
         ctx.pop_group_to_source(); ctx.paint_with_alpha(ease(min(1, k_cal * 3)))
-    if k_days > 0:
-        pill(ctx, "≈ 2 DAYS OF ENERGY", W * 0.47, H * 0.615, (0.35, 0.85, 0.55), 60, 1.0, k_days)
+    tag(ctx, "Simplified illustration", 0.083)
+
+# ---------------------------------------------------------------- le comparatif : 20 lb contre 100 lb de graisse
+def fat_cube(ctx, x, y, c, k):
+    if k <= 0: return
+    e = ease(k); r = c * (0.55 + 0.45 * e)
+    ctx.new_path(); rrect(ctx, x - r / 2, y - r / 2, r, r, r * 0.22)
+    g = cairo.LinearGradient(0, y - r / 2, 0, y + r / 2); g.add_color_stop_rgb(0, 1.0, 0.92, 0.55); g.add_color_stop_rgb(1, 0.95, 0.74, 0.25)
+    ctx.set_source(g); ctx.fill()
+    circle(ctx, x - r * 0.18, y - r * 0.18, r * 0.14, (1.0, 0.98, 0.85), 0.75 * e)
+
+def fat_stack(ctx, cx, bottom, cols, n, c, gap, k):
+    """n cubes de 1 lb empilés par rangées de `cols`, du bas vers le haut ; k = part apparue (0→1)."""
+    step = c + gap; x0 = cx - (cols - 1) * step / 2
+    for i in range(n):
+        row, col = divmod(i, cols)
+        kk = clamp(k * n * 1.0 - i * 0.85)
+        fat_cube(ctx, x0 + col * step, bottom - c / 2 - row * step, c, kk)
+
+def compare_scene(ctx, T, k_lean, k_two, k_big, k_many):
+    vgrad(ctx, (0.10, 0.14, 0.30), (0.03, 0.05, 0.14))
+    XL, XR = W * 0.25, W * 0.71
+    c, gap, BOT = W * 0.036, W * 0.0045, H * 0.600
+    glow(ctx, XR, H * 0.47, W * 0.32, GOLD, 0.30 * ease(k_many))
+    # les deux hommes, côte à côte, + « VS »
+    person(ctx, XL, H * 0.312, H * 0.212, T=T, ph=0.0, **THIN)
+    person(ctx, XR, H * 0.312, H * 0.212, T=T, ph=1.3, big=True, beard=True, **BIG)
+    circle(ctx, W * 0.48, H * 0.225, 52 * U, (1.0, 1.0, 1.0), 0.95); text(ctx, "VS", W * 0.48, H * 0.225, 50 * U, DARK, 1)
+    # quantité de graisse
+    if k_lean > 0:
+        poster_text(ctx, "20 LB FAT", XL, H * 0.340, 72 * U, GOLD, W * 0.40)
+        fat_stack(ctx, XL, BOT, 5, 20, c, gap, k_lean)
+    if k_big > 0:
+        poster_text(ctx, "100 LB FAT", XR, H * 0.340, 72 * U, GOLD, W * 0.44)
+        fat_stack(ctx, XR, BOT, 10, 100, c, gap, k_big)
+    # durée
+    if k_two > 0: pill(ctx, "≈ 2 MONTHS", XL, H * 0.634, (0.95, 0.40, 0.45), 50, 1.0, k_two, fg=WHITE)
+    if k_many > 0: pill(ctx, "MANY MONTHS", XR, H * 0.634, GOLD, 56, 1.0, k_many)
     tag(ctx, "Simplified illustration", 0.083)
 
 # ---------------------------------------------------------------- muscles et cœur
-def body_scene(ctx, T, k_shrink, k_heart, k_time):
+def body_scene(ctx, T, k_shrink, k_heart):
     vgrad(ctx, (0.10, 0.12, 0.26), (0.03, 0.04, 0.12))
     x, y, s = W * 0.47, H * 0.67, H * 0.535
     sh = 1.0 - 0.30 * ease(k_shrink)
@@ -231,7 +269,6 @@ def body_scene(ctx, T, k_shrink, k_heart, k_time):
     if k_heart > 0:
         leader(ctx, W * 0.80, H * 0.24, hx + hs, hy2, (0.95, 0.40, 0.45), 1.0, k_heart)
         pill(ctx, "EVEN THE HEART", W * 0.73, H * 0.215, (0.95, 0.40, 0.45), 44, 1.0, k_heart, fg=WHITE)
-    if k_time > 0: pill(ctx, "FAT BUYS TIME", W * 0.47, H * 0.520, GOLD, 64, 1.0, k_time)
     tag(ctx, "Simplified illustration", 0.083)
 
 # ---------------------------------------------------------------- le record (382 jours, suivi médical)
@@ -268,6 +305,7 @@ def record_scene(ctx, T, k_count, k_doc, k_lb):
 # ---------------------------------------------------------------- montage
 T_B0 = SENT("answer") - 0.08
 T_C0 = SENT("fuel") - 0.08
+T_G0 = SENT("compare") - 0.08
 T_D0 = SENT("muscle") - 0.08
 T_E0 = SENT("record") - 0.08
 T_F0 = SENT("close") - 0.08
@@ -281,12 +319,15 @@ def master(ctx, T):
         island_scene(ctx, T, False, 1.0, 1.0, glow_big=prog(T, T_B0, T_B0 + 0.4), a_thin=1.0 - 0.45 * prog(T, T_B0, T_B0 + 0.5))
         pill(ctx, "USUALLY HIM", W * 0.68, H * 0.165, GOLD, 64, 1.0, prog(T, WT("bigger") - 0.25, WT("bigger") + 0.1))
         tag(ctx, "Illustration", 0.083)
-    elif T < T_D0:                                       # C — 1 livre de graisse = 3 500 calories ≈ 2 jours
-        fuel_scene(ctx, T, prog(T, T_C0, T_C0 + 0.4), prog(T, WT("thirty-five") - 0.2, WT("calories") + 0.2), prog(T, WT("days") - 0.4, WT("days") + 0.05))
+    elif T < T_G0:                                       # C — 1 livre de graisse ≈ 3 500 calories
+        fuel_scene(ctx, T, prog(T, T_C0, T_C0 + 0.4), prog(T, WT("thirty-five") - 0.2, WT("calories") + 0.2))
+    elif T < T_D0:                                       # G — le comparatif : 20 lb (≈ 2 mois) contre 100 lb (des mois)
+        compare_scene(ctx, T, prog(T, WT("twenty") - 0.3, WT("fat") + 0.2), prog(T, WT("two", 1) - 0.2, WT("two", 1) + 0.15),
+                      prog(T, WT("hundred", 1) - 0.3, WT("hundred", 1) + 0.7), prog(T, WT("many") - 0.2, WT("many") + 0.15))
     elif T < T_E0:                                       # D — les muscles aussi, même le cœur
-        body_scene(ctx, T, prog(T, WT("muscle") - 0.3, WT("muscle") + 0.5), prog(T, WT("heart") - 0.25, WT("heart") + 0.15), prog(T, WT("time") - 0.3, WT("time") + 0.05))
+        body_scene(ctx, T, prog(T, WT("muscle") - 0.3, WT("muscle") + 0.5), prog(T, WT("heart") - 0.25, WT("heart") + 0.15))
     elif T < T_F0:                                       # E — le record : 382 jours, suivi médical
-        record_scene(ctx, T, prog(T, WT("fasted") - 0.2, WT("eighty-two") + 0.3), prog(T, WT("doctors") - 0.2, WT("doctors") + 0.2), prog(T, WT("seventy-six") - 0.2, WT("pounds") + 0.1))
+        record_scene(ctx, T, prog(T, WT("fasted") - 0.2, WT("eighty-two") + 0.3), prog(T, WT("doctors") - 0.2, WT("doctors") + 0.2), prog(T, WT("doctors") + 0.35, WT("doctors") + 0.65))
     else:                                                # F — retour à l'île : la graisse, un réservoir de secours
         island_scene(ctx, T, False, 0.0, 0.0, glow_big=0.6)
         pill(ctx, "BACKUP TANK", W * 0.68, H * 0.165, GOLD, 64, 1.0, prog(T, WT("backup") - 0.2, WT("backup") + 0.15))
