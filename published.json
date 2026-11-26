@@ -1295,6 +1295,25 @@
      "source": "Studio (capture Nazik, 2026-11-26 16:20)"
     }
    }
+  },
+  {
+   "episode": "052",
+   "topic": "Turkey Isn't Why You're Sleepy (Thanksgiving : mythe du tryptophane, dinde ≈ poulet ≈ bœuf, repas ≈ 3 000 kcal)",
+   "dir": "episodes/052-turkey-sleepy",
+   "date": "2026-11-26",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": "ymTHFVe6oNg",
+   "status": "private",
+   "playlist": "why",
+   "thumbnail_set": false,
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/f1081f7c33fab36370705d43c3b62c6a6efd4c75/ep052/turkey-isn-t-why-you-re-sleepy.mp4",
+    "short_cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/f1081f7c33fab36370705d43c3b62c6a6efd4c75/ep052/short_cover_yt.jpg"
+   },
+   "tiktok": "manuel (Nazik)",
+   "instagram": "manuel (Nazik)",
+   "test": "S1-image1"
   }
  ]
 }
