@@ -1,0 +1,8 @@
+[
+ {"scene": "hook", "text": ["That Thanksgiving nap? It's not the turkey's fault."]},
+ {"scene": "myth", "text": ["Everyone blames tryptophan, an amino acid your body uses to make sleep hormones."]},
+ {"scene": "compare", "text": ["But chicken has about as much. So does beef.", "And you don't pass out after a chicken sandwich."]},
+ {"scene": "cause", "text": ["The real reason is the meal itself: one estimate says about three thousand calories."]},
+ {"scene": "carbs", "text": ["Piles of carbs, pie, maybe some wine... that's what makes you drowsy."]},
+ {"scene": "close", "text": ["So the turkey? Totally innocent. Happy Thanksgiving!"], "pause": 0.5}
+]

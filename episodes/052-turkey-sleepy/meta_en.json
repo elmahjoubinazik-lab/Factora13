@@ -1,0 +1,71 @@
+{
+ "format": "short_seul",
+ "hook_text": " ",
+ "fade": 0,
+ "cam": 0,
+ "out_size": "1080x1920",
+ "finish": "photo",
+ "cap_y": 0.705,
+ "cap_cx": 0.46,
+ "cap_maxw": 0.74,
+ "cap_size": 74,
+ "cap_words": 3,
+ "cap_chars": 18,
+ "music": "none",
+ "music_file": "rw/music.mp3",
+ "music_gain_db": -17,
+ "voix": {
+  "provider": "files",
+  "files_dir": "rw/voice",
+  "voice_name": "Jessica (ElevenLabs cgSgspJ2msm6clMCkdW9, via Runway eleven_v4)",
+  "max_pause": 0.3
+ },
+ "theme": "why",
+ "ai_generated": false,
+ "series": "Food Myth",
+ "test": "S1-image1",
+ "runway_music_task": "ef7663e8-8802-4e4b-a650-db9a0108009b",
+ "title": "Turkey Isn't Why You're Sleepy 😴",
+ "short_title": "Turkey Isn't Why You're Sleepy 😴",
+ "title_options": [
+  "Turkey Isn't Why You're Sleepy 😴",
+  "Your Thanksgiving Nap Isn't the Turkey 🦃",
+  "Blame the Pie, Not the Turkey 😴"
+ ],
+ "hashtags": [
+  "#thanksgiving",
+  "#turkey",
+  "#foodmyths"
+ ],
+ "seo_intro": "Does turkey make you sleepy? Not really: turkey has about as much tryptophan as chicken or beef.\nThe Thanksgiving nap comes from the meal itself: about 3,000 calories by one estimate, plus carbs, pie and alcohol.",
+ "related": [
+  "IRl4HGDMvr0",
+  "_WgIPvYNgzY"
+ ],
+ "sources_text": "USDA FoodData Central (tryptophan content of roasted turkey, chicken and beef: similar amounts); NIH MedlinePlus (tryptophan is an amino acid the body uses to make serotonin and melatonin); Calorie Control Council estimate, widely reported (about 3,000 calories for a typical Thanksgiving dinner); scientific consensus on post-meal sleepiness (large meals, carbohydrates and alcohol)",
+ "disclaimer": "Original illustrations (simplified). Synthetic voice and AI-generated music.",
+ "comment": "Who always naps after Thanksgiving dinner in your family? 😴🦃👇",
+ "tags": [
+  "does turkey make you sleepy",
+  "turkey tryptophan",
+  "tryptophan myth",
+  "why am i sleepy after thanksgiving dinner",
+  "thanksgiving nap",
+  "thanksgiving food coma",
+  "food coma",
+  "why do you get tired after eating",
+  "thanksgiving facts",
+  "turkey facts",
+  "food myths",
+  "factora",
+  "factora official",
+  "factoraofficiel",
+  "factora shorts",
+  "factora science"
+ ],
+ "tiktok_text": "That Thanksgiving nap? It's not the turkey 🦃 Everyone blames tryptophan, but chicken and beef have about as much, and nobody passes out after a chicken sandwich. The real reason is the meal itself: about 3,000 calories by one estimate, plus piles of carbs, pie and maybe some wine.\n\nWho always naps after Thanksgiving dinner in your family? 😴👇\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#thanksgiving #turkey #foodmyths #sciencetok #didyouknow #learnontiktok",
+ "instagram_text": "That Thanksgiving nap? It's not the turkey 🦃 Everyone blames tryptophan, but chicken and beef have about as much, and nobody passes out after a chicken sandwich. The real reason is the meal itself: about 3,000 calories by one estimate, plus piles of carbs, pie and maybe some wine.\n\nWho always naps after Thanksgiving dinner in your family? 😴👇\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#thanksgiving #turkey #foodmyths #science #didyouknow",
+ "facebook_text": "That Thanksgiving nap? It's not the turkey 🦃 Everyone blames tryptophan, but chicken and beef have about as much, and nobody passes out after a chicken sandwich. The real reason is the meal itself: about 3,000 calories by one estimate, plus piles of carbs, pie and maybe some wine.\n\nWho always naps after Thanksgiving dinner in your family? 😴👇\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nOriginal illustrations. Synthetic voice and AI-generated music.\n\n#thanksgiving #turkey #foodmyths",
+ "x_text": "That Thanksgiving nap? It's not the turkey 🦃\n\nChicken and beef have about as much tryptophan. Blame the 3,000-calorie meal, the carbs and the pie.\n\nWho naps first in your family? 😴\n\n#Thanksgiving",
+ "x_reply": "Full video on YouTube 👇 https://youtu.be/<id>"
+}
