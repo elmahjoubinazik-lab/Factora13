@@ -110,9 +110,10 @@ def cover(ctx):
     """Affiche TikTok/Instagram : Maya éveillée, « TOO QUIET? », bandeau « WHY YOU NEED THE TV ON », mention « Illustration »."""
     paint(ctx, load_img(os.path.join(IMG, "v_hook.png")), 0.5, 0.45, 1.0)
     scrim(ctx, 0.32, 0.62)
-    poster_text(ctx, "TOO", W * 0.46, H * 0.175, 220 * U, WHITE, W * 0.86)
-    poster_text(ctx, "QUIET?", W * 0.46, H * 0.265, 220 * U, GOLD, W * 0.86)
-    txt = "WHY YOU NEED THE TV ON"; fs = 62 * U; font(ctx, fs)
+    # Nazik (2026-11-27) : « Too quiet ça ne me parle pas » → l'habitude nommée telle quelle
+    poster_text(ctx, "NEED THE TV", W * 0.46, H * 0.170, 160 * U, WHITE, W * 0.80)
+    poster_text(ctx, "TO SLEEP?", W * 0.46, H * 0.255, 170 * U, GOLD, W * 0.80)
+    txt = "HERE'S WHY"; fs = 70 * U; font(ctx, fs)
     if ctx.text_extents(txt).width > W * 0.74: fs *= W * 0.74 / ctx.text_extents(txt).width; font(ctx, fs)
     w_ = ctx.text_extents(txt).width + 80 * U; h_ = fs * 1.9; y_ = H * 0.775
     glow(ctx, W * 0.46, y_, w_ * 0.6, CYAN, 0.30)

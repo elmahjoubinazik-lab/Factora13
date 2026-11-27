@@ -342,7 +342,8 @@ def thumbnail(c):
         c.move_to(x + 6, y + 7); c.set_source_rgba(0, 0, 0, 0.85); c.show_text(s_)
         c.move_to(x, y); c.set_source_rgb(*col); c.show_text(s_)
     import os as _os
-    v = _os.environ.get("THUMB", "A")   # relecture du 2026-11-27 : 2 mots seulement, lisibles sur mobile
-    l1, l2 = {"A": ("TOO", "QUIET?"), "B": ("TV", "ON?")}[v]
-    tx(l1, 56, 300, 190, (1, 1, 1))
-    tx(l2, 56, 500, 190, GOLD)
+    v = _os.environ.get("THUMB", "C")   # « TOO QUIET? » écarté par Nazik (2026-11-27)   # relecture du 2026-11-27 : 2 mots seulement, lisibles sur mobile
+    l1, l2 = {"A": ("TOO", "QUIET?"), "B": ("TV", "ON?"), "C": ("TV OFF,", "BRAIN ON")}[v]
+    sz = 140 if v == "C" else 190
+    tx(l1, 56, 300 if v != "C" else 320, sz, (1, 1, 1))
+    tx(l2, 56, 500 if v != "C" else 480, sz, GOLD)
