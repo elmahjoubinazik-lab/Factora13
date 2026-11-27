@@ -1349,7 +1349,7 @@
    "short_id": "mBJdxM8Fojs",
    "status": "private",
    "playlist": "why",
-   "thumbnail_set": false,
+   "thumbnail_set": true,
    "related_long": "69ZCE96ljgI",
    "urls": {
     "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/d5922476c28d939e76ffe3abbe481c3772cc5e6b/ep054/why-you-sleep-with-the-tv-on.mp4",
@@ -1358,7 +1358,9 @@
    },
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
-   "test": "S1-image1"
+   "test": "S1-image1",
+   "playlist_item": true,
+   "comment": "à publier et épingler par Nazik après le passage en public"
   }
  ]
 }
