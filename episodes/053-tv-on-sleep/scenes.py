@@ -35,7 +35,7 @@ def pk(T, a, dur=0.5): return prog(T, a, a + dur)
 PLAN = [
  ("intro", 0, "maya_awake", "in", (0.62, 0.50)), ("intro", 1, "maya_thoughts", "out", (0.55, 0.45)), (("intro", "meeting"), None, "meeting", "in", (0.50, 0.45)),
  ("intro", 2, "maya_remote", "in", (0.55, 0.45)), (("intro", "fifteen"), None, "maya_asleep_tv", "left", (0.55, 0.50)),
- ("intro", 3, "thumb_face", "in", (0.62, 0.45)), ("intro", 4, "tv_glow_room", "out", (0.50, 0.50)),
+ ("intro", 3, "thumb_face", "in", (0.62, 0.45)), ("intro", 4, "tv_glow_room", "out", (0.50, 0.50)), ("intro", 5, "balcony", "in", (0.62, 0.45)),
  ("poll", 0, "building", "up", (0.50, 0.55)),
  ("ch1", 0, "maya_midnight", "in", (0.60, 0.45)),
  ("screensaver", 0, "brain_screensaver", "in", (0.50, 0.48)), ("screensaver", 2, "mirror", "in", (0.62, 0.45)),
@@ -165,6 +165,9 @@ def overlays(ctx, T):
     if S0("intro") < T < S1("intro"):
         for j, (s_, w_) in enumerate((("WHY IT WORKS", "why"), ("IS IT BAD?", "bad"), ("WHAT TO DO INSTEAD", "instead"))):
             pill(ctx, s_, L, H * (0.22 + j * 0.11), (GOLD, CORAL, GREEN)[j], 40, pk(T, WT("intro", w_) - 0.2) * (1 - pk(T, S1("intro") - 0.4, 0.3)))
+        # annonce : les solutions sont à la fin (demande de Nazik, 2026-11-27)
+        big(ctx, "6 SOLUTIONS", L, H * 0.60, 110, GOLD, pk(T, WT("intro", "six") - 0.3) * (1 - pk(T, S1("intro") - 0.4, 0.3)))
+        big(ctx, "AT THE END", L, H * 0.71, 70, WHITE, pk(T, WT("intro", "end") - 0.3) * (1 - pk(T, S1("intro") - 0.4, 0.3)))
     # sondage
     if S0("poll") <= T < S1("poll"):
         e = 1 - pk(T, S1("poll") - 0.4, 0.3)
