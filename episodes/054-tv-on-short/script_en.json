@@ -1,0 +1,8 @@
+[
+ {"scene": "hook", "text": ["You turn off the TV... and your brain won't stop talking."]},
+ {"scene": "why", "text": ["In silence, your brain's daydream network takes over, and it replays your worries."]},
+ {"scene": "tv", "text": ["A rerun steals the spotlight. No cliffhanger, so your brain can finally let go."]},
+ {"scene": "catch", "text": ["The catch: left on all night, its light and sudden noise can disturb your sleep, without waking you up."]},
+ {"scene": "fix", "text": ["Keep the voice, lose the light: a podcast with a sleep timer. More tricks in the full video."]},
+ {"scene": "end", "text": ["So next time the silence feels loud... now you know why."], "pause": 0.4}
+]

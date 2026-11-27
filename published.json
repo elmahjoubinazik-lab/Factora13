@@ -1338,6 +1338,27 @@
    "playlist_item": true,
    "thumbnail": "A (TOO QUIET?)",
    "comment": "à publier et épingler par Nazik après la mise en ligne"
+  },
+  {
+   "episode": "054",
+   "topic": "Why You Sleep With the TV On (Short tiré de la vidéo longue 053 : réseau du mode par défaut, rediffusion, lumière et bruit la nuit, minuteur)",
+   "dir": "episodes/054-tv-on-short",
+   "date": "2026-11-27",
+   "format": "short_seul",
+   "long_id": null,
+   "short_id": "mBJdxM8Fojs",
+   "status": "private",
+   "playlist": "why",
+   "thumbnail_set": false,
+   "related_long": "69ZCE96ljgI",
+   "urls": {
+    "short": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/d5922476c28d939e76ffe3abbe481c3772cc5e6b/ep054/why-you-sleep-with-the-tv-on.mp4",
+    "short_cover": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/d5922476c28d939e76ffe3abbe481c3772cc5e6b/ep054/short_cover.jpg",
+    "short_cover_yt": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/d5922476c28d939e76ffe3abbe481c3772cc5e6b/ep054/short_cover_yt.jpg"
+   },
+   "tiktok": "manuel (Nazik)",
+   "instagram": "manuel (Nazik)",
+   "test": "S1-image1"
   }
  ]
 }

@@ -1,0 +1,69 @@
+{
+ "format": "short_seul",
+ "hook_text": " ",
+ "fade": 0,
+ "cam": 0,
+ "out_size": "1080x1920",
+ "finish": "photo",
+ "cap_y": 0.705,
+ "cap_cx": 0.46,
+ "cap_maxw": 0.74,
+ "cap_size": 74,
+ "cap_words": 3,
+ "cap_chars": 18,
+ "cap_hold_last": true,
+ "music": "none",
+ "music_file": "rw/music.mp3",
+ "music_gain_db": -17,
+ "voix": {
+  "provider": "files",
+  "files_dir": "rw/voice",
+  "voice_name": "Jessica (ElevenLabs cgSgspJ2msm6clMCkdW9, via Runway eleven_v4)",
+  "max_pause": 0.3
+ },
+ "theme": "why",
+ "ai_generated": true,
+ "test": "S1-image1",
+ "long_video": "69ZCE96ljgI",
+ "title": "Why You Sleep With the TV On 📺",
+ "short_title": "Why You Sleep With the TV On 📺",
+ "title_options": [
+  "Why You Sleep With the TV On 📺",
+  "Silence Makes Your Brain Louder 🧠",
+  "Reruns Help Your Brain Shut Off 😴"
+ ],
+ "hashtags": [
+  "#sleep",
+  "#tv",
+  "#psychology"
+ ],
+ "seo_intro": "Why do some people need the TV on to sleep? In silence, the brain's default mode network replays your worries; a familiar rerun gives it something easy to follow, so you can let go.\nFull video, the whole night hour by hour and 6 tricks to try tonight: https://youtu.be/69ZCE96ljgI",
+ "related": [
+  "69ZCE96ljgI",
+  "ymTHFVe6oNg",
+  "IRl4HGDMvr0"
+ ],
+ "sources_text": "Raichle M.E. et al., PNAS, 2001 (default mode network, active at rest and during mind-wandering); Basner M. et al., The Lancet, 2014 (noise during sleep causes brief arousals); Mason I.C. et al., PNAS, 2022 (light during sleep raises heart rate). Simplified explanation; not medical advice.",
+ "disclaimer": "Maya is a fictional character. AI-generated illustrations, synthetic voice and AI-generated music. Not medical advice.",
+ "comment": "Do you sleep with the TV on? What's your comfort show? 📺👇",
+ "tags": [
+  "why do i need the tv on to sleep",
+  "can't sleep without the tv on",
+  "sleeping with the tv on",
+  "sleep with the tv on",
+  "default mode network",
+  "tv and sleep",
+  "sleep psychology",
+  "sleep tips",
+  "insomnia",
+  "factora",
+  "factora shorts",
+  "factora official",
+  "factoraofficiel"
+ ],
+ "tiktok_text": "Can't fall asleep without the TV on? 📺 In silence, your brain's daydream network replays every worry. A rerun you know by heart gives it something easy to follow, so you can finally let go. The catch: left on all night, its light and noise can disturb your sleep.\n\nWhat's your comfort show? 👇\n\nFull videos on YouTube: @factoraofficiel\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#sleep #psychology #sciencetok #didyouknow #learnontiktok #factora",
+ "instagram_text": "Can't fall asleep without the TV on? 📺 In silence, your brain's daydream network replays every worry. A rerun you know by heart gives it something easy to follow, so you can finally let go. The catch: left on all night, its light and noise can disturb your sleep.\n\nWhat's your comfort show? 👇\n\nFull videos on YouTube: Factora (link in bio)\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#sleep #psychology #science #didyouknow #learnoninstagram",
+ "facebook_text": "Can't fall asleep without the TV on? 📺 In silence, your brain's daydream network replays every worry. A rerun you know by heart gives it something easy to follow, so you can finally let go. The catch: left on all night, its light and noise can disturb your sleep.\n\nWhat's your comfort show? 👇\n\nFull video on YouTube: Factora — link in the comments\nThink fast. Learn something amazing.\nCreated with AI tools. Synthetic voice.\n\n#sleep #psychology",
+ "x_text": "Can't sleep without the TV on? 📺\n\nIn silence, your brain's daydream network replays every worry. A rerun gives it something easy to follow, so you can let go.\n\nWhat's your comfort show?\n\n#sleep #psychology",
+ "x_reply": "Full video on YouTube 👇 https://youtu.be/69ZCE96ljgI"
+}
