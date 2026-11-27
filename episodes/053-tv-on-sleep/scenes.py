@@ -33,32 +33,32 @@ def pk(T, a, dur=0.5): return prog(T, a, a + dur)
 # ---------------------------------------------------------------- plans (image, début, mouvement, point de cadrage)
 # mouvement : in / out / left / right / up / down ; (fx, fy) = point de l'image gardé au centre
 PLAN = [
- ("intro", 0, "maya_awake", "in", (0.62, 0.50)), ("intro", 1, "maya_thoughts", "out", (0.55, 0.45)),
+ ("intro", 0, "maya_awake", "in", (0.62, 0.50)), ("intro", 1, "maya_thoughts", "out", (0.55, 0.45)), (("intro", "meeting"), None, "meeting", "in", (0.50, 0.45)),
  ("intro", 2, "maya_remote", "in", (0.55, 0.45)), (("intro", "fifteen"), None, "maya_asleep_tv", "left", (0.55, 0.50)),
  ("intro", 3, "thumb_face", "in", (0.62, 0.45)), ("intro", 4, "tv_glow_room", "out", (0.50, 0.50)),
  ("poll", 0, "building", "up", (0.50, 0.55)),
  ("ch1", 0, "maya_midnight", "in", (0.60, 0.45)),
- ("screensaver", 0, "brain_screensaver", "in", (0.50, 0.48)), ("screensaver", 2, "ceiling_memories", "down", (0.60, 0.40)),
+ ("screensaver", 0, "brain_screensaver", "in", (0.50, 0.48)), ("screensaver", 2, "mirror", "in", (0.62, 0.45)),
  ("screensaver", 3, "day_city", "right", (0.50, 0.50)), (("screensaver", "dark"), None, "maya_awake", "in", (0.62, 0.50)),
  ("screensaver", 4, "ceiling_memories", "in", (0.62, 0.35)),
  ("shock", 0, "lab_room", "in", (0.50, 0.50)), ("shock", 1, "lab_man", "in", (0.35, 0.55)), ("shock", 2, "button_press", "in", (0.45, 0.60)),
  ("shock", 3, "lab_man", "out", (0.40, 0.55)), ("shock", 4, "maya_midnight", "in", (0.62, 0.45)),
  ("ch2", 0, "tv_glow_room", "in", (0.50, 0.50)),
- ("tabs", 0, "tabs_worries", "in", (0.55, 0.40)), ("tabs", 2, "tabs_tv", "out", (0.55, 0.40)),
- ("rerun", 0, "sitcom_cozy", "in", (0.55, 0.45)), ("rerun", 1, "thriller_tense", "in", (0.35, 0.40)),
- (("rerun", "rerun"), None, "sitcom_cozy", "left", (0.55, 0.45)),
+ ("tabs", 0, "tabs_worries", "in", (0.55, 0.40)), ("tabs", 1, "juggler", "out", (0.50, 0.45)), ("tabs", 2, "tabs_tv", "out", (0.55, 0.40)),
+ ("rerun", 0, "sitcom_cozy", "in", (0.55, 0.45)), ("rerun", 1, "dark_path", "in", (0.40, 0.55)),
+ (("rerun", "rerun"), None, "familiar_street", "right", (0.55, 0.50)),
  ("effort", 0, "bed_frustrated", "in", (0.65, 0.50)), ("effort", 1, "couch_doze", "right", (0.40, 0.50)),
- ("effort", 2, "bed_frustrated", "out", (0.60, 0.50)), ("effort", 3, "maya_asleep_tv", "in", (0.60, 0.50)),
- ("company", 0, "alone_company", "in", (0.45, 0.40)), ("company", 2, "sitcom_cozy", "out", (0.40, 0.40)),
+ ("effort", 2, "sleep_lab", "right", (0.45, 0.50)), ("effort", 3, "cat_sleep", "in", (0.62, 0.50)),
+ ("company", 0, "alone_company", "in", (0.45, 0.40)), ("company", 1, "diner", "in", (0.45, 0.50)), ("company", 2, "sitcom_cozy", "out", (0.40, 0.40)),
  ("company", 3, "partner_asleep", "in", (0.55, 0.50)),
  ("campfire", 0, "campfire_group", "in", (0.50, 0.55)), ("campfire", 1, "lone_figure", "in", (0.55, 0.60)),
  (("campfire", "silence"), None, "campfire_group", "out", (0.55, 0.55)),
  ("ch3", 0, "night_247", "in", (0.50, 0.45)),
- ("light", 0, "night_247", "left", (0.55, 0.50)), ("light", 1, "eye_closeup", "in", (0.45, 0.45)),
+ ("light", 0, "night_247", "left", (0.55, 0.50)), ("light", 1, "eye_closeup", "in", (0.45, 0.45)), (("light", "clock"), None, "body_clock", "in", (0.50, 0.45)),
  ("light", 2, "flash_room", "out", (0.45, 0.45)), ("light", 3, "sleep_lab", "in", (0.70, 0.55)), ("light", 4, "night_247", "in", (0.60, 0.50)),
  ("phone", 0, "phone_face", "in", (0.62, 0.40)), ("phone", 1, "book_ereader", "right", (0.50, 0.50)), ("phone", 2, "tv_glow_room", "out", (0.50, 0.50)),
  ("weight", 0, "scale", "down", (0.50, 0.45)),
- ("sound", 0, "loud_ad", "in", (0.30, 0.35)), ("sound", 1, "loud_ad", "right", (0.65, 0.50)), ("sound", 2, "morning_alarm", "in", (0.65, 0.50)),
+ ("sound", 0, "loud_ad", "in", (0.30, 0.35)), ("sound", 1, "night_guard", "in", (0.55, 0.50)), ("sound", 2, "work_tired", "in", (0.58, 0.45)),
  ("cycles", 0, "sleep_stairs", "in", (0.50, 0.50)), ("cycles", 2, "loud_ad", "out", (0.40, 0.45)), ("cycles", 3, "infomercial", "in", (0.55, 0.45)),
  ("ch4", 0, "morning_alarm", "in", (0.60, 0.50)),
  ("morning", 0, "morning_alarm", "left", (0.65, 0.50)), ("morning", 1, "remote_reflex", "in", (0.45, 0.45)), ("morning", 2, "night_247", "out", (0.50, 0.50)),
@@ -67,10 +67,10 @@ PLAN = [
  ("ch5", 0, "podcast_earbuds", "in", (0.60, 0.50)),
  ("tip_voice", 0, "podcast_earbuds", "out", (0.60, 0.50)), ("tip_voice", 2, "sleep_timer", "in", (0.45, 0.50)),
  ("tip_sound", 0, "fan", "left", (0.35, 0.50)),
- ("tip_list", 0, "todo", "in", (0.60, 0.55)),
- ("tb_a", 0, "breathing", "in", (0.62, 0.45)),
+ ("tip_list", 0, "kitchen_todo", "in", (0.48, 0.50)),
+ ("tb_a", 0, "balcony", "in", (0.60, 0.45)),
  ("tip_bed", 0, "armchair", "in", (0.55, 0.45)), ("tip_bed", 1, "doctor", "in", (0.55, 0.40)),
- ("outro", 0, "maya_peaceful", "in", (0.60, 0.50)), ("outro", 1, "building_dark", "up", (0.50, 0.55)),
+ ("outro", 0, "maya_peaceful", "in", (0.60, 0.50)), ("outro", 1, "park", "in", (0.50, 0.40)), ("outro", 2, "building_dark", "up", (0.50, 0.55)),
 ]
 _SH = []
 for a, k, im, mv, f in PLAN:
@@ -195,7 +195,7 @@ def overlays(ctx, T):
         clock(ctx, "12:00 AM", pk(T, SS("shock", 4) + 0.5) * (1 - pk(T, S1("shock") - 0.3, 0.3)))
     chapter(ctx, T, "ch2", "12:00 AM", "WHY THE TV WORKS SO WELL") if S0("ch2") <= T < S1("ch2") else None
     if S0("tabs") <= T < S1("tabs"):
-        big(ctx, "ONLY ~4 TABS", L, H * 0.20, 90, GOLD, pk(T, WT("tabs", "four") - 0.3) * (1 - pk(T, SS("tabs", 2) - 0.3, 0.3)))
+        big(ctx, "ONLY ~4 TABS", L, H * 0.20, 90, GOLD, pk(T, WT("tabs", "four") - 0.3) * (1 - pk(T, SS("tabs", 1) - 0.5, 0.3)))
         pill(ctx, "WORRIES LOSE THEIR SEATS", L, H * 0.14, GREEN, 40, pk(T, WT("tabs", "seats") - 1.0) * (1 - pk(T, S1("tabs") - 0.3, 0.3)))
     if S0("rerun") <= T < S1("rerun"):
         pill(ctx, "NEW SHOW = ALERT", L, H * 0.14, CORAL, 42, pk(T, WT("rerun", "alert") - 0.4) * (1 - pk(T, WT("rerun", "rerun") - 0.4, 0.3)), fg=WHITE)
@@ -215,8 +215,8 @@ def overlays(ctx, T):
     chapter(ctx, T, "ch3", "2:47 AM", "WHAT THE TV DOES WHILE YOU SLEEP") if S0("ch3") <= T < S1("ch3") else None
     if S0("light") <= T < S1("light"):
         clock(ctx, "2:47 AM", pk(T, S0("light") + 0.2) * (1 - pk(T, SS("light", 1) - 0.3, 0.3)))
-        pill(ctx, "SURPRISE #2", R, H * 0.12, CORAL, 40, pk(T, SS("light", 1)) * (1 - pk(T, SS("light", 2) - 0.3, 0.3)), fg=WHITE)
-        note(ctx, "Your eyelids are not blackout curtains", pk(T, WT("light", "blackout") - 0.4) * (1 - pk(T, SS("light", 2) - 0.3, 0.3)), y=0.22, x=R)
+        pill(ctx, "SURPRISE #2", R, H * 0.12, CORAL, 40, pk(T, SS("light", 1)) * (1 - pk(T, WT("light", "clock") - 0.6, 0.3)), fg=WHITE)
+        note(ctx, "Your eyelids are not blackout curtains", pk(T, WT("light", "blackout") - 0.4) * (1 - pk(T, WT("light", "clock") - 0.6, 0.3)), y=0.22, x=R)
         pill(ctx, "DARK → BRIGHT → DARK, ALL NIGHT", L, H * 0.14, GOLD, 38, pk(T, WT("light", "flashes") - 0.3) * (1 - pk(T, SS("light", 3) - 0.3, 0.3)))
         e = 1 - pk(T, SS("light", 4) - 0.3, 0.3)
         pill(ctx, "ONE NIGHT WITH THE LIGHTS ON", L, H * 0.12, WHITE, 38, pk(T, WT("light", "one") - 0.3) * e)
@@ -265,7 +265,7 @@ def overlays(ctx, T):
     if S0("tip_voice") <= T < SS("tip_voice", 1):
         note(ctx, "Not medical advice: what research has tested", pk(T, WT("tip_voice", "medical") - 0.3), y=0.12, x=CX)
     if S0("tip_list") <= T < S1("tip_list"):
-        big(ctx, "≈ 9 MIN FASTER", L, H * 0.26, 100, GOLD, pk(T, WT("tip_list", "nine") - 0.3) * (1 - pk(T, S1("tip_list") - 0.3, 0.3)))
+        big(ctx, "≈ 9 MIN FASTER", R, H * 0.26, 100, GOLD, pk(T, WT("tip_list", "nine") - 0.3) * (1 - pk(T, S1("tip_list") - 0.3, 0.3)))
     breath_guide(ctx, T)
     if S0("tb_d") <= T < S1("tb_d"):
         pill(ctx, "5 MIN A DAY → BETTER MOOD", L, H * 0.25, GOLD, 40, pk(T, WT("tb_d", "five") - 0.3) * (1 - pk(T, S1("tb_d") - 0.3, 0.3)))
