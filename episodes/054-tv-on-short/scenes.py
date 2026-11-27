@@ -45,9 +45,26 @@ def pill(ctx, s, x, y, col, size=50, k=1.0, fg=DARK):
     text(ctx, s, 0, 0, size * U, fg, k)
     ctx.restore()
 
-def hook_title(ctx, a):
+_ZZZ = cairo.ImageSurface.create_from_png(os.path.join(IMG, "zzz.png"))   # émoji 💤 (Noto Color Emoji, avec transparence)
+def zzz_row(ctx, x, y, h, n=6, a=1.0, gap=0.18):
+    """Rangée de n émojis 💤 centrée en (x, y), hauteur h (demande de Nazik, 2026-11-27)."""
     if a <= 0: return
-    ctx.push_group(); poster_text(ctx, "TOO QUIET?", W * 0.46, H * 0.150, 150 * U, GOLD, W * 0.76); ctx.pop_group_to_source(); ctx.paint_with_alpha(a)
+    s = h / _ZZZ.get_height(); w = _ZZZ.get_width() * s; tot = n * w + (n - 1) * gap * w
+    for i in range(n):
+        ctx.save(); ctx.translate(x - tot / 2 + i * w * (1 + gap), y - h / 2); ctx.scale(s, s)
+        ctx.set_source_rgba(1, 1, 1, 0.95 * a)                      # contour blanc « autocollant » : lisible sur fond sombre
+        for k in range(12):
+            ang = 2 * math.pi * k / 12; ctx.mask_surface(_ZZZ, 6 * math.cos(ang), 6 * math.sin(ang))
+        ctx.set_source_surface(_ZZZ, 0, 0); ctx.get_source().set_filter(cairo.FILTER_GOOD); ctx.paint_with_alpha(a); ctx.restore()
+
+def hook_title(ctx, a, zz=1.0):
+    """« NEED THE TV TO SLEEP » + 💤💤💤💤💤💤 (Nazik, 2026-11-27 : « Too quiet ça ne me parle pas »)."""
+    if a <= 0: return
+    ctx.push_group()
+    poster_text(ctx, "NEED THE TV", W * 0.46, H * 0.115, 130 * U, WHITE, W * 0.78)
+    poster_text(ctx, "TO SLEEP", W * 0.46, H * 0.180, 140 * U, GOLD, W * 0.78)
+    ctx.pop_group_to_source(); ctx.paint_with_alpha(a)
+    zzz_row(ctx, W * 0.46, H * 0.240, 78 * U, 6, a * zz)
 
 def pk(T, a, dur=0.35): return prog(T, a, a + dur)
 
@@ -56,7 +73,7 @@ def sc_hook(ctx, t, d):
     still(ctx, "v_hook.png", t, d, 1.0, 1.06, 0.5, 0.42)
     scrim(ctx, 0.24, 0.55)
     hook_title(ctx, 1.0)                                   # ≤ 3 mots dès la 1re image
-    tag(ctx, "Illustration", y=0.235, a=prog(t, 1.2, 1.6))
+    tag(ctx, "Illustration", y=0.290, a=prog(t, 1.2, 1.6))
 
 def sc_why(ctx, t, d):
     T = S0("why") + t; tw = WT("why", "replays") - 0.15
@@ -101,22 +118,23 @@ def sc_end(ctx, t, d):
     hook_title(ctx, pk(T, WT("end", "silence") - 0.2, 0.5))
     k = pk(T, END_T - 1.6, 0.4)
     if k > 0:
-        font(ctx, 40 * U); text(ctx, "FACTORA", W * 0.46, H * 0.235, 40 * U, (0.92, 0.94, 1.0), 0.9 * k)
+        font(ctx, 40 * U); text(ctx, "FACTORA", W * 0.46, H * 0.292, 40 * U, (0.92, 0.94, 1.0), 0.9 * k)
 
 SCENES = dict(hook=sc_hook, why=sc_why, tv=sc_tv, catch=sc_catch, fix=sc_fix, end=sc_end)
 SHORT_SCENES = ["hook", "why", "tv", "catch", "fix", "end"]
 
 def cover(ctx):
-    """Affiche TikTok/Instagram : Maya éveillée, « TOO QUIET? », bandeau « WHY YOU NEED THE TV ON », mention « Illustration »."""
+    """Affiche TikTok/Instagram : Maya éveillée, « NEED THE TV TO SLEEP » + 💤, bandeau « HERE'S WHY », mention « Illustration »."""
     paint(ctx, load_img(os.path.join(IMG, "v_hook.png")), 0.5, 0.45, 1.0)
     scrim(ctx, 0.32, 0.62)
     # Nazik (2026-11-27) : « Too quiet ça ne me parle pas » → l'habitude nommée telle quelle
     poster_text(ctx, "NEED THE TV", W * 0.46, H * 0.170, 160 * U, WHITE, W * 0.80)
-    poster_text(ctx, "TO SLEEP?", W * 0.46, H * 0.255, 170 * U, GOLD, W * 0.80)
+    poster_text(ctx, "TO SLEEP", W * 0.46, H * 0.255, 170 * U, GOLD, W * 0.80)
+    zzz_row(ctx, W * 0.46, H * 0.330, 92 * U, 6)
     txt = "HERE'S WHY"; fs = 70 * U; font(ctx, fs)
     if ctx.text_extents(txt).width > W * 0.74: fs *= W * 0.74 / ctx.text_extents(txt).width; font(ctx, fs)
     w_ = ctx.text_extents(txt).width + 80 * U; h_ = fs * 1.9; y_ = H * 0.775
     glow(ctx, W * 0.46, y_, w_ * 0.6, CYAN, 0.30)
     rrect(ctx, W * 0.46 - w_ / 2, y_ - h_ / 2, w_, h_, h_ / 2); rgba(ctx, CYAN, 0.97); ctx.fill()
     text(ctx, txt, W * 0.46, y_, fs, DARK)
-    tag(ctx, y=0.335)
+    tag(ctx, y=0.385)
