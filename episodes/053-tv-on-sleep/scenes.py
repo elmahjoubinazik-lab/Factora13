@@ -33,9 +33,10 @@ def pk(T, a, dur=0.5): return prog(T, a, a + dur)
 # ---------------------------------------------------------------- plans (image, début, mouvement, point de cadrage)
 # mouvement : in / out / left / right / up / down ; (fx, fy) = point de l'image gardé au centre
 PLAN = [
+ ("hook", 0, "thumb_face", "in", (0.62, 0.45)),
  ("intro", 0, "maya_awake", "in", (0.62, 0.50)), ("intro", 1, "maya_thoughts", "out", (0.55, 0.45)), (("intro", "meeting"), None, "meeting", "in", (0.50, 0.45)),
  ("intro", 2, "maya_remote", "in", (0.55, 0.45)), (("intro", "fifteen"), None, "maya_asleep_tv", "left", (0.55, 0.50)),
- ("intro", 3, "thumb_face", "in", (0.62, 0.45)), ("intro", 4, "tv_glow_room", "out", (0.50, 0.50)), ("intro", 5, "balcony", "in", (0.62, 0.45)),
+ ("intro", 3, "viewer_couch", "in", (0.45, 0.45)), ("intro", 4, "tv_glow_room", "out", (0.50, 0.50)), ("intro", 5, "balcony", "in", (0.62, 0.45)),
  ("poll", 0, "building", "up", (0.50, 0.55)),
  ("ch1", 0, "maya_midnight", "in", (0.60, 0.45)),
  ("screensaver", 0, "brain_screensaver", "in", (0.50, 0.48)), ("screensaver", 2, "mirror", "in", (0.62, 0.45)),
@@ -55,13 +56,13 @@ PLAN = [
  (("campfire", "silence"), None, "campfire_group", "out", (0.55, 0.55)),
  ("ch3", 0, "night_247", "in", (0.50, 0.45)),
  ("light", 0, "night_247", "left", (0.55, 0.50)), ("light", 1, "eye_closeup", "in", (0.45, 0.45)), (("light", "clock"), None, "body_clock", "in", (0.50, 0.45)),
- ("light", 2, "flash_room", "out", (0.45, 0.45)), ("light", 3, "sleep_lab", "in", (0.70, 0.55)), ("light", 4, "night_247", "in", (0.60, 0.50)),
+ ("light", 2, "flash_room", "out", (0.45, 0.45)), ("light", 3, "sleep_lab", "in", (0.70, 0.55)), ("light", 4, "overhead", "in", (0.50, 0.50)),
  ("phone", 0, "phone_face", "in", (0.62, 0.40)), ("phone", 1, "book_ereader", "right", (0.50, 0.50)), ("phone", 2, "tv_glow_room", "out", (0.50, 0.50)),
  ("weight", 0, "scale", "down", (0.50, 0.45)),
  ("sound", 0, "loud_ad", "in", (0.30, 0.35)), ("sound", 1, "night_guard", "in", (0.55, 0.50)), ("sound", 2, "work_tired", "in", (0.58, 0.45)),
- ("cycles", 0, "sleep_stairs", "in", (0.50, 0.50)), ("cycles", 2, "loud_ad", "out", (0.40, 0.45)), ("cycles", 3, "infomercial", "in", (0.55, 0.45)),
+ ("cycles", 0, "sleep_stairs", "in", (0.50, 0.50)), ("cycles", 2, "eyes_open", "in", (0.60, 0.42)), ("cycles", 3, "infomercial", "in", (0.55, 0.45)),
  ("ch4", 0, "morning_alarm", "in", (0.60, 0.50)),
- ("morning", 0, "morning_alarm", "left", (0.65, 0.50)), ("morning", 1, "remote_reflex", "in", (0.45, 0.45)), ("morning", 2, "night_247", "out", (0.50, 0.50)),
+ ("morning", 0, "morning_alarm", "left", (0.65, 0.50)), ("morning", 1, "remote_reflex", "in", (0.45, 0.45)), ("morning", 2, "tv_dawn", "in", (0.50, 0.50)),
  ("lonely", 0, "lonely_window", "in", (0.55, 0.45)), ("lonely", 1, "video_call", "in", (0.45, 0.40)),
  ("kids", 0, "kid_tablet", "in", (0.68, 0.45)), ("kids", 1, "bedtime_story", "in", (0.50, 0.45)),
  ("ch5", 0, "podcast_earbuds", "in", (0.60, 0.50)),
@@ -155,13 +156,38 @@ def breath_guide(ctx, T):
     ctx.new_path(); ctx.arc(x, y, R, 0, 2 * math.pi); ctx.set_line_width(4 * U); rgba(ctx, WHITE, 0.6 * k); ctx.stroke()
     text(ctx, lab, x, y + R + 50 * U, 44 * U, WHITE, k)
 
+# ---------------------------------------------------------------- sources affichées à l'écran (relecture du 2026-11-27)
+SOURCES = [
+    (lambda: WT("poll", "national") - 0.3, lambda: S1("poll") - 0.3, "Source: National Sleep Foundation, Sleep in America Poll (2011)"),
+    (lambda: WT("screensaver", "default") - 0.3, lambda: SS("screensaver", 2) - 0.3, "Raichle et al., PNAS (2001)"),
+    (lambda: SS("shock", 1), lambda: SS("shock", 4) - 0.3, "Wilson et al., Science (2014)"),
+    (lambda: SS("tabs", 0) + 0.5, lambda: SS("tabs", 1) - 0.3, "Simplified analogy · working memory: Cowan, Behavioral and Brain Sciences (2001)"),
+    (lambda: SS("effort", 2), lambda: SS("effort", 3) - 0.3, "Ansfield, Wegner & Bowser, Behaviour Research and Therapy (1996)"),
+    (lambda: WT("company", "parasocial") - 0.3, lambda: SS("company", 2) - 0.3, "Horton & Wohl, Psychiatry (1956)"),
+    (lambda: SS("company", 2), lambda: SS("company", 3) - 0.3, "Derrick, Gabriel & Hugenberg, J. of Experimental Social Psychology (2009)"),
+    (lambda: SS("campfire", 1), lambda: S1("campfire") - 0.3, "Theory: Brosschot, Verkuil & Thayer, generalized unsafety theory (2018)"),
+    (lambda: WT("light", "cells") - 0.3, lambda: SS("light", 2) - 0.3, "Berson et al., Science (2002)"),
+    (lambda: SS("light", 3), lambda: S1("light") - 0.3, "Mason et al., PNAS (2022), Northwestern University"),
+    (lambda: WT("phone", "harvard") - 0.3, lambda: SS("phone", 2) - 0.3, "Chang et al., PNAS (2015)"),
+    (lambda: SS("weight", 0), lambda: S1("weight") - 0.3, "Park et al., JAMA Internal Medicine (2019)"),
+    (lambda: SS("sound", 1), lambda: SS("sound", 2) - 0.3, "Basner et al., The Lancet (2014)"),
+    (lambda: SS("lonely", 0), lambda: SS("lonely", 1) - 0.3, "Cacioppo et al., Psychological Science (2002)"),
+    (lambda: SS("kids", 0), lambda: SS("kids", 1) - 0.3, "American Academy of Pediatrics (2016)"),
+    (lambda: SS("tip_list", 1), lambda: S1("tip_list") - 0.3, "Scullin et al., J. of Experimental Psychology: General (2018)"),
+    (lambda: SS("tb_d", 0), lambda: S1("tb_d") - 0.3, "Balban et al., Cell Reports Medicine (2023)"),
+    (lambda: SS("tip_bed", 0), lambda: SS("tip_bed", 1) - 0.3, "Stimulus control: Bootzin (1972)"),
+]
+
 def overlays(ctx, T):
     L, R = W * 0.27, W * 0.73
     # intro : l'heure, puis les 3 questions
-    clock(ctx, "11:47 PM", pk(T, 0.3, 0.5) * (1 - pk(T, SS("intro", 2) - 0.3, 0.4)))
-    if T < SS("intro", 1) - 0.3:
-        big(ctx, "WHY YOU NEED", L + 60 * U, H * 0.36, 96, WHITE, pk(T, 0.0, 0.4) * (1 - pk(T, SS("intro", 1) - 0.8, 0.5)))
-        big(ctx, "THE TV ON", L + 60 * U, H * 0.50, 120, GOLD, pk(T, 0.2, 0.4) * (1 - pk(T, SS("intro", 1) - 0.8, 0.5)))
+    clock(ctx, "11:47 PM", pk(T, S0("intro") + 0.2, 0.5) * (1 - pk(T, SS("intro", 2) - 0.3, 0.4)))
+    if T < S0("intro"):   # accroche : « ce n'est peut-être pas le bruit… c'est le silence »
+        k2 = WT("hook", "silence") - 0.5
+        big(ctx, "CAN'T SLEEP", L + 60 * U, H * 0.36, 104, WHITE, pk(T, 0.0, 0.4) * (1 - pk(T, k2 - 0.4, 0.3)))
+        big(ctx, "WITHOUT THE TV?", L + 60 * U, H * 0.50, 96, GOLD, pk(T, 0.2, 0.4) * (1 - pk(T, k2 - 0.4, 0.3)))
+        big(ctx, "MAYBE IT'S", L + 60 * U, H * 0.36, 96, WHITE, pk(T, k2, 0.4) * (1 - pk(T, S0("intro") - 0.3, 0.3)))
+        big(ctx, "THE SILENCE", L + 60 * U, H * 0.50, 120, GOLD, pk(T, k2 + 0.2, 0.4) * (1 - pk(T, S0("intro") - 0.3, 0.3)))
     if S0("intro") < T < S1("intro"):
         for j, (s_, w_) in enumerate((("WHY IT WORKS", "why"), ("IS IT BAD?", "bad"), ("WHAT TO DO INSTEAD", "instead"))):
             pill(ctx, s_, L, H * (0.22 + j * 0.11), (GOLD, CORAL, GREEN)[j], 40, pk(T, WT("intro", w_) - 0.2) * (1 - pk(T, S1("intro") - 0.4, 0.3)))
@@ -283,8 +309,14 @@ def overlays(ctx, T):
         if T >= SS("outro", 3) - 0.3:
             rgba(ctx, (0.02, 0.02, 0.06), 0.45 * pk(T, SS("outro", 3) - 0.3, 0.5)); ctx.paint()
             cta(ctx, T - (SS("outro", 3) - 0.3), END_T - SS("outro", 3) + 0.3, "WHAT DO YOU WATCH?", "TELL ME IN THE COMMENTS")
-    if 2.0 < T < 9.0:   # personnage fictif, illustrations d'IA
-        note(ctx, "Maya is a fictional character · AI-assisted illustrations", pk(T, 2.0) * (1 - pk(T, 8.5, 0.4)), y=0.94, x=CX, size=24, col=(0.85, 0.88, 1.0))
+    _n0 = S0("intro") + 1.5
+    if _n0 < T < _n0 + 7.0:   # personnage fictif, illustrations d'IA
+        note(ctx, "Maya is a fictional character · AI-assisted illustrations", pk(T, _n0) * (1 - pk(T, _n0 + 6.5, 0.4)), y=0.94, x=CX, size=24, col=(0.85, 0.88, 1.0))
+    # sources à l'écran (en petit, sous les sous-titres) chaque fois qu'une étude est citée
+    for a_, b_, s_ in SOURCES:
+        a_, b_ = a_(), b_()
+        if a_ - 0.1 < T < b_ + 0.5:
+            note(ctx, s_, pk(T, a_, 0.4) * (1 - pk(T, b_, 0.4)), y=0.955, x=CX, size=26, col=(0.80, 0.84, 0.98))
 
 def master(ctx, T):
     background(ctx, T)
@@ -309,9 +341,8 @@ def thumbnail(c):
         c.select_font_face("Inter", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); c.set_font_size(sz)
         c.move_to(x + 6, y + 7); c.set_source_rgba(0, 0, 0, 0.85); c.show_text(s_)
         c.move_to(x, y); c.set_source_rgb(*col); c.show_text(s_)
-    tx("WHY YOU", 50, 190, 118, (1, 1, 1))
-    tx("NEED THE", 50, 323, 118, (1, 1, 1))
-    tx("TV ON", 50, 478, 158, GOLD)
-    c.select_font_face("Inter", cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD); c.set_font_size(44)
-    w_ = c.text_extents("THE PSYCHOLOGY").width
-    c.set_source_rgb(0.85, 0.12, 0.12); c.rectangle(50, 556, w_ + 50, 76); c.fill(); tx("THE PSYCHOLOGY", 75, 610, 44, (1, 1, 1))
+    import os as _os
+    v = _os.environ.get("THUMB", "A")   # relecture du 2026-11-27 : 2 mots seulement, lisibles sur mobile
+    l1, l2 = {"A": ("TOO", "QUIET?"), "B": ("TV", "ON?")}[v]
+    tx(l1, 56, 300, 190, (1, 1, 1))
+    tx(l2, 56, 500, 190, GOLD)

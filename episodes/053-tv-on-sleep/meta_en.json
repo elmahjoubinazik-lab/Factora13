@@ -15,15 +15,15 @@
  "series": "Psychology of sleep",
  "inspiration": "Sujet proposé par Nazik d'après une vidéo française d'une autre chaîne (non vue, non traduite) : script, structure et dessins 100 % originaux",
  "runway_music_task": "ff7344d9-6a5e-40ba-88d7-e358687dc7a0 (3 min, bouclée ×5 avec fondus enchaînés)",
- "title": "Why Some People Can't Fall Asleep Without the TV On",
+ "title": "Why You Can't Fall Asleep Without the TV On",
  "title_options": [
+  "Why You Can't Fall Asleep Without the TV On",
   "Why Some People Can't Fall Asleep Without the TV On",
-  "Why Your Brain Wants the TV On at Night",
   "Sleeping With the TV On: What It Does to Your Brain"
  ],
- "seo_intro": "Why do some people need the TV on to fall asleep? Silence lets the brain's \"screensaver\" replay every worry; a familiar show fills that space, takes the pressure off, and feels like company.\nWe follow Maya through one night, hour by hour: what the TV does while you sleep, whether it's actually bad, and 6 simple things that help.",
+ "seo_intro": "Why can't you fall asleep without the TV on? Silence lets the brain's \"screensaver\" replay every worry; a familiar show fills that space, takes the pressure off, and feels like company.\nWe follow Maya through one night, hour by hour: what the TV does while you sleep, whether it's actually bad, and 6 simple things that help.",
  "chapters": {
-  "intro": "Meet Maya: why some people need the TV on",
+  "hook": "Meet Maya: why some people need the TV on",
   "poll": "How common is it?",
   "ch1": "11:48 PM: Why silence is so loud",
   "shock": "The electric shock experiment",
@@ -39,6 +39,7 @@
   "outro": "Three weeks later"
  },
  "transcript_scenes": [
+  "hook",
   "intro"
  ],
  "transcript_label": "Intro:",
@@ -53,6 +54,8 @@
   "#insomnia"
  ],
  "tags": [
+  "why you can't sleep without the tv",
+  "why can't i fall asleep without the tv on",
   "sleeping with the tv on",
   "why do i need the tv on to sleep",
   "falling asleep with the tv on",
