@@ -1,0 +1,78 @@
+{
+ "format": "long",
+ "voix": {
+  "provider": "files",
+  "files_dir": "rw/voice",
+  "voice_name": "Matilda (ElevenLabs XrExE9yKIg1WjnnlVkGX, via Runway eleven_v4)",
+  "max_pause": 0.4
+ },
+ "music": "none",
+ "music_file": "rw/music.mp3",
+ "music_gain_db": -17,
+ "maxrate_k": 850,
+ "theme": "why",
+ "ai_generated": false,
+ "series": "Psychology of sleep",
+ "inspiration": "Sujet proposé par Nazik d'après une vidéo française d'une autre chaîne (non vue, non traduite) : script, structure et dessins 100 % originaux",
+ "runway_music_task": "ff7344d9-6a5e-40ba-88d7-e358687dc7a0 (3 min, bouclée ×5 avec fondus enchaînés)",
+ "title": "Why Some People Can't Fall Asleep Without the TV On",
+ "title_options": [
+  "Why Some People Can't Fall Asleep Without the TV On",
+  "Why Your Brain Wants the TV On at Night",
+  "Sleeping With the TV On: What It Does to Your Brain"
+ ],
+ "seo_intro": "Why do some people need the TV on to fall asleep? In silence, the brain's default mode network replays worries; a familiar show fills working memory, takes the pressure off, and feels like company.\nWe look at the science (Harvard, Stanford, Northwestern, NIH), what the TV's light and noise do while you sleep, and 5 research-backed ways to sleep better.",
+ "chapters": {
+  "intro": "Why some people need the TV on",
+  "poll": "How common is it?",
+  "ch1": "Part 1: The loud silence",
+  "shock": "The electric shock experiment",
+  "ch2": "Part 2: Why a voice works",
+  "rerun": "Why we rewatch the same shows",
+  "company": "Voices as company",
+  "ch3": "Part 3: Light at night",
+  "sound": "Noise and tiny arousals",
+  "lonely": "Loneliness and broken sleep",
+  "kids": "Kids and bedroom TVs",
+  "ch4": "Part 4: What actually helps",
+  "outro": "The bottom line"
+ },
+ "transcript_scenes": [
+  "intro"
+ ],
+ "transcript_label": "Intro:",
+ "related": [
+  "IRl4HGDMvr0",
+  "ymTHFVe6oNg",
+  "Z81hQPpo0zw"
+ ],
+ "hashtags": [
+  "#sleep",
+  "#psychology",
+  "#insomnia"
+ ],
+ "tags": [
+  "sleeping with the tv on",
+  "why do i need the tv on to sleep",
+  "falling asleep with the tv on",
+  "is it bad to sleep with the tv on",
+  "cant sleep without tv",
+  "psychology of sleep",
+  "default mode network",
+  "sleep science",
+  "tv and sleep",
+  "insomnia",
+  "how to fall asleep faster",
+  "sleep tips",
+  "cyclic sighing",
+  "to do list before bed",
+  "light at night",
+  "factora",
+  "factora official",
+  "factoraofficiel",
+  "factora science"
+ ],
+ "comment": "Do you sleep with the TV on? What do you watch? 📺😴👇",
+ "sources_text": "National Sleep Foundation, 2011 Sleep in America Poll; Raichle M.E. et al., PNAS, 2001 (default mode network); Killingsworth M.A. & Gilbert D.T., Science, 2010; Wilson T.D. et al., Science, 2014; Cowan N., Behavioral and Brain Sciences, 2001; Ansfield M.E., Wegner D.M. & Bowser R., Behaviour Research and Therapy, 1996; Russell C.A. & Levy S.J., Journal of Consumer Research, 2012; Horton D. & Wohl R.R., Psychiatry, 1956; Derrick J.L., Gabriel S. & Hugenberg K., J. Exp. Soc. Psychology, 2009; Brosschot J.F., Verkuil B. & Thayer J.F., IJERPH, 2018; Berson D.M. et al., Science, 2002; Mason I.C. et al., PNAS, 2022; Chang A.M. et al., PNAS, 2015 (published online 2014); Park Y.M. et al., JAMA Internal Medicine, 2019; Basner M. et al., The Lancet, 2014; Bootzin R.R., 1972 (stimulus control); Cacioppo J.T. et al., Psychological Science, 2002; Kurina L.M. et al., Sleep, 2011; American Academy of Pediatrics, Media and Young Minds, 2016; Scullin M.K. et al., J. Exp. Psychology: General, 2018; Balban M.Y. et al., Cell Reports Medicine, 2023; Bernardi L. et al., Heart, 2006",
+ "disclaimer": "Original illustrations (simplified diagrams). Synthetic voice and AI-generated music. This video is for information only and is not medical advice."
+}
