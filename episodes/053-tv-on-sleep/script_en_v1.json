@@ -1,0 +1,251 @@
+[
+ {
+  "scene": "intro",
+  "text": [
+   "It's midnight. The house is finally quiet. You turn off the light... and your brain turns on.",
+   "So you reach for the remote. Some show you've already seen ten times. Ten minutes later, you're asleep.",
+   "If that sounds like you, you're not weird, and you're definitely not alone. There's real science behind it.",
+   "In this video, we'll look at what your brain does in the dark, why a voice works better than silence, what the TV quietly costs you, and what researchers have actually tested instead."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "poll",
+  "text": [
+   "First, how common is this?",
+   "In a 2011 National Sleep Foundation poll, about two out of three baby boomers and Gen Xers, and about half of younger adults, said they watch TV in the hour before bed every night, or almost every night.",
+   "And plenty of people never turn it off. They fall asleep with it on, and wake up at three a.m. to a screen asking if they're still watching.",
+   "So why does it work so well? To understand that, we need to talk about silence."
+  ],
+  "pause": 0.6
+ },
+ {
+  "scene": "ch1",
+  "text": [
+   "Part one: the loud silence."
+  ],
+  "pause": 1.2
+ },
+ {
+  "scene": "dmn",
+  "text": [
+   "Here's the strange part. Your brain doesn't really rest when you stop doing things.",
+   "In 2001, neuroscientist Marcus Raichle and his team described a set of brain regions that are busier when you're doing nothing at all. They called it the default mode network.",
+   "Think of it as your brain's screensaver. The moment the outside world goes quiet, it starts playing: replaying conversations, planning tomorrow, rehearsing worries, wondering if you locked the door.",
+   "During the day, traffic, work, and people drown it out. At night, in a dark, silent room, nothing competes with it. So it plays at full volume."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "wander",
+  "text": [
+   "And it plays a lot. In a 2010 study published in Science, Harvard researchers pinged thousands of people on their phones at random moments.",
+   "Almost half the time, about forty-seven percent, people were thinking about something other than what they were doing.",
+   "And they were less happy when their minds wandered. Even daydreams about pleasant things didn't make them any happier than focusing on the moment.",
+   "The researchers put it right in the title of their paper: a wandering mind is an unhappy mind."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "shock",
+  "text": [
+   "How much do we dislike being alone with our thoughts? A team led by psychologist Timothy Wilson decided to find out.",
+   "In 2014, they left people alone in a plain room for fifteen minutes, with nothing to do but think. No phone. No book.",
+   "There was just one thing within reach: a button that gave a mild electric shock. A shock they had already tried, and said they would pay money to avoid.",
+   "Two out of three men, and one in four women, shocked themselves at least once. One man pressed it one hundred ninety times.",
+   "Now picture that at midnight, with nothing to look at but the ceiling. That's the silence the TV fixes."
+  ],
+  "pause": 0.6
+ },
+ {
+  "scene": "ch2",
+  "text": [
+   "Part two: why a voice works."
+  ],
+  "pause": 1.2
+ },
+ {
+  "scene": "memory",
+  "text": [
+   "So why does a TV show work better than silence? Part of the answer is space.",
+   "Your working memory, the mental desk where you hold things right now, is small. Psychologist Nelson Cowan estimated it can juggle only about four chunks of information at once.",
+   "A simple story, with voices to follow, fills some of those slots. Your worries have less room to spread out.",
+   "The show doesn't solve anything. It just takes up space."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "effort",
+  "text": [
+   "There's another trap: trying. Sleep is one of the few things that gets harder the more you try.",
+   "In a 1996 experiment by psychologist Daniel Wegner's team, people who were told to fall asleep as fast as possible, while their minds were kept busy, actually took longer than people who weren't rushed.",
+   "A TV takes the pressure off. You're not trying to sleep. You're just watching. And that's often exactly when sleep sneaks in."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "rerun",
+  "text": [
+   "And notice which shows people pick. It's rarely a new thriller. It's the sitcom they know by heart.",
+   "There's a reason. A new show asks questions: who did it, what happens next? Your brain stays alert to find out.",
+   "A familiar episode asks nothing. You know every joke and every ending. Researchers who study why we rewatch, reread, and revisit things found that people often do it for comfort, and to relive a familiar feeling.",
+   "No surprises means no reason to stay awake. You can drift off in the middle, and you won't miss a thing."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "company",
+  "text": [
+   "Then there's the company. Voices are social signals, and we're wired to pay attention to them.",
+   "Back in 1956, two sociologists described something they called parasocial interaction: the one-sided feeling that you know the people on your screen.",
+   "Decades later, a 2009 study found that favorite TV shows can act as social surrogates. Thinking about a favorite show helped people feel less lonely after a blow to their sense of belonging.",
+   "So when the house is empty, or the person next to you is already asleep, familiar voices can feel a lot like company."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "safety",
+  "text": [
+   "Some researchers go even further. One theory of stress, called the generalized unsafety theory, suggests that the body's stress response stays switched on by default, until the brain picks up enough signs that it's safe.",
+   "One way to picture it: for most of human history, voices nearby usually meant your group was close. Total silence could mean you were alone.",
+   "It's only a theory. But it fits what many people describe: silence feels exposed, and soft voices feel safe."
+  ],
+  "pause": 0.6
+ },
+ {
+  "scene": "ch3",
+  "text": [
+   "Part three: what the TV quietly costs you."
+  ],
+  "pause": 1.2
+ },
+ {
+  "scene": "light",
+  "text": [
+   "So the TV helps you fall asleep. But what happens after you're asleep, while it keeps playing?",
+   "Start with the light. In 2002, scientists showed that your eyes contain special cells that don't help you see shapes at all. Their job is to measure light, and report it to your body clock.",
+   "Even with your eyes closed, some light gets through your eyelids. And a TV in a dark room flickers from dark scenes to bright ones all night long.",
+   "In a 2022 study at Northwestern University, healthy young adults slept one night with the room lights on. Compared to a night in dim light, their heart rate stayed higher during sleep, and the next morning, their bodies handled sugar less well.",
+   "That study used overhead light, not a TV. But it shows the sleeping body still reacts to light."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "screens",
+  "text": [
+   "And before you even fall asleep, a screen close to your face may matter even more.",
+   "In a Harvard sleep lab study published in 2014, people read either a printed book or a glowing e-reader for about four hours before bed, five nights in a row.",
+   "With the e-reader, they took longer to fall asleep, their melatonin, the hormone that signals night, was suppressed, and they felt less alert the next morning.",
+   "A TV across the room usually sends less light into your eyes than a phone in your hand. But the message is the same: bright light at night tells your brain it's still day."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "weight",
+  "text": [
+   "There may be a longer-term link, too. In 2019, researchers at the National Institutes of Health looked at more than forty thousand women over about five years.",
+   "Those who slept with a TV or a light on in the room were more likely to gain eleven pounds or more than women who slept in the dark.",
+   "That's a correlation, not proof that the TV caused it. Other habits could play a role. But it's one more reason sleep researchers keep pointing to darkness."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "sound",
+  "text": [
+   "Then there's the sound. A TV isn't a steady sound. It's a laugh track, a door slamming, a commercial that's suddenly louder than the show.",
+   "Your ears never fully switch off. Research on noise and health shows that sounds during sleep can trigger brief arousals and raise your heart rate, often without waking you up enough to remember it.",
+   "That's how you can spend eight hours in bed and still wake up tired. The night was full of tiny interruptions you never noticed."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "habit",
+  "text": [
+   "There's also a habit loop. In 1972, psychologist Richard Bootzin built a well-known insomnia treatment on a simple idea: the brain learns what the bed is for.",
+   "If your bed means sleep, lying down becomes a cue to sleep. If your bed means TV, your brain starts expecting the TV.",
+   "After enough nights, falling asleep in silence doesn't just feel hard. It feels wrong."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "lonely",
+  "text": [
+   "And the last cost is less obvious. Sometimes the TV isn't covering silence. It's covering loneliness.",
+   "In 2002, psychologist John Cacioppo and his colleagues found that lonely people slept about as long as everyone else, but their sleep was more broken. They spent more time awake during the night.",
+   "A 2011 study saw the same link in a close-knit religious community in South Dakota, where people live, work, and eat together. Even there, people who felt lonely had more fragmented sleep.",
+   "So if the TV feels like company, it might be worth asking what kind of company you really miss."
+  ],
+  "pause": 0.6
+ },
+ {
+  "scene": "kids",
+  "text": [
+   "And if you have kids, this matters even more. Children need more sleep than adults, and several studies have linked a TV in the bedroom to shorter sleep in kids.",
+   "That's why the American Academy of Pediatrics recommends keeping TVs, computers, and phones out of children's bedrooms, and turning screens off about an hour before bed.",
+   "A bedtime story, read out loud, gives them what the TV gives so many adults: a calm voice, and company."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "ch4",
+  "text": [
+   "Part four: what actually helps."
+  ],
+  "pause": 1.2
+ },
+ {
+  "scene": "tips_light",
+  "text": [
+   "So what can you do, if you want to sleep without the TV, or at least sleep better with it? Here's what has actually been tested. This isn't medical advice, just what the research suggests.",
+   "First: keep the voice, lose the light. An audiobook, a podcast, or a TV with the screen turned off gives you the company without the glow.",
+   "And use a sleep timer. Thirty minutes is often enough to fall asleep, and it spares you hours of light and sudden noise."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "tips_sound",
+  "text": [
+   "Second: if you need sound all night, choose a steady one.",
+   "A fan, rain, or white noise doesn't change, so it can help mask sudden sounds instead of creating them."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "tips_list",
+  "text": [
+   "Third: give your worries somewhere to go. In a 2018 sleep lab study at Baylor University, people spent five minutes before bed writing either a to-do list for the next few days, or a list of things they had already done.",
+   "The to-do list group fell asleep about nine minutes faster. And the more specific their list, the faster they fell asleep.",
+   "Writing it down seems to tell your brain: it's handled. You can stop rehearsing it."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "tips_breath",
+  "text": [
+   "Fourth: calm the body directly. In a 2023 Stanford study, people practiced five minutes a day of cyclic sighing: two inhales through the nose, then a long, slow exhale.",
+   "After a month, they showed a bigger boost in mood, and slower breathing at rest, than people who practiced mindfulness meditation.",
+   "Slow, steady music can help too. Research on music and the heart found that slower tempos tend to slow breathing and heart rate."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "tips_bed",
+  "text": [
+   "Fifth: protect the bed. The stimulus control method says: use the bed only for sleep. If you're still awake after about twenty minutes, get up, do something calm in dim light, and come back when you feel sleepy.",
+   "And don't go cold turkey. Shorten the timer a little each week, or switch from the TV to audio first.",
+   "If you lie awake most nights for weeks, talk to a doctor. Insomnia is common, and it's treatable."
+  ],
+  "pause": 0.35
+ },
+ {
+  "scene": "outro",
+  "text": [
+   "So the TV isn't really the problem. It's a solution your brain found on its own.",
+   "Silence makes your thoughts loud. A familiar voice keeps them quiet, and feels like company.",
+   "The trick is to keep what helps, the voice and the comfort, and drop what costs you: the light, the noise, and the hours it keeps running.",
+   "Do you sleep with the TV on? And what do you watch? Tell me in the comments.",
+   "And subscribe to Factora, so you never miss a fascinating fact."
+  ],
+  "pause": 3.0
+ }
+]
