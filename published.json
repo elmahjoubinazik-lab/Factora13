@@ -1327,7 +1327,7 @@
    "short_id": null,
    "status": "private",
    "playlist": "why",
-   "thumbnail_set": false,
+   "thumbnail_set": true,
    "urls": {
     "long": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3de5bab8e63b43db2fe12152d50a83ab9c925591/ep053/can-t-sleep-without-the-tv-on-here-s-why.mp4",
     "miniature": "https://raw.githubusercontent.com/elmahjoubinazik-lab/Factora13/3de5bab8e63b43db2fe12152d50a83ab9c925591/ep053/miniature.png"
@@ -1335,7 +1335,9 @@
    "tiktok": "manuel (Nazik)",
    "instagram": "manuel (Nazik)",
    "publish_at": "2026-11-28T06:00:00Z",
-   "playlist_item": true
+   "playlist_item": true,
+   "thumbnail": "A (TOO QUIET?)",
+   "comment": "à publier et épingler par Nazik après la mise en ligne"
   }
  ]
 }
